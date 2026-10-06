@@ -1,0 +1,258 @@
+name: upload artifacts
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+# One publish at a time per commit: a re-dispatch cancels the running publish and starts over.
+# Safe because the marker comes down first and is only rewritten on full success, so a cancelled
+# half-publish is left unmarked.
+concurrency:
+  group: upload-artifacts-${{ github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  # A re-publish overwrites the commit's artifacts, so its stale marker must come down before any
+  # upload starts (and is rewritten only when all of them succeed).
+  clear-published-marker:
+    runs-on: namespace-profile-starkware-libs-proving-dev-small-ubuntu-24-04-amd64
+    steps:
+      - name: Authenticate with GCS
+        uses: google-github-actions/auth@c200f3691d83b41bf9bbd8638997a462592937ed # v2
+        with:
+          credentials_json: ${{ secrets.SHARP_BINARY_ARTIFACTS_WRITER_SA }}
+
+      - name: Delete the commit's marker if present
+        env:
+          COMMIT_SHA: ${{ github.sha }}
+        run: |
+          MARKER="gs://sharp-binary-artifacts/published_artifacts/${COMMIT_SHA:0:7}/release/PUBLISHED.json"
+          # Only a missing marker is tolerated: any other failure must fail the publish, or a
+          # stale marker would stay up while the artifacts are overwritten.
+          out=$(gcloud storage rm "$MARKER" 2>&1) && exit 0
+          echo "$out"
+          grep -q "matched no objects" <<< "$out" && echo "no marker to clear"
+
+  # Publishes the supported-circuits trust anchors: one `circuit_params --registry` JSON per
+  # circuit registry, at supported_circuits_registry/<commit>/<name>/registry.json.
+  supported-circuits-registry-push:
+    needs: clear-published-marker
+    # Generating the largest production circuit needs more memory than the standard profiles have.
+    runs-on: namespace-profile-starkware-libs-proving-dev-32-128-ubuntu-24-04-amd64
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+
+      - name: Get commit hash prefix for PR update
+        env:
+          COMMIT_SHA: ${{ github.sha }}
+        run: |
+          echo "SHORT_HASH=${COMMIT_SHA:0:7}" >> $GITHUB_ENV
+
+      - name: Authenticate with GCS
+        uses: google-github-actions/auth@c200f3691d83b41bf9bbd8638997a462592937ed # v2
+        with:
+          credentials_json: ${{ secrets.SHARP_BINARY_ARTIFACTS_WRITER_SA }}
+
+      - name: Build circuit-params
+        run: cargo build --release -p circuit-params
+
+      # The registries (params/program files and trace ranges) are defined in the script.
+      - name: Generate the supported circuits registries
+        run: |
+          python3 .github/scripts/generate_circuit_registries.py \
+            --circuit-params-binary target/release/circuit-params \
+            --output-dir registry_out
+
+      - name: Upload supported circuits registry to GCP
+        uses: google-github-actions/upload-cloud-storage@c0f6160ff80057923ff50e5e567695cea181ec23 # v2
+        with:
+          path: "registry_out"
+          destination: "sharp-binary-artifacts/supported_circuits_registry/${{ env.SHORT_HASH }}"
+          parent: false
+
+  cairo-verifiers-push:
+    needs: clear-published-marker
+    runs-on: namespace-profile-starkware-libs-proving-dev-medium-ubuntu-24-04-amd64
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - package: stwo_circuit_verifier
+            features: qm31_opcode
+            out: stwo_circuit_verifier.json
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+
+      - name: Get commit hash prefix for PR update
+        env:
+          COMMIT_SHA: ${{ github.sha }}
+        run: |
+          echo "SHORT_HASH=${COMMIT_SHA:0:7}" >> $GITHUB_ENV
+
+      - name: Authenticate with GCS
+        uses: google-github-actions/auth@c200f3691d83b41bf9bbd8638997a462592937ed # v2
+        with:
+          credentials_json: ${{ secrets.SHARP_BINARY_ARTIFACTS_WRITER_SA }}
+
+      - name: Setup scarb
+        uses: software-mansion/setup-scarb@2a96b748888e3329ee44ac9ac073d930e692b3cd # v1
+        with:
+          tool-versions: .tool-versions
+
+      - name: Build and upload ${{ matrix.out }}
+        uses: ./.github/actions/build-verifier
+        with:
+          package: ${{ matrix.package }}
+          features: ${{ matrix.features }}
+          out: ${{ matrix.out }}
+
+  generic-binaries-push:
+    needs: clear-published-marker
+    runs-on: namespace-profile-starkware-libs-proving-dev-medium-ubuntu-24-04-amd64
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+
+      - name: Get commit hash prefix for PR update
+        env:
+          COMMIT_SHA: ${{ github.sha }}
+        run: |
+          echo "SHORT_HASH=${COMMIT_SHA:0:7}" >> $GITHUB_ENV
+
+      - name: Authenticate with GCS
+        uses: google-github-actions/auth@c200f3691d83b41bf9bbd8638997a462592937ed # v2
+        with:
+          credentials_json: ${{ secrets.SHARP_BINARY_ARTIFACTS_WRITER_SA }}
+
+      - name: Upload casm_registry.json to GCP
+        id: upload_casm_registry
+        uses: google-github-actions/upload-cloud-storage@c0f6160ff80057923ff50e5e567695cea181ec23 # v2
+        with:
+          path: "crates/common/casm_registry.json"
+          destination: "sharp-binary-artifacts/casm_registry_artifacts/${{ env.SHORT_HASH }}/release"
+
+      - name: Build all generic binaries
+        run: |
+          cargo build --release
+
+      - name: Upload cairo_program_runner x86_64 binary to GCP
+        id: upload_cairo_program_runner_x86
+        uses: google-github-actions/upload-cloud-storage@c0f6160ff80057923ff50e5e567695cea181ec23 # v2
+        with:
+          path: "target/release/cairo_program_runner"
+          destination: "sharp-binary-artifacts/cairo_program_runner_artifacts/${{ env.SHORT_HASH }}/release"
+
+      - name: Rename stwo-vm-runner binary
+        run: mv target/release/stwo-vm-runner target/release/stwo_vm_runner
+
+      - name: Upload stwo_vm_runner x86_64 binary to GCP
+        id: upload_stwo_vm_runner_x86
+        uses: google-github-actions/upload-cloud-storage@c0f6160ff80057923ff50e5e567695cea181ec23 # v2
+        with:
+          path: "target/release/stwo_vm_runner"
+          destination: "sharp-binary-artifacts/stwo_vm_runner_artifacts/${{ env.SHORT_HASH }}/release"
+
+      - name: Rename stwo-run-and-prove binary
+        run: mv target/release/stwo-run-and-prove target/release/stwo_run_and_prove
+
+      - name: Upload stwo_run_and_prove binary to GCP
+        id: upload_stwo_run_and_prove
+        uses: google-github-actions/upload-cloud-storage@c0f6160ff80057923ff50e5e567695cea181ec23 # v2
+        with:
+          path: "target/release/stwo_run_and_prove"
+          destination: "sharp-binary-artifacts/stwo_run_and_prove_artifacts/${{ env.SHORT_HASH }}/release"
+
+      - name: Rename leaf-prover binary
+        run: mv target/release/leaf-prover target/release/leaf_prover
+
+      - name: Upload leaf_prover x86_64 binary to GCP
+        id: upload_leaf_prover
+        uses: google-github-actions/upload-cloud-storage@c0f6160ff80057923ff50e5e567695cea181ec23 # v2
+        with:
+          path: "target/release/leaf_prover"
+          destination: "sharp-binary-artifacts/leaf_prover_artifacts/${{ env.SHORT_HASH }}/release"
+
+      - name: Upload stwo_run_and_prove_recursive_tree binary to GCP
+        id: upload_stwo_run_and_prove_recursive_tree
+        uses: google-github-actions/upload-cloud-storage@c0f6160ff80057923ff50e5e567695cea181ec23 # v2
+        with:
+          path: "target/release/stwo_run_and_prove_recursive_tree"
+          destination: "sharp-binary-artifacts/stwo_run_and_prove_recursive_tree/${{ env.SHORT_HASH }}/release"
+
+  # Each arch changes RUSTFLAGS, so every build is a full cold build that shares nothing with its
+  # neighbours; one job per (binary, arch) pair costs the same compute and cuts the wall clock to a
+  # single build.
+  arch-binaries-push:
+    needs: clear-published-marker
+    runs-on: namespace-profile-starkware-libs-proving-dev-medium-ubuntu-24-04-amd64
+    strategy:
+      # Publish every arch that does build; the marker job below reports the incomplete commit.
+      fail-fast: false
+      matrix:
+        binary_name:
+          - stwo-run-and-prove
+          - leaf-prover
+          - stwo_run_and_prove_recursive_tree
+        arch:
+          - znver3
+          - znver4
+          - znver5
+          - emeraldrapids
+          - sapphirerapids
+          - graniterapids
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+
+      - name: Get commit hash prefix for PR update
+        env:
+          COMMIT_SHA: ${{ github.sha }}
+        run: |
+          echo "SHORT_HASH=${COMMIT_SHA:0:7}" >> $GITHUB_ENV
+
+      - name: Authenticate with GCS
+        uses: google-github-actions/auth@c200f3691d83b41bf9bbd8638997a462592937ed # v2
+        with:
+          credentials_json: ${{ secrets.SHARP_BINARY_ARTIFACTS_WRITER_SA }}
+
+      - name: Build and upload ${{ matrix.binary_name }} for ${{ matrix.arch }}
+        uses: ./.github/actions/build-arch-binary
+        with:
+          arch: ${{ matrix.arch }}
+          binary_name: ${{ matrix.binary_name }}
+
+  # Marks the commit's artifact set as complete. Uploads are spread over many jobs, so a consumer
+  # cannot tell a fully published commit from one whose upload is still running or partly failed;
+  # pin only commits that have this marker.
+  published-marker-push:
+    needs:
+      - supported-circuits-registry-push
+      - cairo-verifiers-push
+      - generic-binaries-push
+      - arch-binaries-push
+    runs-on: namespace-profile-starkware-libs-proving-dev-small-ubuntu-24-04-amd64
+    steps:
+      - name: Authenticate with GCS
+        uses: google-github-actions/auth@c200f3691d83b41bf9bbd8638997a462592937ed # v2
+        with:
+          credentials_json: ${{ secrets.SHARP_BINARY_ARTIFACTS_WRITER_SA }}
+
+      - name: Write the marker
+        env:
+          COMMIT_SHA: ${{ github.sha }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          echo "SHORT_HASH=${COMMIT_SHA:0:7}" >> $GITHUB_ENV
+          cat > PUBLISHED.json <<EOF
+          {
+            "commit": "${COMMIT_SHA}",
+            "workflow_run": "${RUN_URL}",
+            "published_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          }
+          EOF
+
+      - name: Upload the marker to GCP
+        uses: google-github-actions/upload-cloud-storage@c0f6160ff80057923ff50e5e567695cea181ec23 # v2
+        with:
+          path: "PUBLISHED.json"
+          destination: "sharp-binary-artifacts/published_artifacts/${{ env.SHORT_HASH }}/release"

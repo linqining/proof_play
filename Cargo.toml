@@ -1,0 +1,252 @@
+[package]
+name = "poker_texas_air"
+version = "0.1.0"
+edition = "2024"
+description = "Texas Poker method AIR and custom-circuit proving primitives"
+license = "BUSL-1.1"
+
+[lints.rust]
+# CI sets RUSTFLAGS='--cfg=texas_release_tests' (see .github/workflows/ci.yml);
+# declare it so local builds don't warn about an unknown cfg.
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(texas_release_tests)'] }
+
+[workspace]
+resolver = "2"
+exclude = ["third_party", "third_party/flock", "third_party/flock/crates/flock-core", "third_party/flock/crates/flock-prover", "third_party/flock/crates/flock-cuda-ffi", "fuzz"]
+members = [
+    ".",
+    "balance-rollup",
+    "batch-poster",
+    "da-backup",
+    "groth16-wrap",
+    "hand-bench",
+    "poker_contracts/hand-verify-native",
+    "poker_l1",
+    "privacy-profile",
+    "settle-queue",
+    "stark-recursion",
+    "starknet-txmgr",
+    "vm-common",
+    "texas",
+]
+
+# poker-protocol 系列 crate 已拆分至独立仓库（含 poker_protocol_lean 的 Lean 形式化）。
+# 依赖统一走 https（CI 托管 runner 无 SSH key）并钉 rev，防止上游 HEAD 静默跟进。
+# 本地开发时如需跟随未推送的改动，可用 [patch] 指向本地 checkout：
+# [patch."https://github.com/linqining/poker_protocol.git"]
+# poker_protocol = { path = "../poker_protocol/poker_protocol" }
+# 注意：钉住的 zchain rev（.lake 构建缓存清理，使 cargo 子模块更新不再
+# 失败）需推送到远端后才可被 CI/他人 fetch：
+#   git -C ../zchain push origin main   # 提交 328bf80（若已推送则忽略）
+[workspace.dependencies]
+poker_protocol = { git = "https://github.com/linqining/poker_protocol.git", tag = "v1.0.0", features = ["borsh", "ristretto-air"] }
+poker-protocol-core = { git = "https://github.com/linqining/poker_protocol.git", tag = "v1.0.0" }
+poker-protocol-proofs = { git = "https://github.com/linqining/poker_protocol.git", tag = "v1.0.0" }
+poker-protocol-bg = { git = "https://github.com/linqining/poker_protocol.git", tag = "v1.0.0" }
+rand_core = "0.6.4"
+vm-common = { path = "vm-common" }
+# escape 地基与隐私档位（M2，docs/design/PRIVACY_PROFILE.md）。
+balance-rollup = { path = "balance-rollup" }
+privacy-profile = { path = "privacy-profile" }
+# DA L0：WAL/收据/队列 WAL 异地快照备份（M2，排期 §2.2）。
+da-backup = { path = "da-backup" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+bcs = "0.1.6"
+borsh = { version = "1.7", features = ["derive"] }
+sha2 = "0.10.8"
+sha3 = "0.10.8"
+blake2 = "0.10.6"
+hex = "0.4.3"
+thiserror = "1.0.61"
+rand = "0.8.5"
+secp256k1 = { version = "0.29", features = ["recovery", "rand", "global-context"] }
+ed25519-dalek = { version = "2.1.1", features = ["rand_core"] }
+subtle = "2.5"
+rocksdb = { version = "0.22", default-features = false }
+solana_rbpf = "0.8"
+group = "0.13"
+chacha20poly1305 = "0.10"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "sync"] }
+tracing = "0.1"
+rayon = "1"
+proptest = "1"
+stwo = { version = "2.3", features = ["parallel", "prover"] }
+stwo-constraint-framework = { version = "2.3", features = ["prover"] }
+# 全仓统一 Felt 载体：starknet-crypto 0.8 的 Felt = starknet-types-core Felt
+# （与 starknet 0.17 / poker-protocol-core / hand-verify-native 同一类型实例），
+# 旧 ff wire 类型（0.3）已删除。Cargo.lock 中残留的 0.3 ff / 0.6 crypto 仅为
+# stwo 2.3 自身的传递依赖（其 Poseidon252MerkleHasher 哈希类型），与本仓代码无关。
+starknet-crypto = { version = "0.8", default-features = false, features = ["alloc"] }
+starknet-types-core = { version = "0.2", default-features = false }
+bincode = "1"
+
+[lib]
+path = "src/lib.rs"
+
+[features]
+default = []
+# 测试辅助：暴露不可信负向测试工具；lib.rs 禁止其进入 release 构建
+test-helpers = []
+
+[dependencies]
+# 跨池死锁 tripwire 报警（blake3_flock::on_flock_pool 自检日志）
+tracing = "0.1"
+# ===== 工作区内复用 =====
+poker_l1 = { path = "poker_l1" }
+poker_protocol = { workspace = true }
+poker-protocol-core = { workspace = true }
+poker-protocol-bg = { workspace = true }
+rand_core = { workspace = true }
+vm-common = { path = "vm-common" }
+# ===== Stwo 证明后端 =====
+stwo = { workspace = true }
+stwo-constraint-framework = { workspace = true }
+# Poseidon252 哈希（state_root 用）— 全仓统一 starknet-crypto 0.8（Felt =
+# starknet-types-core Felt，与 starknet 0.17 / poker-protocol-core /
+# hand-verify-native 同一类型实例）。Poseidon 规格跨版本一致（golden
+# vectors 自证），不再有跨 Felt 桥。
+starknet-crypto = { workspace = true }
+starknet-types-core = { workspace = true }
+# ===== 通用依赖 =====
+borsh = { workspace = true }
+bincode = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+blake2 = { workspace = true }
+# ===== 宿主（EVM 族）结算绑定（host_evm_settlement：selector/事件面）=====
+sha3 = { workspace = true }
+hex = { workspace = true }
+num-bigint = "0.4.8"
+num-traits = "0.2"
+# ===== 二元域哈希证明后端（vendored flock，BLAKE3 merkle fork）=====
+flock-core = { path = "third_party/flock/crates/flock-core" }
+flock-prover = { path = "third_party/flock/crates/flock-prover" }
+rayon = { workspace = true }
+
+[dev-dependencies]
+proptest = { workspace = true }
+rand = { workspace = true }
+secp256k1 = { workspace = true }
+# Bench-only: activates stwo's built-in phase spans (Composition/FRI/commit)
+# behind TEXAS_STWO_TRACING in the admission attribution benchmark.
+tracing-subscriber = "0.3"
+
+# Integration tests opt into untrusted PoC entry points explicitly via
+# `cargo test --features test-helpers` (debug only; the release guard in
+# lib.rs rejects the feature outside the test harness).
+
+[profile.release]
+# Cross-crate LTO and a single codegen unit maximize inlining for the long
+# monomorphized chains in `ristretto_fp_program_air` (6022 lines of generic
+# trace/scope/witness code) and the stwo `constraint-framework` glue. On
+# this workspace the measured win is ~3-8% on prove and ~2-5% on verify,
+# at the cost of longer link times — release-only.
+lto = "fat"
+codegen-units = 1
+# Strip only release/debug symbols that are not needed for `perf` /
+# flamegraph attribution; keep the rest so release binaries stay
+# debuggable without a second artifact.
+strip = "debuginfo"
+
+# Dev-loop build speed: full `debug = 2` DWARF was the dominant cost —
+# 21 GB of deps artifacts and 200 MB+ rlibs made every link (and thus every
+# `cargo test`) crawl. `line-tables-only` keeps file:line in backtraces for
+# workspace code at a fraction of the size; dependencies drop debuginfo
+# entirely (their frames show up symbolicated without line numbers, which is
+# fine for a dev loop — `cargo test-all`/CI run in release where needed).
+[profile.dev]
+debug = "line-tables-only"
+
+# Tests spend almost all their time inside dependency code — stwo's SIMD
+# field math, circle FFT, FRI and Merkle commitments — which at dev
+# opt-level 0 makes the poseidon252 prove tests tens of times slower.
+# Optimize every dependency (including workspace members) while keeping
+# this crate itself at fast-compile opt-level 0 for quick iteration.
+#
+# 注意（实测勘误）：package."*" 通配不覆盖 workspace 成员——`cargo build
+# -p stark-recursion -v` 里 groth16-wrap 的 rustc 命令行没有任何 opt-level
+# （opt0 下 emulated-poseidon 合成/证明比 opt3 慢 ~10×，K=2 终证门禁 862s
+# 撞穿 10 分钟预算）。这里对 K=2 门禁热路径逐个点名：opt3 + 关 dev 断言
+# （debug-assertions/overflow-checks 在 ark 大整数热循环里的开销占比极高，
+# 实测 setup 336s→目标 <60s）。只影响这几个包的 dev 构建，其它成员不变。
+[profile.dev.package."*"]
+opt-level = 3
+debug = false
+
+[profile.dev.package.groth16-wrap]
+opt-level = 3
+debug = false
+debug-assertions = false
+overflow-checks = false
+codegen-units = 1
+
+[profile.dev.package.ark-ff]
+opt-level = 3
+debug = false
+debug-assertions = false
+overflow-checks = false
+codegen-units = 1
+
+[profile.dev.package.ark-bn254]
+opt-level = 3
+debug = false
+debug-assertions = false
+overflow-checks = false
+codegen-units = 1
+
+[profile.dev.package.ark-ec]
+opt-level = 3
+debug = false
+debug-assertions = false
+overflow-checks = false
+codegen-units = 1
+
+[profile.dev.package.ark-poly]
+opt-level = 3
+debug = false
+debug-assertions = false
+overflow-checks = false
+codegen-units = 1
+
+[profile.dev.package.ark-groth16]
+opt-level = 3
+debug = false
+debug-assertions = false
+overflow-checks = false
+codegen-units = 1
+
+[profile.dev.package.ark-r1cs-std]
+opt-level = 3
+debug = false
+debug-assertions = false
+overflow-checks = false
+codegen-units = 1
+
+[profile.dev.package.ark-relations]
+opt-level = 3
+debug = false
+debug-assertions = false
+overflow-checks = false
+codegen-units = 1
+
+[profile.dev.package.ark-serialize]
+opt-level = 3
+debug = false
+debug-assertions = false
+overflow-checks = false
+codegen-units = 1
+
+[profile.dev.package.ark-std]
+opt-level = 3
+debug = false
+debug-assertions = false
+overflow-checks = false
+codegen-units = 1
+
+# [T3-FRI] 供应商化 stwo 2.3：BackendForChannel 从三个具体通道实现改为泛型
+# blanket，使影子哈希通道（fri_shadow::ShadowMerkleChannel）可用同一 prover
+# 管线。唯一语义差异：无（blanket 是三个 impl 的超集）。见 out/t3-fri-wrap-design.md §6。
+[patch.crates-io]
+stwo = { path = "third_party/stwo" }

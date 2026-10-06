@@ -1,0 +1,902 @@
+{
+  "cookiebanner-confirm_btn_txt": "OK",
+  "cookiebanner-info_btn_txt": "Mehr erfahren",
+  "cookiebanner-text": "Diese Website verwendet Cookies, um Ihnen das beste Erlebnis zu bieten.",
+  "dashboard-delete_acct_btn_text": "Konto löschen",
+  "dashboard-email_btn_txt": "E-Mail aktualisieren",
+  "dashboard-email_lbl_txt": "E-Mail",
+  "dashboard-nickname_btn_txt": "Spitznamen aktualisieren",
+  "dashboard-nickname_lbl_txt": "Spitzname",
+  "dashboard-reset_pw_btn_text": "Passwort zurücksetzen",
+  "dashboard-heading_txt": "Dashboard",
+  "footer-copyright_txt": "© ProofPlay Poker. Alle Rechte vorbehalten.",
+  "footer-lang_selection_txt": "Sprache",
+  "game_buyin-modal_cancel": "Abbrechen",
+  "game_buyin-modal_confirm": "Platz nehmen",
+  "game_buyin-modal_header": "Buy-In",
+  "game_login-required_text": "Bitte melden Sie sich an, um fortzufahren.",
+  "game_info_blinds-lbl": "Blinds",
+  "game_rake-collected_lbl": "Rake",
+  "game_history-open-btn": "History",
+  "game_history-title": "Hand History",
+  "game_history-hand-lbl": "Hand",
+  "game_history-pot-lbl": "Pot",
+  "game_history-showdown-badge": "Showdown",
+  "game_history-fold-badge": "Fold",
+  "game_history-empty": "No hands yet. Finish a hand to see it here.",
+  "game_history-refresh": "Refresh",
+  "game_info_limit-lbl": "Limit",
+  "game_leave-table-btn": "Tisch verlassen",
+  "leave_confirm-title": "Folden & Verlassen?",
+  "leave_confirm-message": "Du bist in einer aktiven Hand. Folden und den Tisch verlassen?",
+  "leave_confirm-fold": "Folden & Verlassen",
+  "leave_confirm-cancel": "Abbrechen",
+  "leave_deferred-banner": "Warte auf das Ende der Hand, bevor du gehst...",
+  "leave_deferred-cancel": "Verlassen abbrechen",
+  "game_lost-connection-modal_btn-txt": "Spiel verlassen",
+  "game_lost-connection-modal_header": "Verbindung verloren",
+  "game_lost-connection-modal_text": "Die Verbindung zum Spielserver wurde unterbrochen.",
+  "game_rebuy-modal_cancel": "Abbrechen",
+  "game_rebuy-modal_confirm": "Rebuy",
+  "game_rebuy-modal_header": "Rebuy",
+  "game_rotate-device-prompt": "Drehen Sie Ihr Gerät in den Querformat-Modus",
+  "game_sitdown-btn": "Platz nehmen",
+  "game_state-info_wait": "Warte auf Spieler...",
+  "game_state-info_pre-flop": "Pre-Flop",
+  "game_state-info_flop": "Flop",
+  "game_state-info_turn": "Turn",
+  "game_state-info_river": "River",
+  "game_state-info_showdown": "Showdown",
+  "game_table_empty-seat": "Freier Platz",
+  "game_table_closed": "Tisch geschlossen — keine neuen Hände",
+  "game_ui_all-in": "All In",
+  "game_ui_bet": "Einsatz",
+  "game_ui_call": "Mitgehen",
+  "game_ui_check": "Check",
+  "game_ui_fold": "Passen",
+  "game_ui_stand-up": "Aufstehen",
+  "game_sitdown-prompt": "Platz nehmen, um das Spiel zu beginnen!",
+  "game_online-lbl": "Online:",
+  "global_get-free-chips-modal_btn-txt": "Gratis-Chips erhalten",
+  "global_get-free-chips-modal_content": "Holen Sie sich jetzt **10.000** Gratis-Chips und spielen Sie los!",
+  "global_get-free-chips-modal_header": "Gratis-Chips",
+  "landing-primary_headline": "Online Poker spielen",
+  "landing-secondary_headline": "Nehmen Sie an einem Tisch Platz und gewinnen Sie",
+  "login_page-cta_btn_txt": "Anmelden",
+  "login_page-email_lbl_txt": "E-Mail",
+  "login_page-header_txt": "Anmelden",
+  "login_page-no_account_txt": "Noch kein Konto?",
+  "login_page-password_lbl_txt": "Passwort",
+  "main_page-join_table": "Tisch beitreten",
+  "main_page-modal_button_text": "Gratis-Chips erhalten",
+  "main_page-modal_heading": "Gratis-Chips",
+  "main_page-modal_text": "Holen Sie sich jetzt **10.000** Gratis-Chips und spielen Sie los!",
+  "main_page-open_rules": "Regeln",
+  "main_page-open_shop": "Shop",
+  "main_page-quick_game": "Schnelles Spiel",
+  "main_page-salutation": "Hallo,",
+  "navbar-buychips_btn": "Chips kaufen",
+  "navbar-login_btn": "Anmelden",
+  "navbar-register_btn": "Registrieren",
+  "navmenu-logout_btn": "Abmelden",
+  "navmenu-menu_item-dashboard_txt": "Dashboard",
+  "navmenu-menu_item-lobby_txt": "Lobby",
+  "navmenu-menu_item-news_txt": "Neuigkeiten",
+  "notfound-content_txt": "Die gesuchte Seite existiert nicht.",
+  "notfound-heading_txt": "Seite nicht gefunden",
+  "registration_page-already_account_txt": "Bereits ein Konto?",
+  "registration_page-cta_btn_txt": "Registrieren",
+  "registration_page-email_lbl_txt": "E-Mail",
+  "registration_page-header_txt": "Registrieren",
+  "registration_page-nickname_lbl_txt": "Spitzname",
+  "registration_page-password_lbl_txt": "Passwort",
+  "service_worker-update_available": "Eine neue Version ist verfügbar!",
+  "service_worker-update_confirm_btn_txt": "Aktualisieren",
+  "service_worker-update_headline": "Aktualisierung verfügbar",
+  "shop-coming_soon-modal_btn_text": "OK",
+  "shop-coming_soon-modal_heading": "Shop",
+  "shop-coming_soon-modal_text": "Der Shop kommt bald! Bleiben Sie dran.",
+  "static_page-back_btn_txt": "Zurück",
+  "play_connecting": "Verbinden...",
+  "play_reconnecting": "Erneut verbinden...",
+  "play_zk-crypto-events": "ZK-Kryptoereignisse",
+  "play_leaving": "Tisch wird verlassen...",
+  "play_action-signing": "Warte auf Signatur...",
+  "common_loading": "Lädt...",
+  "common_brand-name": "ProofPlay Poker",
+  "common_poker-table": "Pokratisch",
+  "common_logo-alt": "ProofPlay Poker",
+  "maintenance_message": "Die Website befindet sich derzeit im Wartungsmodus.",
+  "maintenance_brand-alt": "ProofPlay Poker",
+  "language-switcher_aria": "Sprachwechsel",
+  "lobby_join-table-alt": "Tisch beitreten",
+  "lobby_quick-game-alt": "Schnelles Spiel",
+  "lobby_shop-alt": "Shop",
+  "lobby_rules-alt": "Regeln",
+  "navbar_lobby-alt": "Lobby",
+  "navbar_dashboard-alt": "Dashboard",
+  "rotate-device_alt": "Bitte drehen Sie Ihr Gerät in den Querformat-Modus",
+  "seat_strk-logo-alt": "STRK",
+  "seat_strk-balance-label": "STRK-Guthaben",
+  "seat_wallet-address-label": "Wallet-Adresse",
+  "seat_redeemable-chips-label": "Einlösbare Chips",
+  "seat_conversion-cost-label": "Umtauschkosten",
+  "seat_exchange-rate-label": "Kurs: 1 STRK = {rate} Chips",
+  "seat_claim-faucet-btn": "Test-STRK anfordern (Faucet)",
+  "seat_claiming-btn": "Wird angefordert...",
+  "seat_claim-success": "Erfolgreich angefordert, Guthaben wird aktualisiert...",
+  "seat_claim-too-many-requests": "Zu viele Anfragen, bitte versuchen Sie es später erneut",
+  "seat_claim-failed-prefix": "Anforderung fehlgeschlagen",
+  "seat_claim-failed-title": "STRK-Anforderung fehlgeschlagen",
+  "seat_claim-failed-ok": "OK",
+  "gametable_failed-fetch-state": "Spielstatus konnte nicht abgerufen werden",
+  "gametable_connecting-to-game": "Verbindung zum Spiel wird hergestellt...",
+  "gametable_ws-connection-error": "[WS] Verbindungsfehler",
+  "gametable_ws-disconnected-reconnecting": "[WS] Verbindung verloren, wird wiederhergestellt...",
+  "whitepaper": {
+    "nav": {
+      "back": "Zur Startseite",
+      "top": "Nach oben"
+    },
+    "cover": {
+      "badge": "Whitepaper v2.0",
+      "title-line3": "Verschlüsseltes Poker",
+      "subtitle": "Ein Zero-Knowledge Ende-zu-Ende verschlüsseltes Texas-Hold'em-Protokoll — beseitigt Dealer-Betrug und schafft eine vertrauenslose On-Chain-Spielwirtschaft.",
+      "meta": "Juli 2026 · Technisches Whitepaper"
+    },
+    "abstract": {
+      "label": "Zusammenfassung",
+      "p1": "ZGame ist ein Ende-zu-Ende verschlüsseltes Texas-Hold'em-Protokoll, das auf Zero-Knowledge-Proofs aufbaut. Herkömmliches Online-Poker hängt von einem zentralisierten Server zum Austeilen ab, was die Spieler zwingt, dem Betreiber zu vertrauen. ZGame löst dieses Vertrauensproblem durch die Implementierung des Mental-Poker-Protokolls: Jede Karte wird als ElGamal-Geheimtext auf der Chain gespeichert, und keine einzelne Partei (einschließlich des Betreibers) kann die Hand eines anderen Spielers sehen. Alle kritischen Operationen — Mischen, Aufdecken, Verlassen — werden on-chain durch sechs Arten von Zero-Knowledge-Proofs verifiziert und bieten ein Ende-zu-Ende verschlüsseltes, faires Spielerlebnis.",
+      "p2": "Das System nutzt eine dreischichtige Architektur: ein Browser-Frontend, einen Rust-Relay und On-Chain-Smart-Contracts. Kryptografisch basiert es auf der BLS12-381-Kurve und additiv-homomorpher ElGamal-Verschlüsselung, mit Unterstützung für dynamischen Spielerbeitritt, -austritt und Deck-Rekonstruktion. Das Wirtschaftsmodell nutzt echte On-Chain-Token, wobei gesponserte Transaktionen ein gasfreies Erlebnis ermöglichen.",
+      "p3": "ZGames langfristige Ambition geht weit über Poker hinaus. Das Projekt plant den Aufbau einer Layer-1-Blockchain, die speziell für Spielszenarien entwickelt wird, mit benutzerdefinierter Transaktionsreihenfolge und einem vollständig gaslosen Geschäftsmodell, und die Erforschung von Zero-Knowledge-Virtual-Machines für das ultimative On-Chain-Spielerlebnis. Letztendlich zielt ZGame darauf ab, eine vertrauenslose Spielwirtschaft aufzubauen, die jedes Genre von On-Chain-Gaming umspannt — und kryptografische Sicherheit zur Basisschicht aller On-Chain-Spiele macht."
+    },
+    "ch1": {
+      "title": "01 Das Branchenproblem",
+      "s1": {
+        "title": "Die Vertrauenskrise des zentralisierten Online-Pokers",
+        "p1": "Online-Poker ist eine Multimilliarden-Dollar-Industrie, doch ihre Kernmechanik — Austeilen und Mischen — war schon immer auf einen zentralisierten Server angewiesen. Spieler können nicht überprüfen, ob der Server fair austeilt; der Betreiber hat volle Betrugsbefugnis: Er kann jede Hand sehen, die Austeilreihenfolge manipulieren und Informationen an bestimmte Spieler weitergeben. Mehrere historische Skandale haben bewiesen, dass dieses Vertrauensmodell fragil ist.",
+        "mark": "Bevor die Karten ausgeteilt werden, sollte keine Partei in der Lage sein, eine verdeckte Karte vorherzusagen."
+      },
+      "s2": {
+        "title": "Das Blockchain-Spiel-Dilemma",
+        "p1": "Das Verlagern von Spielen auf die Blockchain löst das Transparenzproblem, schafft aber eine neue Herausforderung. Vollständig On-Chain-Austeilen legt jede Karte dem gesamten Netzwerk offen und bricht die Informationsasymmetrie, die für Poker wesentlich ist. Eine Rückkehr zum Off-Chain-Austeilen führt zurück zum zentralisierten Vertrauensmodell. Die zentrale technische Herausforderung von On-Chain-Poker besteht darin, ein Gleichgewicht zwischen Transparenz und Vertraulichkeit zu finden.",
+        "p2": "Darüber hinaus stehen Web3-Spiele vor Benutzererfahrungsbarrieren: Wallet-Verwaltung, Gas-Gebühren und Transaktionsbestätigungsverzögerungen schrecken gewöhnliche Spieler ab. Ein nachhaltiges On-Chain-Poker-Protokoll muss den optimalen Punkt zwischen kryptografischer Sicherheit, On-Chain-Auditierbarkeit und Benutzererfahrung finden."
+      },
+      "s3": {
+        "title": "Die Grenzen von Allzweck-Chains",
+        "p1": "Die heutigen Allzweck-Blockchains sind nicht für Spielszenarien konzipiert. Bei hochfrequenten interaktiven Spielen können Durchsatz, Bestätigungslatenz und Ordnungsmodell allgemeiner Chains die Echtzeitanforderungen nicht erfüllen. Spielaktionen müssen mit NFT-Mints und DeFi-Protokollen um Block-Space konkurrieren, sodass das Netzwerk in volatilen Phasen überlastet und das Erlebnis beeinträchtigt wird. Spiele brauchen keine Chain, die 'Contracts ausführen kann' — sie brauchen eine Chain, die 'für Spiele geboren' ist. Das ist ZGames ultimative Richtung."
+      }
+    },
+    "ch2": {
+      "title": "02 Lösungsüberblick",
+      "s1": {
+        "title": "Mental Poker: Vierzig Jahre von der Theorie zur Engineering-Reife",
+        "p1": "Im Jahr 1981 stellten Shamir, Rivest und Adleman das Mental-Poker-Problem: Können zwei sich gegenseitig misstrauende Parteien über das Telefon Poker spielen, wobei jede sicher ist, dass die andere nicht betrügt? Die kryptografische Lösung — später kollektiv als Mental-Poker-Protokoll bekannt — ist der theoretische Eckpfeiler von ZGame.",
+        "mark": "Es sind die jüngsten Durchbrüche bei Zero-Knowledge-Proofs, die Mental Poker von einem akademischen Spielzeug in ein Engineering-Schema verwandelt haben, das in Echtzeit-On-Chine-Umgebungen laufen kann. ZGame wird genau an diesem Wendepunkt geboren."
+      },
+      "s2": {
+        "title": "Die zentrale Designidee",
+        "p1": "ZGames zentraler Designgedanke ist einfach: Das Deck bleibt immer verschlüsselt, das Austeilen verteilt nur Geheimtext-Indizes, und das Aufdecken erfordert kooperative Entschlüsselung aller Spieler. Keine einzelne Entität — auch nicht der Betreiber-Server — kann unabhängig entschlüsseln. Diese Eigenschaft eliminiert Betrug beim Austeilen an der kryptografischen Wurzel.",
+        "mark": "Das Deck ist immer verschlüsselt; das Austeilen verteilt nur Geheimtext-Indizes; das Aufdecken erfordert kooperative Entschlüsselung aller Spieler."
+      },
+      "s3": {
+        "title": "Kerninnovation: Dynamischer Spieleraustritt und Deck-Rekonstruktion",
+        "p1": "Klassisches Mental Poker hat einen lange ignorierten fatalen Fehler: Es nimmt an, dass alle Teilnehmer während der gesamten Hand online bleiben. Sobald ein Spieler geht, fehlt sein privater Schlüssel dauerhaft im aggregierten öffentlichen Schlüssel, und das verschlüsselte Deck kann nicht mehr entschlüsselt werden — die Hand muss beendet werden. Im realen Online-Poker ist es die Norm, dass Spieler mitten im Spiel wegen Netzwerkproblemen, freiwilligem Austritt oder Rauswurf gehen. Das bedeutet, dass klassisches Mental Poker in der Praxis fast unbrauchbar ist.",
+        "l1": {
+          "title": "Geheimtext-Schicht entfernen",
+          "desc": "Der austretende Spieler reicht einen LeaveProof (DLEq Zero-Knowledge-Proof) ein, der zeigt, dass er korrekt seine eigene Verschlüsselungsschicht entfernt hat, ohne Karteninformationen preiszugeben."
+        },
+        "l2": {
+          "title": "Aggregierten öffentlichen Schlüssel aktualisieren",
+          "desc": "Der aggregierte öffentliche Schlüssel subtrahiert den öffentlichen Schlüssel des Austretenden; die verbleibenden Spielerschlüssel können das Deck weiterhin entschlüsseln."
+        },
+        "l3": {
+          "title": "Rauswurf und Rekonstruktion",
+          "desc": "Wenn ein Spieler wegen Timeout oder Fehlverhalten rausgeworfen wird, sammelt das System die lesbaren Karten (teilentschlüsselte Geheimtexte) der übrigen, führt einen vierschichtigen ReconstructProof aus und tauscht die Karten des rausgeworfenen Spielers sicher aus dem Deck aus, wobei das gesamte Deck mit frischer Zufälligkeit neu verschlüsselt wird."
+        },
+        "l4": {
+          "title": "Nahtlose Fortsetzung",
+          "desc": "Sobald die Rekonstruktion abgeschlossen ist, spielen die verbleibenden Spieler auf dem aktualisierten Deck weiter — kein Neustart nötig. Die Handkarten von Neulingen sind nicht betroffen, und die Gemeinschaftskarten bleiben konsistent."
+        },
+        "conclusion": "Spieler können jederzeit beitreten und gehen, und eine Hand wird nie wegen Personalwechsel abgebrochen. Dies ist ZGames Kerninnovation gegenüber allen früheren Mental-Poker-Implementierungen und der entscheidende Schritt, der das klassische Protokoll vom Labor in die Produktion bringt."
+      },
+      "s4": {
+        "title": "Systemarchitektur-Überblick",
+        "p1": "ZGame verwendet derzeit eine dreischichtige Architektur:",
+        "c1": {
+          "title": "Frontend",
+          "desc": "React + Vite + TypeScript. Alle Verschlüsselung und ZK-Proof-Erzeugung läuft lokal über WebAssembly. Echtzeit-Updates über WebSocket."
+        },
+        "c2": {
+          "title": "Relay-Schicht",
+          "desc": "Rust + Axum + WebSocket. On-Chain-Event-Listening, Transaktionskonstruktion und Sponsoring, Echtzeit-Broadcast, Timeout- und Retry-Management."
+        },
+        "c3": {
+          "title": "On-Chain-Schicht",
+          "desc": "Smart Contracts verwalten den Shared-Object-Zustand, die On-Chain-Verifikation der sechs ZK-Proofs, die Wettlogik und die Geldabrechnung."
+        }
+      }
+    },
+    "ch3": {
+      "title": "03 Kryptografisches Protokoll",
+      "s1": {
+        "title": "Kartendarstellung und Schlüsselsystem",
+        "p1": "Das System verwendet die BLS12-381-G1-Gruppe als kryptografische Grundlage. Die 52 Spielkarten werden über das Standard-Hash-to-Curve-Verfahren auf 52 deterministische G1-Punkte abgebildet:",
+        "code": "hash_to_curve(label=\"texas_poker/card/{i}\", DST=\"BLS_SIG_BLS12381G1_XMD:SHA-256_SSWU_RO_NUL_\")",
+        "p2": "Jeder Spieler generiert einen privaten Schlüssel sk und einen öffentlichen Schlüssel pk = G * sk. Alle öffentlichen Schlüssel der Spieler werden zum Aggregierten Öffentlichen Schlüssel AggPK = sum(pk_i) summiert. Nur der gemeinsame Besitz aller privaten Schlüssel kann den Geheimtext entschlüsseln."
+      },
+      "s2": {
+        "title": "ElGamal-Verschlüsselung und Mischen",
+        "p1": "Das Deck wird als ElGamal-Geheimtext gespeichert, 96 Bytes pro Karte (c1: 48 Bytes + c2: 48 Bytes). Das anfängliche Deck ist unter dem Identitätsschlüssel klartextverschlüsselt, d.h. c1 = G, c2 = plaintext_i.",
+        "l1": {
+          "title": "Permutieren",
+          "desc": "Die Reihenfolge der 52 Karten zufällig permutieren."
+        },
+        "l2": {
+          "title": "Neu verschlüsseln",
+          "desc": "Eine frische Verschlüsselungsschicht über jede Karte unter dem aggregierten öffentlichen Schlüssel mit neuen Zufallsmasken hinzufügen."
+        },
+        "p2": "Nach jedem Mischen reicht der Spieler einen ShuffleProof ein, der zeigt, dass das Ausgabe-Deck eine gültige Permutation-Plus-Neuverschlüsselung des Eingabe-Decks ist, ohne die Permutation preiszugeben. Nachdem jeder Spieler der Reihe nach gemischt hat, sind Klartext, Reihenfolge und Spieler-Karten-Zuordnung des Decks kryptografisch verborgen."
+      },
+      "s3": {
+        "title": "Verteiltes Aufdecken",
+        "p1": "Beim Austeilen werden Geheimtexte in der Reihenfolge aus dem gemischten Deck entnommen und den Hand- oder Gemeinschaftskarten zugewiesen. Jede Karte ist noch Geheimtext, und eine verteilte Entschlüsselung ist erforderlich, um den Klartext wiederherzustellen.",
+        "p2": "Für einen Geheimtext CT = (c1, c2) berechnet Spieler i sein eigenes Reveal-Token:",
+        "code": "token_i = c1 * sk_i",
+        "p3": "Die Summe aller Tokens ergibt sum(token_i) = c1 * sum(sk_i); der Klartext ist dann c2 - sum(token_i). Jede Einreichung wird von einem Chaum-Pedersen-DLEq-Proof begleitet, der log_G(pk_i) == log_c1(token_i) zeigt und so gefälschte Tokens verhindert, die die aufgedeckte Karte korrumpieren würden."
+      },
+      "s4": {
+        "title": "Dynamische Spielerverwaltung",
+        "p1": "Echte Spiele erfordern Unterstützung für Beitritt und Austritt mitten in der Hand. ZGame definiert ein vollständiges dynamisches Spielerprotokoll:",
+        "l1": {
+          "title": "Beitreten",
+          "desc": "Ein neuer Spieler remaskt zunächst das aktuelle Deck (c2 += c1 * sk) mit seinem privaten Schlüssel und mischt dann. Erfordert RemaskProof + ShuffleProof."
+        },
+        "l2": {
+          "title": "Verlassen",
+          "desc": "Ein Spieler entfernt seine eigene Verschlüsselungsschicht (c2 -= c1 * sk) und reicht LeaveProof ein; der aggregierte öffentliche Schlüssel subtrahiert seinen öffentlichen Schlüssel."
+        },
+        "l3": {
+          "title": "Rekonstruieren",
+          "desc": "Wenn ein Spieler rausgeworfen wird oder das Timeout überschreitet, tauschen die verbleibenden Spieler kollaborativ die Karten des Austretenden aus dem Deck aus, verschlüsseln das gesamte Deck mit frischer Zufälligkeit neu und reichen ReconstructProof ein. Sobald die Rekonstruktion abgeschlossen ist, mischen alle verbleibenden Spieler neu, sodass der private Schlüssel des Austretenden in keiner zukünftigen Runde eine Rolle spielt."
+        }
+      }
+    },
+    "ch4": {
+      "title": "04 Zero-Knowledge-Proof-System",
+      "intro": {
+        "mark": "Sechs Zero-Knowledge-Proofs",
+        "tail": " werden im System verwendet. Alle basieren auf der Fiat-Shamir-Heuristik mit einem SHA3-256-Transkript und stellen sicher, dass die Proof-Erzeugung auf der Rust-Seite und die On-Chain-Vertrag-Verifikation Schritt halten."
+      },
+      "p1": {
+        "title": "PK Ownership Proof (Schnorr)",
+        "desc": "Bei der Registrierung beweist ein Spieler, dass er den privaten Schlüssel für seinen öffentlichen Schlüssel besitzt, und verhindert so das böswillige Einschleusen ungültiger Schlüssel. Standard-Schnorr: commitment = G * omega, challenge = H(G || pk || commitment), response = omega + challenge * sk."
+      },
+      "p2": {
+        "title": "Shuffle Proof (ZKShuffleProof)",
+        "desc": "Beweist, dass das Ausgabe-Deck eine gültige Permutation-Plus-Neuverschlüsselung des Eingabe-Decks ist. Ein dreischichtiges Schnorr-Design: kombinierter Proof + nur-c1-Proof + nur-c2-Proof, das Informationsverschiebungsangriffe (c1/c2-Swap) verhindert."
+      },
+      "p3": {
+        "title": "Remask Proof (DLEqProof)",
+        "desc": "Beim Beitritt beweist der Spieler, dass er seine Verschlüsselungsschicht korrekt hinzugefügt hat. Verifiziert output.c2 - input.c2 = input.c1 * sk, mit jeder Karte unabhängig gebunden."
+      },
+      "p4": {
+        "title": "Leave Proof (DLEqProof)",
+        "desc": "Beim Verlassen beweist der Spieler, dass er seine Verschlüsselungsschicht korrekt entfernt hat. Symmetrisch zu RemaskProof, verifiziert c2' = c2 - c1 * sk."
+      },
+      "p5": {
+        "title": "Reveal Token Proof (Chaum-Pedersen DLEq)",
+        "desc": "Beim Einreichen eines Reveal-Tokens beweist der Spieler token = c1 * sk und pk = G * sk. Ein Double-Discrete-Log-Equality-Proof mit einer Anti-Replay-Nonce, um Replay-Angriffe zu verhindern."
+      },
+      "p6": {
+        "title": "Reconstruct Proof (Composite)",
+        "desc": "Verwendet nach dem Rauswurf eines Spielers. Der komplexeste Proof im System, mit vier Schichten: SwapOutCardProof (Chaum-Pedersen DLEq), Blind DLEq Proof, Generalized Schnorr Proof und Total DLEq Proof."
+      },
+      "security": {
+        "title": "Sicherheitshärtung",
+        "l1": "M-D13 / c1-c2-Swap-Angriff: ShuffleProof fügt unabhängige c1/c2-Schnorr-Proofs hinzu.",
+        "l2": "M4 / Reveal-Token-Replay: Nonce eingeführt und an expected_pk gebunden.",
+        "l3": "M-P17 / Identitäts-Commitment-Angriff: Alle Proofs lehnen Identitätspunkte als Commitments oder Geheimtexte ab.",
+        "l4": "M7 / Identitäts-c1-Angriff: remask_ciphertext und leave_ciphertext lehnen c1 == identity ab.",
+        "l5": "M6 / Null-Privatschlüssel-Angriff: Spielerregistrierung und Proof-Verifikation lehnen pk == identity ab."
+      }
+    },
+    "ch5": {
+      "title": "05 Vollständiger Spielablauf",
+      "p1": "Die folgenden Phasen werden synchron zwischen dem Off-Chain-Rust-Dienst und dem On-Chain-Smart-Contract ausgeführt. Alle kritischen kryptografischen Operationen laufen lokal auf dem Gerät des Benutzers:",
+      "table": {
+        "col1": "Phase",
+        "col2": "Aktion",
+        "col3": "Kryptografische Operation",
+        "r1": {
+          "c1": "Setup / Join",
+          "c2": "Spieler setzt sich, hinterlegt Token",
+          "c3": "pk registrieren, PKOwnershipProof verifizieren"
+        },
+        "r2": {
+          "c1": "Start Hand",
+          "c2": "Button bewegen, Zustand löschen",
+          "c3": "ShuffleState initialisieren"
+        },
+        "r3": {
+          "c1": "Shuffle",
+          "c2": "Jeder aktive Spieler mischt der Reihe nach",
+          "c3": "ShuffleProof einreichen"
+        },
+        "r4": {
+          "c1": "Deal Pre-Flop",
+          "c2": "2 Handkarten pro Spieler austeilen",
+          "c3": "Nur Geheimtext-Indizes aufzeichnen"
+        },
+        "r5": {
+          "c1": "HandReveal",
+          "c2": "Reveal-Token für die Hände anderer Spieler einreichen",
+          "c3": "RevealTokenProof-Verifikation"
+        },
+        "r6": {
+          "c1": "Pre-Flop Betting",
+          "c2": "Blinds setzen, erste Wett-Runde",
+          "c3": "Standard Texas-Hold'em-Wettlogik"
+        },
+        "r7": {
+          "c1": "Flop",
+          "c2": "3 Gemeinschaftskarten austeilen",
+          "c3": "deal_community_cards_encrypted"
+        },
+        "r8": {
+          "c1": "CommunityReveal",
+          "c2": "Reveal-Token für Gemeinschaftskarten einreichen",
+          "c3": "Klartext wird On-Chain veröffentlicht, nachdem alle Tokens gesammelt sind"
+        },
+        "r9": {
+          "c1": "Turn + River",
+          "c2": "Je 1 Gemeinschaftskarte austeilen",
+          "c3": "CommunityReveal + Betting wiederholen"
+        },
+        "r10": {
+          "c1": "ShowdownReveal",
+          "c2": "Nicht gefaltete Spieler decken ihre Handkarten auf",
+          "c3": "Showdown, Handkarten-Klartext wiederhergestellt"
+        },
+        "r11": {
+          "c1": "Settlement",
+          "c2": "Side Pots berechnen, Gewinner ermitteln",
+          "c3": "hand_evaluator vergleicht Hände"
+        },
+        "r12": {
+          "c1": "Reset",
+          "c2": "Wartezeitraum für die nächste Hand",
+          "c3": "Deck-Zustand löschen"
+        }
+      },
+      "timeout": {
+        "title": "Timeout- und Fehlertoleranz",
+        "l1": "Mischen-Timeout: Aktuellen Mischer rauswerfen, Deck neu aufbauen, verbleibende Spieler mischen neu.",
+        "l2": "Aufdeck-Timeout: Spieler rauswerfen, die keine Tokens eingereicht haben. In Pre-Flop die Hand neu starten; in späteren Phasen Reconstruct auslösen.",
+        "l3": "Wett-Timeout: Auto-Fold."
+      }
+    },
+    "ch6": {
+      "title": "06 Wirtschaftsmodell",
+      "s1": {
+        "title": "Token-Einlösung und Chip-System",
+        "p1": "In-Game-Chips sind zu einem festen Verhältnis an den nativen Token der Chain gekoppelt. Beim Setzen hinterlegen Spieler Token; der Smart Contract wandelt den Betrag in Stack um und schreibt ihn dem Sitz gut. Am Ende der Hand wird der Stack zum gleichen Verhältnis in Token zurückgewandelt und direkt an den Spieler erstattet. Alle In-Game-Wetten, Blinds und Side Pots sind in Stack denominiert."
+      },
+      "s2": {
+        "title": "Side-Pot-Berechnung",
+        "p1": "Wenn ein Spieler All-In geht, berechnet das System automatisch Side Pots. Der Algorithmus:",
+        "l1": "Alle All-In-Spieler finden (bet > 0 und stack == 0).",
+        "l2": "Nach Einsatzbetrag aufsteigend sortieren.",
+        "l3": "Für jeden All-In-Spieler den Überschuss der anderen Spieler über diesen Einsatz berechnen; den Überschuss aus dem Haupt-Pot in einen neuen Side Pot verschieben.",
+        "l4": "Die Eligible-Liste des Side Pots sind alle nicht gefalteten Spieler, die zum Überschuss beigetragen haben."
+      },
+      "s3": {
+        "title": "Gasfreies Erlebnis",
+        "p1": "Durch gesponserte Transaktionen liefert ZGame ein gasfreies Spielerlebnis. Spieler müssen keinen nativen Token für Gas halten; alles Gas wird vom Protokoll bezahlt. Die Wallet-basierte Anmeldung hält die Web3-Onboarding-Reibung gering."
+      }
+    },
+    "ch7": {
+      "title": "07 Sicherheitsanalyse",
+      "s1": {
+        "title": "7.1 Kartenvertraulichkeit",
+        "p1": "Das Deck ist immer unter mehreren Schichten von ElGamal-Verschlüsselung. Die Entschlüsselung einer einzelnen Karte erfordert die gemeinsamen privaten Schlüssel aller Teilnehmer. Kein einzelner Spieler, Server oder externer Beobachter kann unabhängig eine verdeckte Karte entschlüsseln. Diese Eigenschaft ist durch die BLS12-381-Discrete-Log-Härte garantiert."
+      },
+      "s2": {
+        "title": "7.2 Mischintegrität",
+        "p1": "ShuffleProof garantiert, dass das Mischen jedes Spielers eine ehrliche Permutation-Plus-Neuverschlüsselung ist — niemand kann heimlich Karten tauschen, wegfallen oder duplizieren. Das anfängliche Deck ist ein deterministischer Satz von 52 G1-Punkten, was 'benutzerdefinierte Deck'-Angriffe ausschließt."
+      },
+      "s3": {
+        "title": "7.3 Austeil- und Aufdeck-Verifizierbarkeit",
+        "p1": "Das Austeilen nimmt Karten in der Reihenfolge aus dem verifizierten verschlüsselten Deck, vollständig öffentlich und prüfbar. Jedes Aufdecken reicht einen RevealTokenProof ein, und erst nach On-Chain-Verifikation wird die Teilentschlüsselung akzeptiert."
+      },
+      "s4": {
+        "title": "7.4 Dynamische Mitgliedschaftssicherheit",
+        "p1": "RemaskProof / LeaveProof garantieren, dass beim Beitritt oder Verlassen die Verschlüsselungsschicht des Decks korrekt hinzugefügt oder entfernt wird. ReconstructProof stellt sicher, dass nach dem Rauswurf eines Spielers der private Schlüssel des Austretenden nichts weiter entschlüsseln kann."
+      },
+      "s5": {
+        "title": "7.5 Anti-Sybil und Identitätsbindung",
+        "p1": "PKOwnershipProof zwingt jeden Spieler zu beweisen, dass er den privaten Schlüssel für seinen öffentlichen Schlüssel besitzt. Der öffentliche Schlüssel ist an den Sitz und die On-Chain-Adresse gebunden, was verhindert, dass eine einzelne Entität mehrere Identitäten vortäuscht, um das Spiel zu manipulieren."
+      },
+      "s6": {
+        "title": "7.6 On-Chain-Auditierbarkeit",
+        "p1": "Alle kritischen kryptografischen Operationen können zur On-Chain-Vertrag-Verifikation eingereicht werden. Zustands-Snapshots bieten einen vollständigen verschlüsselten Zustands-Datensatz, den jeder Client unabhängig auf Deck-Konsistenz validieren kann."
+      }
+    },
+    "ch8": {
+      "title": "08 Produktmerkmale und Benutzererfahrung",
+      "c1": {
+        "title": "Kryptografische Sicherheit",
+        "l1": "Ende-zu-Ende-Verschlüsselung — der Server sieht nie Klartext-Karten.",
+        "l2": "Sechs Zero-Knowledge-Proofs decken jede kritische Operation ab.",
+        "l3": "BLS12-381-Standardkurve, 128-Bit-Sicherheitsstufe.",
+        "l4": "Dynamische Spielerverwaltung, unterstützt Beitritt und Verlassen mitten in der Hand."
+      },
+      "c2": {
+        "title": "Benutzererfahrung",
+        "l1": "Social-Account-Anmeldung, keine Wallet erforderlich.",
+        "l2": "Gesponserte Transaktionen liefern gasfreies Spielen.",
+        "l3": "WebAssembly-lokale Berechnung, Krypto-Operationen ohne Latenz.",
+        "l4": "WebSocket-Echtzeitkommunikation für flüssiges Spielen."
+      },
+      "c3": {
+        "title": "On-Chain-Transparenz",
+        "l1": "Alle kritischen Operationen sind On-Chain verifizierbar.",
+        "l2": "Vollständige verschlüsselte Zustands-Snapshots, öffentlich und abfragbar.",
+        "l3": "Transparentes und prüfbares Wirtschaftsmodell.",
+        "l4": "Open-Source-Contracts und Proof-Verifikationslogik."
+      },
+      "c4": {
+        "title": "Fehlertoleranz und Liveness",
+        "l1": "Pro-Phase-Timeout verhindert hängende Spiele.",
+        "l2": "Auto-Wiederaufbau bei Trennung, keine Spielunterbrechung.",
+        "l3": "Off-Chain-Timeout-Handling + On-Chain-Zustands-Synchronisation.",
+        "l4": "Neue Spieler können ohne Neustart einer Hand beitreten."
+      }
+    },
+    "ch9": {
+      "title": "09 Tech-Stack und Komponenten",
+      "table": {
+        "col1": "Schicht",
+        "col2": "Komponente",
+        "col3": "Technologie",
+        "col4": "Verantwortung",
+        "r1": {
+          "c1": "Frontend",
+          "c2": "client",
+          "c3": "React + Vite + TypeScript",
+          "c4": "Spiel-UI und Interaktion"
+        },
+        "r2": {
+          "c1": "Frontend",
+          "c2": "client-wasm",
+          "c3": "Rust → WebAssembly",
+          "c4": "In-Browser-Verschlüsselung und Proof-Erzeugung"
+        },
+        "r3": {
+          "c1": "Frontend",
+          "c2": "Wallet-Integration",
+          "c3": "starknetkit, @starknet-react",
+          "c4": "Wallet-Verbindung und On-Chain-Interaktion"
+        },
+        "r4": {
+          "c1": "Backend",
+          "c2": "relay-server",
+          "c3": "Rust + Axum + WebSocket",
+          "c4": "On-Chain-Event-Listener, Tx-Builder, Echtzeit-Broadcast"
+        },
+        "r5": {
+          "c1": "Backend",
+          "c2": "poker_protocol",
+          "c3": "Rust",
+          "c4": "Kernkryptografisches Protokoll"
+        },
+        "r6": {
+          "c1": "Backend",
+          "c2": "chain-serialization",
+          "c3": "Rust",
+          "c4": "Vertrags-Byte-Format und Rust-Typkonvertierung"
+        },
+        "r7": {
+          "c1": "Backend",
+          "c2": "chain-interaction",
+          "c3": "Rust",
+          "c4": "On-Chain-Interaktionslogik-Wrapper"
+        },
+        "r8": {
+          "c1": "On-Chain",
+          "c2": "table contract",
+          "c3": "Move",
+          "c4": "Tisch-Hauptlogik, Zustandsmaschine, Abrechnung"
+        },
+        "r9": {
+          "c1": "On-Chain",
+          "c2": "zk_verifier",
+          "c3": "Move",
+          "c4": "On-Chain-Verifikation der sechs ZK-Proofs"
+        },
+        "r10": {
+          "c1": "On-Chain",
+          "c2": "crypto primitives",
+          "c3": "Move",
+          "c4": "BLS12-381-ElGamal-Verschlüsselung"
+        },
+        "r11": {
+          "c1": "On-Chain",
+          "c2": "hand_evaluator",
+          "c3": "Move",
+          "c4": "7-aus-5-Hand-Evaluator"
+        },
+        "r12": {
+          "c1": "On-Chain",
+          "c2": "side_pot",
+          "c3": "Move",
+          "c4": "Side-Pot-Berechnung"
+        }
+      }
+    },
+    "ch10": {
+      "title": "10 Custom L1: Eine für Spiele geborene Blockchain",
+      "s1": {
+        "title": "Der Engpass der Allzweck-Chains",
+        "p1": "ZGames aktueller MVP läuft auf einer bestehenden Allzweck-Chain und validiert das kryptografische Kernprotokoll. Aber mit zunehmender Produktreife treten grundlegende Grenzen zutage: Spielaktionen teilen sich Block-Space und Ordnungspriorität mit jeder anderen App auf der Chain, was zu unvorhersehbarer Bestätigungslatenz, volatilen Gas-Gebühren und gebrochener Hochfrequenz-Interaktion führt. Allzweck-Chains sind darauf ausgelegt, 'alles zu können' — Spiele müssen 'eine Sache extrem gut machen.'"
+      },
+      "s2": {
+        "title": "Die Hyperliquid-Lektion",
+        "p1": "Hyperliquid liefert das stärkste praktische Beispiel für das anwendungsspezifische Chain-Muster. Als Layer 1, die speziell für Derivathandel entwickelt wurde, baut Hyperliquid nicht auf einer Allzweck-Chain auf — es baut seine eigenen Konsens-, Ausführungs- und Ordnungsregeln von Grund auf neu. Dieses Design liefert drei zentrale Vorteile:",
+        "l1": {
+          "title": "On-Chain-Orderbuch + In-Memory-Matching",
+          "desc": "Alle Platzierungen, Stornierungen und Fills passieren direkt On-Chain; das Order-Matching läuft im Speicher, mit einem Durchsatz von über 20.000 TPS."
+        },
+        "l2": {
+          "title": "Null Gas + Tischgebühren-Einnahmen",
+          "desc": "Benutzer zahlen kein Gas; die Protokolleinnahmen stammen aus Handelsgebühren. Validatoren verdienen an Protokoll-Inflations-Belohnungen und Gebührenteilung und bilden ein Schwungrad: mehr Volumen → mehr Einnahmen → mehr Sicherheit."
+        },
+        "l3": {
+          "title": "Vollständig verifizierbarer Zustand",
+          "desc": "Der vollständige Zustand, einschließlich des Orderbuchs, ist für alle Validatoren öffentlich prüfbar, während er ein CEX-Grade-Benutzererlebnis beibehält."
+        },
+        "p2": "Bis Ende 2025 hatte Hyperliquid über 40% des großen Layer-1-Blockchain-Gebührenmarktes erobert, was beweist, dass der anwendungsspezifische Chain-Pfad nicht nur technisch tragfähig, sondern auch kommerziell selbstkonsistent ist."
+      },
+      "s3": {
+        "title": "ZGame L1 Designrichtung",
+        "p1": "ZGame plant den Aufbau einer Layer-1-Blockchain, die speziell für On-Chain-Spiele entwickelt wurde, und übernimmt Hyperliquids Kernphilosophie, verlagert das Zielszenario jedoch vom Derivathandel zu Echtzeit-Wettbewerbsspielen. Die zentralen Designprinzipien:",
+        "c1": {
+          "title": "Benutzerdefinierte Ordnung",
+          "desc": "Spielaktionen werden nach Spiel-Logik-Regeln statt nach Gas-Geboten geordnet. Die Ausführungsreihenfolge von Wetten, Aufdecken und Falten wird durch die Spiel-Zustandsmaschine bestimmt, was MEV-Front-Running und Ordnungsmanipulation verhindert."
+        },
+        "c2": {
+          "title": "Vollständig gaslos",
+          "desc": "Benutzer zahlen kein Gas. Die Protokolleinnahmen stammen aus Tischgebühren (ein fester Prozentsatz pro Hand). Validatoren verdienen an Gebührenteilung und Protokoll-Inflation."
+        },
+        "c3": {
+          "title": "In-Memory-Zustandsmaschine",
+          "desc": "Hochfrequente Spielaktionen werden im Speicher ausgeführt und zur endgültigen Abrechnung an die Chain gestapelt. Spieler erleben Latenz auf Augenhöhe mit traditionellen Online-Spielen, nicht die sekundenlangen Bestätigungen typischer Chains."
+        }
+      },
+      "s4": {
+        "title": "Geschäftsmodell-Vergleich",
+        "table": {
+          "col1": "Dimension",
+          "col2": "Allzweck-Chain-Gas-Modell",
+          "col3": "Hyperliquid-Tischgebühren-Modell",
+          "col4": "ZGame-L1-Tischgebühren-Modell",
+          "r1": {
+            "c1": "Benutzerzahlung",
+            "c2": "Gas pro Aktion",
+            "c3": "Null Gas, nur Handelsgebühren",
+            "c4": "Null Gas, nur Tischgebühren"
+          },
+          "r2": {
+            "c1": "Einnahmequelle",
+            "c2": "Gas-Gebühren → Miner/Validatoren",
+            "c3": "Handelsgebühren → Validatoren",
+            "c4": "Tischgebühren → Validatoren"
+          },
+          "r3": {
+            "c1": "Ordnungslogik",
+            "c2": "Gas-Preis-Priorität",
+            "c3": "Order-Matching-Engine",
+            "c4": "Spiel-Zustandsmaschine getrieben"
+          },
+          "r4": {
+            "c1": "MEV-Risiko",
+            "c2": "Hoch (Front-Running, Sandwich)",
+            "c3": "Niedrig (On-Chain-Orderbuch)",
+            "c4": "Sehr niedrig (Spiel-Logik-Ordnung)"
+          },
+          "r5": {
+            "c1": "Benutzererfahrung",
+            "c2": "Wallet + Gas-Management",
+            "c3": "CEX-Grade-glatt",
+            "c4": "Traditionelles Spiel-Grade"
+          },
+          "r6": {
+            "c1": "Einnahme-Selbstkonsistenz",
+            "c2": "Gas-Gebühr ist volatil",
+            "c3": "Gebühr skaliert mit Volumen",
+            "c4": "Gebühr skaliert mit aktiven Tischen"
+          }
+        },
+        "conclusion": "Die Kernlogik dieses Geschäftsmodells ist: mehr Spieler → mehr aktive Tische → mehr Tischgebühren-Einnahmen → bessere Validator-Erträge → stärkere Netzwerksicherheit → besseres Spielerlebnis. Es ist ein vollständig selbstkonsistentes positives Schwungrad, im gleichen Geist wie Hyperliquids Erfolg im Derivathandel."
+      }
+    },
+    "ch11": {
+      "title": "11 Zero-Knowledge Virtual Machine: Das ultimative On-Chain-Spielerlebnis",
+      "s1": {
+        "title": "Die Berechnungsherausforderung für Spielzustand",
+        "p1": "Selbst auf einer Custom L1 steht die traditionelle Blockchain-Verifikation vor einem grundlegenden Konflikt: Die Pro-Knoten-Kosten für die On-Chain-Verifikation jeder Transaktion begrenzen die Komplexität jeder einzelnen Transaktion. ZGames kryptografische Proofs (besonders die 52-Karten-Permutationsverifikation des ShuffleProof) liegen bereits an der Obergrenze der Pro-Tx-Berechnung. Komplexere Spielgenres — Echtzeit-Strategie, Open-World-Erkundung, Physiksimulation — haben Zustandsberechnungsanforderungen, die die Grenzen der On-Chain-Ausführung heute bei weitem überschreiten."
+      },
+      "s2": {
+        "title": "Hypernova: Eine kontinuierlich laufende Zero-Knowledge-VM",
+        "p1": "ZGame erkundet die Hypernova-Grenze — den Aufbau einer kontinuierlich laufenden Zero-Knowledge-Virtual-Machine (Succinct Zero-Knowledge VM). Die Kernideen:",
+        "l1": {
+          "title": "Off-Chain-Ausführung, On-Chain-Proof",
+          "desc": "Spiel-Logik läuft in einer leistungsstarken Off-Chain-Umgebung (ähnlich traditionellen Game-Servern) und gibt regelmäßig einen ZK-Proof aus, der zeigt, dass alle Zustandsübergänge seit dem letzten Proof-Punkt gültig sind. Die Chain verifiziert nur einen prägnanten Proof, anstatt jede Operation neu auszuführen."
+        },
+        "l2": {
+          "title": "Inkrementelle Proofs",
+          "desc": "Durch inkrementelles verifizierbares Rechnen muss jeder Proof nur die neu hinzugekommenen Berechnungen abdecken, nicht von vorne beginnen. So kann ein kontinuierlich laufender Spielzustand effizient kumulative Proofs ausgeben."
+        },
+        "l3": {
+          "title": "Sub-Sekunden-Reaktion",
+          "desc": "Da die Chain nur einen Proof prüft (nicht jede Operation), sinkt die Spieler-Bestätigungslatenz auf unter eine Sekunde, was dem Erlebnis traditioneller Online-Spiele entspricht."
+        }
+      },
+      "s3": {
+        "title": "Was dies für ZGame bedeutet",
+        "p1": "Hypernova erweitert ZGames Reichweite von 'Texas Hold'em' auf jedes On-Chain-Spielszenario:",
+        "c1": {
+          "title": "Unbegrenzte Berechnung",
+          "desc": "Unabhängig von der Spielkomplexität sind die On-Chain-Verifikationskosten konstant. Unterstützt Physik-Engines, KI-Entscheidungen, Large-World-Generierung und andere rechenintensive Spiele."
+        },
+        "c2": {
+          "title": "Datenschutz-Erweiterung",
+          "desc": "ZK-Proofs verifizieren nicht nur die Operationslegalität, sondern verbergen auch Spiel-Zustands-Details (z. B. Handkarten in Kartenspielen, Truppenbereitstellungen in Strategiespielen)."
+        },
+        "c3": {
+          "title": "Spielübergreifende Komposition",
+          "desc": "Mehrere Spiele teilen sich die gleiche ZK-VM und ermöglichen spielübergreifenden vertrauenswürdigen Transfer von Vermögenswerten und Zuständen, wodurch eine einheitliche Basisschicht für On-Chain-Spielwirtschaften aufgebaut wird."
+        }
+      }
+    },
+    "ch12": {
+      "title": "12 Die Vision: Eine vertrauenslose On-Chain-Spielwirtschaft",
+      "intro": {
+        "mark": "Wir bauen die Infrastrukturschicht für die gesamte On-Chain-Spielindustrie auf",
+        "tail": " — eine vertrauenslose Spielwirtschaft, die auf Zero-Knowledge-Proofs basiert."
+      },
+      "s1": {
+        "title": "Vom Poker zu Multi-Genre-Spielen",
+        "p1": "ZGames Mental-Poker-Protokoll ist eine Instanz eines breiteren 'Mental-Game'-Musters. Seine kryptografischen Kernprimitive — verschlüsselter Zustand, verteilte Entschlüsselung, verifizierbarer Zustandsübergang — können direkt auf andere Spielgenres portiert werden:",
+        "l1": {
+          "title": "Kartenspiele",
+          "desc": "TCG, Hearthstone-ähnliche Schlachten, UNO und mehr können alle das verschlüsselte-Deck- und Reveal-Token-Protokoll wiederverwenden."
+        },
+        "l2": {
+          "title": "Brettspiele",
+          "desc": "Go, Schach und andere Brettspiele stehen auf der Chain vor dem Problem, dass 'öffentlicher Zustand deine Strategie preisgibt'; ZK-Proofs können Zwischenzüge verbergen und erst am Ende den vollständigen Spielverlauf veröffentlichen."
+        },
+        "l3": {
+          "title": "Tabletop & Social Deduction",
+          "desc": "Mafia, Avalon und ähnliche Spiele benötigen ein Gleichgewicht zwischen 'versteckten Informationen' und 'verifizierbarer Fairness' — ZGames kryptografische Grundlage gilt direkt."
+        },
+        "l4": {
+          "title": "MMO und Open World",
+          "desc": "Angetrieben von der Hypernova-ZK-VM können Echtzeit-Open-World-Spiele komplexe Zustände sicher On-Chain ausführen und wahre Vermögens-Eigentümerschaft und eine verifizierbare Wirtschaft erreichen."
+        }
+      },
+      "s2": {
+        "title": "Die vertrauenslose Wirtschaft",
+        "p1": "Traditionelle On-Chain-Spiele leiden unter einem grundlegenden Problem: Spieler können nicht darauf vertrauen, dass der Betreiber nicht im Dunkeln Drop-Raten, wirtschaftliche Parameter oder Vermögensemissionen manipuliert. ZGames kryptografisches Schema gibt der gesamten On-Chain-Spielindustrie eine verifizierbare Vertrauensgrundlage:",
+        "v1": {
+          "title": "Kernprinzip: Verifizierbare Fairness",
+          "desc": "Jedes zufällige Ereignis, jeder Zustandsübergang und jeder Vermögensfluss in einem Spiel kann On-Chain über ZK-Proofs verifiziert werden. Betreiber können Ergebnisse nicht im Dunkeln manipulieren, und Spieler müssen niemandem vertrauen."
+        },
+        "v2": {
+          "title": "Kernprinzip: Vermögens-Souveränität",
+          "desc": "In-Game-Vermögenswerte — Chips, Gegenstände, Charaktere, Land — existieren als On-Chain-Token und geben den Spielern wahres Eigentum. Egal wie sich der Betreiber ändert, die Vermögenswerte der Spieler bleiben sicher."
+        },
+        "v3": {
+          "title": "Kernprinzip: Spielübergreifende Interoperabilität",
+          "desc": "Alle Spiele auf der Custom L1 teilen sich eine einheitliche Wirtschaftsschicht und Identitätsschicht. In einem Spiel verdiente Vermögenswerte können in einem anderen verwendet werden, was eine wahre On-Chain-Spiel-Metaverse-Wirtschaft aufbaut."
+        }
+      },
+      "s3": {
+        "title": "Roadmap",
+        "p1": {
+          "title": "Phase 1: MVP (Abgeschlossen)",
+          "desc": "Kern-Mental-Poker-Protokollimplementierung, 6 ZK-Proofs, vollständiger Texas-Hold'em-Flow, Social-Account-Anmeldung, gasfreies Erlebnis."
+        },
+        "p2": {
+          "title": "Phase 2: On-Chain-Verifikationshärtung",
+          "desc": "Migration der ZK-Proof-Verifikation von der Off-Chain-Vorverifikation zur On-Chain-Vertrag-Verifikation, was ein vollständig gegenüber dem Relay vertrauensloses Sicherheitsmodell erreicht."
+        },
+        "p3": {
+          "title": "Phase 3: Multi-Genre-Spiel-Erweiterung",
+          "desc": "Erweiterung des Mental-Game-Protokolls auf andere Poker-Varianten (Omaha, Stud) und verschlüsselte Kartenspiel-Genres, um die Allgemeinheit des Protokolls zu validieren."
+        },
+        "p4": {
+          "title": "Phase 4: Custom Game L1",
+          "desc": "Aufbau einer Layer 1, die speziell für Spielszenarien entwickelt wurde, mit benutzerdefinierter Ordnung, vollständig gaslos und dem Tischgebühren-Geschäftsmodell, was die Performance-Engpässe der Allzweck-Chain beseitigt."
+        },
+        "p5": {
+          "title": "Phase 5: Zero-Knowledge Virtual Machine",
+          "desc": "Integration der Hypernova-ZK-VM, Verwirklichung des Off-Chain-Ausführungs- + On-Chain-Proof-Berechnungsparadigmas, Unterstützung von On-Chain-Spielen beliebiger Komplexität mit Sub-Sekunden-Bestätigungslatenz."
+        },
+        "p6": {
+          "title": "Phase 6: Spielwirtschafts-Ökosystem",
+          "desc": "Öffnung der Custom L1 und ZK-VM für Drittanbieter-Spielentwickler, Aufbau einer vertrauenslosen Spielwirtschaft, die jedes Genre umspannt. Erreichen spielübergreifender Vermögens-Interoperabilität und einer einheitlichen Identitätsschicht."
+        },
+        "p7": {
+          "title": "Phase 7: Dezentrale Governance",
+          "desc": "Einführung von DAO-Governance, mit Community-getriebenen Protokoll-Upgrades, Parameteranpassungen und Tischgebührenverteilung, was ein vollständig dezentrales Spielprotokoll erreicht."
+        }
+      }
+    },
+    "ch13": {
+      "title": "13 Fazit",
+      "intro": {
+        "mark": "Keine Partei kann eine verdeckte Karte vor dem Austeilen vorhersagen.",
+        "tail": " ZGame zeigt eine reale Anwendung der Grenzkryptografie im Blockchain-Gaming. Durch BLS12-381-ElGamal-Verschlüsselung, sechs Zero-Knowledge-Proofs und ein verteiltes Entschlüsselungsprotokoll erreicht ZGame eine Sicherheitsgarantie in einer vollständig dezentralen Umgebung, die traditionelles Online-Poker nie erreichen konnte."
+      },
+      "p2": "Aber ZGames Ambition endet hier nicht. Mit einer Custom L1, die Spielszenarien gewidmet ist, und einer ZK-Virtual-Machine, die die On-Chain-Berechnungsobergrenze durchbricht, entwickelt sich ZGame von einem Poker-Spiel zur Infrastrukturschicht für die gesamte On-Chain-Spielindustrie. Auf dieser Infrastruktur können Spieleentwickler jede Art von On-Chain-Spiel bauen, Spieler können wirklich Eigentümer ihrer Vermögenswerte sein, und Betreiber können Ergebnisse nicht mehr im Dunkeln manipulieren.",
+      "p3": "Hyperliquid bewies die Tragfähigkeit und kommerzielle Selbstkonsistenz des 'anwendungsspezifische Chain + Tischgebühren-Modells' im Derivathandel. ZGame bringt dieses Paradigma ins Gaming und geht noch weiter, indem es die einzigartigen Informationsasymmetrie-Anforderungen des Gamings durch Zero-Knowledge-Proofs erfüllt. Wenn Spiele nicht mehr erfordern, dass Spieler jemandem vertrauen, und Vermögenswerte keinem zentralisierten Server mehr unterworfen sind, werden On-Chain-Spiele wirklich das nächste Billionen-Dollar-Web3-Vertikal."
+    },
+    "footer": {
+      "title": "Referenzen",
+      "c1": "Shamir, Rivest, Adleman. \"Mental Poker.\" MIT, 1981. — Das bahnbrechende Papier, das das kryptografische Poker-Problem und seine grundlegende Lösung definierte.",
+      "c2": "BLS12-381: New Pairings for Faster IETF Post-Quantum Cryptography. — Bowe, Habock, Drijvers et al., Einführung einer effizienten pairing-freundlichen Kurve.",
+      "c3": "BLS12-381 Kryptografische Primitive Dokumentation. — https://docs.starknet.io/",
+      "c4": "Hyperliquid Offizielle Dokumentation und Architektur. — https://app.hyperliquid.xyz",
+      "c5": "L1-Gebührenlandschaft verschoben: Hyperliquid und BNB Chain steigen auf 40% und 20%. — Branchendatenbericht, Oktober 2025.",
+      "c6": "Hyperliquid: Null-Gas-Modell und Validator-Ökonomie-Analyse. — Technische Analyse, August 2025.",
+      "c7": "Hypernova: Succinct Proofs for Incremental Computation. — Grenzforschung zu inkrementellem verifizierbarem Rechnen und kontinuierlich laufenden ZK-VMs.",
+      "signoff": "ZGame Whitepaper v2.0 · Juli 2026 · Dieses Dokument dient nur technischen Referenzzwecken"
+    }
+  },
+  "homepage_footer-whitepaper": "Whitepaper",
+  "socket_error_INSUFFICIENT_CHIPS": "Nicht genug Chips: Bitte stellen Sie sicher, dass Ihr Buy-in on-chain bestätigt ist, oder senken Sie den Betrag",
+  "socket_error_BUYIN_TX_PENDING": "Buy-in wird noch bestätigt, bitte warten Sie einige Sekunden und versuchen Sie es erneut",
+  "socket_error_BUYIN_TX_REVERTED": "Buy-in fehlgeschlagen: Prüfen Sie die Transaktion in Ihrer Wallet",
+  "socket_error_BUYIN_VERIFY_FAILED": "Buy-in-Verifizierung fehlgeschlagen: Bitte wiederholen Sie oder kontaktieren Sie den Support",
+  "socket_error_AMOUNT_POSITIVE": "Buy-in-Betrag muss größer als 0 sein",
+  "socket_error_AMOUNT_TOO_LARGE": "Buy-in-Betrag überschreitet das Limit",
+  "socket_error_AUTH_FAILED": "Sitzung abgelaufen, bitte Wallet neu verbinden",
+  "socket_error_NOT_TURN_OR_PHASE": "Sie sind nicht am Zug oder die Hand ist nicht in einer Wettphase",
+  "socket_error_SIG_INVALID": "Signaturprüfung fehlgeschlagen, bitte Seite neu laden",
+  "socket_error_SEQ_NON_MONOTONIC": "Aktionssequenzfehler, bitte Seite neu laden",
+  "main_page-guest-name": "Spieler",
+  "navmenu-aria_label": "Navigationsmenü",
+  "seat_buyin-amount-label": "Buy-in-Betrag (Chips)",
+  "playerkey-title": "Tisch-Identitätsschlüssel",
+  "playerkey-mode-random": "Zufallsschlüssel",
+  "playerkey-mode-passphrase": "Passphrase-abgeleitet",
+  "playerkey-mode-legacy": "Legacy-Wallet-abgeleitet",
+  "playerkey-current-pk": "Aktueller pk: ",
+  "playerkey-no-key": "Nicht erzeugt",
+  "playerkey-passphrase-label": "Wiederherstellungs-Passphrase",
+  "playerkey-passphrase-placeholder": "mind. 8 Zeichen",
+  "playerkey-btn-passphrase": "Mit Passphrase erzeugen/wiederherstellen",
+  "playerkey-btn-random": "Zufallsschlüssel verwenden",
+  "playerkey-tip-passphrase": "Dieselbe Passphrase erzeugt auf jedem Gerät dieselbe Identität; eine vergessene Passphrase ist unwiederbringlich; niemals die Wallet-Seed-Phrase verwenden",
+  "playerkey-tip-random": "Neue zufällige Identität erzeugen (verzichtet auf Wiederherstellbarkeit)",
+  "playerkey-msg-switched-passphrase": "Identität auf Passphrase-Ableitung umgestellt: bewahre die Passphrase sicher auf — sie stellt diese Identität auf jedem Gerät wieder her",
+  "playerkey-msg-switched-random": "Identität auf Zufallsschlüssel umgestellt (keine geräteübergreifende Wiederherstellung)",
+  "playerkey-msg-failed": "Wechsel fehlgeschlagen",
+  "playerkey-msg-failed-console": "Wechsel fehlgeschlagen (siehe Konsole)",
+  "playerkey-warning": "Ein Identitätswechsel mitten in einer Hand verwirkt deine Sitzpflichten (Timeout/Kick). Am besten zwischen den Händen.",
+  "claim-title": "Belohnungen abheben",
+  "claim-hero-label": "Verfügbar",
+  "claim-chips-unit": "Chips",
+  "claim-check-title": "Voraussetzungen",
+  "claim-reverify": "Erneut prüfen",
+  "claim-reverifying": "Prüfe…",
+  "claim-payout-name": "Payout-Commitment (unser Vertrag)",
+  "claim-status-registered": "Registriert ✓",
+  "claim-status-checking": "Prüfe…",
+  "claim-register-btn": "Ein-Klick-Registrierung",
+  "claim-registering": "Registriere…",
+  "claim-wrong-network": "Die Wallet ist nicht im Sepolia-Testnetz. Nach Neuinstallation/Update startet Ready im Mainnet, wo private Aktionen abgelehnt werden (151 TOKEN_NOT_SUPPORTED). Bitte Ready auf Sepolia Testnet umschalten und erneut versuchen.",
+  "claim-payout-detail": "Einmal registrieren, damit abgerechnete Belohnungen privat abgehoben werden können (on-chain-Registrierung im Vertrag)",
+  "claim-payout-tip": "Payout-Commitment einreichen (einmalige On-Chain-Transaktion, mit jeder Wallet möglich)",
+  "claim-pool-name": "Pool-Viewing-Key (Ready-Privatsystem)",
+  "claim-status-unsupported": "Wallet nicht unterstützt",
+  "claim-pool-tip": "0,01 STRK in den Privacy-Pool shielden: Die Wallet zeigt nacheinander eine Approve- und eine Deposit-Bestätigung (keine doppelten Transaktionen); der Viewing-Key wird automatisch registriert (Betrag bleibt als Pool-Guthaben)",
+  "claim-pool-balance": "Geschütztes Pool-Guthaben {balance} STRK",
+  "claim-pool-need-api": "Erfordert eine Wallet mit STRK20 Wallet API ≥ {min} (z. B. Ready)",
+  "claim-wallet-api-label": "Wallet API",
+  "claim-wallet-api-none": "Nicht gemeldet (Wallet nicht unterstützt oder zu alt)",
+  "claim-pool-never-joined": "Noch nie im Pool: Die Ein-Klick-Registrierung shieldt 0,01 STRK, die als Pool-Guthaben verbleiben",
+  "claim-pool-balance-checking": "Pool-Guthaben wird geprüft…",
+  "claim-guide-collapse": "Anleitung ausblenden",
+  "claim-guide-expand": "Registrierungsanleitung (Shield in der Wallet)",
+  "claim-guide-step1": "Ready-Wallet öffnen → STRK-Asset-Seite → \"Shield / Pool beitreten\" (Eingang zum Privacy-Pool)",
+  "claim-guide-step2": "Einmal einen kleinen Betrag shielden (z. B. 0,01 STRK); die Wallet zeigt nacheinander eine Approve- und eine Deposit-Bestätigung (keine doppelten Transaktionen)",
+  "claim-guide-step3": "Beim ersten Pool-Beitritt wird die Registrierung automatisch abgeschlossen — der Viewing-Key liegt nur in deiner Wallet; die dapp kann ihn nicht für dich registrieren",
+  "claim-guide-step4": "Zurück hierher und erneut prüfen; sobald diese Zeile grün wird, ist privates Abheben möglich",
+  "claim-guide-reverify": "Shield in der Wallet abgeschlossen — erneut prüfen",
+  "claim-blocked-unsupported": "Die aktuelle Wallet unterstützt keine STRK20-Privattransaktionen (erfordert Wallet API ≥ 0.10.3, z. B. Ready)",
+  "claim-blocked-version": "Wallet-API-Version ({versions}) ist niedriger als 0.10.3 und unterstützt keine STRK20-Privattransaktionen — bitte Ready aktualisieren",
+  "claim-blocked-pool": "Privacy-Pool noch nicht registriert: oben \"Ein-Klick-Registrierung\" nutzen, dann privat abheben",
+  "claim-blocked-balance": "Unzureichendes Pool-Guthaben: zuerst STRK in den Privacy-Pool shielden (privates Abheben erfordert Guthaben ≥ Abhebebetrags; es wird danach zurückgegeben)",
+  "claim-blocked-locked": "Gesamtes Guthaben ist am Tisch gesperrt (Buy-in-Sperre): 12h nach der letzten Hand entsperrbar — klicke nach Ablauf auf „Entsperren“",
+  "claim-locked-notice": "Tischgesperrte {amount} STRK: Beim Sitzplatz-Einstieg gesperrte Buy-in-Chips; sie werden innerhalb von 12 Stunden nach dem Verlassen freigegeben und können bis dahin nicht abgehoben oder ausgezahlt werden",
+  "claim-error-empty": "Keine abhebbaren Chips",
+  "claim-error-failed": "Abheben fehlgeschlagen",
+  "claim-submit-private": "Privates Abheben",
+  "claim-submit-public": "Öffentliche Auszahlung",
+  "claim-submitting": "Wird übermittelt…",
+  "claim-note-private": "Zugehörigkeit verborgen: Belohnungen gehen in einen Pool-Beleg, nur den du scannen kannst",
+  "claim-note-public": "Direkt an deine Wallet-Adresse, on-chain öffentlich einsehbar",
+  "claim-private-tip": "Zwei-Schritt-Pool-Ablauf: Chips verbrennen + Besitz-verbergenden STRK-Beleg erzeugen",
+  "claim-private-tip-unsupported": "Erfordert eine Wallet mit STRK20 Wallet API (z. B. Ready)",
+  "claim-public-tip": "vault.withdraw direkt an die Wallet-Adresse (on-chain öffentlich)",
+  "claim-done-private": "Privates Abheben übermittelt — die Belohnung ist jetzt ein vertraulicher Pool-Beleg",
+  "claim-done-public": "Öffentliche Auszahlung übermittelt — STRK kommt direkt in deiner Wallet an",
+  "claim-close": "Schließen",
+  "claim-error-shield": "Shield-Übermittlung fehlgeschlagen",
+  "cookiebanner-info_aria": "Lesen Sie unsere Datenschutzerklärung, um zu erfahren, wie Cookies verwendet werden",
+  "claim-locked-line": "Am Tisch gesperrt {locked} STRK · jetzt abhebbar {claimable} STRK",
+  "claim-locked-until": "— entsperrt ~{hours}h nach deiner letzten Hand",
+  "claim-locked-expired": "— Sperre abgelaufen",
+  "claim-unlock": "Entsperren",
+  "claim-unlock-pending": "Wird entsperrt…",
+  "claim-amount-label": "Auszuzahlender Betrag (STRK)",
+  "claim-amount-max": "max. {max}",
+  "claim-amount-invalid": "Ungültiger Betrag: 0 < Betrag ≤ Maximum",
+  "game_header-hand-lbl": "Hand",
+  "game_info_min-raise-lbl": "Min. Erhöhung",
+  "game_last-hand-lbl": "Letzte Hand",
+  "game_seat-sb-lbl": "SB",
+  "game_seat-bb-lbl": "BB",
+  "game_state-info_call": "Zu callen",
+  "game_sidepot-eligible-lbl": "berechtigte Plätze",
+  "game_ui_to-call-lbl": "Zu callen",
+  "game_ui_pot-odds-lbl": "Pot Odds",
+  "game_ui_call-pct-lbl": "Call / Stack",
+  "game_ui_invested-lbl": "investiert",
+  "game_ui_preset-min": "Min",
+  "game_ui_preset-half": "1/2 Pot",
+  "game_ui_preset-pot": "Pot",
+  "game_ui_preset-allin": "All-in",
+  "seat_post-buyin-balance-label": "Guthaben nach Buy-in (Chips)",
+  "game_history-receipt-lbl": "Beleg",
+  "game_history-duration-lbl": "Dauer",
+  "game_history-actions-lbl": "Aktionen",
+  "game_history-auto-badge": "auto (Timeout)",
+  "crypto_layer-lbl": "Schicht",
+  "crypto_pending-onchain": "wartet auf Chain",
+  "game_handrank_high-card": "High Card",
+  "game_handrank_one-pair": "Ein Paar",
+  "game_handrank_two-pair": "Zwei Paare",
+  "game_handrank_three-of-a-kind": "Drilling",
+  "game_handrank_straight": "Straße",
+  "game_handrank_flush": "Flush",
+  "game_handrank_full-house": "Full House",
+  "game_handrank_four-of-a-kind": "Vierling",
+  "game_handrank_straight-flush": "Straight Flush",
+  "game_handrank_royal-flush": "Royal Flush",
+  "game_receipt-open-btn": "Hand-Beleg",
+  "game_seat-folded-lbl": "Gepasst",
+  "game_seat-waiting-lbl": "Wartet",
+  "game_seat-acting-lbl": "Am Zug",
+  "game_seat-acted-lbl": "Gehandelt",
+  "game_seat-online-lbl": "Online",
+  "seat_buyin-ctx-label": "Buy-in · On-Chain Verwahrung",
+  "seat_buyin-step-hint": "Schritt",
+  "seat_buyin-unaffordable": "Nicht genügend Guthaben: Betrag senken oder STRK aufladen.",
+  "seat_buyin-real-asset-note": "Der Buy-in gilt erst nach Gutschrift durch das On-Chain-Vault; ohne Erfolg keine Abbuchung. Echtes Geld — bitte prüfen.",
+  "lobby_desc-join_table": "5 Plätze · NLH",
+  "lobby_foot-join_table": "3 Plätze frei · sofort",
+  "lobby_desc-quick_game": "Schnelles Spiel",
+  "lobby_foot-quick_game": "Ø 4s Wartezeit",
+  "lobby_desc-open_shop": "Chips aufladen",
+  "lobby_foot-open_shop": "DEMNÄCHST",
+  "lobby_desc-open_rules": "Regeln & ZK-Fairness",
+  "lobby_foot-open_rules": "12 Kapitel · ~15 Min",
+  "lobby_meta-connected": "verbunden · lokales Dev",
+  "navbar_lobby_btn": "Lobby",
+  "navbar-dashboard_btn": "Profil",
+  "navbar-whitepaper_btn": "Whitepaper",
+  "navmenu-logout": "Abmelden"
+}

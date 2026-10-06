@@ -1,0 +1,80 @@
+[package]
+name = "groth16-wrap"
+version = "0.1.0"
+edition = "2021"
+license = "BUSL-1.1"
+description = "单手 STARK→Groth16 包裹：把 prove-hand 公开段（program_hash‖output）的 fact 一致性语句包装成 BN254 Groth16，可上 Monad EVM 验证"
+publish = false
+
+# 电路与验证实现：upstream arkworks 0.6（ark-groth16 + ark-bn254 + ark-r1cs-std）。
+# 注：0.5.0 的 emulated 非原生算术在长加法/减法链上存在约束不满足缺陷
+# （roundtrip 实测 is_satisfied=false，常量链一致但 witness 链断），0.6 重写
+# 的 emulated_fp 修复；全部 0.6 crate 本地 registry 均有缓存。
+# poseidon 电路复刻 starknet-crypto 0.8 / lambdaworks-crypto-0.13 的 Hades
+# （R_F=8, R_P=83, t=3, sbox x³/ALPHA=3），与 fact-verify 的 fact 公式逐位对齐。
+
+[dependencies]
+ark-ff = "0.6"
+ark-ec = "0.6"
+ark-bn254 = { version = "0.6", features = ["curve"] }
+ark-relations = "0.6"
+ark-r1cs-std = "0.6"
+ark-groth16 = "0.6"
+ark-serialize = "0.6"
+ark-std = "0.6"
+# fact 公式/金向量对拍用：与 fact-verify / proving-tool 同一 poseidon_hash_many
+starknet-crypto = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+hex = { workspace = true }
+anyhow = "1.0.98"
+rand = { workspace = true }
+# 批次根两算：keccak 批根（链上 SettleBatch 登记）+ blake2s32 域标签
+# （appchain 批根复刻，对拍 poker-appchain 冻结金向量）
+sha3 = { workspace = true }
+blake2 = { workspace = true }
+# bench-stark 说明：bench-verify 以**子进程**方式复用独立工作区 fact-verify
+# 的 CLI（同 stwo verify_cairo 真实验证）。不作为 cargo 依赖——fact-verify
+# 是刻意独立的工作区（见其 Cargo.toml），且嵌套 workspace 根解析会把
+# third_party/proving 的 edition.workspace 继承错误地落到本仓根。
+#
+# T3-FRI wrap（out/t3-fri-wrap-design.md）：fold 证明本身用 stwo 2.3 的
+# Poseidon252 通道/承诺，故 FRI 查询层可在 BN254 Fr 内原生验证（无仿真算术；
+# M31 乘法 mod 2^31−1 用约束 gadget）。依赖 stwo 本体只为读取证明结构与
+# 几何/商公式常量（pub API），真实验证由 fri_ref（参照）+ fri_circuit
+# （R1CS）独立完成，并与 stwo verify 差分对拍。
+stwo = { workspace = true }
+stwo-constraint-framework = { workspace = true }
+# stwo 的 Merkle 哈希类型是 starknet-ff FieldElement（≠ starknet-crypto 0.8 的
+# types-core Felt）；仅做按字节转换，已在依赖图内，不新增编译。
+starknet-ff = "0.3"
+
+# T3-FRI：extract 直接调用 fold 证明生成/尺寸 API（同工作区 path 依赖）。
+hand-verify-native = { path = "../poker_contracts/hand-verify-native" }
+
+[features]
+default = []
+# 批量口径 N（实现 C；默认 BATCH_N=16）：n8 = 本机（36GB）金向量缩样，
+# n64 = 32G+ 机器专用（N=64 ≈ 2.9 亿约束，本机不可行——见 batch.rs 注释）
+n8 = []
+n64 = []
+
+[[bin]]
+name = "wrap-proof"
+path = "src/bin/wrap_proof.rs"
+
+[[bin]]
+name = "bench-verify"
+path = "src/bin/bench_verify.rs"
+
+[[bin]]
+name = "gen-sol"
+path = "src/bin/gen_sol.rs"
+
+[[bin]]
+name = "gen-sol-batch"
+path = "src/bin/gen_sol_batch.rs"
+
+[lints.rust]
+# ark-ff MontConfig derive 内部引用 cfg(asm)（本仓工具链未定义该 cfg）
+unexpected_cfgs = { level = "allow", check-cfg = ['cfg(asm)'] }

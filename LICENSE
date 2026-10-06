@@ -1,0 +1,62 @@
+Business Source License 1.1
+
+Parameters
+
+Licensor:             poker_texas_air contributors ("Licensor")
+Licensed Work:        poker_texas_air — provably-fair mental-poker Texas
+                      Hold'em with dual-proof (on-chain secp256k1 sigma +
+                      STARK) settlement on Starknet
+Additional Use Grant: Permission is granted, free of charge, to use the
+                      Licensed Work for:
+                        (a) non-commercial purposes, including personal use,
+                            academic research, and education;
+                        (b) evaluation, hackathon judging, and demonstration
+                            in the context of the STRK20 Private Sprint and
+                            similar public hackathon programs;
+                        (c) contributing improvements back to the Licensor's
+                            official repository.
+Change Date:          2029-12-31
+Change License:       Apache License 2.0
+
+Terms
+
+The Licensor hereby grants you the right to copy, modify, create derivative
+works, redistribute, and make non-commercial use of the Licensed Work. The
+Licensor grants you any additional rights of use set forth in the Additional
+Use Grant above, provided your use complies with its terms.
+
+Commercial use of the Licensed Work — including, but not limited to, offering
+the Licensed Work or a derivative of it as a product or service with paid
+access, integrating it into a revenue-generating offering, or reselling it —
+is prohibited unless you have a separate written commercial license from the
+Licensor.
+
+For the purposes of this license, "commercial use" does not include operating
+a game table or community deployment where no fees, subscriptions, or
+revenue-sharing are collected from players for the Licensed Work itself.
+
+If you instantiate the Licensed Work or a derivative of it as part of a
+product or service with paid access, you must preserve and display this
+notice, including the Change Date and Change License, to all users.
+
+NOTICE
+
+The Licensed Work embeds third-party components under their own permissive
+licenses, which are NOT restricted by this license and remain governed by
+their original terms. In particular:
+  - third_party/proving: StarkWare "proving" stack (Stwo, Cairo prover,
+    Cairo VM adapter, cairo-air), Apache License 2.0, Copyright StarkWare
+    Ltd. (with local patches; see third_party/PATCHES.md)
+  - third_party/corelib-2.19.4: StarkWare Cairo core library, Apache
+    License 2.0
+  - third_party/flock: vendored binary-field STARK prover fork,
+    MIT OR Apache-2.0
+  - Cairo contracts in poker_contracts/ use OpenZeppelin (Apache-2.0) and
+    snforge_std (MIT) components
+  - Rust dependencies: per the workspace manifests (typically MIT OR
+    Apache-2.0); see Cargo.lock for the full list.
+
+Nothing in this license limits the rights granted by those upstream
+licenses to any recipient of the Licensed Work.
+
+To obtain a commercial license, contact the repository owner.

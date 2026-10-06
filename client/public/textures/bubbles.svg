@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none" aria-hidden="true" focusable="false">
+  <!-- Bubbles pattern — 4 circles per tile, varying radii and tints of brand indigo/purple.
+       Designed to be tiled via CSS background-repeat at low opacity for a subtle ambient texture. -->
+  <circle cx="14" cy="14" r="3" fill="rgba(102, 126, 234, 0.35)" />
+  <circle cx="14" cy="14" r="1" fill="rgba(102, 126, 234, 0.55)" />
+  <circle cx="58" cy="34" r="4" fill="rgba(118, 75, 162, 0.3)" />
+  <circle cx="58" cy="34" r="1.4" fill="rgba(118, 75, 162, 0.5)" />
+  <circle cx="30" cy="60" r="2.5" fill="rgba(102, 126, 234, 0.3)" />
+  <circle cx="30" cy="60" r="0.9" fill="rgba(102, 126, 234, 0.5)" />
+  <circle cx="68" cy="68" r="1.8" fill="rgba(118, 75, 162, 0.35)" />
+</svg>

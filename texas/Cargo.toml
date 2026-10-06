@@ -1,0 +1,97 @@
+[package]
+name = "texas"
+version = "0.2.0"
+edition = "2024"
+license = "BUSL-1.1"
+description = "Secret poker game server: socket.io game loop + Starknet settlement (STRK20 RFP-03)"
+
+[dependencies]
+hand-verify-native = { path = "../poker_contracts/hand-verify-native" }
+axum = "0.7"
+tower = { version = "0.4", features = ["util"] }
+tower-http = { version = "0.6", features = ["cors", "trace"] }
+socketioxide = { version = "0.18.3", features = ["state"] }
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+# json feature：Starknet JSON-RPC 调用需要 serde_json 序列化请求体。
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "json"] }
+jsonwebtoken = "9"
+rand = "0.8"
+chrono = { version = "0.4", features = ["serde"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+dotenv = "0.15"
+itertools = "0.14"
+hex = "0.4"
+
+# ===== 协议栈（单一真源；poker-protocol 系列已拆至独立 git 仓库）=====
+# Plan D（2026-09-05）：Stark 曲线唯一世界；legacy-bls381/blst 已移除。
+poker_protocol = { workspace = true, features = ["borsh", "stark-curve"] }
+poker_l1 = { path = "../poker_l1" }
+poker_texas_air = { path = ".." }
+poker-protocol-core = { workspace = true }
+# 注：镜像层的 ptx_protocol 别名已改为在 mirror.rs 内 `use poker_protocol as ptx_protocol;`
+# （cargo 不允许同一路径依赖以不同名字出现两次）。
+
+# --- Starknet 链上交互 ---
+starknet = "0.17"
+url = "2"
+# Monad(EVM) L1Bridge 事件主题 / selector 哈希（monad_bridge.rs）。
+sha3 = { workspace = true }
+clap = { version = "4", features = ["derive"] }
+borsh = "1.5"
+# SNIP-36：prover 返回的 base64 证明 → uint32 数组（proof 字段）。
+base64 = "0.22"
+
+# ===== B6/B7：appchain 结算出口与出入金桥（zchain 侧纯库依赖）=====
+# 嵌入式 sequencer（WAL + 软确认链 + Settle/Deposit/Withdraw 操作集）、
+# ProofPipeline（SettlementProver seam）与 CustodyLedger（提现 finality 门
+# + 对账）。poker-appchain 属 zchain workspace（workspace 继承依赖经其自身
+# workspace 解析）；starknet-crypto 0.6（zchain 侧）与 0.8（本工作区）为
+# semver 不兼容双版本共存，Felt 类型不跨边界（poker-appchain 公开 API 全部
+# 用 [u8; 32] 字节形态，无跨 Felt 桥接）。
+# 依赖走 https git + 钉 rev（不能用仓外 path：CI 托管 runner 上不存在
+# ../../zchain checkout）。本地开发如需跟随未推送的 zchain 改动，在根
+# Cargo.toml 追加：
+#   [patch."https://github.com/linqining/zchain.git"]
+#   poker-appchain = { path = "../zchain/poker-appchain" }
+#   poker-settlement-core = { path = "../zchain/poker-settlement-core" }
+poker-appchain = { git = "https://github.com/linqining/zchain.git", tag = "appchain-sdk-v0.1" }
+# 结算语义唯一事实源：SettlementPlan / derive_settlement_plan / rake_for。
+poker-settlement-core = { git = "https://github.com/linqining/zchain.git", tag = "appchain-sdk-v0.1" }
+# attestation v2.1 签名（poker-appchain 同版本 2.1.1，同一实例）。
+ed25519-dalek = "2.1.1"
+# Poseidon（Plan D v2 reveal_commitment + settlement digest 重算）。
+# 全仓统一 0.8：Felt = starknet-types-core Felt，与 starknet 0.17 的
+# types::Felt、poker_texas_air / hand-verify-native 的公开类型同一实例，
+# 无跨 Felt 桥。Poseidon 规格跨版本一致（golden vectors 自证）。
+starknet-crypto = { workspace = true }
+# STARK 曲线参数（BETA）：0.6 的 API 即 types-core Felt（纯常量表，与
+# Felt 迁移无关）；types-core 按需直接引用（dual_settle 的点解析）。
+starknet-curve = "0.6"
+starknet-types-core = { workspace = true }
+rand_core = "0.6"
+
+# ===== 批量上链接线（rollup-components follow-up 条目 1/2，2026-10-01）=====
+# settle-queue：结算任务持久化投递队列——WAL（queue.jsonl）texas 独占写
+# （Enqueued/BuildDeadLettered/Downgraded），poster sidecar 只读回读
+# （回执/投递期死信）。prove_log 仍是对账事实源，队列只管投递。
+settle-queue = { path = "../settle-queue" }
+# 隐私档位校验（PRIVACY_PROFILE，链中立；docs/design/PRIVACY_PROFILE.md）。
+privacy-profile = { workspace = true }
+# starknet-txmgr：结算发送面——nonce 租约/回执轮询/幂等重放分类
+# （replay.rs 吸收旧 is_register_replay/is_settle_replay；可见性判定归
+# txmgr 层）。calldata 构建仍在 submit.rs / dual_settle.rs。
+starknet-txmgr = { path = "../starknet-txmgr" }
+
+[dev-dependencies]
+# 测试打开 txmgr 内存 mock（MockSend）——feature 仅 dev 求并集生效。
+starknet-txmgr = { path = "../starknet-txmgr", features = ["test-mocks"] }
+
+[features]
+default = []
+
+[[bin]]
+name = "snops"
+path = "src/bin/snops.rs"

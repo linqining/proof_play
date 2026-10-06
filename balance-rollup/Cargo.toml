@@ -1,0 +1,20 @@
+[package]
+name = "balance-rollup"
+version = "0.1.0"
+edition = "2024"
+license = "BUSL-1.1"
+description = "全体玩家余额 Merkle 根随批推进（escape 地基，docs/design/PRIVACY_PROFILE.md §3）——链中立"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+# 全仓统一 Felt/Poseidon（starknet-crypto 0.8 的 Felt = starknet-types-core Felt）。
+starknet-crypto = { workspace = true }
+starknet-types-core = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+hex = { workspace = true }
+thiserror = { workspace = true }
+# escape-ledger 规格镜像:SHA-256(Monad EscapeHatch.sol 同式)。
+sha2 = { workspace = true }

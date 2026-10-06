@@ -1,0 +1,11 @@
+{
+  "_comment": "同 canonical_small.json，但 channel_hash=keccak256（EVM 上 keccak 走 precompile；Blake2s 无 precompile）。需要 third_party/proving 本地补丁：ChannelHash::Keccak256（prover_params.rs + prover.rs，2026-09-29）。金向量/参数集在 StarkVerifier 合约交付时钉死其一。",
+  "channel_hash": "keccak256",
+  "channel_salt": 0,
+  "fri_config": {"pow_bits": 26, "log_blowup_factor": 1, "log_last_layer_degree_bound": 0, "n_queries": 70, "fold_step": 1},
+  "preprocessed_trace": "canonical_small",
+  "store_polynomials_coefficients": false,
+  "include_all_preprocessed_columns": false,
+  "opt_n_id_to_big_components": null,
+  "lifting_size_policy": "auto"
+}

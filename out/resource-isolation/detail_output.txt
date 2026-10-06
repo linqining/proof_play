@@ -1,0 +1,242 @@
+=== A. 部署的守卫脚本全文 ===
+#!/usr/bin/env bash
+# zchain-monad-disk-guard.sh —— 隔离盘 90% 水位守卫（建于 2026-09-29）
+# 职责：
+#   1) /opt/zchain-monad/chain-data（6G ext4 回环镜像）用量 >= 90% → 停掉所有往镜像写数的
+#      zchain-monad 单元，并 logger 告警。写满只伤镜像，不伤系统盘。
+#   2) 系统盘 / 用量 >= 88% → logger 告警（只告警；自动处置需人工决策，避免误停无关服务）。
+#   3) 每次运行观测并记录 texas.service 状态与 MemoryCurrent —— 只观测，绝不触碰 texas。
+# 数据位置说明（为何停这几个单元）：
+#   monad-leaf@* / monad-fold@* 的产物目录、zchain-monad-node@* 的 node_%i 数据目录
+#   （迁移后）都在镜像里，镜像写满它们首当其冲，停掉即止损；
+#   monad-settlementd-monad / explorer-gateway-monad / texas-monad / texas 的数据在根盘
+#   （/opt/texas-monad 等），与镜像容量无关，绝不停。
+# 用法：zchain-monad-disk-guard.sh [--dry-run]
+#   --dry-run：完整判定但只打印不动手；健康时退出 0，若越线（本应执行 stop）退出 2。
+set -euo pipefail
+
+MP=/opt/zchain-monad/chain-data
+WATERMARK=90
+SYS_WARN=88
+TAG=zchain-monad-disk-guard
+DRY_RUN=0
+[[ "${1:-}" = "--dry-run" ]] && DRY_RUN=1
+
+# 只停“数据在镜像里”的单元（glob 由 systemctl 侧展开；没匹配到就跳过）
+UNITS=("monad-leaf@*.service" "monad-fold@*.service" "zchain-monad-node@*.service")
+
+if ! mountpoint -q "$MP"; then
+  logger -t "$TAG" -p daemon.err "chain-data mount $MP MISSING — 磁盘隔离失效，请人工介入"
+  echo "FATAL: $MP not mounted" >&2
+  exit 1
+fi
+
+pct=$(df --output=pcent "$MP" | tail -1 | tr -dc '0-9')
+syspct=$(df --output=pcent / | tail -1 | tr -dc '0-9')
+txstate=$(systemctl is-active texas.service 2>/dev/null || true)
+txmem=$(systemctl show texas.service -p MemoryCurrent --value 2>/dev/null || echo unknown)
+
+if (( pct >= WATERMARK )); then
+  logger -t "$TAG" -p daemon.warning "chain-data ${pct}% >= ${WATERMARK}% 水位 → 停 zchain-monad 写盘单元"
+  if (( DRY_RUN )); then
+    echo "DRY-RUN: would stop: ${UNITS[*]}"
+    exit 2
+  fi
+  for u in "${UNITS[@]}"; do
+    systemctl stop "$u" 2>/dev/null || true
+  done
+  logger -t "$TAG" -p daemon.warning "已停 zchain-monad 写盘单元（chain-data ${pct}%）；清理镜像后请人工重启单元"
+else
+  logger -t "$TAG" -p daemon.info "chain-data ${pct}% < ${WATERMARK}% (root fs ${syspct}%)"
+fi
+
+if (( syspct >= SYS_WARN )); then
+  logger -t "$TAG" -p daemon.warning "根盘 ${syspct}% >= ${SYS_WARN}% — 仅告警，处置需人工（不自动停单元）"
+fi
+
+# 观测生产 texas（只记录，不触碰）
+logger -t "$TAG" -p daemon.info "texas.service=${txstate} MemoryCurrent=${txmem}"
+if [[ "$txstate" != "active" ]]; then
+  logger -t "$TAG" -p daemon.err "texas.service NOT ACTIVE (${txstate}) — 与本守卫无关，立即人工介入"
+fi
+exit 0
+=== B. 守卫 dry-run 实测 ===
+guard_dryrun_exit=0
+=== C. 守卫实跑证据（journal 最近 6 小时）===
+Sep 29 12:05:07 iZj6ceq6i2o4bahz4qkraaZ systemd[1]: Finished zchain-monad-disk-guard.service - zchain-monad disk watermark guard (stops image-writing units at 90%, logs texas status).
+Sep 29 12:10:07 iZj6ceq6i2o4bahz4qkraaZ systemd[1]: Starting zchain-monad-disk-guard.service - zchain-monad disk watermark guard (stops image-writing units at 90%, logs texas status)...
+Sep 29 12:10:07 iZj6ceq6i2o4bahz4qkraaZ zchain-monad-disk-guard[240718]: texas.service=active MemoryCurrent=1078358016
+Sep 29 12:10:07 iZj6ceq6i2o4bahz4qkraaZ systemd[1]: zchain-monad-disk-guard.service: Deactivated successfully.
+Sep 29 12:10:07 iZj6ceq6i2o4bahz4qkraaZ systemd[1]: Finished zchain-monad-disk-guard.service - zchain-monad disk watermark guard (stops image-writing units at 90%, logs texas status).
+Sep 29 12:15:07 iZj6ceq6i2o4bahz4qkraaZ systemd[1]: Starting zchain-monad-disk-guard.service - zchain-monad disk watermark guard (stops image-writing units at 90%, logs texas status)...
+Sep 29 12:15:07 iZj6ceq6i2o4bahz4qkraaZ zchain-monad-disk-guard[241146]: chain-data 1% < 90% (root fs 70%)
+Sep 29 12:15:07 iZj6ceq6i2o4bahz4qkraaZ systemd[1]: zchain-monad-disk-guard.service: Deactivated successfully.
+Sep 29 12:15:07 iZj6ceq6i2o4bahz4qkraaZ systemd[1]: Finished zchain-monad-disk-guard.service - zchain-monad disk watermark guard (stops image-writing units at 90%, logs texas status).
+Sep 29 12:20:07 iZj6ceq6i2o4bahz4qkraaZ systemd[1]: Starting zchain-monad-disk-guard.service - zchain-monad disk watermark guard (stops image-writing units at 90%, logs texas status)...
+Sep 29 12:20:07 iZj6ceq6i2o4bahz4qkraaZ systemd[1]: zchain-monad-disk-guard.service: Deactivated successfully.
+Sep 29 12:20:07 iZj6ceq6i2o4bahz4qkraaZ systemd[1]: Finished zchain-monad-disk-guard.service - zchain-monad disk watermark guard (stops image-writing units at 90%, logs texas status).
+=== D. 迁移文档 ===
+total 16
+drwxr-xr-x 2 root root 4096 Sep 29 05:54 .
+drwxr-xr-x 8 root root 4096 Sep 29 05:54 ..
+-rw-r--r-- 1 root root 6610 Sep 29 05:54 node-unit-migration.md
+--- node-unit-migration.md ---
+# zchain-monad 节点单元迁移到隔离盘 —— 操作说明（本轮只写明，未执行任何迁移/未启用任何单元）
+
+建于 2026-09-29。配套：`zchain-recursion.slice`、`monad-leaf@.service`、`monad-fold@.service`、
+`zchain-monad-disk-guard.{service,timer}`、`/usr/local/sbin/zchain-monad-disk-guard.sh`、
+隔离盘 `/opt/zchain-monad/chain-data`（6G ext4 回环镜像 `/opt/zchain-monad/chain-data.img`）。
+
+## 1. 现状（2026-09-29 实测）
+
+- 节点单元：`zchain-monad-node@.service`（模板），实例 0..3，全部 **inactive + disabled**
+  （9-28 决策：4 节点链 stop+disable，恢复路径另见交接文档）。本说明只覆盖“恢复时数据落到哪”，不改变停用决策。
+- 节点数据目录：`--data-dir /opt/zchain-monad/chain/node_%i`，`WorkingDirectory=/opt/zchain-monad/chain`；
+  该目录当前仅 60K（node_%i.env / validator_%i.key/.vrf / genesis_*.json），**尚无链数据**。
+- 历史数据归档（恢复时按需选用）：
+  - `/opt/zchain-monad/chain-archive-20260928.tar.zst`（448M，monad 栈链数据）
+  - `/opt/zchain-4node-node-data-archive-20260929.tar.zst`（3.5G，旧 zchain-4node 全量，**解压前先 du 评估**）
+- 隔离盘：6G 上限、nodev/nosuid/noexec、fstab `nofail`；90% 水位守卫 timer 每 5 分钟巡检，
+  越线自动停 `monad-leaf@*` / `monad-fold@*` / `zchain-monad-node@*` 并 logger 告警
+  （tag=`zchain-monad-disk-guard`）。
+
+## 2. 迁移目标形态
+
+所有“会无限增长的链数据/证明产物”只进隔离盘：
+
+| 内容 | 隔离盘路径 | 说明 |
+|---|---|---|
+| 节点数据 node_%i | `/opt/zchain-monad/chain-data/node_%i`（经 bind 暴露到原路径，见方案 A） | 4 节点合计须 < 5.4G（=6G×90% 水位） |
+| 递归证明产物 | `/opt/zchain-monad/chain-data/artifacts/<job>/` | leaf.json/root.proof/packed 树/终证，rsync 自工位 |
+
+env/key/genesis 等小配置留在根盘 `/opt/zchain-monad/chain/`（只读敏感件，不随镜像扩容）。
+
+## 3. 方案 A（推荐）：bind mount，零单元文件改动
+
+1. 迁移数据（**复制不删源**，回退即卸载）：
+   ```
+   mkdir -p /opt/zchain-monad/chain-data/node_0
+   rsync -a /opt/zchain-monad/chain/node_0/ /opt/zchain-monad/chain-data/node_0/   # 0..3 同法
+   # 若从归档恢复：zstd -dc /opt/zchain-monad/chain-archive-20260928.tar.zst | tar -x -C /tmp/restore
+   #               再 rsync 各 node_%i 进镜像（先 du -sh 确认 4 节点合计 < 5.4G）
+   ```
+2. fstab 追加 bind 行（nofail，示例 node_0）：
+   ```
+   /opt/zchain-monad/chain-data/node_0  /opt/zchain-monad/chain/node_0  none  bind,nodev,nosuid,noexec,nofail  0 0
+   ```
+3. 挂载顺序约束（单元起前保证 bind 已挂）：`systemctl edit zchain-monad-node@0.service` 加：
+   ```
+   [Unit]
+   RequiresMountsFor=/opt/zchain-monad/chain/node_0
+   ```
+4. 回退：`systemctl stop zchain-monad-node@0 && umount /opt/zchain-monad/chain/node_0`
+   → 删 fstab 行 → `systemctl daemon-reload` → 数据原目录仍在（rsync 未删源）。
+
+## 4. 方案 B：改单元参数（不推荐首选，需 diff 单元行为）
+
+drop-in `/etc/systemd/system/zchain-monad-node@.service.d/zchain-monad-datadir.conf`：
+```
+[Service]
+ExecStart=
+ExecStart=/opt/zchain-monad/bin/zchain node --role validator --data-dir /opt/zchain-monad/chain-data/node_%i --rpc-listen 127.0.0.1:${RPC_PORT} --p2p-listen 127.0.0.1:${P2P_PORT} --validator-key-file /opt/zchain-monad/chain/validator_%i.key --vrf-key-file /opt/zchain-monad/chain/validator_%i.vrf --genesis-validators /opt/zchain-monad/chain/genesis_validators.json --genesis-alloc /opt/zchain-monad/chain/genesis_alloc.json --block-interval-ms 200 $PEER_ARGS
+```
+外加 `[Unit] RequiresMountsFor=/opt/zchain-monad/chain-data`。
+回退：`rm` 该 drop-in && `systemctl daemon-reload`。
+
+## 5. 容量与扩容纪律
+
+- 迁移前必做：`du -sh` 源数据；4 节点合计 ≥ 5.4G 时先扩镜像，别硬塞（水位守卫会把节点停了）。
+- 扩镜像（在线，可回退）：
+  ```
+  systemctl stop zchain-monad-node@* monad-leaf@* monad-fold@*   # 停写入方
+  umount /opt/zchain-monad/chain-data
+  truncate -s 8G /opt/zchain-monad/chain-data.img                # 例：6G→8G（同步改 fstab 无需变，改监控阈值口径）
+  losetup -c $(losetup -j /opt/zchain-monad/chain-data.img | cut -d: -f1)
+  resize2fs /dev/loopX && mount -a
+  ```
+- 镜像写满的爆炸半径 = 镜像自身（ext4 报错/守卫停单元），系统盘（texas 所在）不受影响。
+
+## 6. 递归证明单元（leaf/fold）与探针门禁
+
+- `monad-leaf@.service` / `monad-fold@.service`：模板已建，**未 enable、无 [Install]**；
+  二进制 `/opt/zchain-monad/bin/{leaf,fold}-prover` 未部署，start 会 203/EXEC（防呆）。
+- 启用门禁：先用 `systemd-run --scope -p MemoryMax=4600M -p MemorySwapMax=0 -p CPUQuota=300%`
+  跑真负载探针（RAYON_NUM_THREADS∈{2,3}），判定 = cgroup OOM 只杀探针 + 全程
+  `texas.service` active 且 MemoryCurrent 漂移 <10%。探针结论记录在下面“探针记录”。
+- 叶层探针不过 → 叶层永久留在 36GB 工位（不阻塞上线），stark 只保留链上腿。
+
+### 探针记录
+
+| 日期 | 单元 | 线程 | MemoryMax | 结果 | texas 漂移 |
+|---|---|---|---|---|---|
+| （未执行——prover 二进制未上 stark） | | | | | |
+
+## 7. 常驻 monad 单元（本轮不动，仅记录）
+
+`monad-settlementd-monad`（≈2.6M）/ `explorer-gateway-monad`（≈2.9M）/ `texas-monad`（≈22M）
+数据在根盘 `/opt/texas-monad`，不在隔离盘；当前未 cage。如需 CPU/内存 cage，可给单元加
+drop-in `Slice=zchain-recursion.slice`（需重启单元生效——涉及在线服务，须单独排期，本轮未做）。
+
+## 8. 全量回退清单
+
+```
+systemctl disable --now zchain-monad-disk-guard.timer
+systemctl stop zchain-monad-node@* monad-leaf@* monad-fold@*    # 本就 stopped
+umount /opt/zchain-monad/chain-data && losetup -d /dev/loopX
+sed -i '/zchain-monad 隔离盘/,+1d;/chain-data.img/d' /etc/fstab  # 或手动删两行标记内条目
+rm /etc/systemd/system/{zchain-recursion.slice,monad-leaf@.service,monad-fold@.service,zchain-monad-disk-guard.service,zchain-monad-disk-guard.timer}
+rm /usr/local/sbin/zchain-monad-disk-guard.sh /usr/local/sbin/zmonad-memhog.sh
+rm -rf /opt/zchain-monad/chain-data /opt/zchain-monad/chain-data.img /opt/zchain-monad/docs
+systemctl daemon-reload
+```
+（镜像文件删除即回收集，sparse 不占额外空间；以上均为新增物，删除不影响任何现有服务。）
+=== E. 探针残留说明 ===
+#!/usr/bin/env bash
+# zmonad-memhog.sh —— caged 探针用内存负载（建于 2026-09-29）
+# 用法：zmonad-memhog.sh <MB>   # 用 /dev/urandom 分配 MB 兆并持有数秒（bash 变量存进堆）
+# 专用于验证 cgroup 内存硬顶：systemd-run --scope -p MemoryMax=200M 本脚本 400
+# 期望：cgroup OOM-kill 只杀本进程（退出码 137），宿主与其余服务无感。
+set -e
+MB="${1:-400}"
+echo "zmonad-memhog: allocating ${MB}MB ..."
+a=$(dd if=/dev/urandom bs=1M count="$MB" status=none)
+echo "zmonad-memhog: allocated ${#a} bytes, holding ..."
+sleep 3
+echo "zmonad-memhog: survived (说明没撞上内存顶)"
+Result=success
+ActiveState=failed
+Result=oom-kill
+ExecMainStatus=9
+Result=oom-kill
+ExecMainStatus=9
+=== F. 节点单元现状（迁移说明的对象）===
+# /etc/systemd/system/zchain-monad-node@.service
+[Unit]
+Description=zchain validator node %i (monad stack, RPC 18645-48)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+EnvironmentFile=/opt/zchain-monad/chain/node_%i.env
+Environment=RUST_LOG=info
+WorkingDirectory=/opt/zchain-monad/chain
+ExecStart=/opt/zchain-monad/bin/zchain node --role validator --data-dir /opt/zchain-monad/chain/node_%i --rpc-listen 127.0.0.1:${RPC_PORT} --p2p-listen 127.0.0.1:${P2P_PORT} --validator-key-file /opt/zchain-monad/chain/validator_%i.key --vrf-key-file /opt/zchain-monad/chain/validator_%i.vrf --genesis-validators /opt/zchain-monad/chain/genesis_validators.json --genesis-alloc /opt/zchain-monad/chain/genesis_alloc.json --block-interval-ms 200 $PEER_ARGS
+Restart=always
+RestartSec=5
+# 防 2.8G 节点日志复刻：单单元限流（现网 zchain-4node nohup 日志无轮转的教训）
+LogRateLimitIntervalSec=30
+LogRateLimitBurst=1000
+
+[Install]
+WantedBy=multi-user.target
+disabled
+disabled
+=== G. 系统盘与镜像内用量 ===
+Filesystem     1048576-blocks  Used Available Capacity Mounted on
+/dev/vda3               39943 26581     11517      70% /
+/dev/loop0               5960     3      5819       1% /opt/zchain-monad/chain-data
+=== H. texas 终态 ===
+active
+1078358016
+=== DETAIL DONE ===

@@ -1,0 +1,83 @@
+=====k64=====
+name=k64 filter=t7 perf=64 tx_base=1078407168 tx_active_start=active
+exit=0
+cage_peak_bytes=3381190656 (3224 MiB / 4600M 单元帽 70%)
+cage_oom_kills=0
+tx_base=1078407168 tx_min=1078407168 tx_peak=1078407168 tx_end=1078407168 tx_active_end=active
+tx_drift_pct=0.00
+===log tail===
+
+running 1 test
+| P | K | wire | steps | rows(2^) | EC_OP | poseidon | prove ms | total ms | proof B | per-hand |
+|---|---|------|-------|----------|-------|----------|----------|----------|---------|----------|
+| 8 | 64 | 6482 | 398146 | 2^19 | 256 | 4096 | 34150 | 38394 | 15599806 | 6221 |
+test t7_perf_sweep_steps_gate ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 36 filtered out; finished in 38.84s
+
+=====mt8=====
+name=mt8 filter=m9_1c perf=none tx_base=1078407168 tx_active_start=active
+exit=0
+cage_peak_bytes=3377627136 (3221 MiB / 4600M 单元帽 70%)
+cage_oom_kills=0
+tx_base=1078407168 tx_min=1078407168 tx_peak=1078407168 tx_end=1078407168 tx_active_end=active
+tx_drift_pct=0.00
+===log tail===
+
+running 1 test
+| M9-1c T=8 ΣK=64 | steps 409563 | margin 2.56x | trace 2^19 | EC_OP 256 | poseidon 4096 | total 51127 ms |
+test m9_1c_multitable_budget_t8_sumk64 ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 36 filtered out; finished in 51.60s
+
+=====mt2a=====
+name=mt2a filter=m9_1a perf=none tx_base=1078407168 tx_active_start=active
+exit=0
+cage_peak_bytes=1929031680 (1839 MiB / 4600M 单元帽 39%)
+cage_oom_kills=0
+tx_base=1078407168 tx_min=1078407168 tx_peak=1078407168 tx_end=1078407168 tx_active_end=active
+tx_drift_pct=0.00
+===log tail===
+
+running 1 test
+| M9-1a T=2 (8×8+2×8) | steps 98685 | trace 2^17 | EC_OP 64 | poseidon 512 | total 27955 ms |
+test m9_1a_multitable_two_tables_distinct_player_counts ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 36 filtered out; finished in 28.12s
+
+=====mt2b=====
+name=mt2b filter=m9_1b perf=none tx_base=1078407168 tx_active_start=active
+exit=0
+cage_peak_bytes=1816051712 (1731 MiB / 4600M 单元帽 37%)
+cage_oom_kills=0
+tx_base=1078407168 tx_min=1078407168 tx_peak=1078407168 tx_end=1078407168 tx_active_end=active
+tx_drift_pct=0.00
+===log tail===
+
+running 1 test
+| M9-1b T=2 (8×4+8×4) | steps 52885 | total 18179 ms |
+test m9_1b_multitable_same_size_distinct_rosters ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 36 filtered out; finished in 18.32s
+
+=====samples head/tail=====
+--k64--
+19:15:30.120 cg=1331200 tx=1078407168
+19:15:30.232 cg=1392640 tx=1078407168
+19:16:08.872 cg=49967104 tx=1078407168
+334
+--mt8--
+19:16:09.049 cg=1380352 tx=1078407168
+19:16:09.161 cg=1277952 tx=1078407168
+19:17:00.566 cg=38121472 tx=1078407168
+412
+--mt2a--
+19:17:00.734 cg=1101824 tx=1078407168
+19:17:00.849 cg=5033984 tx=1078407168
+19:17:28.805 cg=39325696 tx=1078407168
+221
+--mt2b--
+19:17:28.980 cg=1302528 tx=1078407168
+19:17:29.095 cg=4927488 tx=1078407168
+19:17:47.264 cg=24412160 tx=1078407168
+145

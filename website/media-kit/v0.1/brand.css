@@ -1,0 +1,94 @@
+/* ProofPlay Poker 品牌变量 v0.1.1 —— 与 website/assets/css/main.css 逐字同源（脚本生成，勿手改）。
+   v0.1.1 变更（账簿 Ledger 改版落地）：
+     · 默认底面从夜场改为纸白；夜场保留为 html[data-ground="night"]，站点右上角可切换。
+     · 新增 --muted-2 / --*-w / --amb 等账簿用 token。
+     · --muted-2 纸白值 #666256 → #5f5b50、--amb #8a5a12 → #825510：
+       这两处是为过品牌对比度线（≥5.2:1）的修正。旧 check_a11y.py 硬编码了夜场色，
+       所以这两条违规一直没被测出来。
+   夜场 14 个基色 token 与 v0.1 完全一致，未改动。 */
+
+/* ---- 默认底面：纸白 ---- */
+:root {
+  --bg: #f5f2ea;
+  --bg-soft: #eae5d9;
+  --surface: #fffdf7;
+  --surface-2: #f8f5ec;
+  --border: #c3bba7;
+  --border-soft: #ddd6c6;
+  --text: #14130f;
+  --muted: #4b4840;
+  --muted-2: #5f5b50;
+  --felt: #0b6b45;
+  --felt-deep: #085234;
+  --felt-dim: #a8c8b6;
+  --felt-w: #e6efe8;
+  --play: #15507f;
+  --play-deep: #a9c0d6;
+  --play-w: #e5ecf3;
+  --real: #7d5308;
+  --real-deep: #d8bd85;
+  --real-orange: #8a5a12;
+  --real-w: #f6ebd4;
+  --danger: #a83226;
+  --danger-deep: #dda9a1;
+  --danger-w: #f7e6e2;
+  --amb: #825510;
+  --amb-w: #f6eeda;
+  --amb-deep: #dcc796;
+  --code-bg: #efeade;
+  --nav-active-text: #f5f2ea;
+  --on-felt: #fffdf7;
+
+  /* 字体 —— 与钱包 / 牌桌逐字同源,零 webfont */
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", Roboto, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* 形状:账簿只有两种圆角,且没有"浮起" */
+  --radius-sm: 2px;
+  --radius: 3px;
+  --radius-lg: 6px;
+  --radius-pill: 2px;          /* 补定义:状态丸走方角,不走胶囊 */
+  --shadow-card: 0 1px 0 rgba(20, 19, 15, 0.04);
+  --shadow-pop: 0 1px 0 rgba(20, 19, 15, 0.04);
+  --glow-felt: none;           /* 发光废除,变量保留防脏引用 */
+  --rule-paper: rgba(20, 19, 15, 0.045);
+  --maxw: 1140px;
+}
+
+/* ---- 可切底面：夜场（= v0.1 原样） ---- */
+html[data-ground="night"] {
+  --bg: #070d0a;
+  --bg-soft: #0b1410;
+  --surface: #101c15;
+  --surface-2: #152418;
+  --border: #2a4a37;
+  --border-soft: #1d3326;
+  --text: #f0f7f1;
+  --muted: #abc3b6;
+  --muted-2: #7d9a8b;
+  --felt: #37e39c;
+  --felt-deep: #1a8a58;
+  --felt-dim: #14593a;
+  --felt-w: rgba(55, 227, 156, 0.11);
+  --play: #66c4ff;
+  --play-deep: #14486f;
+  --play-w: rgba(102, 196, 255, 0.11);
+  --real: #ffc75a;
+  --real-deep: #7a5410;
+  --real-orange: #e2933b;
+  --real-w: rgba(255, 199, 90, 0.11);
+  --danger: #ff9483;
+  --danger-deep: #6b2a20;
+  --danger-w: rgba(255, 148, 131, 0.10);
+  --amb: #ffd166;
+  --amb-w: rgba(255, 209, 102, 0.10);
+  --amb-deep: rgba(255, 209, 102, 0.35);
+  --code-bg: #0a120d;
+  --nav-active-text: #05130c;
+  --on-felt: #05130c;
+  --shadow-card: none;
+  --shadow-pop: none;
+  --rule-paper: rgba(240, 247, 241, 0.05);
+  color-scheme: dark;
+}

@@ -1,0 +1,25 @@
+[Unit]
+Description=ZChain recursion prover (Monad settlement path, isolated in zchain-recursion.slice)
+Documentation=file:/opt/zchain-monad/MIGRATION.md
+# 排序：在本机生产单元 texas.service 之后启动（仅顺序关系，不做依赖绑定，不牵动其生命周期）
+After=texas.service
+
+[Service]
+Type=simple
+Slice=zchain-recursion.slice
+# CPU 调度让位生产
+Nice=10
+# 与 slice 同值的单元级兜底（单元先于 slice 生效，双保险；聚合上限仍由 slice 封顶）
+MemoryHigh=4G
+MemoryMax=5G
+MemorySwapMax=0
+NoNewPrivileges=yes
+# 产物目录在隔离回环镜像内：写满只伤镜像，不伤系统盘
+Environment=PROVER_WORK_DIR=/opt/zchain-monad/chain-data/prover-work
+ExecStart=/opt/zchain-monad/bin/run-prover-monad.sh
+# 证明流程长，停止给足时间（水位守卫触发 stop 时不应被强杀悬挂）
+TimeoutStopSec=900
+
+[Install]
+# 保持 disabled：由运维显式 start，不随机自启
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+[Unit]
+Description=Secret Poker Texas Game Server (Starknet mainnet)
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/texas
+ExecStart=/opt/texas/texas
+Restart=always
+RestartSec=5
+Environment="RUST_LOG=info"
+
+[Install]
+WantedBy=multi-user.target

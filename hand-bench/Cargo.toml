@@ -1,0 +1,18 @@
+[package]
+name = "poker-hand-bench"
+version = "0.1.0"
+edition = "2024"
+description = "End-to-end proving benchmark for one complete Texas Hold'em hand"
+license = "BUSL-1.1"
+publish = false
+
+[dependencies]
+poker_texas_air = { path = ".." }
+poker_protocol = { workspace = true }
+poker-protocol-core = { workspace = true }
+poker-protocol-proofs = { workspace = true }
+poker_l1 = { path = "../poker_l1" }
+borsh = { workspace = true }
+rayon = { workspace = true }
+rand = { workspace = true }
+starknet-crypto = { workspace = true }

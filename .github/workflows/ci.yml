@@ -1,0 +1,129 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  fmt:
+    name: Diff whitespace
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: git diff --check
+
+  check:
+    name: Workspace check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: nightly-2026-04-15
+      # `--all-targets` includes benches; the vendored flock benchmark
+      # (native_hash) was migrated to the keccak 0.2 closure API and compiles.
+      - run: cargo check --release --workspace --lib --bins --tests --benches
+
+  docs-ratchet:
+    name: missing_docs ratchet
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: nightly-2026-04-15
+      # 渐进消化 missing_docs：预算制棘轮，只拦新增；补文档后调低
+      # scripts/missing_docs_budget.txt（见脚本头注）。
+      - run: ./scripts/missing_docs_ratchet.sh
+
+  test:
+    name: Workspace tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: nightly-2026-04-15
+      # nextest 以单测为粒度跨二进制并行（libtest 串行跑各二进制），大幅缩短
+      # 全量门禁时长；profile.all 不强杀慢 prove 测试（见 .config/nextest.toml）。
+      - uses: taiki-e/install-action@nextest
+      - run: cargo nextest run --profile all --workspace --include-ignored
+      # nextest 不执行 doctest，单独补跑。
+      - run: cargo test --doc --workspace
+
+  test-helpers:
+    name: Release integration tests with test helpers
+    runs-on: ubuntu-latest
+    env:
+      RUSTFLAGS: --cfg=texas_release_tests
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: nightly-2026-04-15
+      - run: cargo test -p poker_texas_air --release --features test-helpers --tests
+
+  release:
+    name: Release production build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: nightly-2026-04-15
+      - run: cargo build --workspace --release
+
+  release-test-helpers:
+    name: Release integration tests
+    runs-on: ubuntu-latest
+    env:
+      RUSTFLAGS: --cfg=texas_release_tests
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: nightly-2026-04-15
+      - run: cargo test -p poker_texas_air --release --features test-helpers --tests
+
+  clippy:
+    name: Clippy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: nightly-2026-04-15
+          components: clippy
+      # Existing workspace crates still emit baseline warnings. Keep this job
+      # visible without turning the current warning backlog into a false-green
+      # or permanently failing merge gate; tighten to -D warnings incrementally.
+      - run: cargo clippy --workspace --all-targets --all-features
+
+  cairo:
+    name: Cairo contracts (scarb + snforge)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: software-mansion/setup-scarb@v1
+        with:
+          scarb-version: "2.11.4"
+      - uses: foundry-rs/setup-snforge@v1
+        with:
+          snforge-version: "0.39.0"
+      - working-directory: poker_contracts
+        run: scarb build
+      # dual::secp256k1_verifier / hand_batch tests exceed the default step
+      # budget (real EC_OP sigma verification on-chain); raise the limit.
+      - working-directory: poker_contracts
+        run: snforge test --max-n-steps 100000000
+
+  wasm:
+    name: client-wasm (wasm-pack)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: nightly-2026-04-15
+      - uses: jetli/wasm-pack-action@v0.4.0
+      - run: wasm-pack build client-wasm --target web

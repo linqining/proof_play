@@ -1,0 +1,38 @@
+inactive
+Result=success
+ExecMainStatus=0
+===verdict===
+k=64 tx_base=1078407168 tx_active_start=active
+exit=0
+cage_peak_bytes=3379552256 (3222 MiB / 4600M 单元帽 70%)
+cage_oom_kills=0
+tx_base=1078407168 tx_min=1078407168 tx_peak=1078407168 tx_end=1078407168 tx_active_end=active
+tx_drift_pct=0.00
+===t7-k64.log tail===
+
+running 1 test
+| P | K | wire | steps | rows(2^) | EC_OP | poseidon | prove ms | total ms | proof B | per-hand |
+|---|---|------|-------|----------|-------|----------|----------|----------|---------|----------|
+| 8 | 64 | 6482 | 397415 | 2^19 | 256 | 4096 | 44960 | 49279 | 15719876 | 6209 |
+test t7_perf_sweep_steps_gate ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 19 filtered out; finished in 49.74s
+
+===t7 full log===
+
+running 1 test
+| P | K | wire | steps | rows(2^) | EC_OP | poseidon | prove ms | total ms | proof B | per-hand |
+|---|---|------|-------|----------|-------|----------|----------|----------|---------|----------|
+| 8 | 64 | 6482 | 397415 | 2^19 | 256 | 4096 | 44960 | 49279 | 15719876 | 6209 |
+test t7_perf_sweep_steps_gate ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 19 filtered out; finished in 49.74s
+
+===journal tail===
+Sep 30 14:21:40 iZj6ceq6i2o4bahz4qkraaZ systemd[1]: Started fold-c3-k64.service - /bin/bash /root/.zmonad-tmp/fold-c3/cage-run.sh 64.
+Sep 30 14:21:41 iZj6ceq6i2o4bahz4qkraaZ systemd[1]: fold-c3-k64.service: Deactivated successfully.
+Sep 30 14:25:06 iZj6ceq6i2o4bahz4qkraaZ systemd[1]: Started fold-c3-k64.service - /bin/bash /root/.zmonad-tmp/fold-c3/cage-run.sh 64.
+Sep 30 14:25:06 iZj6ceq6i2o4bahz4qkraaZ systemd[1]: fold-c3-k64.service: Deactivated successfully.
+Sep 30 14:29:50 iZj6ceq6i2o4bahz4qkraaZ systemd[1]: Started fold-c3-k64.service - /bin/bash /root/.zmonad-tmp/fold-c3/cage-run.sh 64.
+Sep 30 14:30:40 iZj6ceq6i2o4bahz4qkraaZ systemd[1]: fold-c3-k64.service: Deactivated successfully.
+Sep 30 14:30:40 iZj6ceq6i2o4bahz4qkraaZ systemd[1]: fold-c3-k64.service: Consumed 2min 9.169s CPU time.

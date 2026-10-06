@@ -1,0 +1,12 @@
+{
+  "_comment": "L1 批量终证腿钉扎参数（settlement_batch_private）。canonical_small 预处理迹 = 10,161,776 cells（2^20 steps 上限）——≤6G 内存硬约束的成立前提：K=1 实测峰值 1.87 GiB、K=64 实测 3.69 GiB；canonical 预处理迹同程序实测 9.6-12.9 GiB（/usr/bin/time -l，2026-09-29）。EVM 验证合约（二期 StarkVerifier）钉同一参数集。",
+  "channel_hash": "blake2s",
+  "channel_salt": 0,
+  "fri_config": {"pow_bits": 26, "log_blowup_factor": 1, "log_last_layer_degree_bound": 0, "n_queries": 70, "fold_step": 1},
+  "preprocessed_trace": "canonical_small",
+  "store_polynomial_coefficients_note": "store_polynomials_coefficients=false",
+  "store_polynomials_coefficients": false,
+  "include_all_preprocessed_columns": false,
+  "opt_n_id_to_big_components": null,
+  "lifting_size_policy": "auto"
+}

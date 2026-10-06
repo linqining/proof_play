@@ -1,0 +1,330 @@
+{
+ "drill": "E2E 批量终证路径（2026-09-29 裁定：禁 Groth16）：8 手真实牌局 → 逐手 STARK 出证 + K=8 批程序单跑单证（单个 STARK 终证）→ 本地 zchain appchain 受理 → stark 隔离服务单元复证 → L1Inbox 上锚 → Monad StarkVerifier 提交（骨架期 fail-closed 实证）",
+ "ts": "2026-09-29T13:49:38+08:00",
+ "operator": "0xbcd7ecd68d55ca2536f3f50dcbcb44edb0d97aa6",
+ "chain": {
+  "name": "Monad Testnet",
+  "chainId": 10143,
+  "rpc": "https://testnet-rpc.monad.xyz",
+  "gasPriceWei": 102000000000
+ },
+ "stack": {
+  "l1Inbox": "0x60ecddd1359356a43a69de84a1cf235a69a30e71",
+  "starkVerifier": "0x392578d722056b4db1178da1688260508f595199",
+  "note": "Groth16 套件（0x9100…/0xc6f1…/0xfd6a…/0x3790…）仅作对照基线保留，不在终证路径"
+ },
+ "batch": {
+  "n": 8,
+  "hands": [
+   {
+    "idx": 0,
+    "hand_id": 1790634800,
+    "hand_binding_32b": "808d4a39268cfd0031cee4c441cda7c0c176acf306329ce78b570be4b157a90d",
+    "deltas": [
+     100,
+     -100
+    ],
+    "actions": 8,
+    "steps": 6100,
+    "prove_ms": 2542,
+    "total_ms": 5164,
+    "peak_rss_bytes": 1258640832,
+    "verified": true,
+    "proof_dir": "/tmp/e2e-run/hand_L0"
+   },
+   {
+    "idx": 1,
+    "hand_id": 1790634817,
+    "hand_binding_32b": "093635c090cfe00589411ceef6f676322a4797e13d164a2d7e9de751bdf64b05",
+    "deltas": [
+     -100,
+     100
+    ],
+    "actions": 8,
+    "steps": 6109,
+    "prove_ms": 1638,
+    "total_ms": 1768,
+    "peak_rss_bytes": 1165792256,
+    "verified": true,
+    "proof_dir": "/tmp/e2e-run/hand_L1"
+   },
+   {
+    "idx": 2,
+    "hand_id": 1790634859,
+    "hand_binding_32b": "9c54d7dc9267bf408a7c0ebda485f2aa751ac90a74be817b17da4ffd20482e66",
+    "deltas": [
+     -100,
+     100
+    ],
+    "actions": 8,
+    "steps": 6109,
+    "prove_ms": 1778,
+    "total_ms": 1899,
+    "peak_rss_bytes": 1105007616,
+    "verified": true,
+    "proof_dir": "/tmp/e2e-run/hand_L2"
+   },
+   {
+    "idx": 3,
+    "hand_id": 1790634881,
+    "hand_binding_32b": "35e1075da78f9d71c2f3b725da891a02b59886a1b00dcd568fa47729a5ce7718",
+    "deltas": [
+     -100,
+     100
+    ],
+    "actions": 8,
+    "steps": 6109,
+    "prove_ms": 2638,
+    "total_ms": 2757,
+    "peak_rss_bytes": 1166873728,
+    "verified": true,
+    "proof_dir": "/tmp/e2e-run/hand_L3"
+   },
+   {
+    "idx": 4,
+    "hand_id": 1790634897,
+    "hand_binding_32b": "a7570a0af587693807d7bbbdb9458a4f55e9e2f6cae6e64be65a2796e5f9492e",
+    "deltas": [
+     100,
+     -100
+    ],
+    "actions": 8,
+    "steps": 6100,
+    "prove_ms": 2213,
+    "total_ms": 2334,
+    "peak_rss_bytes": 1147687872,
+    "verified": true,
+    "proof_dir": "/tmp/e2e-run/hand_L4"
+   },
+   {
+    "idx": 5,
+    "hand_id": 1790634921,
+    "hand_binding_32b": "56ffbfff19316759aa4ba026d039dd8278baa3fded6bb17a30c3ebb4c1233a94",
+    "deltas": [
+     100,
+     -100
+    ],
+    "actions": 8,
+    "steps": 6100,
+    "prove_ms": 2472,
+    "total_ms": 2592,
+    "peak_rss_bytes": 1222972352,
+    "verified": true,
+    "proof_dir": "/tmp/e2e-run/hand_L5"
+   },
+   {
+    "idx": 6,
+    "hand_id": 1790634937,
+    "hand_binding_32b": "9ed0f92e8d7747ce51929b6c8a08db8ff1b442c31b688ef963b7e3e3839c1abf",
+    "deltas": [
+     -100,
+     100
+    ],
+    "actions": 8,
+    "steps": 6109,
+    "prove_ms": 2412,
+    "total_ms": 2534,
+    "peak_rss_bytes": 1078137856,
+    "verified": true,
+    "proof_dir": "/tmp/e2e-run/hand_L6"
+   },
+   {
+    "idx": 7,
+    "hand_id": 1790634961,
+    "hand_binding_32b": "b208f8cfac280357112cf06e6f4d4e7fc8cce483fe4a0df8be1a81f7d5dceef3",
+    "deltas": [
+     -100,
+     100
+    ],
+    "actions": 8,
+    "steps": 6109,
+    "prove_ms": 1574,
+    "total_ms": 1698,
+    "peak_rss_bytes": 1178702784,
+    "verified": true,
+    "proof_dir": "/tmp/e2e-run/hand_L7"
+   }
+  ],
+  "appchain_acceptance": "8/8 binding 在 explorer-gateway :18900 /api/v1/settlements 实时分页核对（journal total=3082），level=soft_accepted，frame 10778..10822（=throughOp 口径）；stark 4 节点链维持 inactive/disabled",
+  "journal_total": 3082
+ },
+ "final": {
+  "program": "proving-tool/src/settlement_batch_private.cairo",
+  "program_hash": "0x05c400b46a261c6672cd7581436754e05da2287ba8ecdc69778d06e4ef831803",
+  "prover_params": "params/canonical_small.json（blake2s channel / pow_bits 26 / n_queries 70 / log_blowup 1 / canonical_small 预处理迹）",
+  "k": 8,
+  "steps": 75503,
+  "prove_ms": 3945,
+  "verify_ms": 17,
+  "verified": true,
+  "peak_rss_bytes_local": 1656870400,
+  "batch_fact": "0x033093e430260fca0036193cb62635141c3023b415b6fd824453a149d4bdca1c",
+  "acc_prev": "0x0",
+  "keccak_batch_root": "0x2f90672273c0dcb7f20e438c64a157cd614863f8277a19dee9de441102fd1463",
+  "root_recompute_paths": [
+   "groth16-wrap keccak_batch_root（batch-inputs --phase b）",
+   "cast keccak 独立复算（EVM keccak 第三路径）",
+   "电路内尾字回显（root_hi/root_lo）"
+  ],
+  "output_commit": "0x954163e781f79ccc03e288a18b6986d22b24c932a4f3bfd456908de81e693712",
+  "final_fact_fact_registry": "0x649677b6f9b28393a6795600a59ffb072b160359208c23471fbeff05431403",
+  "proof_path": "/tmp/e2e-run/run_b8/proof.json",
+  "public_outputs_path": "/tmp/e2e-run/run_b8/public_outputs.json",
+  "manifest_path": "/tmp/e2e-run/manifest_k8.json",
+  "hand_proof_dirs": [
+   "/tmp/e2e-run/hand_L0",
+   "/tmp/e2e-run/hand_L1",
+   "/tmp/e2e-run/hand_L2",
+   "/tmp/e2e-run/hand_L3",
+   "/tmp/e2e-run/hand_L4",
+   "/tmp/e2e-run/hand_L5",
+   "/tmp/e2e-run/hand_L6",
+   "/tmp/e2e-run/hand_L7"
+  ],
+  "proof_wire_bytes": 1023373,
+  "proof_wire_format": "bzip2(bincode(CairoProofForRustVerifier)) = proving-tool proof.bin 口径（fact-verify wire 同格式）",
+  "segments_parity": "批公开段 == 8 手单证 public_output 前 16 felt 逐位相等（8/8）",
+  "facts_parity": "8 条 fact == BatchPlan 宿主重算（real8_statements.json 先例公式 + 本次 manifest 语句面，fact-verify/starknet-crypto 独立实现出证）"
+ },
+ "ladder": {
+  "k8": {
+   "verified": true,
+   "steps": 75503,
+   "prove_ms": 3945,
+   "peak_rss_bytes_direct": 1656870400,
+   "hands_source": "8 手真实牌局"
+  },
+  "k32": {
+   "verified": true,
+   "steps": 301207,
+   "prove_ms": 3039,
+   "peak_rss_bytes_direct": 1913658048,
+   "hands_source": "batch-inputs 合成（自 L0 真实手基底派生）",
+   "parity": "prove-batch.sh EXIT=0 电路↔宿主逐字一致"
+  },
+  "k64": {
+   "verified": true,
+   "steps": 602199,
+   "prove_ms": 4145,
+   "peak_rss_bytes_direct": 2900845248,
+   "hands_source": "batch-inputs 合成（自 L0 真实手基底派生）",
+   "parity": "prove-batch.sh EXIT=0 电路↔宿主逐字一致"
+  },
+  "gate": "峰值 ≤5G（实测最大 2.70GiB @K=64）且 prove ≤30min（实测 ≤4.2s）→ 两档全过，MAX_HANDS_PER_LEAF=64 维持不降档"
+ },
+ "recursion": {
+  "server": "stark（x86_64 4C/7.3G）",
+  "isolated_unit": {
+   "unit": "monad-batchk8.service（systemd-run 瞬时单元）",
+   "slice": "zchain-recursion.slice（MemoryMax=5200M/CPUQuota=300%/MemorySwapMax=0）",
+   "unit_caps": {
+    "MemoryMax": 4823449600,
+    "CPUQuota": "300%"
+   },
+   "result": "success / ExecMainStatus=0",
+   "memory_peak_bytes": 1523499008,
+   "cpu_usage_ns": 18632414000,
+   "proof": "verified=True steps=75503（与本地逐字同 statement 面：同 program_hash/同尾/同 final_fact）；fact-verify 跨机复验 exit 0",
+   "build": "prove-hand release 构建于 /opt/zchain-monad/poker_texas_air BUILD_EXIT=0（nightly-2026-01-15）"
+  },
+  "circuit_recursion_legs": "叶/折叠电路递归腿维持 9-29 裁决：stark 7.3G 不可承载（锚点 leaf 19.4G/fold 7.4G，budget.rs），主链终证=批程序单跑单证，无需电路递归"
+ },
+ "verifierDeploy": {
+  "tx": "0x526560adb732487f1b78915bfaf428c0cbbf13dc11fee6449504813b20248dec",
+  "contract": "StarkVerifier",
+  "address": "0x392578d722056b4db1178da1688260508f595199",
+  "block": 66604547,
+  "estimate": 535304,
+  "gasLimit": 588835,
+  "gasUsed": 588835,
+  "gasPriceWei": 102000000000,
+  "costWei": 60061170000000000,
+  "status": "0x1",
+  "gas_discipline": "eth_estimateGas → limit=est×1.1+1（588,835）；Monad 实测 gasUsed==gasLimit（按 limit 计费）"
+ },
+ "onchain_readbacks": {
+  "BATCH_PROGRAM_HASH": "0x5c400b46a261c6672cd7581436754e05da2287ba8ecdc69778d06e4ef831803（== 钉扎值）",
+  "l1Inbox": "0x60eCdDD1359356A43a69de84a1CF235A69A30E71（== inbox）",
+  "authority": "0xbcd7ecd68d55ca2536f3f50dcbcb44edb0d97aa6（== operator）",
+  "latestFact": "0（fail-closed 骨架期无结算状态）",
+  "settledFact(root)": "0"
+ },
+ "anchor": {
+  "tx": "0x85f75fdd01f1a93d241d534c41cc17a7ba4d424c0c97a5c07ed6089bfbd40e01",
+  "to": "0x60ecddd1359356a43a69de84a1cf235a69a30e71",
+  "method": "submitBatch(uint64,bytes32,uint64)",
+  "index": 8,
+  "keccak_batch_root": "0x2f90672273c0dcb7f20e438c64a157cd614863f8277a19dee9de441102fd1463",
+  "throughOp": 10822,
+  "block": 66604741,
+  "estimate": 81990,
+  "gasLimit": 90190,
+  "gasUsed": 90190,
+  "gasPriceWei": 102000000000,
+  "costWei": 9199380000000000,
+  "status": "0x1",
+  "event": "BatchAnchored(index,root,throughOp)",
+  "eventTopic0": "0xfdbe3de9a44396bb3ab8a6384d4d1c800968e59edb52369bc27f88b93d98ff48",
+  "event_fields": "topic1=0x8（index）data=root‖0x2a46（throughOp=10822）逐字段一致；batchCount 读回 ==9"
+ },
+ "settlement_attempt": {
+  "method": "submitFinalProof(bytes32,bytes32,bytes32,bytes32,bytes)",
+  "selector": "0xe8faf285",
+  "params": {
+   "keccakRoot": "0x2f90672273c0dcb7f20e438c64a157cd614863f8277a19dee9de441102fd1463",
+   "accPrev": "0x0（=latestFact）",
+   "batchFact": "0x033093e430260fca0036193cb62635141c3023b415b6fd824453a149d4bdca1c",
+   "outputCommit": "0x954163e781f79ccc03e288a18b6986d22b24c932a4f3bfd456908de81e693712"
+  },
+  "full_real_proof_wire_bytes": 1023373,
+  "full_real_proof_eth_call": "reverted 0xc575cb47（FRIVerifierNotDelivered）—— 真实全量终证对真实合约 fail-closed",
+  "full_real_proof_tx_not_sent_reason": "eth_estimateGas 对 revert 调用拒绝（error code 3 + 0xc575cb47）；calldata 1.02MB ≈16.4M gas × 102gwei ≈1.7 ETH > 当时余额 0.337 ETH；FRI 核心未交付前任何 proof 内容都会在同一 revert 点终止，真实 tx 以 32B 载荷负例（neg2）同语义实证",
+  "verdict": "骨架期 fail-closed（StarkVerifier.sol:110 revert FRIVerifierNotDelivered；FRI 核心为二期交付）——status=0x1 的 FinalSettled 在本期不可成立，属合约设计而非演练缺口"
+ },
+ "negativeTamperedAcc": {
+  "tx": "0x3638c284c55aa78fe1c8c7953c11252774fc7a1ac0ceef6388d27d6eb0c44c6a",
+  "desc": "accPrev=0x...01（≠latestFact=0）→ AccChainMismatch",
+  "revert_selector": "0x01a8a2af",
+  "block": 66605262,
+  "gasLimit": 43243,
+  "gasUsed": 43243,
+  "status": "0x0",
+  "estimate_basis": "节点对 revert 调用拒绝估价；est 取 forge StarkVerifierGolden.test_submit_reverts_on_acc_chain_mismatch 实测 39,311 gas → limit=×1.1+1"
+ },
+ "negativePseudoProof": {
+  "tx": "0xbddeeffd0c01e3e6d2ffe16a1182eab47beee5e52f5e62eb9d9cbe8f74f68ee9",
+  "desc": "acc/root/commit 全真 + 32B 伪证 → FRIVerifierNotDelivered",
+  "revert_selector": "0xc575cb47",
+  "block": 66605269,
+  "gasLimit": 57074,
+  "gasUsed": 57074,
+  "status": "0x0",
+  "estimate_basis": "forge test_submit_reverts_until_fri_core_delivered 实测 51,885 gas → limit=×1.1+1"
+ },
+ "fail_closed_after": {
+  "latestFact": 0,
+  "settledFact_root": 0
+ },
+ "funding": {
+  "balanceBeforeWei": 417197959999213789,
+  "balanceBeforeNegativesWei": 347937409999213789,
+  "balanceAfterNegativesWei": 337705075999213789,
+  "sessionTxCount": 4,
+  "sessionTotalCostWei": 79492884000000000,
+  "externalCreditWei": 949022511829987471020,
+  "note": "负例两笔的隔离余额差逐 wei == Σ(limit×price)=10,232,334,000,000,000；演练后钱包收到外部入账（非演练 tx，演练仅 4 笔且回执在案）"
+ },
+ "gas_discipline": "全部 tx：eth_estimateGas → limit=est×1.1+1、gasPrice=节点价（102 gwei）；revert 负例的 est 取 forge 金向量 revert gas 实测为基（节点拒绝估价 revert 调用）；四笔回执逐一 gasUsed==gasLimit、effectiveGasPrice==102gwei",
+ "stark": {
+  "texasMemoryBaseline": 1078358016,
+  "texasMemoryAfter": 1077538816,
+  "texasNRestartsBaseline": 0,
+  "texasNRestartsAfter": 0,
+  "fourNodeChain": "inactive/disabled 全程未动"
+ },
+ "compression_layer": {
+  "status": "本期未跑（二期/需大内存机）",
+  "prior_evidence": "金向量 root.proof → scarb stwo_circuit_verifier exit=0（5,311,944 steps，上轮）；leaf/fold 电路腿峰值锚点 19.4G/7.4G（budget.rs），终证腿 ≥120G 本机不可行",
+  "note": "主链终证=批程序单跑单证（本次 E2E 实证），压缩层不阻塞终证路径"
+ }
+}

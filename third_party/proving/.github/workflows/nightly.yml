@@ -1,0 +1,156 @@
+name: nightly CI 
+
+env:
+  NIGHTLY_VERSION: "nightly-2026-01-15"
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # Runs at midnight UTC every day
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  stwo-cairo-prover-nightly-tests:
+    runs-on: namespace-profile-starkware-libs-proving-dev-xlarge-ubuntu-24-04-amd64
+    env:
+      NEXTTEST_THREADS: "2"
+      RUST_MIN_STACK: 4194304
+      RUSTFLAGS: -C target-cpu=native
+      RUST_LOG_SPAN_EVENTS: enter,close
+      RUST_LOG: info
+      RUST_BACKTRACE: full
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - name: Install build dependencies
+        run: sudo apt-get update && sudo apt-get install -y build-essential
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@2c7215f132e9ebf062739d9130488b56d53c060c # master
+        with:
+          toolchain: ${{ env.NIGHTLY_VERSION }}
+      - name: Install latest nextest release
+        uses: taiki-e/install-action@3d7d7cd5ac7f994c1892ae0c06165095b9139094 # v2
+        with:
+          tool: nextest
+      - uses: Swatinem/rust-cache@e18b497796c12c097a38f9edb9d0641fb99eee32 # v2
+      - name: Run nightly builtin test
+        run: |
+          cargo nextest run -p stwo-cairo-prover \
+            --features="nightly" \
+            --release \
+            -j ${{ env.NEXTTEST_THREADS }}
+      - name: Run mem-trace test
+        run: |
+          cargo nextest run \
+            --cargo-profile ci \
+            --features=extract-mem-trace test_serialize_deserialize_mem_trace \
+            -j ${{ env.NEXTTEST_THREADS }} \
+            -P ci
+
+  avx512-bench:
+    runs-on: namespace-profile-starkware-libs-proving-dev-large-ubuntu-24-04-amd64
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: dtolnay/rust-toolchain@2c7215f132e9ebf062739d9130488b56d53c060c # master
+        with:
+          toolchain: ${{ env.NIGHTLY_VERSION }}
+      - name: Run benchmark
+        run: |
+          cargo install cargo-criterion
+          ./scripts/bench.sh |& tee output.txt
+      - name: Download previous benchmark data
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: ./cache
+          key: ${{ runner.os }}-benchmark
+      - name: Store benchmark result
+        uses: benchmark-action/github-action-benchmark@52576c92bccf6ac60c8223ec7eb2565637cae9ba # v1
+        with:
+          tool: "cargo"
+          output-file-path: output.txt
+          external-data-json-path: ./cache/benchmark-data.json
+          fail-on-alert: true
+          summary-always: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          comment-on-alert: true
+          alert-comment-cc-users: "@leo-starkware"
+
+  avx512-bench-parallel:
+    runs-on: namespace-profile-starkware-libs-proving-dev-large-ubuntu-24-04-amd64
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: dtolnay/rust-toolchain@2c7215f132e9ebf062739d9130488b56d53c060c # master
+        with:
+          toolchain: ${{ env.NIGHTLY_VERSION }}
+      - name: Run benchmark
+        run: |
+          cargo install cargo-criterion
+          ./scripts/bench.sh --features="parallel" |& tee output.txt
+      - name: Download previous benchmark data
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: ./cache
+          key: ${{ runner.os }}-benchmark
+      - name: Store benchmark result
+        uses: benchmark-action/github-action-benchmark@52576c92bccf6ac60c8223ec7eb2565637cae9ba # v1
+        with:
+          tool: "cargo"
+          output-file-path: output.txt
+          external-data-json-path: ./cache/benchmark-data.json
+          fail-on-alert: true
+          summary-always: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          comment-on-alert: true
+          alert-comment-cc-users: "@leo-starkware"
+  
+  wide-clippy:
+    runs-on: namespace-profile-starkware-libs-proving-dev-small-ubuntu-24-04-amd64
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: dtolnay/rust-toolchain@2c7215f132e9ebf062739d9130488b56d53c060c # master
+        with:
+          toolchain: ${{ env.NIGHTLY_VERSION }}
+          components: clippy
+      - name: Run clippy
+        run: ./scripts/clippy.sh
+
+  # Aggregates the result of every nightly job and posts a single Slack
+  # notification: green only if all jobs succeeded, red otherwise. Skipped jobs
+  # are treated as success (same convention as the main CI gatekeeper).
+  notify:
+    if: always()
+    needs:
+      - stwo-cairo-prover-nightly-tests
+      - avx512-bench
+      - avx512-bench-parallel
+      - wide-clippy
+    runs-on: namespace-profile-starkware-libs-proving-dev-small-ubuntu-24-04-amd64
+    steps:
+      - name: Determine overall status
+        id: status
+        run: |
+          results="${{ join(needs.*.result, ' ') }}"
+          overall="success"
+          for r in $results; do
+            if [ "$r" = "failure" ] || [ "$r" = "cancelled" ]; then
+              overall="failure"
+              break
+            fi
+          done
+          echo "overall=$overall" >> "$GITHUB_OUTPUT"
+      - name: Notify Slack
+        uses: slackapi/slack-github-action@91efab103c0de0a537f72a35f6b8cda0ee76bf0a # v2
+        with:
+          webhook: ${{ secrets.SLACK_WEBHOOK_URL }}
+          webhook-type: incoming-webhook
+          payload: |
+            {
+              "text": "Nightly CI: ${{ steps.status.outputs.overall == 'success' && '✅ passed' || '❌ failed' }}",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*Nightly CI* — ${{ steps.status.outputs.overall == 'success' && '✅ Passed' || '❌ Failed' }}\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View run>"
+                  }
+                }
+              ]
+            }

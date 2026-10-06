@@ -1,0 +1,13 @@
+[package]
+name = "privacy-profile"
+version = "0.1.0"
+edition = "2024"
+license = "BUSL-1.1"
+description = "PRIVACY_PROFILE 隐私分档与三层选择面（语句面/资金腿/余额叶）——链中立，零依赖"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+# 刻意零依赖：档位判定是纯逻辑，链类型/链名不得进入本 crate
+# （docs/design/PRIVACY_PROFILE.md §5 命名纪律）。

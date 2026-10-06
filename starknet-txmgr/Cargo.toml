@@ -1,0 +1,24 @@
+[package]
+name = "starknet-txmgr"
+version = "0.1.0"
+edition = "2024"
+license = "BUSL-1.1"
+description = "Starknet 交易管理层：nonce 租约/链上推断、v3 资源上限与加价重发、在途交易表、wait_call_visible、幂等重放分类、有界重试 + 失败熔断（fail-closed）"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+# Felt 载体与 texas/starknet 0.17 同一类型实例（starknet-types-core 0.2）。
+starknet-types-core = { workspace = true }
+# 生产实现包 texas 已依赖的 starknet Provider（本仓 lock 已含 0.17）。
+starknet = "0.17"
+thiserror = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tokio = { workspace = true }
+
+[features]
+default = []
+# 测试用内存 mock（不含网络）：batch-poster 的 dev-dependencies 打开。
+test-mocks = []

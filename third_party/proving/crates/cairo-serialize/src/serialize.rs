@@ -1,0 +1,224 @@
+use starknet_ff::FieldElement;
+use stwo::core::fields::m31::BaseField;
+use stwo::core::fields::qm31::SecureField;
+use stwo::core::fri::{FriConfig, FriLayerProof, FriProof};
+use stwo::core::pcs::PcsConfig;
+use stwo::core::pcs::quotients::CommitmentSchemeProof;
+use stwo::core::poly::line::LinePoly;
+use stwo::core::proof::StarkProof;
+use stwo::core::vcs::blake2_hash::Blake2sHash;
+// LOCAL PATCH (poker_texas_air 2026-09-29): keccak256 hash serialization for
+// the keccak256-backed channel (ChannelHash::Keccak256).
+use stwo::core::vcs::keccak256_hash::Keccak256Hash;
+use stwo::core::vcs_lifted::MerkleHasherLifted;
+use stwo::core::vcs_lifted::verifier::MerkleDecommitmentLifted;
+// Make derive macro available.
+pub use stwo_cairo_serialize_derive::CairoSerialize;
+
+/// Serializes types into a format for deserialization by corresponding types in a Cairo program.
+pub trait CairoSerialize {
+    fn serialize(&self, output: &mut Vec<FieldElement>);
+}
+
+impl CairoSerialize for u32 {
+    fn serialize(&self, output: &mut Vec<FieldElement>) {
+        output.push((*self).into());
+    }
+}
+
+impl CairoSerialize for u64 {
+    fn serialize(&self, output: &mut Vec<FieldElement>) {
+        output.push((*self).into());
+    }
+}
+
+impl CairoSerialize for usize {
+    fn serialize(&self, output: &mut Vec<FieldElement>) {
+        output.push((*self).into());
+    }
+}
+
+impl CairoSerialize for BaseField {
+    fn serialize(&self, output: &mut Vec<FieldElement>) {
+        output.push(self.0.into());
+    }
+}
+
+impl CairoSerialize for SecureField {
+    fn serialize(&self, output: &mut Vec<FieldElement>) {
+        output.extend(self.to_m31_array().map(|c| FieldElement::from(c.0)));
+    }
+}
+
+impl<H: MerkleHasherLifted> CairoSerialize for MerkleDecommitmentLifted<H>
+where
+    H::Hash: CairoSerialize,
+{
+    fn serialize(&self, output: &mut Vec<FieldElement>) {
+        let Self { hash_witness } = self;
+        hash_witness.serialize(output);
+    }
+}
+
+impl CairoSerialize for LinePoly {
+    fn serialize(&self, output: &mut Vec<FieldElement>) {
+        (**self).serialize(output);
+        output.push((self.len().ilog2()).into());
+    }
+}
+
+impl<H: MerkleHasherLifted> CairoSerialize for FriLayerProof<H>
+where
+    H::Hash: CairoSerialize,
+{
+    fn serialize(&self, output: &mut Vec<FieldElement>) {
+        let Self { fri_witness, decommitment, commitment } = self;
+        fri_witness.serialize(output);
+        decommitment.serialize(output);
+        commitment.serialize(output);
+    }
+}
+
+impl<H: MerkleHasherLifted> CairoSerialize for FriProof<H>
+where
+    H::Hash: CairoSerialize,
+{
+    fn serialize(&self, output: &mut Vec<FieldElement>) {
+        let Self { first_layer, inner_layers, last_layer_poly } = self;
+        first_layer.serialize(output);
+        inner_layers.serialize(output);
+        last_layer_poly.serialize(output);
+    }
+}
+
+impl CairoSerialize for FieldElement {
+    fn serialize(&self, output: &mut Vec<FieldElement>) {
+        output.push(*self);
+    }
+}
+
+impl CairoSerialize for FriConfig {
+    fn serialize(&self, output: &mut Vec<FieldElement>) {
+        let Self { pow_bits, log_blowup_factor, log_last_layer_degree_bound, n_queries, fold_step } =
+            self;
+        pow_bits.serialize(output);
+        log_blowup_factor.serialize(output);
+        log_last_layer_degree_bound.serialize(output);
+        n_queries.serialize(output);
+        fold_step.serialize(output);
+    }
+}
+
+impl CairoSerialize for PcsConfig {
+    fn serialize(&self, output: &mut Vec<FieldElement>) {
+        // The lifting log sizes are intentionally not serialized: the Cairo verifier
+        // recomputes them from `fri_config.log_blowup_factor` and the committed columns'
+        // log sizes (see `pcs/verifier.cairo`), so shipping them would be redundant.
+        let Self { fri_config, trace_lifting_log_size: _, preprocessed_lifting_log_size: _ } = self;
+        fri_config.serialize(output);
+    }
+}
+
+impl<H: MerkleHasherLifted> CairoSerialize for CommitmentSchemeProof<H>
+where
+    H::Hash: CairoSerialize,
+{
+    fn serialize(&self, output: &mut Vec<FieldElement>) {
+        let Self {
+            config,
+            commitments,
+            sampled_values,
+            decommitments,
+            queried_values,
+            proof_of_work,
+            fri_proof,
+        } = self;
+        config.serialize(output);
+        commitments.serialize(output);
+        sampled_values.serialize(output);
+        decommitments.serialize(output);
+        queried_values.serialize(output);
+        output.push((*proof_of_work).into());
+        fri_proof.serialize(output);
+    }
+}
+
+impl<H: MerkleHasherLifted> CairoSerialize for StarkProof<H>
+where
+    H::Hash: CairoSerialize,
+{
+    fn serialize(&self, output: &mut Vec<FieldElement>) {
+        let Self(commitment_scheme_proof) = self;
+        commitment_scheme_proof.serialize(output);
+    }
+}
+
+impl<T: CairoSerialize> CairoSerialize for Option<T> {
+    fn serialize(&self, output: &mut Vec<FieldElement>) {
+        match self {
+            Some(v) => {
+                output.push(FieldElement::ZERO);
+                v.serialize(output);
+            }
+            None => output.push(FieldElement::ONE),
+        }
+    }
+}
+
+impl<T: CairoSerialize> CairoSerialize for [T] {
+    fn serialize(&self, output: &mut Vec<FieldElement>) {
+        output.push(self.len().into());
+        self.iter().for_each(|v| v.serialize(output));
+    }
+}
+
+impl<T: CairoSerialize, const N: usize> CairoSerialize for [T; N] {
+    fn serialize(&self, output: &mut Vec<FieldElement>) {
+        self.iter().for_each(|v| v.serialize(output));
+    }
+}
+
+impl<T: CairoSerialize> CairoSerialize for Vec<T> {
+    fn serialize(&self, output: &mut Vec<FieldElement>) {
+        (**self).serialize(output);
+    }
+}
+
+impl<T0: CairoSerialize, T1: CairoSerialize> CairoSerialize for (T0, T1) {
+    fn serialize(&self, output: &mut Vec<FieldElement>) {
+        let (v0, v1) = self;
+        v0.serialize(output);
+        v1.serialize(output);
+    }
+}
+
+impl<T0: CairoSerialize, T1: CairoSerialize, T2: CairoSerialize> CairoSerialize for (T0, T1, T2) {
+    fn serialize(&self, output: &mut Vec<FieldElement>) {
+        let (v0, v1, v2) = self;
+        v0.serialize(output);
+        v1.serialize(output);
+        v2.serialize(output);
+    }
+}
+
+impl CairoSerialize for Blake2sHash {
+    fn serialize(&self, output: &mut Vec<FieldElement>) {
+        for byte_chunk in self.0.chunks_exact(4) {
+            let bytes: [u8; 4] = byte_chunk.try_into().unwrap();
+            let v = u32::from_le_bytes(bytes);
+            CairoSerialize::serialize(&v, output);
+        }
+    }
+}
+
+// LOCAL PATCH (poker_texas_air 2026-09-29): same 8x u32 little-endian word
+// layout as Blake2sHash — both hashes are 32 bytes.
+impl CairoSerialize for Keccak256Hash {
+    fn serialize(&self, output: &mut Vec<FieldElement>) {
+        for byte_chunk in self.0.chunks_exact(4) {
+            let bytes: [u8; 4] = byte_chunk.try_into().unwrap();
+            let v = u32::from_le_bytes(bytes);
+            CairoSerialize::serialize(&v, output);
+        }
+    }
+}

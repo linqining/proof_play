@@ -1,0 +1,25 @@
+<svg width="596" height="656" viewBox="0 0 596 656" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cardFill" x1="156" y1="112" x2="440" y2="550" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#112F59"/>
+      <stop offset="1" stop-color="#0A1932"/>
+    </linearGradient>
+    <filter id="softShadow" x="118" y="86" width="360" height="492" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#071424" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <rect width="596" height="656" fill="#F4F4F1"/>
+
+  <g filter="url(#softShadow)">
+    <rect x="148" y="114" width="300" height="436" rx="34" fill="url(#cardFill)"/>
+    <text x="182" y="186" font-size="32" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" fill="#EEF3F6" font-weight="800" letter-spacing="7">1010</text>
+    <text x="414" y="502" font-size="32" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" fill="#EEF3F6" font-weight="800" letter-spacing="7" text-anchor="end">0101</text>
+
+    <path d="M298 246C286 264 269 281 252 297C236 312 226 330 226 350C226 376 246 394 269 394C282 394 292 389 298 379C304 389 314 394 327 394C350 394 370 376 370 350C370 330 360 312 344 297C327 281 310 264 298 246Z" fill="#F2F5F7"/>
+    <path d="M298 390C293 405 289 418 284 438H312C307 418 303 405 298 390Z" fill="#F2F5F7"/>
+
+    <path d="M190 206H238" stroke="#B2C0CF" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+    <path d="M358 468H406" stroke="#B2C0CF" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+  </g>
+</svg>

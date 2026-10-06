@@ -1,0 +1,326 @@
+=== 0. identity ===
+uid=0(root) gid=0(root) groups=0(root)
+iZj6ceq6i2o4bahz4qkraaZ
+2026-09-29 12:13:18 +0800
+=== 1. hardware/os ===
+Linux iZj6ceq6i2o4bahz4qkraaZ 6.6.102-005.5.ali6000.pro.alnx4.x86_64 #1 SMP PREEMPT_DYNAMIC Fri Jul 17 18:05:15 CST 2026 x86_64 x86_64 x86_64 GNU/Linux
+4
+CPU(s):                                  4
+Model name:                              Intel(R) Xeon(R) Platinum
+BIOS Model name:                         pc-i440fx-2.1  CPU @ 0.0GHz
+Thread(s) per core:                      2
+Core(s) per socket:                      2
+bash: line 10: systemd: command not found
+cgroup2fs
+=== 2. memory/swap ===
+               total        used        free      shared  buff/cache   available
+Mem:            7459        1957        5025         327        1028        5502
+Swap:           4095           0        4095
+NAME      TYPE SIZE USED PRIO
+/swapfile file   4G   0B   -2
+0
+=== 3. disk ===
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda3        40G   26G   12G  70% /
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda3        40G   26G   12G  70% /
+=== 4. texas.service (只读) ===
+active
+MainPID=1776
+Slice=system.slice
+MemoryCurrent=1078358016
+CPUWeight=[not set]
+CPUQuotaPerSecUSec=infinity
+MemoryMax=infinity
+Nice=0
+ActiveState=active
+SubState=running
+=== 5. 已有隔离工件: systemd ===
+opt-zchain\x2dmonad-chain\x2ddata.mount      generated       -
+zmonad-cage-probe.scope                      transient       -
+explorer-gateway-monad.service               enabled         disabled
+monad-fold@.service                          static          -
+monad-leaf@.service                          static          -
+monad-settlementd-monad.service              enabled         disabled
+texas-monad.service                          enabled         disabled
+texas-test-guard.service                     enabled         disabled
+zchain-monad-disk-guard.service              static          -
+zchain-monad-node@.service                   disabled        disabled
+zchain-recursion.slice                       static          -
+zchain-monad-disk-guard.timer                enabled         disabled
+  dev-disk-by\x2dlabel-zchain\x2dmonad.device                                                loaded    active   plugged   /dev/disk/by-label/zchain-monad
+  dev-disk-by\x2dloop\x2dref-\x5cx2fopt\x5cx2fzchain\x2dmonad\x5cx2fchain\x2ddata.img.device loaded    active   plugged   /dev/disk/by-loop-ref/\x2fopt\x2fzchain-monad\x2fchain-data.img
+  opt-zchain\x2dmonad-chain\x2ddata.mount                                                    loaded    active   mounted   /opt/zchain-monad/chain-data
+● zmonad-cage-probe.scope                                                                    loaded    failed   failed    /usr/local/sbin/zmonad-memhog.sh 400
+  explorer-gateway-monad.service                                                             loaded    active   running   explorer_gateway (monad stack, :18950, replay texas WAL)
+● monad-fold@probe1.service                                                                  loaded    failed   failed    zchain-monad recursion fold-prover job probe1 (caged in zchain-recursion.slice)
+● monad-leaf@probe1.service                                                                  loaded    failed   failed    zchain-monad recursion leaf-prover job probe1 (caged in zchain-recursion.slice)
+  monad-settlementd-monad.service                                                            loaded    active   running   monad_settlementd (monad stack: batch/aggregate anchors -> Monad testnet 10143)
+  texas-monad.service                                                                        loaded    active   running   Secret Poker texas server (monad stack, :1544, appchain exit)
+  texas-test-guard.service                                                                   loaded    active   running   poker-air-2000 hand freeze guard (restart test stack when no hand completes for 240s)
+  zchain-monad-disk-guard.service                                                            loaded    inactive dead      zchain-monad disk watermark guard (stops image-writing units at 90%, logs texas status)
+  system-zchain\x2dmonad\x2dnode.slice                                                       loaded    active   active    Slice /system/zchain-monad-node
+  zchain-recursion.slice                                                                     loaded    active   active    zchain-monad recursion-proof & node workload slice (hard-capped; protects texas.service)
+  zchain.slice                                                                               loaded    active   active    Slice /zchain
+  zchain-monad-disk-guard.timer                                                              loaded    active   waiting   Run zchain-monad disk watermark guard every 5 minutes
+--- systemctl cat zchain-recursion.slice ---
+# /etc/systemd/system/zchain-recursion.slice
+# zchain-recursion.slice —— zchain monad 递归证明/链节点资源隔离 slice
+# 建于 2026-09-29。目的：把递归证明与链节点负载关进硬顶 cgroup，保证生产 texas.service 不受影响。
+# 预算推导（2026-09-29 实测）：available 5806M；texas.service MemoryCurrent≈1029M、monad 栈常驻≈27M。
+#   slice 上限 5200M = monad-leaf@ / monad-fold@ 各自 MemoryMax=4600M（必须串行跑）+ 预留编排类 512M + 内核开销。
+#   CPUQuota=300%：4 核留 1 核给 texas/nginx/系统；CPUWeight/IOWeight=60（texas 缺省 100 优先）。
+#   MemorySwapMax=0：宁可 cgroup OOM-kill 重试，不可 swap 风暴拖垮同盘 texas IO（9-28 磁盘事故同因教训）。
+# 回退：systemctl stop 成员单元 && rm /etc/systemd/system/zchain-recursion.slice && systemctl daemon-reload
+[Unit]
+Description=zchain-monad recursion-proof & node workload slice (hard-capped; protects texas.service)
+Documentation=file:/opt/zchain-monad/docs/node-unit-migration.md
+
+[Slice]
+CPUAccounting=true
+MemoryAccounting=true
+IOAccounting=true
+CPUQuota=300%
+CPUWeight=60
+MemoryMax=5200M
+MemorySwapMax=0
+IOWeight=60
+
+# /etc/systemd/system.control/zchain-recursion.slice.d/50-MemoryAccounting.conf
+# This is a drop-in unit file extension, created via "systemctl set-property"
+# or an equivalent operation. Do not edit.
+[Slice]
+MemoryAccounting=yes
+--- systemctl cat zchain.slice ---
+No files found for zchain.slice.
+--- systemctl cat texas-prover-monad.service ---
+No files found for texas-prover-monad.service.
+--- systemctl cat monad-leaf@.service ---
+# /etc/systemd/system/monad-leaf@.service
+# monad-leaf@.service —— 递归证明叶层任务单元（模板，实例名自定，如 monad-leaf@job-0001）
+# 建于 2026-09-29。防呆说明：/opt/zchain-monad/bin/leaf-prover 未部署前 start 会以 203/EXEC 失败——刻意的。
+#
+# !! 启用门禁（未过 caged 探针，禁止常驻/批量起）：
+#   systemd-run --scope -p MemoryMax=4600M -p MemorySwapMax=0 -p CPUQuota=300% -p CPUWeight=60 \
+#     -p LogRateLimitIntervalSec=30 ./leaf-prover <job>   # RAYON_NUM_THREADS ∈ {2,3} 各跑一次
+#   判定：内存不足时 cgroup OOM 只杀探针进程（不波及 texas）；全程 texas.service active
+#   且 MemoryCurrent 漂移 <10% 才算过。探针不过 → 叶层永久留在 36GB 工位（不阻塞上线）。
+# 依据（实测）：叶 19.4GB@8线程 > 服务器 5.8G available；2 线程能否 ≤4.6G 无把握，探针定。
+[Unit]
+Description=zchain-monad recursion leaf-prover job %i (caged in zchain-recursion.slice)
+# 证明产物必须落在隔离盘；隔离盘没挂载就拒绝运行（防数据落到根盘）
+RequiresMountsFor=/opt/zchain-monad/chain-data/artifacts
+
+[Service]
+Type=oneshot
+ExecStart=/opt/zchain-monad/bin/leaf-prover --job %i
+Environment=RAYON_NUM_THREADS=2
+WorkingDirectory=/opt/zchain-monad/chain-data/artifacts
+Slice=zchain-recursion.slice
+MemoryMax=4600M
+MemorySwapMax=0
+CPUQuota=300%
+CPUWeight=60
+IOWeight=60
+Nice=5
+LogRateLimitIntervalSec=30
+LogRateLimitBurst=1000
+TimeoutStartSec=infinity
+--- systemctl cat monad-fold@.service ---
+# /etc/systemd/system/monad-fold@.service
+# monad-fold@.service —— 递归证明折叠层任务单元（模板，实例名自定，如 monad-fold@job-0001）
+# 建于 2026-09-29。防呆说明：/opt/zchain-monad/bin/fold-prover 未部署前 start 会以 203/EXEC 失败——刻意的。
+#
+# !! 启用门禁（未过 caged 探针，禁止常驻/批量起）：
+#   systemd-run --scope -p MemoryMax=4600M -p MemorySwapMax=0 -p CPUQuota=300% -p CPUWeight=60 \
+#     -p LogRateLimitIntervalSec=30 ./fold-prover <job>   # RAYON_NUM_THREADS ∈ {2,3} 各跑一次
+#   判定：fold 在 4600M 内完成 → 可启用折叠单元；cgroup OOM 只杀探针进程；
+#   全程 texas.service active 且 MemoryCurrent 漂移 <10%。
+# 依据（实测）：折叠 7.37GB@8线程 → 2-3 线程期望 2-3.5GB（未实测，探针定）。
+# 与 leaf 互斥：同一时间只允许一个证明任务在 slice 内跑（slice MemoryMax=5200M 兜底强制）。
+[Unit]
+Description=zchain-monad recursion fold-prover job %i (caged in zchain-recursion.slice)
+# 证明产物必须落在隔离盘；隔离盘没挂载就拒绝运行（防数据落到根盘）
+RequiresMountsFor=/opt/zchain-monad/chain-data/artifacts
+
+[Service]
+Type=oneshot
+ExecStart=/opt/zchain-monad/bin/fold-prover --job %i
+Environment=RAYON_NUM_THREADS=2
+WorkingDirectory=/opt/zchain-monad/chain-data/artifacts
+Slice=zchain-recursion.slice
+MemoryMax=4600M
+MemorySwapMax=0
+CPUQuota=300%
+CPUWeight=60
+IOWeight=60
+Nice=5
+LogRateLimitIntervalSec=30
+LogRateLimitBurst=1000
+TimeoutStartSec=infinity
+--- systemctl cat zchain-monad-disk-guard.service ---
+# /etc/systemd/system/zchain-monad-disk-guard.service
+# zchain-monad-disk-guard.service —— 水位守卫一次性任务（由 .timer 每 5 分钟驱动）
+[Unit]
+Description=zchain-monad disk watermark guard (stops image-writing units at 90%, logs texas status)
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/zchain-monad-disk-guard.sh
+Nice=2
+LogRateLimitIntervalSec=30
+LogRateLimitBurst=100
+--- systemctl cat zchain-monad-disk-guard.timer ---
+# /etc/systemd/system/zchain-monad-disk-guard.timer
+# zchain-monad-disk-guard.timer —— 每 5 分钟跑一次水位守卫
+[Unit]
+Description=Run zchain-monad disk watermark guard every 5 minutes
+
+[Timer]
+OnCalendar=*:0/5
+Persistent=true
+Unit=zchain-monad-disk-guard.service
+
+[Install]
+WantedBy=timers.target
+=== 6. 已有隔离工件: cgroup 内核视图 ===
+aegis
+aegisMonitor
+aegisRtap0
+aegisRtap1
+cgroup.controllers
+cgroup.max.depth
+cgroup.max.descendants
+cgroup.procs
+cgroup.stat
+cgroup.subtree_control
+cgroup.threads
+cpu.block_latency
+cpu.cgroup_wait_latency
+cpu.ht_ratio
+cpu.ioblock_latency
+cpu.sched_cfs_statistics
+cpu.stat
+cpu.stat.local
+cpu.wait_latency
+cpuset.cpus.effective
+cpuset.mems.effective
+dev-hugepages.mount
+dev-mqueue.mount
+init.scope
+io.cost.model
+io.cost.qos
+io.extstat
+io.stat
+memory.async_fork
+memory.direct_compact_latency
+memory.direct_reclaim_global_latency
+memory.direct_reclaim_memcg_latency
+memory.direct_swapin_latency
+memory.direct_swapout_global_latency
+memory.direct_swapout_memcg_latency
+memory.exstat
+memory.idle_page_stats
+memory.idle_page_stats.local
+memory.min_cache_kbytes
+memory.numa_stat
+memory.pagecache_limit.enable
+memory.pagecache_limit.reclaim_bytes
+memory.pagecache_limit.reclaim_interval_ms
+memory.pagecache_limit.size
+memory.pagecache_limit.sync
+memory.pgtable_bind
+memory.pgtable_misplaced
+memory.pre_oom
+memory.reap_background
+memory.reclaim
+/sys/fs/cgroup/zchain.slice/memory.max = max
+/sys/fs/cgroup/zchain.slice/zchain-recursion.slice/cpu.max = 300000 100000
+/sys/fs/cgroup/zchain.slice/zchain-recursion.slice/memory.max = 5452595200
+/sys/fs/cgroup/zchain.slice/zchain-recursion.slice/memory.high = max
+/sys/fs/cgroup/zchain.slice/zchain-recursion.slice/memory.swap.max = 0
+/sys/fs/cgroup/zchain.slice/zchain-recursion.slice/io.weight = default 60
+/sys/fs/cgroup/zchain.slice/zchain-recursion.slice/cpu.weight = 60
+=== 7. 磁盘隔离现状 ===
+total 3789876
+drwxr-xr-x. 13 root root        4096 Sep 29 02:58 .
+dr-xr-xr-x. 21 root root        4096 Sep 19 08:47 ..
+-rwxr-xr-x   1 root root        2311 Sep 21 10:16 chain-supervisor-final.sh
+-rwxr-xr-x   1 root root        2420 Sep 21 01:27 chain-supervisor.sh
+drwx--x--x   4 root root        4096 Sep 19 04:37 containerd
+-rwxr-xr-x   1 root root       16697 Sep 28 23:17 deploy_monad_stack.sh
+drwxr-xr-x   4 root root        4096 Sep 20 20:37 poker_texas_air
+drwxr-xr-x   4 root root        4096 Sep 28 23:34 poker_texas_air-monad
+drwxr-xr-x   4 root root        4096 Sep 19 11:28 texas
+drwxr-xr-x   4 root root        4096 Sep 29 01:03 texas-monad
+drwxr-xr-x   4 root root        4096 Sep 22 02:36 texas-test
+drwxr-xr-x   2 root root        4096 Sep 29 02:59 zchain-4node
+-rw-r--r--   1 root root  3488318572 Sep 29 02:59 zchain-4node-node-data-archive-20260929.tar.zst
+-rwxr-xr-x   1 root root   392763832 Sep 20 20:32 zchain-bin-backup-sep15
+drwxr-xr-x   6 root root        4096 Sep 14 07:02 zchain-deploy
+drwxr-xr-x   8 root root        4096 Sep 29 05:54 zchain-monad
+drwxr-xr-x  34  501 games       4096 Sep 20 20:25 zchain-src
+drwxr-xr-x  18  501 games       4096 Sep 20 20:25 zchain-src-incoming
+total 508792
+drwxr-xr-x   8 root root       4096 Sep 29 05:54 .
+drwxr-xr-x. 13 root root       4096 Sep 29 02:58 ..
+drwxr-xr-x   2 root root       4096 Sep 29 06:58 bin
+-rw-r--r--   1 root root      84832 Sep 28 22:40 build-zchain.log
+drwxr-xr-x   2 root root       4096 Sep 29 00:38 chain
+-rw-r--r--   1 root root  448102217 Sep 29 00:18 chain-archive-20260928.tar.zst
+drwxr-xr-x   4 root root       4096 Sep 29 05:54 chain-data
+-rw-r--r--   1 root root 6442450944 Sep 29 07:02 chain-data.img
+drwxr-xr-x   2 root root       4096 Sep 29 05:54 docs
+drwxr-xr-x   4 root root       4096 Sep 28 22:07 poker_texas_air
+drwxr-xr-x  15 root root       4096 Sep 28 22:27 src
+TARGET                       SOURCE     FSTYPE OPTIONS
+/opt/zchain-monad/chain-data /dev/loop0 ext4   rw,nosuid,nodev,noexec,relatime
+/dev/loop0: [64771]:1215308 (/opt/zchain-monad/chain-data.img)
+/dev/loop1
+--- fstab ---
+17:/opt/zchain-monad/chain-data.img /opt/zchain-monad/chain-data ext4 loop,nodev,nosuid,noexec,nofail,x-systemd.device-timeout=10s 0 0
+=== 8. 守卫现状 ===
+total 16
+drwxr-xr-x.  2 root root 4096 Sep 29 05:54 .
+drwxr-xr-x. 14 root root 4096 Sep 19 08:45 ..
+-rwxr-xr-x   1 root root 2931 Sep 29 05:54 zchain-monad-disk-guard.sh
+-rwxr-xr-x   1 root root  637 Sep 29 05:54 zmonad-memhog.sh
+active
+cat: /opt/zchain-monad/guard-units.conf: No such file or directory
+cat: /opt/zchain-monad/deploy-state.env: No such file or directory
+total 40276
+drwxr-xr-x 2 root root     4096 Sep 29 06:58 .
+drwxr-xr-x 8 root root     4096 Sep 29 05:54 ..
+-rwxr-xr-x 1 root root  2818656 Sep 28 22:40 appchain_watcher
+-rwxr-xr-x 1 root root  3571480 Sep 28 22:40 explorer_gateway
+-rwxr-xr-x 1 root root      839 Sep 29 06:58 fold-prover
+-rwxr-xr-x 1 root root      686 Sep 29 06:58 leaf-prover
+-rwxr-xr-x 1 root root  5490464 Sep 28 22:40 monad_settlementd
+-rwxr-xr-x 1 root root  2824672 Sep 28 22:40 rake_audit
+-rwxr-xr-x 1 root root 26520152 Sep 28 22:40 zchain
+=== 9. 节点单元与数据目录候选 ===
+opt-zchain\x2dmonad-chain\x2ddata.mount      generated       -
+kmod-static-nodes.service                    static          -
+zchain-monad-disk-guard.service              static          -
+zchain-monad-node@.service                   disabled        disabled
+zchain-recursion.slice                       static          -
+zchain-monad-disk-guard.timer                enabled         disabled
+3.3G	/opt/zchain-src
+3.3G	/opt/zchain-4node-node-data-archive-20260929.tar.zst
+2.9G	/opt/zchain-src-incoming
+2.1G	/opt/poker_texas_air-monad
+1.7G	/opt/zchain-deploy
+639M	/opt/zchain-monad
+375M	/opt/zchain-bin-backup-sep15
+109M	/opt/texas
+80M	/opt/poker_texas_air
+58M	/opt/texas-test
+29M	/opt/texas-monad
+72K	/opt/zchain-4node
+20K	/opt/deploy_monad_stack.sh
+12K	/opt/containerd
+4.0K	/root/node_1.pid
+=== 10. 尾部复核 texas ===
+active
+1078358016
+=== SURVEY DONE ===

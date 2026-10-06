@@ -1,0 +1,19 @@
+[Unit]
+Description=ZChain recursion proving resource boundary (Monad settlement path)
+Documentation=file:/opt/zchain-monad/MIGRATION.md
+
+[Slice]
+# 记账显式开启（cgroup v2 按需启用控制器）
+CPUAccounting=yes
+MemoryAccounting=yes
+IOAccounting=yes
+# CPU：prover 让出机器一半核给 texas.service（nproc=4 -> 200%，6 核 -> 300%；systemd CPUQuota 为单核百分比语义）
+CPUQuota=__CPU_QUOTA__%
+# 争抢时权重低于默认 100，进一步让路 texas.service（位于 system.slice）
+CPUWeight=40
+IOWeight=50
+# 内存：4G 先节流（回收），5G 硬顶（超限 cgroup 内 OOM，只杀本域进程）
+MemoryHigh=4G
+MemoryMax=5G
+# swap 压到最低=0：杜绝 swap 风暴拖累同盘 texas.service（超出 5G 即在本域 fail-closed OOM）
+MemorySwapMax=0

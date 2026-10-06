@@ -1,0 +1,45 @@
+# Standalone workspace for the `proved`-settlement prover CLI.
+#
+# Deliberately NOT a member of the zgame root workspace: the proving stack requires the
+# nightly-2026-01-15 toolchain (portable_simd / iter_array_chunks / raw_slice_split features in
+# `stwo-cairo-prover`), which must not leak into `cargo check` of the game crates on stable.
+#
+# Path dependencies point into the vendored starkware-libs/proving copy (with our fixes) under
+# third_party/proving. `rust-toolchain.toml` pins the same toolchain that repo uses.
+
+[workspace]
+resolver = "2"
+
+[package]
+name = "prove-hand"
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+description = "One-shot Cairo1 compile -> run -> Stwo prove -> verify CLI for the poker `proved` settlement mode"
+publish = false
+
+[[bin]]
+name = "prove-hand"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1.0.98"
+bincode = "1.3"
+clap = { version = "4.3.10", features = ["derive"] }
+serde_json = { version = "1.0.142", features = ["preserve_order"] }
+tracing = { version = "0.1.40", default-features = false }
+tracing-subscriber = { version = "0.3.18", default-features = false, features = ["fmt", "ansi"] }
+
+# Vendored proving stack (see third_party/proving).
+stwo-cairo-dev-utils = { path = "../third_party/proving/crates/dev_utils" }
+stwo-cairo-prover = { path = "../third_party/proving/crates/prover" }
+stwo-cairo-common = { path = "../third_party/proving/crates/common", features = ["prover"] }
+stwo-cairo-adapter = { path = "../third_party/proving/crates/adapter" }
+cairo-air = { path = "../third_party/proving/crates/cairo-air" }
+stwo = { path = "../third_party/proving/crates/stwo", features = ["parallel", "prover"] }
+cairo-vm = { version = "3.2.0", features = ["extensive_hints", "mod_builtin", "clap"], default-features = false }
+rayon = "1.10.0"
+
+# Keep release defaults (opt-level 3, no LTO) to match the timings recorded in
+# third_party/proving bench notes.
+[profile.release]

@@ -1,0 +1,30 @@
+[package]
+name = "stwo-cairo-common"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Common types and utilities shared across Stwo Cairo crates"
+
+[package.metadata.cargo-machete]
+ignored = ["serde_arrays"]
+
+[features]
+prover = ["stwo/parallel", "stwo/prover", "stwo-constraint-framework/parallel", "stwo-constraint-framework/prover"]
+
+[dependencies]
+bytemuck.workspace = true
+itertools.workspace = true
+ruint.workspace = true
+serde.workspace = true
+starknet-ff.workspace = true
+starknet-types-core.workspace = true
+stwo-cairo-serialize.workspace = true
+stwo.workspace = true
+stwo-constraint-framework.workspace = true
+serde_arrays.workspace = true
+starknet-curve.workspace = true
+rayon.workspace = true
+
+[dev-dependencies]
+rand.workspace = true

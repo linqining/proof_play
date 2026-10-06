@@ -1,0 +1,35 @@
+{"seq":1,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790812049},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":2,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790812571},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":3,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790813285},"reason":"reconcile refused: live mirror DIVERGED from game layer: FinishReport { table_id: 1, hand_id: 1790813285, metrics: Metrics { reveal_ok: 14, bet_ok: 12, bet_fail: 0, force_folds: 1 }, issues: [\"plan derivation failed: serialization error: settlement: eligible seat 0 must expose exactly two valid cards\"] }"}}
+{"seq":4,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790813627},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":5,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790814622},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":6,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790815001},"reason":"reconcile refused: live mirror DIVERGED from game layer: FinishReport { table_id: 1, hand_id: 1790815001, metrics: Metrics { reveal_ok: 8, bet_ok: 4, bet_fail: 1, force_folds: 3 }, issues: [\"plan derivation failed: serialization error: settlement: board 1 must contain exactly 5 cards, got 3\"] }"}}
+{"seq":7,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790815284},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":8,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790815480},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":9,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790815761},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":10,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790815875},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":11,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790816107},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":12,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790816487},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":13,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790816827},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":14,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790817350},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":15,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790820050},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":16,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790824250},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":17,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790825060},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":18,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790825100},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":19,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790825207},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":20,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790827909},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":21,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790831859},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":22,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790832072},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":23,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790832247},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":24,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790832272},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":25,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790835952},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":26,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790836849},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":27,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790839898},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":28,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790840565},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":29,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790840723},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":30,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790840737},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":31,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790843419},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":32,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1790844536},"reason":"reconcile refused: no live hand mirror — hand unprovable"}}
+{"seq":33,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1791262433},"reason":"settlement build failed: SettleHandCalldata::new failed [ClientInput]: 业务规约违反: settle_hand: plan has non-zero rake but no rake recipient provided"}}
+{"seq":34,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1791262492},"reason":"settlement build failed: SettleHandCalldata::new failed [ClientInput]: 业务规约违反: settle_hand: plan has non-zero rake but no rake recipient provided"}}
+{"seq":35,"event":{"type":"build_dead_lettered","key":{"table_id":1,"hand_id":1791262534},"reason":"settlement build failed: SettleHandCalldata::new failed [ClientInput]: 业务规约违反: settle_hand: plan has non-zero rake but no rake recipient provided"}}

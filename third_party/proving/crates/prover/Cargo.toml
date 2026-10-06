@@ -1,0 +1,64 @@
+[package]
+name = "stwo-cairo-prover"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "STARK prover for Cairo programs using the Stwo proving system"
+
+[features]
+relation-tracker = []
+
+# Define Nightly features in order to allow selective tests
+# Use the following #[cfg(feature = "nightly")]
+# to enable nightly features on specific tests.
+nightly = []
+
+[dependencies]
+stwo-air-utils-derive.workspace = true
+stwo-air-utils.workspace = true
+hex.workspace = true
+itertools.workspace = true
+num-traits.workspace = true
+# TODO(Ohad): Add parallel config.
+stwo-cairo-common = { workspace = true, features = ["prover"] }
+stwo-cairo-adapter.workspace = true
+rayon.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+anyhow.workspace = true
+starknet-curve.workspace = true
+starknet-ff.workspace = true
+starknet-types-core.workspace = true
+stwo-cairo-serialize.workspace = true
+cairo-air.workspace = true
+stwo = { workspace = true, features = ["parallel", "prover"] }
+stwo-constraint-framework = { workspace = true, features = ["parallel", "prover"] }
+tracing.workspace = true
+dashmap.workspace = true
+indexmap = { workspace = true, features = ["std"] }
+bytemuck.workspace = true
+
+[target.'cfg(not(any(target_arch = "wasm32", target_arch = "wasm64")))'.dependencies]
+sonic-rs.workspace = true
+
+# Override getrandom feature flags for indirect dependencies.
+[target.'cfg(any(target_arch = "wasm32", target_arch = "wasm64"))'.dependencies]
+getrandom_v2.workspace = true
+getrandom_v3.workspace = true
+
+[[test]]
+name = "slow_tests"
+path = "tests/slow_tests.rs"
+# Exclude from `cargo test` or `cargo nextest run`.
+test = false
+
+[dev-dependencies]
+stwo-cairo-dev-utils.workspace = true
+cairo-vm.workspace = true
+generic-tests.workspace = true
+tempfile.workspace = true
+test-log.workspace = true
+tracing-subscriber = { workspace = true, features = ["fmt"] }
+rand.workspace = true
+sonic-rs.workspace = true

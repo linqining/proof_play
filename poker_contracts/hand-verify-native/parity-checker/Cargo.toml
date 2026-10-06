@@ -1,0 +1,14 @@
+[workspace]
+resolver = "2"
+
+[package]
+name = "hb-parity"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+poker-protocol-core = { git = "https://github.com/linqining/poker_protocol.git", tag = "v1.0.0" }
+crypto-bigint = "0.5.5"
+
+[profile.release]

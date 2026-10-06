@@ -1,0 +1,43 @@
+# build artifacts
+/target/
+/target-bench/
+/client-wasm/target/
+/client-wasm/pkg/
+/proving-tool/target/
+/proving-tool/output/
+/fact-verify/target*
+/poker_contracts/target/
+/poker_contracts/.snfoundry_cache/
+/poker_contracts/hand-verify-native/target/
+/poker_contracts/hand-verify-native/output/
+/third_party/proving/target/
+/third_party/corelib-2.19.4/target/
+
+# foundry (contracts/monad)
+/contracts/*/out/
+/contracts/*/cache/
+/contracts/*/broadcast/
+
+# web
+client/node_modules/
+client/dist/
+client/.env*
+!client/.env.example
+website/dist/
+
+# secrets — 永不入库（源仓库教训：.env.dev/.env.play/.env.mainnet 带真实私钥）
+.env.mainnet
+/.env*
+!/.env.example
+texas/.env
+texas/.env.test
+texas/.env.dev.local
+
+# misc
+.DS_Store
+.zcode/
+.vscode/
+.idea/
+.vite/
+coverage.lcov
+src/airs_lean/.lake/

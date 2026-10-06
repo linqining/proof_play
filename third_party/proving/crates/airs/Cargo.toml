@@ -1,0 +1,21 @@
+[package]
+name = "airs"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+air_common.workspace = true
+air_compile.workspace = true
+air_infra.workspace = true
+
+serde = { workspace = true, features = ["derive", "rc"] }
+indexmap = { workspace = true, features = ["serde", "std"] }
+serde_arrays.workspace = true
+
+stwo-cairo-common.workspace = true
+
+[dev-dependencies]
+air_infra = { workspace = true, features = ["test"] }
+generic-tests.workspace = true
+expect-test.workspace = true
+blake2.workspace = true

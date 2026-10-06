@@ -1,0 +1,55 @@
+[package]
+name = "stwo-run-and-prove-recursive-tree"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Fold an entire applicative recursive proof tree above its leaves into a single STWO root proof, in one binary invocation."
+
+# Explicit [[bin]] so the produced binary file name uses underscores; this is what Python's
+# `services.gps.bin.rust.stwo_binary_utils.STWO_RUN_AND_PROVE_RECURSIVE_TREE.path` expects, and
+# keeps us decoupled from any Cargo dash-to-underscore normalization quirks across versions.
+[[bin]]
+name = "stwo_run_and_prove_recursive_tree"
+path = "src/main.rs"
+
+[lib]
+name = "stwo_run_and_prove_recursive_tree"
+path = "src/lib.rs"
+
+[features]
+# Gates the end-to-end fold test: it proves a real multiverifier circuit per pair (over a
+# pre-generated leaf-proof fixture), too time/memory-heavy for the regular `tests` CI job.
+slow-tests = []
+
+[dependencies]
+# Host Blake2s for recomputing a leaf's output digests from its output preimage.
+blake2 = "0.10"
+clap.workspace = true
+leaf-proof-format.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sonic-rs.workspace = true
+# The Cairo `encode_felt252_data_and_calc_blake2s` felt-to-u32-words encoding.
+starknet-types-core.workspace = true
+stwo-cairo-utils.workspace = true
+
+thiserror.workspace = true
+tracing.workspace = true
+
+circuit-cairo-serialize.workspace = true
+circuit-multiverifier.workspace = true
+circuit-registry.workspace = true
+circuit-verifier.workspace = true
+circuit-common = { workspace = true, features = ["prover"] }
+circuit-prover.workspace = true
+circuit-serialize.workspace = true
+circuits.workspace = true
+circuits-stark-verifier.workspace = true
+stwo.workspace = true
+
+[dev-dependencies]
+tracing-subscriber.workspace = true
+tempfile.workspace = true
+num-bigint.workspace = true
+leaf-prover.workspace = true

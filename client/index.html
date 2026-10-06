@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+  <meta name="theme-color" content="#eae1cd" />
+  <title>ProofPlay Poker — Provably fair Texas Hold'em on Starknet</title>
+  <link rel="canonical" href="https://strk.secretpokers.com/">
+  <meta name="description"
+    content="Provably fair Texas Hold'em on Starknet — no trusted dealer: ElGamal-encrypted cards shuffled by the players, every step proven and verified in your browser, private STRK20 bankrolls. Live on mainnet." />
+  <meta name="keywords"
+    content="starknet, poker, texas hold'em, zero-knowledge, provably fair, strk20, mental poker, on-chain poker">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=auto" rel="stylesheet">
+
+  <meta property="og:url" content="https://strk.secretpokers.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ProofPlay Poker — Provably fair Texas Hold'em on Starknet">
+  <meta property="og:image" content="https://strk.secretpokers.com/og.png">
+  <meta property="og:description"
+    content="No trusted dealer, no rigged deck: every shuffle and settlement is proven and verified in your browser. Private STRK20 bankrolls. Live on Starknet mainnet.">
+  <meta property="og:site_name" content="ProofPlay Poker">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://strk.secretpokers.com/">
+  <meta name="twitter:title" content="ProofPlay Poker — Provably fair Texas Hold'em on Starknet">
+  <meta name="twitter:description"
+    content="No trusted dealer, no rigged deck: every shuffle and settlement is proven and verified in your browser. Private STRK20 bankrolls. Live on Starknet mainnet.">
+  <meta name="twitter:image" content="https://strk.secretpokers.com/og.png">
+
+  <style>
+    :root {
+      box-sizing: border-box;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100%;
+      background-color: #f5f2ea;
+    }
+
+    /* 账簿启动屏：纸面 pg + 极淡账格横纹，零光晕零渐变 */
+    .loading-screen {
+      width: 100%;
+      padding: 0 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      background-color: #f5f2ea;
+      background-image: repeating-linear-gradient(
+        180deg,
+        transparent 0 27px,
+        rgba(20, 19, 15, 0.035) 27px 28px
+      );
+    }
+
+    .no-script {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .no-script img {
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .no-script p {
+      font-size: 1.5rem;
+      font-family: 'Inter', sans-serif;
+      color: #475569;
+      text-align: center;
+      margin-top: 3rem;
+      padding: 1rem 2rem;
+      background: rgba(241, 245, 249, 0.9);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      border-radius: 1rem;
+    }
+
+    .custom-loader {
+      transform: scale(1);
+      animation: pulse 1.6s ease-in-out infinite;
+      filter: drop-shadow(0 1px 0 rgba(20, 19, 15, 0.06));
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(0.97);
+      }
+
+      50% {
+        transform: scale(1.02);
+      }
+
+      100% {
+        transform: scale(0.97);
+      }
+    }
+
+    #root,
+    #cookie-banner {
+      opacity: 0;
+      animation: fade-in 0.75s ease-out forwards;
+    }
+
+    @keyframes fade-in {
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="loading-screen" id="loading-screen">
+    <svg width="90" height="123" viewBox="118 86 360 492" fill="none" xmlns="http://www.w3.org/2000/svg" class="custom-loader" id="custom-loader" style="display: none;">
+      <defs>
+        <!-- 账簿纸牌：cd 纸白实底 + rl 细边，零渐变 -->
+        <filter id="softShadow" x="118" y="86" width="360" height="492" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+          <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#14130f" flood-opacity="0.06"/>
+        </filter>
+      </defs>
+
+      <g filter="url(#softShadow)">
+        <rect x="148" y="114" width="300" height="436" rx="14" fill="#fffdf7" stroke="#c3bba7" stroke-width="3"/>
+        <rect x="176" y="142" width="244" height="380" rx="8" fill="none" stroke="#ddd6c6" stroke-width="2.5"/>
+
+        <text x="200" y="212" font-size="64" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" fill="#14130f" font-weight="800">A</text>
+        <text x="200" y="268" font-size="58" font-family="'SFMono-Regular', Consolas, 'Liberation Mono', monospace" fill="#14130f" font-weight="800">♠</text>
+
+        <path d="M298 246C286 264 269 281 252 297C236 312 226 330 226 350C226 376 246 394 269 394C282 394 292 389 298 379C304 389 314 394 327 394C350 394 370 376 370 350C370 330 360 312 344 297C327 281 310 264 298 246Z" fill="#14130f"/>
+        <path d="M298 390C293 405 289 418 284 438H312C307 418 303 405 298 390Z" fill="#14130f"/>
+      </g>
+    </svg>
+    <svg width="520" height="138" viewBox="170 24 520 138" fill="none"  xmlns="http://www.w3.org/2000/svg" id="custom-loader-text" style="display: none; margin-top: 2.5rem; animation: fade-in 0.6s ease-out 0.3s forwards; opacity: 0;">
+      <g fill="#14130f">
+        <text x="176" y="95" font-size="74" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="800" letter-spacing="0.2" textLength="509" lengthAdjust="spacingAndGlyphs">ProofPlay Poker</text>
+        <text x="179" y="136" font-size="20" font-family="Inter, Arial, Helvetica, sans-serif" font-weight="600" letter-spacing="5" fill="#8a8578">EVERY GAME, PROVEN.</text>
+      </g>
+      <path d="M179 156H688" stroke="#ddd6c6" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+
+    <noscript class="no-script">
+      <img src="/logo_with_text.svg" alt="ProofPlay Poker" style="max-width: 280px;">
+      <p>Please enable <strong>JavaScript</strong> in order to use <strong style="color: #0f172a">ProofPlay
+          Poker</strong>.</p>
+    </noscript>
+  </div>
+  <div id="root" style="display: none;"></div>
+  <div id="cookie-banner" style="display: none;"></div>
+  <div id="modal"></div>
+  <script>
+    document.getElementById("custom-loader").style.display = "block";
+    document.getElementById("custom-loader-text").style.display = "block";
+  </script>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>

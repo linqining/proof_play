@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ProofPlay logo (mono)">
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="currentColor" stroke-width="3"/>
+  <path d="M17 15 H31 M17 15 V49 M17 49 H31 M47 15 H33 M47 15 V49 M47 49 H33" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="square"/>
+  <rect x="28" y="7" width="8" height="8" rx="1" transform="rotate(45 32 11)" fill="currentColor"/>
+  <path d="M24 35 L30 41 L41 29" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="160" viewBox="0 0 640 160" role="img" aria-labelledby="title desc">
+  <title id="title">ProofPlay logo</title>
+  <desc id="desc">ProofPlay open verification frame mark with English wordmark and Chinese name 明局.</desc>
+  <rect width="640" height="160" rx="16" fill="#101512"/>
+  <g transform="translate(34 32)">
+    <path d="M18 12 H42 M18 12 V72 M18 72 H42 M78 12 H54 M78 12 V72 M78 72 H54" fill="none" stroke="#18a66a" stroke-width="12" stroke-linecap="square"/>
+    <rect x="41" y="-6" width="14" height="14" transform="rotate(45 48 1)" fill="#d49a2a"/>
+    <path d="M30 48 L44 62 L70 36" fill="none" stroke="#f3f0e7" stroke-width="9" stroke-linecap="square" stroke-linejoin="miter"/>
+  </g>
+  <text x="150" y="96" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="66" font-weight="800" letter-spacing="-2" fill="#f3f0e7">Proof</text>
+  <text x="335" y="96" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="66" font-weight="800" letter-spacing="-2" fill="#18a66a">Play</text>
+  <text x="154" y="126" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="7" fill="#93a29a">明 局</text>
+  <text x="610" y="126" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" letter-spacing="1.5" fill="#66756d">EVERY GAME, PROVEN.</text>
+</svg>

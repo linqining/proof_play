@@ -1,0 +1,44 @@
+[package]
+name = "poker_contracts"
+version = "0.1.0"
+edition = "2024_07"
+publish = false
+
+[dependencies]
+openzeppelin = "1.0.0"
+snforge_std = "0.63.0"
+
+starknet = "2.19.4"
+
+[cairo]
+sierra-release = true
+# SNIP-36 预埋：proof_facts 消费路径（get_execution_info_v3_syscall +
+# info::v3::TxInfo.proof_facts）实测 cairo ≥2.15 corelib 才可用（2.12–2.14
+# 无此 API，原「≥2.12」注释有误——2026-10-01 逐版本探测 corelib 修正）；
+# snforge 0.63.0 门限 scarb ≥2.13.1，故合约工具链取 scarb 2.15.0+。
+# 该 syscall 属 libfunc 白名单之外——升级编译器前先把 libfuncs 门放开
+# （零行为变化：当前代码未用白名单外 libfunc，仅避免后续迁移时的二次
+# 编译回归）。
+allowed-libfuncs-list.name = "all"
+
+[lib]
+sierra-release = true
+# 主合约目标：产出 sierra+casm artifact 供 Rust 部署工具使用
+[[target.starknet-contract]]
+sierra = true
+casm = true
+
+# dual/hand_batch 与 secp256k1_verifier 的旧测试在 cairo 2.11.4 下触发
+# 编译器 lowering crash（既有问题），门控到该 feature，默认关闭。
+[features]
+dual_legacy_tests = []
+
+[profile.dev.cairo]
+unstable-add-statements-code-locations-debug-info = true
+unstable-add-statements-functions-debug-info = true
+
+# Sepolia fork 测试（tests/unshield_fork.cairo 等链上状态复现类测试用）
+[[tool.snforge.fork]]
+name = "SEPOLIA_LATEST"
+url = "https://starknet-sepolia-rpc.publicnode.com"
+block_id.tag = "latest"

@@ -1,0 +1,21 @@
+name: Thread sanitizer
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * 0'
+
+jobs:
+  tsan:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    env:
+      RUSTFLAGS: -Zsanitizer=thread
+      RUSTDOCFLAGS: -Zsanitizer=thread
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: nightly-2026-04-15
+      - run: cargo +nightly test --release -p poker_l1 --lib executor --no-run -Zbuild-std
+      - run: cargo +nightly test --release -p poker_l1 --lib executor -- --test-threads=2

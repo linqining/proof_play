@@ -1,0 +1,24 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+solc_version = "0.8.28"
+# Monad 为 EVM 等价执行（MONAD_NINE / v0.15.x 起支持 Cancun 语义；
+# 本合约栈未用 blob/PUSH0 之外的新特性，cancun 足够）。
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 20_000
+# 结算合约无外部 lib 依赖（自含 authority/pause/reentrancy），
+# `forge install foundry-rs/forge-std` 后即可编译测试。
+remappings = ["forge-std/=lib/forge-std/src/"]
+# DumpBatchCalldata.s.sol 把 settleBatch calldata 计划写到 /tmp/settle64_plan
+# （脚本产物，非链上件）。
+fs_permissions = [{ access = "read-write", path = "/tmp/settle64_plan" }]
+
+[profile.default.fuzz]
+runs = 256
+
+# 部署/验收文档见 README.md； Monad 主网 chainId=143，测试网 10143。
+[rpc_endpoints]
+monad = "${MONAD_RPC_URL}"
+monad_testnet = "${MONAD_TESTNET_RPC_URL}"

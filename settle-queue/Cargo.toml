@@ -1,0 +1,19 @@
+[package]
+name = "settle-queue"
+version = "0.1.0"
+edition = "2024"
+license = "BUSL-1.1"
+description = "结算任务持久化投递队列（正式状态表）：单手键去重 + SettleRoute 判别 + texas 独写 WAL / poster 独写 sidecar 的单写者协议"
+
+[lib]
+path = "src/lib.rs"
+
+# 纯 std + serde：本 crate 是投递层的共享词汇层（texas 写、batch-poster 读写），
+# 严禁引入网络/异步依赖——上链发送面在 starknet-txmgr / batch-poster。
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+
+[features]
+default = []

@@ -1,0 +1,37 @@
+[package]
+name = "stwo-cairo-dev-utils"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Development utilities and tools for Stwo Cairo prover"
+
+[[bin]]
+name = "extract_mem_trace"
+required-features = ["stwo-cairo-adapter/extract-mem-trace"]
+
+[dependencies]
+anyhow.workspace = true
+cairo-air.workspace = true
+clap.workspace = true
+serde.workspace = true
+sonic-rs.workspace = true
+stwo-cairo-adapter.workspace = true
+stwo.workspace = true
+stwo-cairo-prover.workspace = true
+tracing-subscriber = { workspace = true, features = ["fmt", "ansi"] }
+tracing.workspace = true
+log.workspace = true
+bincode.workspace = true
+cairo-lang-runner.workspace = true
+cairo-lang-executable.workspace = true
+cairo-lang-executable-plugin = "2.19.0-rc.0"
+cairo-lang-utils.workspace = true
+cairo-lang-compiler = "2.19.0-rc.0"
+cairo-lang-filesystem = "2.19.0-rc.0"
+
+serde_json.workspace = true
+cairo-vm.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true

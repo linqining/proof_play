@@ -1,0 +1,550 @@
+/* ==========================================================================
+   ProofPlay Poker 官网 · 账簿 Ledger 设计体系 v1.0
+   唯一样式源。纸白为默认底面，夜场通过 html[data-ground="night"] 切换
+   （切换控件见 templates/*.html 与 assets/js/ground.js）。
+   夜场 14 个 token 逐字沿用 media-kit/v0.1/brand.css，即改版前站点的颜色。
+   验收台：design/site/zchain-site-ui.html（85 个站点类名逐条演练）
+   出图与走查：website/tools/site_shoot.py · design/site/README.md
+   ========================================================================== */
+/* ============================================================================
+   ProofPlay 站点 · 账簿 Ledger 体系 v0.1
+   ----------------------------------------------------------------------------
+   形态:website/assets/css/main.css 的**替换件**。类名与现站点 1:1 沿用,
+   build.py / templates/base.html / 13 个 content/*.md 一行都不用改。
+   依据:已核对 build.py 不产生任何内联 style、也不引用任何 CSS 变量,
+   它只输出类名 —— 所以换样式源不等于换结构。
+
+   设计立场:站点现在卖的是「夜场牌桌」(径向渐变、发光按钮、渐变字、
+   18px 大圆角、blur 过的虚线毡布椭圆、卡片浮起 3px)。本体系改卖
+   「可被审计的账簿」:纸白底、细线账格、方角标签、等宽数字、左锚 3px
+   色条、印章。与钱包方向 B(design/zchain-wallet-ui-b-ledger.html)和
+   牌桌稿(design/table/)同一套令牌、同一套原语。
+
+   双底色,选体系不选底:
+     paper 纸白 —— 本稿新增,按产品决策设为**默认**
+     night 夜场 —— 14 个 token 逐字沿用 media-kit/v0.1/brand.css,
+                   即站点今天的颜色。所以这轮改造是叠加式的:夜场不丢,
+                   只是不再当默认。
+
+   7 条品牌硬规则(继承方向 B,逐条不破):
+     1. 零 webfont —— 站点 --sans/--mono 本来就与钱包同源,已满足。
+     2. 哈希 / 地址 / 金额一律等宽,永不换行折断。
+     3. 不使用描边字、发光字 → 渐变字与 --glow-felt 一并废除(变量保留
+        但值为 none,避免任何未清理的引用重新发光)。
+     4. --real 金只用于托管/真实资金语义(trust-note、banner-custody)。
+     5. 对比度:纸白底全部语义色实测 ≥ 5.81:1(见体系板 S1)。
+     6. 不做 scroll-driven 动画。
+     7. logo 不与「已审计」类徽章组合;印章只陈述结算事实。
+
+   顺带修一个现存缺陷:.st 引用的 --radius-pill 从未在 :root 定义过,
+   状态丸圆角实际一直塌成 0(歪打正着接近本体系想要的方角)。已补定义。
+   ============================================================================ */
+
+/* ---- 纸白(默认底) ---- */
+:root {
+  --bg: #f5f2ea;
+  --bg-soft: #eae5d9;
+  --surface: #fffdf7;
+  --surface-2: #f8f5ec;
+  --border: #c3bba7;
+  --border-soft: #ddd6c6;
+  --text: #14130f;
+  --muted: #4b4840;
+  --muted-2: #5f5b50;
+  --felt: #0b6b45;
+  --felt-deep: #085234;
+  --felt-dim: #a8c8b6;
+  --felt-w: #e6efe8;
+  --play: #15507f;
+  --play-deep: #a9c0d6;
+  --play-w: #e5ecf3;
+  --real: #7d5308;
+  --real-deep: #d8bd85;
+  --real-orange: #8a5a12;
+  --real-w: #f6ebd4;
+  --danger: #a83226;
+  --danger-deep: #dda9a1;
+  --danger-w: #f7e6e2;
+  --amb: #825510;
+  --amb-w: #f6eeda;
+  --amb-deep: #dcc796;
+  --code-bg: #efeade;
+  --nav-active-text: #f5f2ea;
+  --on-felt: #fffdf7;
+
+  /* 字体 —— 与钱包 / 牌桌逐字同源,零 webfont */
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", Roboto, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* 形状:账簿只有两种圆角,且没有"浮起" */
+  --radius-sm: 2px;
+  --radius: 3px;
+  --radius-lg: 6px;
+  --radius-pill: 2px;          /* 补定义:状态丸走方角,不走胶囊 */
+  --shadow-card: 0 1px 0 rgba(20, 19, 15, 0.04);
+  --shadow-pop: 0 1px 0 rgba(20, 19, 15, 0.04);
+  --glow-felt: none;           /* 发光废除,变量保留防脏引用 */
+  --rule-paper: rgba(20, 19, 15, 0.045);
+  --maxw: 1140px;
+}
+
+/* ---- 夜场(可切换;14 个 token 逐字抄自 media-kit/v0.1/brand.css) ---- */
+html[data-ground="night"] {
+  --bg: #070d0a;
+  --bg-soft: #0b1410;
+  --surface: #101c15;
+  --surface-2: #152418;
+  --border: #2a4a37;
+  --border-soft: #1d3326;
+  --text: #f0f7f1;
+  --muted: #abc3b6;
+  --muted-2: #7d9a8b;
+  --felt: #37e39c;
+  --felt-deep: #1a8a58;
+  --felt-dim: #14593a;
+  --felt-w: rgba(55, 227, 156, 0.11);
+  --play: #66c4ff;
+  --play-deep: #14486f;
+  --play-w: rgba(102, 196, 255, 0.11);
+  --real: #ffc75a;
+  --real-deep: #7a5410;
+  --real-orange: #e2933b;
+  --real-w: rgba(255, 199, 90, 0.11);
+  --danger: #ff9483;
+  --danger-deep: #6b2a20;
+  --danger-w: rgba(255, 148, 131, 0.10);
+  --amb: #ffd166;
+  --amb-w: rgba(255, 209, 102, 0.10);
+  --amb-deep: rgba(255, 209, 102, 0.35);
+  --code-bg: #0a120d;
+  --nav-active-text: #05130c;
+  --on-felt: #05130c;
+  --shadow-card: none;
+  --shadow-pop: none;
+  --rule-paper: rgba(240, 247, 241, 0.05);
+  color-scheme: dark;
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { color-scheme: light; scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: var(--sans); font-size: 15.5px; line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--felt); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 2px; }
+:where(h1, h2, h3, h4) { letter-spacing: 0; font-weight: 700; line-height: 1.28; }
+code, kbd, samp, .mono, .formula, .env-strip, .kv, .stat-num, .st, .chip,
+.docs-kicker, .card-kicker, .footer-h, .banner-tag, .tagline-en, .breadcrumb,
+table th, .pc-foot, .pc-rank { font-family: var(--mono); }
+.num, td, th { font-variant-numeric: tabular-nums; }
+:focus-visible { outline: 2px solid var(--felt); outline-offset: 2px; }
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 999;
+  background: var(--text); color: var(--nav-active-text);
+  padding: 8px 14px; border-radius: var(--radius); font-size: 13px;
+}
+.skip-link:focus { left: 12px; top: 12px; }
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+/* ---------- header / nav:纸面 + 一根细线,不吸顶不投影 ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--surface); border-bottom: 1px solid var(--border);
+}
+.header-row { display: flex; align-items: center; gap: 18px; min-height: 56px; flex-wrap: wrap; }
+.brand { margin: 0; }
+.brand-link {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-weight: 700; font-size: 15px; color: var(--text); letter-spacing: 0.01em;
+}
+.brand-link:hover { text-decoration: none; }
+.brand-link img { display: block; }
+.site-nav { margin-left: auto; }
+/* 底面切换：账簿里的"翻页角标"——方角、等宽、前缀一个小方块表示当前底面 */
+.ground-toggle {
+  margin-left: 14px; flex: none; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--mono); font-size: 10.5px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 4px 8px;
+}
+.ground-toggle:hover { color: var(--text); border-color: var(--border); background: var(--surface-2); }
+.ground-toggle-label::before {
+  content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 6px;
+  vertical-align: 0; border: 1px solid var(--border); border-radius: 1px;
+  background: var(--bg);
+}
+html[data-ground="night"] .ground-toggle-label::before { background: var(--text); }
+.nav-list { display: flex; flex-wrap: wrap; gap: 0; list-style: none; margin: 0; padding: 0; }
+.nav-list li { border-left: 1px solid var(--border-soft); }
+.nav-list li:first-child { border-left: 0; }
+.nav-list a {
+  display: block; padding: 8px 13px; font-family: var(--mono);
+  font-size: 12.5px; letter-spacing: 0.05em; color: var(--muted);
+  text-transform: uppercase;
+}
+.nav-list a:hover { color: var(--text); text-decoration: none; background: var(--bg-soft); }
+.nav-list a.active {
+  color: var(--felt); background: var(--felt-w);
+  box-shadow: inset 0 -2px 0 var(--felt);
+}
+.env-strip {
+  display: block; padding: 6px 24px; background: var(--code-bg);
+  border-bottom: 1px solid var(--border-soft); font-size: 11px;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-2);
+  text-align: center;
+}
+
+/* ---------- page scaffolding ---------- */
+.page { padding: 30px 24px 64px; }
+.page-head { margin-bottom: 12px; padding-bottom: 14px; border-bottom: 2px solid var(--text); }
+.page-title { font-size: clamp(24px, 3vw, 32px); line-height: 1.24; margin: 6px 0 10px; font-weight: 700; }
+.page-lead { color: var(--muted); font-size: 16px; margin: 0 0 12px; max-width: 66em; }
+.breadcrumb { font-size: 11.5px; color: var(--muted-2); margin: 0 0 8px; display: flex; gap: 8px; flex-wrap: wrap; letter-spacing: 0.06em; text-transform: uppercase; }
+.breadcrumb a { color: var(--muted-2); }
+.breadcrumb [aria-current="page"] { color: var(--text); }
+.docs-kicker { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--felt); margin: 0; font-weight: 600; }
+.page-body { max-width: 74em; }
+.page-body h2 { font-size: 21px; margin: 40px 0 12px; padding-top: 14px; border-top: 1px solid var(--border-soft); }
+.page-body > h2:first-child { border-top: 0; padding-top: 0; margin-top: 22px; }
+.page-body h3 { font-size: 17px; margin: 28px 0 8px; }
+.page-body h4 { font-size: 15.5px; margin: 22px 0 6px; color: var(--muted); }
+.page-body p { margin: 0 0 14px; }
+.page-body ul, .page-body ol { margin: 0 0 16px; padding-left: 22px; }
+.page-body li { margin: 4px 0; }
+.md { font-size: 15.5px; }
+.md > :first-child { margin-top: 0; }
+
+/* ---------- banners / notices:左锚 3px 色条,零渐变 ---------- */
+.banner {
+  position: relative; border: 1px solid var(--border-soft);
+  border-left: 3px solid var(--muted-2); background: var(--surface);
+  border-radius: var(--radius); padding: 12px 15px; margin: 16px 0;
+  font-size: 14px; color: var(--muted);
+}
+.banner > strong:first-child, .banner b:first-child { color: var(--text); }
+.banner p { margin: 5px 0 0; color: var(--muted); }
+.banner strong { color: var(--text); font-weight: 600; }
+.banner-tag {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  border-radius: var(--radius-sm); padding: 2px 6px; margin-right: 7px;
+  border: 1px solid var(--border); color: var(--muted); background: var(--bg-soft);
+}
+.banner-sample { border-left-color: var(--play); background: var(--play-w); border-color: var(--play-deep); }
+.banner-sample .banner-tag { color: var(--play); border-color: var(--play-deep); background: var(--surface); }
+.banner-custody { border-left-color: var(--real); background: var(--real-w); border-color: var(--real-deep); }
+.banner-custody .banner-tag { color: var(--real); border-color: var(--real-deep); background: var(--surface); }
+.notice { border: 1px solid var(--border-soft); border-left: 3px solid var(--play); background: var(--surface); border-radius: var(--radius); padding: 12px 15px; margin: 16px 0; font-size: 14px; }
+
+/* ---------- hero:一张铺开的账页,不是一块夜场毡布 ---------- */
+.hero {
+  position: relative; overflow: hidden;
+  border: 1px solid var(--border); border-radius: var(--radius-lg);
+  padding: 36px 34px 32px; margin: 4px 0 28px;
+  background: var(--surface); box-shadow: var(--shadow-card);
+}
+.hero::after { /* 账格纸纹:26px 一行的横线,和钱包 .tot 同一道纹 */
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(180deg, transparent 0 25px, var(--rule-paper) 25px 26px);
+}
+.hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 34px; align-items: center; }
+.hero-copy { min-width: 0; }
+.hero h1, .hero h2 {
+  margin: 0 0 12px; font-size: clamp(26px, 3.6vw, 38px); line-height: 1.22;
+  font-weight: 700; letter-spacing: 0; color: var(--text);
+  /* 渐变字废除:强调只用字重与颜色 */
+  background: none; -webkit-text-fill-color: currentColor;
+  text-wrap: balance;   /* 首页标题 15 字会在 1280 下折出「录。」孤行 */
+}
+.hero p { color: var(--muted); font-size: 15.5px; margin: 0 0 8px; max-width: 38em; }
+.hero p.tagline-en {
+  font-size: 10.5px; color: var(--felt); font-size: 10.5px; letter-spacing: 0.18em;
+  text-transform: uppercase; margin: 0 0 12px; font-weight: 600;
+}
+.hero .cta-row { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
+
+/* 按钮:方角、细线、一屏只允许一个实底、不浮起不发光 */
+.btn {
+  display: inline-block; border-radius: var(--radius); padding: 10px 18px;
+  font-weight: 600; font-size: 14px; border: 1px solid transparent;
+  transition: filter 0.12s, background 0.12s, color 0.12s, border-color 0.12s;
+}
+.btn:hover { text-decoration: none; }
+.btn:active { filter: brightness(0.92); }
+.btn-play { background: var(--felt); color: var(--on-felt); box-shadow: none; }
+.btn-play:hover { background: var(--felt); filter: brightness(1.08); box-shadow: none; }
+.btn-ghost { border-color: var(--text); color: var(--text); background: transparent; }
+.btn-ghost:hover { background: var(--text); color: var(--nav-active-text); border-color: var(--text); }
+.btn-real { border-color: var(--real-deep); color: var(--real); background: var(--real-w); }
+
+/* hero 右列:毡布椭圆 → 账页 + 三张**密封**牌。
+   牌在未开牌前本来就是密文,用牌背比用正面 K♠ 更诚实,也更贴卖点。 */
+.hero-visual { position: relative; min-height: 268px; }
+.hero-visual .felt-oval {
+  position: absolute; left: 2%; right: 2%; top: 6%; height: 68%;
+  border-radius: 120px; background: var(--surface-2);
+  border: 1px solid var(--border); filter: none;
+}
+.hero-visual .felt-oval::after {
+  content: ""; position: absolute; inset: 5px; border-radius: 116px;
+  border: 1px solid var(--border-soft);
+  background: repeating-linear-gradient(180deg, transparent 0 25px, var(--rule-paper) 25px 26px);
+}
+.pcard {
+  position: absolute; left: 50%; top: 30px; width: 84px; height: 118px; margin-left: -42px;
+  border-radius: var(--radius); background: var(--surface); color: var(--text);
+  border: 1px solid var(--border); box-shadow: var(--shadow-card);
+  padding: 7px 8px; line-height: 1.05;
+}
+.pcard .pc-rank { font-size: 15px; font-weight: 700; display: block; letter-spacing: -0.01em; }
+.pcard .pc-suit { font-size: 30px; display: block; position: absolute; left: 50%; top: 56%; transform: translate(-50%, -50%); }
+.pcard .pc-foot { position: absolute; right: 7px; bottom: 5px; font-size: 10px; font-weight: 700; transform: rotate(180deg); color: var(--muted-2); }
+.pcard-red { color: var(--danger); }
+
+/* hero 的三张牌改成**密封牌背** —— 纯 CSS 完成,不动 content/index.md。
+   牌在未开牌前本来就是密文,首页用牌背比用明牌 K♠ 更诚实,也和牌桌稿的
+   SEALED 记号接上。content 里的 pc-rank / pc-suit / pc-foot 原样保留在
+   DOM 里(仍可读、仍可被搜索引擎抓到),只是不显示。 */
+.hero-visual .pcard {
+  background:
+    repeating-linear-gradient(45deg, var(--felt-w) 0 3px, transparent 3px 6px),
+    repeating-linear-gradient(-45deg, var(--felt-w) 0 3px, transparent 3px 6px),
+    var(--surface);
+  border-color: var(--felt-dim); color: var(--felt);
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-visual .pcard .pc-rank,
+.hero-visual .pcard .pc-suit,
+.hero-visual .pcard .pc-foot { display: none; }
+.hero-visual .pcard::before {
+  content: "SEALED"; font-family: var(--mono); font-size: 8.5px;
+  font-weight: 700; letter-spacing: 0.1em;
+}
+.hero-visual .pcard::after {
+  content: "#47"; position: absolute; top: 6px; right: 7px;
+  font-family: var(--mono); font-size: 9px; color: var(--muted-2);
+}
+.hero-visual .pcard-1::after { content: "#12"; }
+.hero-visual .pcard-2::after { content: "#28"; }
+.hero-visual .pcard-3::after { content: "#47"; }
+.pcard-1 { transform: rotate(-9deg) translateX(-58px); z-index: 1; }
+.pcard-2 { transform: rotate(1deg) translateY(-7px); z-index: 3; }
+.pcard-3 { transform: rotate(9deg) translateX(58px); z-index: 2; }
+.hero-chips { position: absolute; bottom: 0; left: 0; right: 0; display: flex; justify-content: center; gap: 6px; z-index: 4; flex-wrap: wrap; }
+
+/* ---------- 状态丸 / 标签:方角、等宽、大写字距(= 钱包 .ch) ---------- */
+.st, .chip {
+  display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.09em;
+  text-transform: uppercase; border-radius: var(--radius-sm); padding: 2px 6px;
+  border: 1px solid var(--border); white-space: nowrap; color: var(--muted);
+  background: var(--surface); vertical-align: 1px;
+}
+.st-ok { color: var(--felt); border-color: var(--felt-dim); background: var(--felt-w); }
+.st-warn { color: var(--amb); border-color: var(--amb-deep); background: var(--amb-w); }
+.st-info { color: var(--play); border-color: var(--play-deep); background: var(--play-w); }
+.st-bad { color: var(--danger); border-color: var(--danger-deep); background: var(--danger-w); }
+.st-muted { color: var(--muted-2); border-color: var(--border-soft); background: transparent; }
+.chip-net { color: var(--play); border-color: var(--play-deep); background: var(--play-w); }
+.chip-assets { color: var(--real); border-color: var(--real-deep); background: var(--real-w); }
+
+/* ---------- 统计带:一格一格账格,不发光不浮起 ---------- */
+.stat-band {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px;
+  background: var(--border); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden; margin: 0 0 8px;
+}
+.stat { background: var(--surface); padding: 13px 15px 12px; min-width: 0; }
+.stat .stat-num { display: block; font-size: 21px; font-weight: 700; color: var(--felt); letter-spacing: -0.01em; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stat .stat-label { display: block; color: var(--muted-2); font-size: 11.5px; margin-top: 3px; line-height: 1.45; }
+
+/* ---------- 卡片:纸卡 + 细线 + 左侧 3px 色条(账页页边注) ---------- */
+.entry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin: 22px 0; }
+.card {
+  position: relative; background: var(--surface);
+  border: 1px solid var(--border-soft); border-radius: var(--radius);
+  padding: 16px 17px 15px; box-shadow: var(--shadow-card);
+  transition: border-color 0.12s;
+}
+.card:hover { transform: none; border-color: var(--text); }
+.entry-grid .card { border: 0; border-radius: 0; box-shadow: none; }
+.card h3, .card h4 { margin-top: 0; letter-spacing: 0; }
+.card h2 { font-size: 16.5px; margin: 0 0 8px; padding-top: 0; border-top: 0; }
+.card p { color: var(--muted); font-size: 14px; margin: 7px 0 0; }
+.card .card-kicker { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--felt); margin: 0 0 9px; font-weight: 600; }
+.card-play { border-left: 3px solid var(--play); }
+.card-play .card-kicker { color: var(--play); }
+.card-real { border-left: 3px solid var(--real); }
+.card-real .card-kicker { color: var(--real); }
+.card-h { margin: 0 0 6px; }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 14px; margin: 18px 0; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; margin: 18px 0; }
+
+/* ---------- 托管提示:金色只出现在这里 ---------- */
+.trust-note {
+  position: relative; border: 1px solid var(--real-deep); border-left: 3px solid var(--real);
+  background: var(--real-w); border-radius: var(--radius);
+  padding: 13px 16px; margin: 22px 0; font-size: 14px; color: var(--muted);
+}
+.trust-note > strong:first-child, .trust-note > b:first-child { color: var(--real); }
+.trust-note p { margin: 5px 0 0; color: var(--muted); }
+.trust-note strong { color: var(--text); font-weight: 600; }
+
+/* ---------- 表格:账簿主战场 —— 细线、不斑马、数字等宽 ---------- */
+table {
+  border-collapse: collapse; width: 100%; margin: 16px 0 22px;
+  font-size: 13.5px; border: 1px solid var(--border-soft);
+  border-radius: 0; overflow: hidden; background: var(--surface);
+}
+th, td { padding: 8px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border-soft); border-left: 0; }
+th {
+  background: var(--surface-2); color: var(--muted-2); font-weight: 600;
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  border-bottom: 1px solid var(--text); white-space: nowrap;
+}
+td { color: var(--muted); }
+/* build.py 会把"整列都是量"的列标 class="num"：账簿里数字贴右才能按位比对，
+   标识符列（0x… 哈希、含省略号的地址）由生成器判定后留在左对齐。 */
+td.num, th.num { text-align: right; }
+td.num { font-family: var(--mono); color: var(--text); }
+td strong { color: var(--text); font-weight: 600; }
+td code { font-size: 12.5px; color: var(--text); }
+tbody tr:nth-child(even) { background: transparent; }   /* 账簿不斑马,靠细线分行 */
+tbody tr:hover { background: var(--bg-soft); }
+tbody tr:last-child td { border-bottom: 0; }
+@media (max-width: 720px) {
+  table { display: block; overflow-x: auto; white-space: nowrap; }
+}
+
+/* ---------- 代码块:账簿的"电报栏" —— 细线框、等宽、横向滚动不外溢 ----------
+   注意：pre 规则一度在迁移时丢失，导致长代码行把整页撑到 750px 宽（窄屏全站右半被切）。
+   overflow-x 必须落在 pre 上；inline code 用 overflow-wrap 断词，pre code 反过来关掉。 */
+pre {
+  background: var(--code-bg); border: 1px solid var(--border-soft);
+  border-radius: var(--radius); padding: 13px 15px; margin: 14px 0 20px;
+  overflow-x: auto; color: var(--text);
+  font-family: var(--mono); font-size: 12.5px; line-height: 1.72;
+  font-variant-numeric: tabular-nums; -webkit-overflow-scrolling: touch;
+}
+pre code { background: none; border: 0; padding: 0; font-size: inherit; line-height: inherit; overflow-wrap: normal; word-break: normal; }
+/* break-word 不参与 min-content 计算，桌面端不会把 plan_digest 这类标识符拦腰斩断；
+   窄屏再切到 anywhere，长 token 才允许断行，避免整页被撑出视口。 */
+code { overflow-wrap: break-word; }
+
+/* ---------- 公式 / 键值 / 清单 ---------- */
+.formula {
+  display: block; background: var(--code-bg); border: 1px solid var(--border-soft);
+  border-radius: var(--radius); padding: 12px 14px; margin: 14px 0;
+  font-size: 12.5px; color: var(--text); overflow-x: auto; line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+/* .kv 在真实内容里有两种用法：<p class="kv"> 是整段说明文字（proofs 页两处），
+   <div class="kv"><span class="k">…</span><span class="v">…</span></div> 才是账目行。
+   无条件上 grid 会把说明文字里的每个 <code> 变成一个网格项，句子被拆成几段错位 ——
+   这是改版自己踩出的回归，所以网格只给真装了 .k/.v（或 dt/dd）的那些。 */
+.kv { font-family: var(--mono); font-size: 13.5px; color: var(--muted); }
+.kv:has(> .k), .kv:has(> dt) {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px; align-items: baseline; padding: 7px 0;
+  border-bottom: 1px solid var(--border-soft);
+}
+.kv:has(> .k):last-child, .kv:has(> dt):last-child { border-bottom: 0; }
+.kv > dt, .kv .k { color: var(--muted); }
+.kv > dd, .kv .v { margin: 0; font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; color: var(--text); word-break: break-all; }
+.fin-legend { border: 1px solid var(--border-soft); border-radius: var(--radius); background: var(--surface); padding: 12px 14px; margin: 16px 0; font-size: 13px; }
+.fin-legend-body { margin-top: 8px; color: var(--muted); }
+/* 勾选清单：方框用**悬挂**而不是 flex —— 列表项正文里有 <code>/<a>，
+   一旦 .task 是 flex，每个内联元素都会变成独立弹性项并被 gap 撑开，
+   句子会被读成"默认只绑回环，  --public  显式开启"这种断裂节奏。 */
+.task { position: relative; padding: 6px 0 6px 24px; border-bottom: 1px solid var(--border-soft); font-size: 14px; }
+.task:last-child { border-bottom: 0; }
+.task::before {
+  content: ""; position: absolute; left: 0; top: 9px;
+  width: 15px; height: 15px; display: grid; place-items: center;
+  border: 1.5px solid var(--muted-2); border-radius: var(--radius-sm); background: var(--surface);
+}
+.task-done { color: var(--muted-2); }
+.task-done::before { content: "✓"; font-family: var(--mono); font-size: 11px; background: var(--felt); border-color: var(--felt); color: var(--on-felt); }
+.task-open::before { border-style: dashed; }
+/* .ul-list > .li 的 padding-left:2px 特异性更高，会把上面的 24px 缩进吃掉，
+   方框就压在首字上。列表里的勾选行按同一条更长的选择器把缩进要回来。 */
+.ul-list > .li.task, .ol-list > .li.task { padding-left: 24px; }
+.li { display: block; }
+/* 正文列表：Markdown 出口固定是 ul.ul-list > li.li，脱离 .page-body 也要成账簿节奏 */
+.ul-list, .ol-list { margin: 0 0 16px; padding-left: 22px; line-height: 1.72; }
+.ul-list { list-style: disc; }
+.ol-list { list-style: decimal; }
+.ul-list ::marker, .ol-list ::marker { color: var(--muted-2); font-family: var(--mono); font-size: 0.85em; }
+.ul-list > .li, .ol-list > .li { margin: 5px 0; padding-left: 2px; }
+/* 代码块语言钩子（language-console / json / text）：不引高亮库，只做继承与去底 */
+code[class*="language-"], pre[class*="language-"] { color: inherit; background: none; text-shadow: none; }
+/* explorer-live.js 注入的实时层容器：与静态表同构，不额外起一套视觉 */
+.explorer-live { display: block; }
+.explorer-live:empty { display: none; }
+
+/* ---------- 表单控件 ---------- */
+input, select, textarea, button {
+  font: inherit; color: var(--text); background: var(--surface);
+  border: 1px solid var(--border); border-radius: var(--radius); padding: 9px 12px;
+}
+.input { width: 100%; max-width: 560px; font-family: var(--mono); font-size: 13px; }
+.input::placeholder { color: var(--muted-2); }
+.input:focus { outline: 2px solid var(--felt); outline-offset: 1px; border-color: var(--felt); }
+button { cursor: pointer; background: var(--text); color: var(--bg); border-color: var(--text); font-weight: 600; }
+button[disabled] { opacity: 1; background: var(--surface-2); color: var(--muted-2); border-color: var(--border-soft); cursor: not-allowed; }
+
+/* ---------- docs 布局:索引是账簿目录,不是卡片堆 ---------- */
+.docs-layout { display: grid; grid-template-columns: 248px minmax(0, 1fr); gap: 32px; padding-top: 24px; padding-bottom: 64px; }
+.docs-side { align-self: start; position: sticky; top: 70px; max-height: calc(100vh - 86px); overflow-y: auto; font-size: 13px; padding: 0 8px 24px 0; scrollbar-width: thin; }
+.docs-side ul { list-style: none; margin: 0; padding: 0; }
+.docs-side li { margin: 0; }
+.docs-side-group { background: transparent; border: 0; border-radius: 0; padding: 0; margin: 0 0 16px; }
+.docs-side-h { margin: 0 0 4px; font-weight: 600; font-size: 10px; font-family: var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-2); padding: 6px 0 5px; border-bottom: 1px solid var(--border-soft); }
+.docs-side a { display: block; padding: 5px 9px; border-left: 2px solid transparent; color: var(--muted); border-radius: 0; }
+.docs-side a:hover { background: var(--bg-soft); color: var(--text); text-decoration: none; }
+.docs-side a.active { background: var(--felt-w); color: var(--felt); font-weight: 600; border-left-color: var(--felt); }
+.docs-main { min-width: 0; }
+.docs-footer-note { color: var(--muted-2); font-size: 12.5px; border-top: 1px solid var(--border); margin-top: 34px; padding-top: 14px; font-family: var(--mono); letter-spacing: 0.03em; }
+
+/* ---------- footer:等宽 + 一根细线 ---------- */
+.site-footer { background: var(--surface); border-top: 1px solid var(--border); margin-top: 40px; }
+.footer-grid { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.5fr) minmax(0, 1.3fr); gap: 30px; padding: 30px 24px 34px; font-size: 13px; }
+.footer-brand { display: flex; align-items: center; gap: 9px; font-weight: 700; font-size: 14.5px; margin: 0 0 9px; color: var(--text); }
+.footer-h { font-size: 10px; width: 100%; margin: 0 0 8px; color: var(--muted-2); text-transform: uppercase; letter-spacing: 0.14em; font-family: var(--mono); font-weight: 600; padding-bottom: 5px; border-bottom: 1px solid var(--border-soft); }
+.footer-links { display: flex; flex-wrap: wrap; gap: 3px 10px; align-content: start; }
+.footer-links a, .footer-meta a { color: var(--muted); font-family: var(--mono); font-size: 12px; }
+.footer-meta { color: var(--muted-2); font-size: 12px; font-family: var(--mono); line-height: 1.9; }
+
+/* ---------- 窄屏 ---------- */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 26px; }
+  .hero-visual { min-height: 210px; }
+  .stat-band { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .docs-layout { grid-template-columns: 1fr; gap: 22px; }
+  .docs-side { position: static; max-height: none; }
+  .footer-grid { grid-template-columns: 1fr; gap: 22px; }
+}
+@media (max-width: 560px) {
+  body { font-size: 15px; }
+  .wrap { padding: 0 16px; }
+  .stat-band { grid-template-columns: 1fr; }
+  .hero { padding: 24px 20px; }
+  .site-nav { margin-left: 0; width: 100%; }
+  .nav-list a { padding: 7px 9px; font-size: 11.5px; }
+}
+/* 窄屏长标识符断行：必须排在上面的 code 规则之后（媒体查询不加权重） */
+@media (max-width: 720px) {
+  code { overflow-wrap: anywhere; }
+}
+@media print {
+  .site-header, .site-footer, .env-strip, .cta-row, .skip-link { display: none; }
+  body { background: #fff; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}

@@ -1,0 +1,38 @@
+# Standalone workspace for the zchain-side Cairo/Stwo fact verifier CLI.
+#
+# Sibling of `proving-tool/`: same vendored proving stack (third_party/proving),
+# same pinned toolchain, deliberately NOT a member of the zgame root workspace.
+#
+# Purpose: let zchain (and any operator) verify a Cairo/Stwo proof produced by
+# `prove-hand` and derive the settlement fact — the "program-hash pinning +
+# fact registry" gate, computed locally instead of trusted from a prover.
+#
+# Verify timings (settlement circuit, 2.4.0 stack): ~9 ms.
+
+[workspace]
+resolver = "2"
+
+[package]
+name = "fact-verify"
+version = "0.1.0"
+edition = "2024"
+license = "Apache-2.0"
+description = "Verify Cairo/Stwo proofs (prove-hand artifacts) and derive settlement facts"
+publish = false
+
+[[bin]]
+name = "fact-verify"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1.0.98"
+clap = { version = "4.3.10", features = ["derive"] }
+starknet-crypto = "0.8.1"
+stwo-cairo-common = { path = "../third_party/proving/crates/common" }
+cairo-air = { path = "../third_party/proving/crates/cairo-air" }
+stwo = { path = "../third_party/proving/crates/stwo" }
+# 内存态二进制 wire 格式（Binary = bzip2(bincode)），与 cairo-air 同版本
+bincode = "1"
+bzip2 = "0.4"
+
+[profile.release]

@@ -1,0 +1,6 @@
+[Unit]
+Description=Watermark guard run for zchain-monad isolated chain-data (oneshot)
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/zchain-monad-disk-guard.sh

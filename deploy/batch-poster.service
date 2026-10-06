@@ -1,0 +1,20 @@
+[Unit]
+Description=Secret Poker Batch Poster (settle-queue WAL -> Starknet, survey §9.1 独立常驻组件)
+After=network.target
+# texas.service（同目录）负责游戏服务器；本单元负责 legacy 结算投递——
+# 生产必须运行（texas 不再直发 legacy，见 docs/BATCH_POSTER_OPS.md）。
+
+[Service]
+Type=simple
+# 与 texas.service 同 WorkingDirectory 根：texas 与 poster 的 WAL/sidecar
+# 缺省相对路径（settle-queue/queue.jsonl、poster-sidecar）同根即自然指向
+# 同一目录；多进程/多机部署必须改为绝对路径且两测同值（见 env 文件）。
+WorkingDirectory=/opt/texas
+ExecStart=/opt/texas/batch-poster run --bind 127.0.0.1:7331
+EnvironmentFile=/opt/texas/batch-poster.env
+Restart=always
+RestartSec=5
+# status 端点只绑回环；对外观测走反代（先例：texas-nginx.conf）。
+
+[Install]
+WantedBy=multi-user.target

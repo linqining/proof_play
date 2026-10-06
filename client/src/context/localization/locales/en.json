@@ -1,0 +1,1076 @@
+{
+  "cookiebanner-confirm_btn_txt": "OK",
+  "cookiebanner-info_btn_txt": "Learn more",
+  "cookiebanner-text": "This website uses cookies to ensure you get the best experience.",
+  "dashboard-delete_acct_btn_text": "Delete Account",
+  "dashboard-email_btn_txt": "Update Email",
+  "dashboard-email_lbl_txt": "Email",
+  "dashboard-nickname_btn_txt": "Update Nickname",
+  "dashboard-nickname_lbl_txt": "Nickname",
+  "dashboard-reset_pw_btn_text": "Reset Password",
+  "dashboard-heading_txt": "Dashboard",
+  "footer-copyright_txt": "© ProofPlay Poker. All rights reserved.",
+  "footer-lang_selection_txt": "Language",
+  "game_buyin-modal_cancel": "Cancel",
+  "game_buyin-modal_confirm": "Sit Down",
+  "game_buyin-modal_header": "Buy In",
+  "game_login-required_text": "Please log in to continue.",
+  "game_info_blinds-lbl": "Blinds",
+  "game_rake-collected_lbl": "Rake",
+  "game_history-open-btn": "History",
+  "game_history-title": "Hand History",
+  "game_history-hand-lbl": "Hand",
+  "game_history-pot-lbl": "Pot",
+  "game_history-showdown-badge": "Showdown",
+  "game_history-fold-badge": "Fold",
+  "game_history-empty": "No hands yet. Finish a hand to see it here.",
+  "game_history-refresh": "Refresh",
+  "game_info_limit-lbl": "Limit",
+  "game_leave-table-btn": "Leave Table",
+  "leave_confirm-title": "Fold & Leave?",
+  "leave_confirm-message": "You're in an active hand. Fold and leave the table?",
+  "leave_confirm-fold": "Fold & Leave",
+  "leave_confirm-cancel": "Cancel",
+  "leave_deferred-banner": "Waiting for the hand to end before leaving...",
+  "leave_deferred-cancel": "Cancel Leave",
+  "game_lost-connection-modal_btn-txt": "Leave Game",
+  "game_lost-connection-modal_header": "Lost Connection",
+  "game_lost-connection-modal_text": "You have lost connection to the game server.",
+  "game_rebuy-modal_cancel": "Cancel",
+  "game_rebuy-modal_confirm": "Rebuy",
+  "game_rebuy-modal_header": "Rebuy",
+  "game_rotate-device-prompt": "Rotate your device into landscape mode",
+  "game_sitdown-btn": "Sit Down",
+  "game_state-info_wait": "Waiting for players...",
+  "game_state-info_pre-flop": "Pre-Flop",
+  "game_state-info_flop": "Flop",
+  "game_state-info_turn": "Turn",
+  "game_state-info_river": "River",
+  "game_state-info_showdown": "Showdown",
+  "game_table_empty-seat": "Empty Seat",
+  "game_table_closed": "Table closed — no new hands",
+  "game_ui_all-in": "All In",
+  "game_ui_bet": "Bet",
+  "game_ui_call": "Call",
+  "game_ui_check": "Check",
+  "game_ui_fold": "Fold",
+  "game_ui_stand-up": "Stand Up",
+  "game_sitdown-prompt": "Sit down to join the game!",
+  "game_online-lbl": "Online:",
+  "global_get-free-chips-modal_btn-txt": "Get Free Chips",
+  "global_get-free-chips-modal_content": "Get **10,000** free chips now and start playing!",
+  "global_get-free-chips-modal_header": "Free Chips",
+  "landing-primary_headline": "Play Poker Online",
+  "landing-secondary_headline": "Join a table and start winning",
+  "login_page-cta_btn_txt": "Log In",
+  "login_page-email_lbl_txt": "Email",
+  "login_page-header_txt": "Log In",
+  "login_page-no_account_txt": "Don't have an account yet?",
+  "login_page-password_lbl_txt": "Password",
+  "main_page-join_table": "Join Table",
+  "main_page-modal_button_text": "Get Free Chips",
+  "main_page-modal_heading": "Free Chips",
+  "main_page-modal_text": "Get **10,000** free chips now and start playing!",
+  "main_page-open_rules": "Rules",
+  "main_page-open_shop": "Shop",
+  "main_page-quick_game": "Quick Game",
+  "main_page-salutation": "Hello,",
+  "navbar-buychips_btn": "Buy Chips",
+  "navbar-login_btn": "Log In",
+  "navbar-register_btn": "Register",
+  "navbar-signin_btn": "Sign In",
+  "navbar-claim_btn": "Claim",
+  "navbar-claim_tip": "Payout commitment registration / rewards claim (private or public)",
+  "navbar-copy-address": "Copy address",
+  "navbar-copied": "Copied",
+  "navmenu-logout_btn": "Log Out",
+  "funds-banner_title": "is ready to claim",
+  "funds-banner_desc": "Chips from your last table stay in the on-chain vault — they don't return to your wallet automatically.",
+  "funds-banner_cta": "Claim now",
+  "funds-banner_dismiss": "Dismiss reminder",
+  "funds-leave_prefix": "Chips from this table (",
+  "funds-leave_suffix": ") are saved in the on-chain vault — claim anytime.",
+  "navmenu-menu_item-dashboard_txt": "Dashboard",
+  "navmenu-menu_item-lobby_txt": "Lobby",
+  "navmenu-menu_item-news_txt": "News",
+  "notfound-content_txt": "The page you are looking for does not exist.",
+  "notfound-heading_txt": "Page Not Found",
+  "registration_page-already_account_txt": "Already have an account?",
+  "registration_page-cta_btn_txt": "Register",
+  "registration_page-email_lbl_txt": "Email",
+  "registration_page-header_txt": "Register",
+  "registration_page-nickname_lbl_txt": "Nickname",
+  "registration_page-password_lbl_txt": "Password",
+  "service_worker-update_available": "A new version is available!",
+  "service_worker-update_confirm_btn_txt": "Update",
+  "service_worker-update_headline": "Update Available",
+  "shop-coming_soon-modal_btn_text": "OK",
+  "shop-coming_soon-modal_heading": "Shop",
+  "shop-coming_soon-modal_text": "The shop is coming soon! Stay tuned.",
+  "static_page-back_btn_txt": "Back",
+  "play_connecting": "Connecting...",
+  "play_reconnecting": "Reconnecting...",
+  "play_zk-crypto-events": "ZK Crypto Events",
+  "play_leaving": "Leaving the table...",
+  "play_action-signing": "Waiting for signature...",
+  "homepage_nav-home": "Home",
+  "homepage_nav-features": "Features",
+  "homepage_nav-benefits": "Benefits",
+  "homepage_nav-how": "How It Works",
+  "homepage_nav-play": "Play",
+  "homepage_nav-footer": "Footer",
+  "homepage_hero-badge": "Mathematically Unfair to Cheaters",
+  "homepage_hero-title-1": "The Only Poker Room",
+  "homepage_hero-title-2": "Where Cheating Is Impossible",
+  "homepage_hero-desc-1": "Every card is encrypted before it leaves your device.",
+  "homepage_hero-desc-2": "The server cannot see your hand. Neither can we.",
+  "homepage_hero-btn-join": "Join a Table",
+  "homepage_hero-btn-how": "See How It Works",
+  "homepage_stat-server-blind": "Server-Blind",
+  "homepage_stat-hidden": "Your Cards Stay Hidden",
+  "homepage_stat-256bit": "256-bit",
+  "homepage_stat-e2e": "End-to-End Encrypted",
+  "homepage_stat-100pct": "100%",
+  "homepage_stat-fair": "Provably Fair",
+  "homepage_features-tag": "What Traditional Poker Rooms Hide From You",
+  "homepage_features-title": "Your Cards Are Invisible to Everyone but You",
+  "homepage_features-subtitle-1": "In a normal poker room, the server knows every card.",
+  "homepage_features-subtitle-2": "Here, it sees nothing.",
+  "homepage_feature-encrypted-title": "Encrypted on Your Device",
+  "homepage_feature-encrypted-desc": "Your hole cards are locked before they leave your browser. Even a server breach exposes nothing.",
+  "homepage_feature-shuffle-title": "Everyone Shuffles",
+  "homepage_feature-shuffle-desc": "Every player shuffles the deck. No single person — not even the platform — knows the card order.",
+  "homepage_feature-unlock-title": "Only Your Browser Can Unlock Your Hand",
+  "homepage_feature-unlock-desc": "Your private key never leaves your device. The server can never peek at your cards.",
+  "homepage_feature-keys-title": "You Hold the Keys",
+  "homepage_feature-keys-desc": "Your private key stays on your device. You control access, or safely delegate it.",
+  "homepage_benefits-tag": "The House Cannot Cheat What It Cannot See",
+  "homepage_benefits-title": "Keep Your Edge. Keep Your Privacy.",
+  "homepage_benefits-subtitle": "Lower fees. Zero server visibility. Games that run forever.",
+  "homepage_benefit-auditable-title": "Every Hand Is Auditable",
+  "homepage_benefit-auditable-desc": "Every hand leaves a cryptographic proof. Anyone can verify fairness. No trust required.",
+  "homepage_benefit-auditable-stat": "100%",
+  "homepage_benefit-auditable-label": "Auditable",
+  "homepage_benefit-instant-title": "Play Instantly, Anywhere",
+  "homepage_benefit-instant-desc": "Open your browser and play. No downloads, no accounts, no waiting.",
+  "homepage_benefit-instant-stat": "0",
+  "homepage_benefit-instant-label": "Downloads",
+  "homepage_benefit-fee-title": "We Take Less Than 1%",
+  "homepage_benefit-fee-desc": "Traditional platforms take 2-5% per pot. We take less than 1%. That difference adds up fast.",
+  "homepage_benefit-fee-stat": "<1%",
+  "homepage_benefit-fee-label": "Platform Fee",
+  "homepage_benefit-uptime-title": "No Downtime. No Maintenance.",
+  "homepage_benefit-uptime-desc": "Built on decentralized infrastructure. No single point of failure means no \"server maintenance\" excuses.",
+  "homepage_benefit-uptime-stat": "24/7",
+  "homepage_benefit-uptime-label": "Availability",
+  "homepage_how-tag": "Five Steps. Total Transparency.",
+  "homepage_how-title": "How We Deal a Hand Without Seeing Your Cards",
+  "homepage_how-subtitle": "No math degree required. Here is exactly what happens, step by step.",
+  "homepage_step-lock-title": "Lock the Deck",
+  "homepage_step-lock-desc": "Each player adds a digital lock to the deck. No one can open it alone.",
+  "homepage_step-shuffle-title": "Shuffle Together",
+  "homepage_step-shuffle-desc": "Every player shuffles in turn. The final order is random and unknown to anyone.",
+  "homepage_step-deal-title": "Deal Face-Down",
+  "homepage_step-deal-desc": "Cards are dealt while locked. The server sees only encrypted data.",
+  "homepage_step-reveal-title": "Reveal When Ready",
+  "homepage_step-reveal-desc": "When it is time to show, your browser unlocks your cards locally using your private key.",
+  "homepage_step-community-title": "Community Cards Open",
+  "homepage_step-community-desc": "The shared cards are unlocked piece by piece by all players working together.",
+  "homepage_step-verify-title": "Verify Everything",
+  "homepage_step-verify-desc": "Every action leaves a proof. If anything was tampered with, anyone can spot it instantly.",
+  "homepage_cta-title": "No Trust Required. Just Math.",
+  "homepage_cta-desc": "Join a table in seconds. No downloads. No hidden cards. No house edge.",
+  "homepage_cta-btn": "Start Playing Free",
+  "homepage_footer-brand": "ProofPlay Poker",
+  "homepage_footer-tagline": "Every game, proven.",
+  "homepage_footer-lobby": "Lobby",
+  "homepage_footer-built-with": "Built with:",
+  "homepage_footer-based-on": "Based on:",
+  "homepage_footer-ref-text": "Peer-reviewed mental poker cryptography",
+  "gametable_loading": "Loading game...",
+  "gametable_not-found": "Game not found",
+  "gametable_back-lobby": "Back to Lobby",
+  "gametable_lobby": "Lobby",
+  "gametable_pot": "Pot: $",
+  "gametable_collapse": "Collapse",
+  "gametable_zk-visual": "ZK Visual",
+  "gametable_refresh": "Refresh",
+  "gametable_game": "Game: ",
+  "gametable_community-cards": "Community Cards (",
+  "gametable_winner": "Winner: ",
+  "gametable_zk-panel-title": "ZK Cryptography Visualization",
+  "gametable_zk-panel-subtitle": "Starknet On-Chain Verifiable Fair Gaming",
+  "gametable_zk-panel-close": "Collapse",
+  "gametable_crypto-event-stream": "Crypto Event Stream",
+  "gametable_event-detail": "Event Detail",
+  "gametable_event-detail-empty": "Click an event above to view cryptographic proof details",
+  "gametable_raw-log": "Raw Log",
+  "gametable_no-events": "No events yet...",
+  "gametable_click-dismiss": "(click to dismiss)",
+  "narration_waiting": "Waiting for players. This table has no dealer — dealing is entirely governed by multi-party cryptographic protocols.",
+  "narration_shuffling": "Shuffle phase: each player re-encrypts the deck in turn and submits a ZK proof. On-chain verification must pass before the next round. No one can peek at or tamper with the card order.",
+  "narration_shuffle-complete": "Shuffle complete — all ShuffleProofs verified on-chain. Dealing hole cards now; each card requires multi-party decryption to be revealed.",
+  "narration_pre-flop-reveal": "Shuffle complete — all ShuffleProofs verified on-chain. Dealing hole cards now; each card requires multi-party decryption to be revealed.",
+  "narration_pre-flop": "Pre-flop betting round. Hole cards are decryptable only by their holder — on-chain stores only ciphertext. Spectators and opponents cannot see them.",
+  "narration_flop-reveal": "Flop: 3 community cards are decrypted one by one via each player's RevealToken, with Chaum-Pedersen proofs confirming legitimate decryption.",
+  "narration_flop": "Post-flop betting round. Community cards are verifiably public — bets are based on real hand strength.",
+  "narration_turn-reveal": "Turn: the 4th community card is decrypted, also with a ZK proof attached.",
+  "narration_turn": "Post-turn betting round.",
+  "narration_river-reveal": "River: the final community card is decrypted.",
+  "narration_river": "Post-river betting round — the final round of betting.",
+  "narration_showdown-reveal": "Showdown: all remaining players reveal their hole cards. On-chain verification of each card's decryption proof confirms no cheating.",
+  "narration_showdown": "Showdown settlement: hand evaluation and side-pot allocation are completed on-chain — results are verifiable.",
+  "narration_hand-complete": "Hand complete. The entire hand — from shuffle to settlement — is trustless, with no trusted third party.",
+  "narration_default": "Current phase: {phase}. Fully verifiable on-chain.",
+  "narration_verified-count": "Verified {count} crypto operations",
+  "crypto_waiting-events": "Waiting for crypto events...",
+  "crypto_verified": "✓ verified",
+  "crypto_failed": "✗ failed",
+  "crypto_pending-onchain": "pending onchain",
+  "crypto_enc": "ENC",
+  "crypto_decrypted-by": "decrypted by ",
+  "shuffle-proof_title": "ShuffleProof Structure",
+  "shuffle-proof_subtitle": "3-Layer Schnorr Anti-Permutation-Map Attack",
+  "shuffle-proof_placeholder": "No shuffle proof data yet, waiting for player submission...",
+  "shuffle-proof_commitment-layer": "Commitment Layer · Weighted Sum of Input Ciphertexts",
+  "shuffle-proof_proof-layer": "Proof Layer · GeneralizedSchnorrProof ×3",
+  "shuffle-proof_combined": "c1+c2 combined proof",
+  "shuffle-proof_c1-only": "c1 proof only",
+  "shuffle-proof_c2-only": "c2 proof only",
+  "shuffle-proof_anti-replay": "Anti-Replay · nonce",
+  "shuffle-proof_highlights": "Technical Highlights",
+  "shuffle-proof_highlight-1": "3-Layer Schnorr proof prevents permutation-map attacks",
+  "shuffle-proof_highlight-2": "Fiat-Shamir non-interactive zero-knowledge proof",
+  "shuffle-proof_highlight-3": "Starknet native BLS12-381 on-chain verification",
+  "login_sign-in": "Sign In",
+  "login_wallet-title": "Sign in with Starknet Wallet",
+  "login_wallet-desc": "Connect your Starknet wallet to play",
+  "login_recommended": "Recommended",
+  "login_wallet-note": "STRK20 is used for chip buy-in. Your wallet pays gas.",
+  "login_no-wallet": "No Starknet wallet detected. Install the Ready wallet extension, then refresh this page to sign in.",
+  "login_install-ready": "Install Ready Wallet (Chrome)",
+  "login_recheck": "I've installed it — re-check",
+  "login_disconnect": "Disconnect wallet",
+  "login_or": "OR",
+  "login_google": "Sign in with Google",
+  "login_apple": "Sign in with Apple",
+  "login_twitch": "Sign in with Twitch",
+  "login_facebook": "Sign in with Facebook",
+  "login_oauth-note-1": "Sign in with a Starknet wallet — no email or social account needed.",
+  "login_oauth-note-2": "Use a Starknet wallet (ArgentX or Braavos) to sign in.",
+  "common_loading": "Loading...",
+  "common_brand-name": "ProofPlay Poker",
+  "common_poker-table": "Poker Table",
+  "common_logo-alt": "ProofPlay Poker",
+  "maintenance_message": "The website is currently in maintenance mode.",
+  "maintenance_brand-alt": "ProofPlay Poker",
+  "language-switcher_aria": "Language switcher",
+  "lobby_join-table-alt": "Join Table",
+  "lobby_quick-game-alt": "Quick Game",
+  "lobby_shop-alt": "Shop",
+  "lobby_rules-alt": "Rules",
+  "navbar_lobby-alt": "Lobby",
+  "navbar_dashboard-alt": "Dashboard",
+  "rotate-device_alt": "Rotate your device into landscape mode",
+  "seat_strk-logo-alt": "STRK",
+  "seat_strk-balance-label": "STRK Balance",
+  "seat_wallet-address-label": "Wallet Address",
+  "seat_redeemable-chips-label": "Redeemable Chips",
+  "seat_conversion-cost-label": "Conversion Cost",
+  "seat_exchange-rate-label": "Rate: 1 STRK = {rate} chips",
+  "seat_claim-faucet-btn": "Claim Test STRK (Faucet)",
+  "seat_claiming-btn": "Claiming...",
+  "seat_claim-success": "Claim successful, refreshing balance...",
+  "seat_claim-too-many-requests": "Too many requests, please try again later",
+  "seat_claim-failed-prefix": "Claim failed",
+  "seat_claim-failed-title": "Claim STRK Failed",
+  "seat_claim-failed-ok": "OK",
+  "gametable_failed-fetch-state": "Failed to fetch game state",
+  "gametable_connecting-to-game": "Connecting to game...",
+  "gametable_ws-connection-error": "[WS] Connection error",
+  "gametable_ws-disconnected-reconnecting": "[WS] Disconnected, reconnecting...",
+  "whitepaper": {
+    "nav": {
+      "back": "Back to Home",
+      "top": "Back to Top"
+    },
+    "cover": {
+      "badge": "Whitepaper v2.0",
+      "title-line3": "Encrypted Poker",
+      "subtitle": "A zero-knowledge end-to-end encrypted Texas Hold'em protocol — eliminate dealer cheating and build a trustless on-chain game economy.",
+      "meta": "July 2026 · Technical Whitepaper"
+    },
+    "abstract": {
+      "label": "Abstract",
+      "p1": "ZGame is an end-to-end encrypted Texas Hold'em protocol built on zero-knowledge proofs. Traditional online poker depends on a centralized server for dealing, forcing players to trust the operator. ZGame solves this trust problem by implementing the Mental Poker protocol: every card is stored on-chain as an ElGamal ciphertext, and no single party (including the operator) can see another player's hand. All critical operations — shuffle, reveal, leave — are verified on-chain through six types of zero-knowledge proofs, achieving an end-to-end encrypted fair play experience.",
+      "p2": "The system uses a three-layer architecture: a browser frontend, a Rust relay, and on-chain smart contracts. Cryptographically, it relies on the BLS12-381 curve and additively homomorphic ElGamal encryption, with support for dynamic player join, leave, and deck reconstruction. The economic model uses real on-chain tokens, with sponsored transactions delivering a zero-Gas experience.",
+      "p3": "ZGame's long-term ambition goes well beyond poker. The project plans to build a Layer 1 blockchain purpose-built for game scenarios, with custom transaction ordering and a fully gasless business model, and to explore zero-knowledge virtual machines for the ultimate on-chain game experience. In the end, ZGame aims to build a trustless game economy that spans every genre of on-chain gaming — making cryptographic security the base layer of all on-chain games."
+    },
+    "ch1": {
+      "title": "01 The Industry Problem",
+      "s1": {
+        "title": "The Trust Crisis of Centralized Online Poker",
+        "p1": "Online poker is a multi-billion-dollar industry, but its core mechanics — dealing and shuffling — have always relied on a centralized server. Players cannot verify that the server deals fairly; the operator has full cheating power: it can see every hand, manipulate the dealing order, and leak information to specific players. Multiple historical scandals have proven that this trust model is fragile.",
+        "mark": "Before the cards are dealt, no party should be able to predict any face-down card."
+      },
+      "s2": {
+        "title": "The Blockchain Game Dilemma",
+        "p1": "Moving games on-chain solves transparency but creates a new challenge. Fully on-chain dealing exposes every card to the whole network, breaking the information asymmetry that is essential to poker. Going back to off-chain dealing returns to the centralized trust model. The core technical challenge of on-chain poker is finding a balance between transparency and confidentiality.",
+        "p2": "On top of that, Web3 games face user-experience barriers: wallet management, Gas fees, and transaction confirmation delays make ordinary players walk away. A sustainable on-chain poker protocol must find the optimal point across cryptographic security, on-chain auditability, and user experience."
+      },
+      "s3": {
+        "title": "The Limits of General-Purpose Chains",
+        "p1": "Today's general-purpose blockchains are not designed for game scenarios. In high-frequency interactive games, the throughput, confirmation latency, and ordering model of general chains cannot meet real-time requirements. Game actions must compete with NFT mints and DeFi protocols for block space, so during volatile periods the network congests and the experience degrades. Games don't need a chain that 'can run contracts' — they need a chain 'born for games.' That is the ultimate direction of ZGame."
+      }
+    },
+    "ch2": {
+      "title": "02 Solution Overview",
+      "s1": {
+        "title": "Mental Poker: Forty Years from Theory to Engineering",
+        "p1": "In 1981, Shamir, Rivest, and Adleman posed the Mental Poker problem: can two mutually distrustful parties play poker over the phone while each is sure the other isn't cheating? The cryptographic solution — later known collectively as the Mental Poker protocol — is the theoretical cornerstone of ZGame.",
+        "mark": "It is the recent breakthroughs in zero-knowledge proofs that turned Mental Poker from an academic toy into an engineering scheme that can run in real-time online environments. ZGame is born at exactly that inflection point."
+      },
+      "s2": {
+        "title": "The Core Insight",
+        "p1": "ZGame's central design idea is simple: the deck is always kept encrypted, dealing is just distributing ciphertext indices, and revealing requires cooperative decryption by all players. No single entity — not even the operating server — can decrypt independently. This property eliminates dealing-side cheating at the cryptographic root.",
+        "mark": "The deck is always encrypted; dealing is just distributing ciphertext indices; revealing requires cooperative decryption by all players."
+      },
+      "s3": {
+        "title": "Core Innovation: Dynamic Player Departure and Deck Reconstruction",
+        "p1": "Classical Mental Poker has a long-ignored fatal flaw: it assumes all participants stay online for the entire hand. As soon as any player leaves, their private key is permanently missing from the aggregated public key, and the encrypted deck can no longer be decrypted — the hand must terminate. In real online poker, players leaving mid-game due to network issues, voluntary exit, or ejection is the norm. This means classical Mental Poker is almost unusable in practice.",
+        "l1": {
+          "title": "Ciphertext Layer Stripping",
+          "desc": "The departing player submits a LeaveProof (DLEq zero-knowledge proof) showing they correctly removed their own encryption layer, without leaking any card information."
+        },
+        "l2": {
+          "title": "Aggregated Public Key Update",
+          "desc": "The aggregated public key subtracts the leaver's public key; the remaining players' key combination can still decrypt the deck."
+        },
+        "l3": {
+          "title": "Ejection and Reconstruction",
+          "desc": "If a player is kicked out for timeout or misbehavior, the system gathers the readable cards (partially-decrypted ciphertext) from the rest, runs a four-layer ReconstructProof, and securely swaps the ejected player's cards out of the deck, re-encrypting the whole deck with fresh randomness."
+        },
+        "l4": {
+          "title": "Seamless Continuation",
+          "desc": "Once reconstruction completes, the remaining players continue the hand on the updated deck — no need to restart. Newcomers' hole cards are unaffected, and the community cards remain consistent."
+        },
+        "conclusion": "Players can join and leave at any time, and a hand is never forced to abort due to roster changes. This is ZGame's core innovation over every prior Mental Poker implementation, and the key step that takes the classic protocol from the lab to production."
+      },
+      "s4": {
+        "title": "System Architecture Overview",
+        "p1": "ZGame currently uses a three-layer architecture:",
+        "c1": {
+          "title": "Frontend",
+          "desc": "React + Vite + TypeScript. All encryption and ZK proof generation runs locally via WebAssembly. Real-time updates over WebSocket."
+        },
+        "c2": {
+          "title": "Relay Layer",
+          "desc": "Rust + Axum + WebSocket. On-chain event listening, transaction construction and sponsorship, real-time broadcast, timeout and retry management."
+        },
+        "c3": {
+          "title": "On-Chain Layer",
+          "desc": "Smart contracts handle shared-object state management, on-chain verification of the six ZK proofs, betting logic, and fund settlement."
+        }
+      }
+    },
+    "ch3": {
+      "title": "03 Cryptographic Protocol",
+      "s1": {
+        "title": "Card Representation and Key System",
+        "p1": "The system uses the BLS12-381 G1 group as the cryptographic foundation. The 52 playing cards are mapped to 52 deterministic G1 points via standard hash-to-curve:",
+        "code": "hash_to_curve(label=\"texas_poker/card/{i}\", DST=\"BLS_SIG_BLS12381G1_XMD:SHA-256_SSWU_RO_NUL_\")",
+        "p2": "Each player generates a private key sk and a public key pk = G * sk. All players' public keys are summed to form the Aggregated Public Key AggPK = sum(pk_i). Only the joint possession of all private keys can decrypt the ciphertext."
+      },
+      "s2": {
+        "title": "ElGamal Encryption and Shuffling",
+        "p1": "The deck is stored as ElGamal ciphertext, 96 bytes per card (c1: 48 bytes + c2: 48 bytes). The initial deck is plaintext-encrypted under the identity key, i.e. c1 = G, c2 = plaintext_i.",
+        "l1": {
+          "title": "Permute",
+          "desc": "Randomly permute the order of the 52 cards."
+        },
+        "l2": {
+          "title": "Re-encrypt",
+          "desc": "Add a fresh encryption layer over each card under the aggregated public key with new random masks."
+        },
+        "p2": "After each shuffle, the player submits a ShuffleProof showing the output deck is a valid permutation-plus-re-encryption of the input deck, without leaking the permutation. After every player has shuffled in turn, the plaintext content, order, and player-to-card mapping of the deck is hidden cryptographically."
+      },
+      "s3": {
+        "title": "Distributed Reveal",
+        "p1": "When dealing, ciphertexts are taken from the shuffled deck in order and assigned to hole cards or the community pool. Each card is still ciphertext, and distributed decryption is required to recover plaintext.",
+        "p2": "For a ciphertext CT = (c1, c2), player i computes their own Reveal Token:",
+        "code": "token_i = c1 * sk_i",
+        "p3": "Summing all tokens gives sum(token_i) = c1 * sum(sk_i); the plaintext is then c2 - sum(token_i). Each submission is accompanied by a Chaum-Pedersen DLEq proof showing log_G(pk_i) == log_c1(token_i), preventing fake tokens that would corrupt the revealed card."
+      },
+      "s4": {
+        "title": "Dynamic Player Management",
+        "p1": "Real games require support for mid-hand join and leave. ZGame defines a complete dynamic player protocol:",
+        "l1": {
+          "title": "Join",
+          "desc": "A new player first remasks the current deck (c2 += c1 * sk) with their private key, then shuffles. Requires RemaskProof + ShuffleProof."
+        },
+        "l2": {
+          "title": "Leave",
+          "desc": "A player removes their own encryption layer (c2 -= c1 * sk) and submits LeaveProof; the aggregated public key subtracts their public key."
+        },
+        "l3": {
+          "title": "Reconstruct",
+          "desc": "If a player is kicked or times out, the remaining players collaboratively swap the leaver's cards out of the deck, re-encrypt the whole deck with fresh randomness, and submit ReconstructProof. Once reconstruction completes, all remaining players reshuffle, ensuring the leaver's private key plays no part in any future round."
+        }
+      }
+    },
+    "ch4": {
+      "title": "04 Zero-Knowledge Proof System",
+      "intro": {
+        "mark": "Six zero-knowledge proofs",
+        "tail": " are used across the system. All are based on the Fiat-Shamir heuristic with a SHA3-256 transcript, ensuring that the Rust-side proof generation and the on-chain contract verification stay in lockstep."
+      },
+      "p1": {
+        "title": "PK Ownership Proof (Schnorr)",
+        "desc": "At registration, a player proves they hold the private key for their public key, preventing malicious injection of invalid keys. Standard Schnorr: commitment = G * omega, challenge = H(G || pk || commitment), response = omega + challenge * sk."
+      },
+      "p2": {
+        "title": "Shuffle Proof (ZKShuffleProof)",
+        "desc": "Proves the output deck is a valid permutation-plus-re-encryption of the input deck. A three-layer Schnorr design: combined proof + c1-only proof + c2-only proof, preventing information-shift (c1/c2 swap) attacks."
+      },
+      "p3": {
+        "title": "Remask Proof (DLEqProof)",
+        "desc": "On join, proves the player correctly added their encryption layer. Verifies output.c2 - input.c2 = input.c1 * sk, with each card independently bound."
+      },
+      "p4": {
+        "title": "Leave Proof (DLEqProof)",
+        "desc": "On leave, proves the player correctly removed their encryption layer. Symmetric to RemaskProof, verifies c2' = c2 - c1 * sk."
+      },
+      "p5": {
+        "title": "Reveal Token Proof (Chaum-Pedersen DLEq)",
+        "desc": "When submitting a Reveal Token, proves token = c1 * sk and pk = G * sk. A double discrete-log equality proof, with an anti-replay nonce to prevent replay attacks."
+      },
+      "p6": {
+        "title": "Reconstruct Proof (Composite)",
+        "desc": "Used after ejecting a player. The most complex proof in the system, with four layers: SwapOutCardProof (Chaum-Pedersen DLEq), Blind DLEq Proof, Generalized Schnorr Proof, and Total DLEq Proof."
+      },
+      "security": {
+        "title": "Security Hardening",
+        "l1": "M-D13 / c1-c2 swap attack: ShuffleProof adds independent c1 / c2 Schnorr proofs.",
+        "l2": "M4 / Reveal Token replay: nonce introduced and bound to expected_pk.",
+        "l3": "M-P17 / Identity commitment attack: all proofs reject identity points as commitments or ciphertexts.",
+        "l4": "M7 / Identity c1 attack: remask_ciphertext and leave_ciphertext reject c1 == identity.",
+        "l5": "M6 / Zero private key attack: player registration and proof verification reject pk == identity."
+      }
+    },
+    "ch5": {
+      "title": "05 Complete Game Flow",
+      "p1": "The following stages are executed synchronously between the off-chain Rust service and the on-chain smart contract. All critical cryptographic operations run locally in the user's device:",
+      "table": {
+        "col1": "Stage",
+        "col2": "Action",
+        "col3": "Cryptographic Operation",
+        "r1": {
+          "c1": "Setup / Join",
+          "c2": "Player sits down, deposits token",
+          "c3": "Register pk, verify PKOwnershipProof"
+        },
+        "r2": {
+          "c1": "Start Hand",
+          "c2": "Move button, clear state",
+          "c3": "Initialize ShuffleState"
+        },
+        "r3": {
+          "c1": "Shuffle",
+          "c2": "Every active player shuffles in turn",
+          "c3": "Submit ShuffleProof"
+        },
+        "r4": {
+          "c1": "Deal Pre-Flop",
+          "c2": "Deal 2 hole cards each",
+          "c3": "Only record ciphertext indices"
+        },
+        "r5": {
+          "c1": "HandReveal",
+          "c2": "Submit Reveal Token for other players' hands",
+          "c3": "RevealTokenProof verification"
+        },
+        "r6": {
+          "c1": "Pre-Flop Betting",
+          "c2": "Post blinds, first betting round",
+          "c3": "Standard Texas Hold'em betting logic"
+        },
+        "r7": {
+          "c1": "Flop",
+          "c2": "Deal 3 community cards",
+          "c3": "deal_community_cards_encrypted"
+        },
+        "r8": {
+          "c1": "CommunityReveal",
+          "c2": "Submit Reveal Token for community cards",
+          "c3": "Plaintext published on-chain after all tokens collected"
+        },
+        "r9": {
+          "c1": "Turn + River",
+          "c2": "Deal 1 community card each",
+          "c3": "Repeat CommunityReveal + Betting"
+        },
+        "r10": {
+          "c1": "ShowdownReveal",
+          "c2": "Non-folded players reveal own hole cards",
+          "c3": "Showdown, hole-card plaintext recovered"
+        },
+        "r11": {
+          "c1": "Settlement",
+          "c2": "Compute side pots, determine winner",
+          "c3": "hand_evaluator compares hands"
+        },
+        "r12": {
+          "c1": "Reset",
+          "c2": "Enter next-hand wait period",
+          "c3": "Clear deck state"
+        }
+      },
+      "timeout": {
+        "title": "Timeout and Fault Tolerance",
+        "l1": "Shuffle timeout: kick the current shuffler, rebuild the deck, and the remaining players reshuffle.",
+        "l2": "Reveal timeout: kick players who did not submit tokens. In Pre-Flop, restart the hand; later stages trigger Reconstruct.",
+        "l3": "Betting timeout: auto-fold."
+      }
+    },
+    "ch6": {
+      "title": "06 Economic Model",
+      "s1": {
+        "title": "Token Redemption and Chip System",
+        "p1": "In-game chips are pegged to the chain's native token at a fixed ratio. When sitting down, players deposit tokens; the smart contract converts the amount into stack and credits the seat. At hand end, stack is converted back to tokens at the same ratio and refunded directly to the player. All in-game betting, blinds, and side pots are denominated in stack."
+      },
+      "s2": {
+        "title": "Side Pot Computation",
+        "p1": "When a player goes all-in, the system automatically computes side pots. The algorithm:",
+        "l1": "Find all all-in players (bet > 0 and stack == 0).",
+        "l2": "Sort by bet amount ascending.",
+        "l3": "For each all-in player, compute other players' excess over that bet; move the excess from the main pot to a new side pot.",
+        "l4": "The side pot's eligible list is all non-folded players who contributed to the excess."
+      },
+      "s3": {
+        "title": "Zero-Gas Experience",
+        "p1": "Through sponsored transactions, ZGame delivers a zero-Gas game experience. Players do not need to hold any native token for Gas; all Gas is paid by the protocol. Wallet-based sign-in keeps the Web3 onboarding friction low."
+      }
+    },
+    "ch7": {
+      "title": "07 Security Analysis",
+      "s1": {
+        "title": "7.1 Card Secrecy",
+        "p1": "The deck is always under multiple layers of ElGamal encryption. Decrypting a single card requires the joint private keys of every participant. No single player, server, or external observer can independently decrypt any face-down card. This property is guaranteed by the BLS12-381 discrete-log hardness."
+      },
+      "s2": {
+        "title": "7.2 Shuffle Integrity",
+        "p1": "ShuffleProof guarantees that each player's shuffle is an honest permutation-plus-re-encryption — no one can secretly swap, drop, or duplicate cards. The initial deck is a deterministic set of 52 G1 points, ruling out 'custom deck' attacks."
+      },
+      "s3": {
+        "title": "7.3 Dealing and Reveal Verifiability",
+        "p1": "Dealing takes cards in order from the verified encrypted deck, fully public and auditable. Each Reveal submits a RevealTokenProof, and only after on-chain verification is the partial decryption accepted."
+      },
+      "s4": {
+        "title": "7.4 Dynamic Membership Security",
+        "p1": "RemaskProof / LeaveProof guarantees that on join or leave, the deck's encryption layer is correctly added or removed. ReconstructProof ensures that after a player is kicked, the leaver's private key can decrypt nothing further."
+      },
+      "s5": {
+        "title": "7.5 Anti-Sybil and Identity Binding",
+        "p1": "PKOwnershipProof forces every player to prove they hold the private key for their public key. The public key is bound to the seat and the on-chain address, preventing a single entity from faking multiple identities to manipulate the game."
+      },
+      "s6": {
+        "title": "7.6 On-Chain Auditability",
+        "p1": "All critical cryptographic operations can be submitted to the on-chain contract for verification. State snapshots provide a complete encrypted-state record that any client can independently validate for deck consistency."
+      }
+    },
+    "ch8": {
+      "title": "08 Product Features and User Experience",
+      "c1": {
+        "title": "Cryptographic Security",
+        "l1": "End-to-end encryption — the server never sees plaintext cards.",
+        "l2": "Six zero-knowledge proofs cover every critical operation.",
+        "l3": "BLS12-381 standard curve, 128-bit security level.",
+        "l4": "Dynamic player management, support for mid-hand join and leave."
+      },
+      "c2": {
+        "title": "User Experience",
+        "l1": "Social-account sign-in, no wallet required.",
+        "l2": "Sponsored transactions deliver zero-Gas play.",
+        "l3": "WebAssembly local compute, zero-latency crypto operations.",
+        "l4": "WebSocket real-time communication for smooth play."
+      },
+      "c3": {
+        "title": "On-Chain Transparency",
+        "l1": "All critical operations are verifiable on-chain.",
+        "l2": "Complete encrypted state snapshots, public and queryable.",
+        "l3": "Transparent and auditable economic model.",
+        "l4": "Open-source contracts and proof verification logic."
+      },
+      "c4": {
+        "title": "Fault Tolerance and Liveness",
+        "l1": "Per-stage timeout prevents games from hanging.",
+        "l2": "Auto-rebuild on disconnect, no game interruption.",
+        "l3": "Off-chain timeout handling + on-chain state sync.",
+        "l4": "New players can join without restarting a hand."
+      }
+    },
+    "ch9": {
+      "title": "09 Tech Stack and Components",
+      "table": {
+        "col1": "Layer",
+        "col2": "Component",
+        "col3": "Tech",
+        "col4": "Responsibility",
+        "r1": {
+          "c1": "Frontend",
+          "c2": "client",
+          "c3": "React + Vite + TypeScript",
+          "c4": "Game UI and interaction"
+        },
+        "r2": {
+          "c1": "Frontend",
+          "c2": "client-wasm",
+          "c3": "Rust → WebAssembly",
+          "c4": "In-browser encryption and proof generation"
+        },
+        "r3": {
+          "c1": "Frontend",
+          "c2": "wallet integration",
+          "c3": "starknetkit, @starknet-react",
+          "c4": "Wallet connection and on-chain interaction"
+        },
+        "r4": {
+          "c1": "Backend",
+          "c2": "relay-server",
+          "c3": "Rust + Axum + WebSocket",
+          "c4": "On-chain event listener, tx builder, real-time broadcast"
+        },
+        "r5": {
+          "c1": "Backend",
+          "c2": "poker_protocol",
+          "c3": "Rust",
+          "c4": "Core cryptographic protocol"
+        },
+        "r6": {
+          "c1": "Backend",
+          "c2": "chain-serialization",
+          "c3": "Rust",
+          "c4": "Contract byte format and Rust type conversion"
+        },
+        "r7": {
+          "c1": "Backend",
+          "c2": "chain-interaction",
+          "c3": "Rust",
+          "c4": "On-chain interaction logic wrapper"
+        },
+        "r8": {
+          "c1": "On-chain",
+          "c2": "table contract",
+          "c3": "Move",
+          "c4": "Table main logic, state machine, settlement"
+        },
+        "r9": {
+          "c1": "On-chain",
+          "c2": "zk_verifier",
+          "c3": "Move",
+          "c4": "On-chain verification of the six ZK proofs"
+        },
+        "r10": {
+          "c1": "On-chain",
+          "c2": "crypto primitives",
+          "c3": "Move",
+          "c4": "BLS12-381 ElGamal encryption"
+        },
+        "r11": {
+          "c1": "On-chain",
+          "c2": "hand_evaluator",
+          "c3": "Move",
+          "c4": "7-of-5 hand evaluator"
+        },
+        "r12": {
+          "c1": "On-chain",
+          "c2": "side_pot",
+          "c3": "Move",
+          "c4": "Side-pot computation"
+        }
+      }
+    },
+    "ch10": {
+      "title": "10 Custom L1: A Blockchain Born for Games",
+      "s1": {
+        "title": "The Bottleneck of General-Purpose Chains",
+        "p1": "ZGame's current MVP runs on an existing general-purpose chain, validating the core cryptographic protocol. But as the product matures, fundamental limits surface: game actions share block space and ordering priority with every other app on the chain, leading to unpredictable confirmation latency, volatile Gas fees, and broken high-frequency interaction. General-purpose chains are designed to 'do everything' — games need to 'do one thing to the extreme.'"
+      },
+      "s2": {
+        "title": "The Hyperliquid Lesson",
+        "p1": "Hyperliquid provides the strongest practical sample of the application-specific-chain pattern. As a Layer 1 purpose-built for derivatives trading, Hyperliquid is not built on top of any general chain — it builds its own consensus, execution, and ordering rules from scratch. This design delivers three core advantages:",
+        "l1": {
+          "title": "On-chain order book + in-memory matching",
+          "desc": "All placements, cancels, and fills happen directly on-chain; order matching runs in memory, with throughput over 20,000 TPS."
+        },
+        "l2": {
+          "title": "Zero Gas + table-fee revenue",
+          "desc": "Users pay no Gas; protocol revenue comes from trading fees. Validators earn from protocol inflation rewards and fee sharing, forming a flywheel: more volume → more revenue → more security."
+        },
+        "l3": {
+          "title": "Fully verifiable state",
+          "desc": "The complete state, including the order book, is publicly auditable to all validators while keeping a CEX-grade user experience."
+        },
+        "p2": "By late 2025, Hyperliquid had captured over 40% of the major Layer 1 blockchain fee market, proving that the application-specific-chain path is not only technically viable but also commercially self-consistent."
+      },
+      "s3": {
+        "title": "ZGame L1 Design Direction",
+        "p1": "ZGame plans to build a Layer 1 blockchain purpose-built for on-chain games, borrowing Hyperliquid's core philosophy but moving the target scenario from derivatives trading to real-time competitive games. The core design principles:",
+        "c1": {
+          "title": "Custom Ordering",
+          "desc": "Game actions are ordered by game-logic rules rather than Gas bidding. The execution order of bets, reveals, and folds is determined by the game state machine, preventing MEV front-running and ordering manipulation."
+        },
+        "c2": {
+          "title": "Fully Gasless",
+          "desc": "Users pay no Gas. Protocol revenue comes from table fees (a fixed percentage per hand). Validators earn from fee sharing and protocol inflation."
+        },
+        "c3": {
+          "title": "In-Memory State Machine",
+          "desc": "High-frequency game actions execute in memory and are batched to the chain for final settlement. Players experience latency on par with traditional online games, not the seconds-long confirmation of typical chains."
+        }
+      },
+      "s4": {
+        "title": "Business Model Comparison",
+        "table": {
+          "col1": "Dimension",
+          "col2": "General Chain Gas Model",
+          "col3": "Hyperliquid Table-Fee Model",
+          "col4": "ZGame L1 Table-Fee Model",
+          "r1": {
+            "c1": "User payment",
+            "c2": "Gas per action",
+            "c3": "Zero Gas, only trading fees",
+            "c4": "Zero Gas, only table fees"
+          },
+          "r2": {
+            "c1": "Revenue source",
+            "c2": "Gas fees → miners/validators",
+            "c3": "Trading fees → validators",
+            "c4": "Table fees → validators"
+          },
+          "r3": {
+            "c1": "Ordering logic",
+            "c2": "Gas-price priority",
+            "c3": "Order-matching engine",
+            "c4": "Game state machine driven"
+          },
+          "r4": {
+            "c1": "MEV risk",
+            "c2": "High (front-running, sandwich)",
+            "c3": "Low (on-chain order book)",
+            "c4": "Very low (game-logic ordering)"
+          },
+          "r5": {
+            "c1": "User experience",
+            "c2": "Wallet + Gas management",
+            "c3": "CEX-grade smooth",
+            "c4": "Traditional game-grade"
+          },
+          "r6": {
+            "c1": "Revenue self-consistency",
+            "c2": "Gas fee is volatile",
+            "c3": "Fee scales with volume",
+            "c4": "Fee scales with active tables"
+          }
+        },
+        "conclusion": "The core logic of this business model is: more players → more active tables → more table-fee revenue → better validator earnings → stronger network security → better player experience. It is a fully self-consistent positive flywheel, in the same spirit as Hyperliquid's success in derivatives trading."
+      }
+    },
+    "ch11": {
+      "title": "11 Zero-Knowledge Virtual Machine: The Ultimate On-Chain Game Experience",
+      "s1": {
+        "title": "The Computation Challenge for Game State",
+        "p1": "Even on a custom L1, traditional blockchain verification still faces a fundamental conflict: the per-node cost of verifying each transaction on-chain limits the complexity of any single transaction. ZGame's cryptographic proofs (especially ShuffleProof's 52-card permutation verification) already sit at the upper bound of per-tx compute. More complex game genres — real-time strategy, open-world exploration, physics simulation — have state compute requirements that far exceed the limit of on-chain execution today."
+      },
+      "s2": {
+        "title": "Hypernova: A Continuously-Running Zero-Knowledge VM",
+        "p1": "ZGame is exploring the Hypernova frontier — building a continuously-running zero-knowledge virtual machine (Succinct Zero-Knowledge VM). The core ideas:",
+        "l1": {
+          "title": "Off-chain execution, on-chain proof",
+          "desc": "Game logic runs in a high-performance off-chain environment (similar to traditional game servers) and periodically emits a ZK proof that all state transitions since the last proof point are valid. The chain only verifies one succinct proof, rather than re-executing every operation."
+        },
+        "l2": {
+          "title": "Incremental Proofs",
+          "desc": "Using incremental verifiable compute, each proof only needs to cover the newly added computation, not start from scratch. This lets a continuously running game state efficiently emit cumulative proofs."
+        },
+        "l3": {
+          "title": "Sub-second response",
+          "desc": "Because the chain only checks a proof (not every operation), player confirmation latency drops to sub-second, matching the experience of traditional online games."
+        }
+      },
+      "s3": {
+        "title": "What This Means for ZGame",
+        "p1": "Hypernova extends ZGame's reach from 'Texas Hold'em' to any on-chain game scenario:",
+        "c1": {
+          "title": "Unbounded Computation",
+          "desc": "Regardless of game complexity, on-chain verification cost is constant. Supports physics engines, AI decisions, large-world generation, and other compute-intensive games."
+        },
+        "c2": {
+          "title": "Privacy Extension",
+          "desc": "ZK proofs not only verify operation legality but also hide game-state details (e.g., hand cards in card games, troop deployments in strategy games)."
+        },
+        "c3": {
+          "title": "Cross-game Composition",
+          "desc": "Multiple games share the same ZK VM, enabling cross-game trustworthy transfer of assets and state, building a unified base layer for on-chain game economies."
+        }
+      }
+    },
+    "ch12": {
+      "title": "12 The Vision: A Trustless On-Chain Game Economy",
+      "intro": {
+        "mark": "We are building the infrastructure layer for the entire on-chain game industry",
+        "tail": " — a trustless game economy based on zero-knowledge proofs."
+      },
+      "s1": {
+        "title": "From Poker to Multi-Genre Games",
+        "p1": "ZGame's Mental Poker protocol is an instance of a broader 'Mental Game' pattern. Its core cryptographic primitives — encrypted state, distributed decryption, verifiable state transition — can be directly ported to other game genres:",
+        "l1": {
+          "title": "Card Games",
+          "desc": "TCG, Hearthstone-style battles, UNO and more can all reuse the encrypted-deck and reveal-token protocol."
+        },
+        "l2": {
+          "title": "Board Games",
+          "desc": "Go, chess and other board games face the 'public state exposes your strategy' problem on chain; ZK proofs can hide intermediate moves and only publish the full game record at the end."
+        },
+        "l3": {
+          "title": "Tabletop & Social Deduction",
+          "desc": "Mafia, Avalon and similar games need a balance between 'hidden information' and 'verifiable fairness' — ZGame's cryptographic foundation applies directly."
+        },
+        "l4": {
+          "title": "MMO and Open World",
+          "desc": "Powered by the Hypernova ZK VM, real-time open-world games can run complex state safely on-chain, achieving true asset ownership and a verifiable economy."
+        }
+      },
+      "s2": {
+        "title": "The Trustless Economy",
+        "p1": "Traditional on-chain games suffer one fundamental problem: players cannot trust that the operator won't manipulate drop rates, economic parameters, or asset issuance in the dark. ZGame's cryptographic scheme gives the entire on-chain game industry a verifiable trust foundation:",
+        "v1": {
+          "title": "Core Principle: Verifiable Fairness",
+          "desc": "Every random event, every state transition, and every asset flow in a game can be verified on-chain via ZK proofs. Operators cannot manipulate results in the dark, and players don't need to trust anyone."
+        },
+        "v2": {
+          "title": "Core Principle: Asset Sovereignty",
+          "desc": "In-game assets — chips, items, characters, land — exist as on-chain tokens, giving players true ownership. No matter how the operator changes, players' assets remain safe."
+        },
+        "v3": {
+          "title": "Core Principle: Cross-game Interoperability",
+          "desc": "All games on the custom L1 share a unified economic layer and identity layer. Assets earned in one game can be used in another, building a true on-chain game metaverse economy."
+        }
+      },
+      "s3": {
+        "title": "Roadmap",
+        "p1": {
+          "title": "Phase 1: MVP (Completed)",
+          "desc": "Core Mental Poker protocol implementation, 6 ZK proofs, complete Texas Hold'em flow, social-account sign-in, zero-Gas experience."
+        },
+        "p2": {
+          "title": "Phase 2: On-Chain Verification Hardening",
+          "desc": "Migrate ZK proof verification from off-chain pre-verification to on-chain contract verification, achieving a fully trustless-against-relayer security model."
+        },
+        "p3": {
+          "title": "Phase 3: Multi-Genre Game Expansion",
+          "desc": "Extend the Mental Game protocol to other poker variants (Omaha, Stud) and encrypted card-game genres, validating protocol generality."
+        },
+        "p4": {
+          "title": "Phase 4: Custom Game L1",
+          "desc": "Build a Layer 1 purpose-built for game scenarios, achieving custom ordering, fully zero-Gas, and the table-fee business model, eliminating general-chain performance bottlenecks."
+        },
+        "p5": {
+          "title": "Phase 5: Zero-Knowledge Virtual Machine",
+          "desc": "Integrate the Hypernova ZK VM, realizing the off-chain-execution + on-chain-proof compute paradigm, supporting arbitrary-complexity on-chain games, with sub-second confirmation latency."
+        },
+        "p6": {
+          "title": "Phase 6: Game Economic Ecosystem",
+          "desc": "Open the custom L1 and ZK VM to third-party game developers, building a trustless game economy spanning every genre. Achieve cross-game asset interoperability and a unified identity layer."
+        },
+        "p7": {
+          "title": "Phase 7: Decentralized Governance",
+          "desc": "Introduce DAO governance, with community-driven protocol upgrades, parameter adjustments, and table-fee distribution, achieving a fully decentralized game protocol."
+        }
+      }
+    },
+    "ch13": {
+      "title": "13 Conclusion",
+      "intro": {
+        "mark": "No party can predict any face-down card before the deal.",
+        "tail": " ZGame shows a real-world application of frontier cryptography in blockchain gaming. Through BLS12-381 ElGamal encryption, six zero-knowledge proofs, and a distributed decryption protocol, ZGame achieves a security guarantee in a fully decentralized environment that traditional online poker never could."
+      },
+      "p2": "But ZGame's ambition does not end there. With a custom L1 dedicated to game scenarios and a ZK virtual machine that breaks the on-chain compute ceiling, ZGame is evolving from a poker game into the infrastructure layer for the entire on-chain game industry. On top of this infrastructure, game developers can build any type of on-chain game, players can truly own their assets, and operators can no longer manipulate results in the dark.",
+      "p3": "Hyperliquid proved the feasibility and commercial self-consistency of the 'application-specific chain + table-fee model' in derivatives trading. ZGame brings this paradigm to gaming and goes further by satisfying gaming's unique information-asymmetry needs through zero-knowledge proofs. When games no longer require players to trust anyone, and assets are no longer subject to any centralized server, on-chain games will truly become the next trillion-dollar Web3 vertical."
+    },
+    "footer": {
+      "title": "References",
+      "c1": "Shamir, Rivest, Adleman. \"Mental Poker.\" MIT, 1981. — The seminal paper that defined the cryptographic poker problem and its basic solution.",
+      "c2": "BLS12-381: New Pairings for Faster IETF Post-Quantum Cryptography. — Bowe, Habock, Drijvers et al., introducing an efficient pairing-friendly curve.",
+      "c3": "BLS12-381 Cryptographic Primitives Documentation. — https://docs.starknet.io/",
+      "c4": "Hyperliquid Official Documentation and Architecture. — https://app.hyperliquid.xyz",
+      "c5": "L1 fee landscape shifted: Hyperliquid and BNB Chain climb to 40% and 20%. — Industry data report, October 2025.",
+      "c6": "Hyperliquid: Zero-Gas Model and Validator Economics Analysis. — Technical analysis, August 2025.",
+      "c7": "Hypernova: Succinct Proofs for Incremental Computation. — Frontier research on incremental verifiable compute and continuously-running ZK VMs.",
+      "signoff": "ZGame Whitepaper v2.0 · July 2026 · This document is for technical reference only"
+    }
+  },
+  "homepage_footer-whitepaper": "Whitepaper",
+  "socket_error_INSUFFICIENT_CHIPS": "Insufficient chips: make sure your buy-in is confirmed on-chain, or lower the amount",
+  "socket_error_BUYIN_TX_PENDING": "Buy-in is still confirming, please wait a few seconds and retry",
+  "socket_error_BUYIN_TX_REVERTED": "Buy-in transaction failed: check your wallet transaction",
+  "socket_error_BUYIN_VERIFY_FAILED": "Buy-in verification failed: please retry or contact support",
+  "socket_error_AMOUNT_POSITIVE": "Buy-in amount must be greater than 0",
+  "socket_error_AMOUNT_TOO_LARGE": "Buy-in amount exceeds the limit",
+  "socket_error_AUTH_FAILED": "Session expired, please reconnect your wallet",
+  "socket_error_NOT_TURN_OR_PHASE": "Not your turn, or the hand is not in a betting phase",
+  "socket_error_SIG_INVALID": "Action signature verification failed, please refresh and retry",
+  "socket_error_SEQ_NON_MONOTONIC": "Action sequence error, please refresh and retry",
+  "main_page-guest-name": "Player",
+  "navmenu-aria_label": "Navigation menu",
+  "seat_buyin-amount-label": "Buy-in amount (chips)",
+  "playerkey-title": "Table identity key",
+  "playerkey-mode-random": "Random key",
+  "playerkey-mode-passphrase": "Passphrase-derived",
+  "playerkey-mode-legacy": "Legacy wallet-derived",
+  "playerkey-current-pk": "Current pk: ",
+  "playerkey-no-key": "Not generated",
+  "playerkey-passphrase-label": "Recovery passphrase",
+  "playerkey-passphrase-placeholder": "≥8 characters",
+  "playerkey-btn-passphrase": "Generate/restore with passphrase",
+  "playerkey-btn-random": "Use random key",
+  "playerkey-tip-passphrase": "The same passphrase derives the same identity on any device; a forgotten passphrase cannot be recovered; never use your wallet seed phrase",
+  "playerkey-tip-random": "Generate a brand-new random identity (gives up passphrase recoverability)",
+  "playerkey-msg-switched-passphrase": "Identity switched to passphrase-derived: keep the passphrase safe — it restores this identity on any device",
+  "playerkey-msg-switched-random": "Identity switched to a random key (no cross-device recovery)",
+  "playerkey-msg-failed": "Switch failed",
+  "playerkey-msg-failed-console": "Switch failed (see console)",
+  "playerkey-warning": "Switching identity mid-hand voids your current seat obligations (timeout/kick fallback). Best done between hands.",
+  "claim-title": "Claim rewards",
+  "claim-hero-label": "Claimable",
+  "claim-chips-unit": "chips",
+  "claim-check-title": "Claim requirements",
+  "claim-reverify": "Re-check",
+  "claim-reverifying": "Checking…",
+  "claim-payout-name": "Payout commitment (our contract)",
+  "claim-status-registered": "Registered ✓",
+  "claim-status-checking": "Checking…",
+  "claim-register-btn": "One-click register",
+  "claim-registering": "Registering…",
+  "claim-wrong-network": "Your wallet is not on Sepolia Testnet. After a reinstall/update Ready defaults to mainnet, where private actions are rejected (151 TOKEN_NOT_SUPPORTED). Switch Ready to Sepolia Testnet and retry.",
+  "claim-payout-detail": "Register once so settled rewards can be claimed privately (on-chain registration inside the contract)",
+  "claim-payout-tip": "Submit the payout commitment (one-time on-chain transaction, works with any wallet)",
+  "claim-pool-name": "Pool viewing key (Ready privacy system)",
+  "claim-status-unsupported": "Wallet unsupported",
+  "claim-pool-tip": "Shield 0.01 STRK into the privacy pool: the wallet shows an approve and a deposit confirmation in sequence (not duplicate transactions); the viewing key is registered automatically (funds stay as pool balance)",
+  "claim-pool-balance": "Pool shielded balance {balance} STRK",
+  "claim-pool-need-api": "Requires a wallet supporting STRK20 Wallet API ≥ {min} (e.g. Ready)",
+  "claim-wallet-api-label": "Wallet API",
+  "claim-wallet-api-none": "Not reported (wallet unsupported or too old)",
+  "claim-pool-never-joined": "Never joined the pool: one-click registration shields 0.01 STRK, which stays as pool balance",
+  "claim-pool-balance-checking": "Checking pool shielded balance…",
+  "claim-guide-collapse": "Hide registration guide",
+  "claim-guide-expand": "Registration guide (Shield in wallet)",
+  "claim-guide-step1": "Open the Ready wallet → STRK asset page → \"Shield / Join pool\" (privacy pool entry)",
+  "claim-guide-step2": "Shield a small amount once (e.g. 0.01 STRK); the wallet shows an approve and a deposit confirmation in sequence (not duplicate transactions)",
+  "claim-guide-step3": "Joining the pool for the first time registers it automatically — the viewing key lives only in your wallet; the dapp cannot register it for you",
+  "claim-guide-step4": "Return here and re-check; once this row turns green you can claim privately",
+  "claim-guide-reverify": "I completed the Shield in my wallet — re-check",
+  "claim-blocked-unsupported": "Current wallet does not support STRK20 private transactions (needs Wallet API ≥ 0.10.3, e.g. Ready)",
+  "claim-blocked-version": "Wallet API version ({versions}) is below 0.10.3 and does not support STRK20 private transactions — please update Ready",
+  "claim-blocked-pool": "Privacy pool not registered yet: use \"One-click register\" above, then claim privately",
+  "claim-blocked-balance": "Insufficient pool shielded balance: shield STRK into the privacy pool first (private claim requires pool balance ≥ claim amount; it is returned afterwards)",
+  "claim-blocked-locked": "Entire balance is table-locked (buy-in lock). It unlocks 12h after your last hand — click Unlock when the timer expires, or wait for it to appear",
+  "claim-locked-notice": "Table-locked {amount} STRK: buy-in chips locked at seat-down; they unlock automatically within 12 hours after leaving, and cannot be claimed or withdrawn until then",
+  "claim-error-empty": "No claimable chips",
+  "claim-error-failed": "Claim failed",
+  "claim-submit-private": "Private claim",
+  "claim-submit-public": "Public withdrawal",
+  "claim-submitting": "Submitting…",
+  "claim-note-private": "Ownership hidden: rewards go into a pool note only you can scan",
+  "claim-note-public": "Straight to your wallet address, publicly visible on-chain",
+  "claim-private-tip": "Two-step pool flow: burn chips + produce an ownership-hidden STRK note",
+  "claim-private-tip-unsupported": "Requires a wallet supporting the STRK20 Wallet API (e.g. Ready)",
+  "claim-public-tip": "vault.withdraw straight to your wallet address (public on-chain)",
+  "claim-done-private": "Private claim submitted — rewards are now a confidential pool note",
+  "claim-done-public": "Public withdrawal submitted — STRK will arrive in your wallet directly",
+  "claim-close": "Close",
+  "claim-error-shield": "Shield submission failed",
+  "cookiebanner-info_aria": "Read our privacy policy to learn how cookies are used",
+  "claim-locked-line": "Table-locked {locked} STRK · claimable now {claimable} STRK",
+  "claim-locked-until": "— unlocks in ~{hours}h after your last hand",
+  "claim-locked-expired": "— lock has expired",
+  "claim-unlock": "Unlock",
+  "claim-unlock-pending": "Unlocking…",
+  "claim-amount-label": "Amount to claim (STRK)",
+  "claim-amount-max": "max {max}",
+  "claim-amount-invalid": "Enter a valid amount: 0 < amount ≤ max",
+  "game_header-hand-lbl": "Hand",
+  "game_info_min-raise-lbl": "Min raise",
+  "game_last-hand-lbl": "Last hand",
+  "game_seat-sb-lbl": "SB",
+  "game_seat-bb-lbl": "BB",
+  "game_state-info_call": "To call",
+  "game_sidepot-eligible-lbl": "eligible seats",
+  "game_ui_to-call-lbl": "To call",
+  "game_ui_pot-odds-lbl": "Pot odds",
+  "game_ui_call-pct-lbl": "call / stack",
+  "game_ui_invested-lbl": "invested",
+  "game_ui_preset-min": "Min",
+  "game_ui_preset-half": "1/2 pot",
+  "game_ui_preset-pot": "Pot",
+  "game_ui_preset-allin": "All-in",
+  "seat_post-buyin-balance-label": "Balance after buy-in (chips)",
+  "game_history-receipt-lbl": "Receipt",
+  "game_history-duration-lbl": "duration",
+  "game_history-actions-lbl": "Action log",
+  "game_history-auto-badge": "auto (timeout)",
+  "crypto_layer-lbl": "layer",
+  "game_handrank_high-card": "High Card",
+  "game_handrank_one-pair": "One Pair",
+  "game_handrank_two-pair": "Two Pair",
+  "game_handrank_three-of-a-kind": "Three of a Kind",
+  "game_handrank_straight": "Straight",
+  "game_handrank_flush": "Flush",
+  "game_handrank_full-house": "Full House",
+  "game_handrank_four-of-a-kind": "Four of a Kind",
+  "game_handrank_straight-flush": "Straight Flush",
+  "game_handrank_royal-flush": "Royal Flush",
+  "shuffle-proof_derived": "derived digest",
+  "shuffle-proof_v2-native": "Bayer-Groth V2 structure",
+  "shuffle-proof_global-challenge": "global challenge",
+  "shuffle-proof_transcript-derived": "transcript-derived",
+  "shuffle-proof_round": "re-encryption round",
+  "shuffle-proof_verify-failed": "proof verification failed",
+  "shuffle-proof_layer": "layer",
+  "shuffle-proof_onchain-meta": "on-chain verification",
+  "shuffle-proof_block": "block",
+  "shuffle-proof_gas": "Gas",
+  "shuffle-proof_contract": "contract",
+  "shuffle-proof_binding": "hand_binding",
+  "settlement_settled-stamp": "settled on-chain",
+  "settlement_refused-stamp": "settlement refused (reconciliation)",
+  "settlement_failed-stamp": "settlement failed",
+  "settlement_pending-stamp": "pending on-chain",
+  "game_history-proof-lbl": "shuffle proofs",
+  "game_history-proof-empty": "no proof retained (pre-upgrade record)",
+  "game_history-verify-attestation": "view attestation",
+  "game_receipt-open-btn": "Hand receipt",
+  "game_seat-folded-lbl": "Folded",
+  "game_seat-waiting-lbl": "Waiting",
+  "game_seat-acting-lbl": "Acting",
+  "game_seat-acted-lbl": "Acted",
+  "game_seat-online-lbl": "Online",
+  "seat_buyin-ctx-label": "BUY-IN · ON-CHAIN CUSTODY",
+  "seat_buyin-step-hint": "step",
+  "seat_buyin-unaffordable": "Insufficient balance: lower the buy-in amount or top up STRK first.",
+  "seat_buyin-real-asset-note": "Buy-in completes only after the on-chain vault credits the chips; nothing is charged otherwise. This is real money — double-check before confirming.",
+  "lobby_desc-join_table": "5 seats · NLH",
+  "lobby_foot-join_table": "3 seats open · instant",
+  "lobby_desc-quick_game": "Quick match, no invite",
+  "lobby_foot-quick_game": "avg wait 4s",
+  "lobby_desc-open_shop": "Chips top-up & exchange",
+  "lobby_foot-open_shop": "COMING SOON",
+  "lobby_desc-open_rules": "Rules & ZK fairness",
+  "lobby_foot-open_rules": "12 sections · ~15 min",
+  "lobby_meta-connected": "connected · local dev",
+  "navbar_lobby_btn": "Lobby",
+  "navbar-dashboard_btn": "Dashboard",
+  "navbar-whitepaper_btn": "Whitepaper",
+  "navmenu-logout": "Log out"
+}

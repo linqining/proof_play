@@ -1,0 +1,26 @@
+name: Fuzz smoke
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 5 * * 0'
+
+jobs:
+  fuzz:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: nightly-2026-04-15
+      - run: cargo +nightly install cargo-fuzz
+      - run: cargo +nightly fuzz run settlement_statement --release -runs=10000
+        working-directory: fuzz
+      - run: cargo +nightly fuzz run digest_felts --release -runs=10000
+        working-directory: fuzz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fuzz-artifacts
+          path: fuzz/artifacts/
+          if-no-files-found: ignore

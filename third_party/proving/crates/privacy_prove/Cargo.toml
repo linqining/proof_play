@@ -1,0 +1,54 @@
+[package]
+name = "privacy-prove"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Run Cairo programs and generate STWO proofs that can be verified with a cairo-circuit verifier"
+
+[features]
+slow-tests = []
+
+[dependencies]
+anyhow.workspace = true
+itertools.workspace = true
+serde_json.workspace = true
+starknet-types-core.workspace = true
+tempfile.workspace = true
+tracing.workspace = true
+zstd.workspace = true
+
+# local crates
+cairo-program-runner-lib.workspace = true
+privacy-circuit-verify.workspace = true
+
+# cairo-vm
+cairo-vm = { workspace = true, features = [
+    "extensive_hints",
+    "mod_builtin",
+    "clap",
+] }
+
+# stwo cairo
+cairo-air.workspace = true
+stwo-cairo-adapter.workspace = true
+stwo-cairo-prover.workspace = true
+stwo-cairo-common.workspace = true
+
+# stwo circuits
+circuit-cairo-verifier.workspace = true
+circuits-stark-verifier.workspace = true
+circuit-serialize.workspace = true
+circuit-prover.workspace = true
+circuit-common.workspace = true
+circuit-verifier.workspace = true
+
+# stwo
+stwo = { workspace = true, features = ["parallel"] }
+
+[dev-dependencies]
+ctor.workspace = true
+expect-test.workspace = true
+mockall.workspace = true
+rstest.workspace = true
+tracing-subscriber = { workspace = true, features = ["fmt"] }

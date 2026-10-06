@@ -1,0 +1,20 @@
+[package]
+name = "da-backup"
+version = "0.1.0"
+edition = "2024"
+license = "BUSL-1.1"
+description = "DA L0：WAL/收据/队列 WAL 异地快照备份——快照/轮换/校验/恢复演练（M2，docs 排期 §2.2）"
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "da-backup"
+path = "src/bin/da_backup.rs"
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+sha2 = { workspace = true }
+hex = { workspace = true }
+thiserror = { workspace = true }

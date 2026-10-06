@@ -1,0 +1,1076 @@
+{
+  "cookiebanner-confirm_btn_txt": "确定",
+  "cookiebanner-info_btn_txt": "了解更多",
+  "cookiebanner-text": "本网站使用 Cookie 以确保您获得最佳体验。",
+  "dashboard-delete_acct_btn_text": "删除账户",
+  "dashboard-email_btn_txt": "更新邮箱",
+  "dashboard-email_lbl_txt": "邮箱",
+  "dashboard-nickname_btn_txt": "更新昵称",
+  "dashboard-nickname_lbl_txt": "昵称",
+  "dashboard-reset_pw_btn_text": "重置密码",
+  "dashboard-heading_txt": "个人中心",
+  "footer-copyright_txt": "© ProofPlay Poker. 保留所有权利。",
+  "footer-lang_selection_txt": "语言",
+  "game_buyin-modal_cancel": "取消",
+  "game_buyin-modal_confirm": "入座",
+  "game_buyin-modal_header": "买入",
+  "game_login-required_text": "请先登录后继续。",
+  "game_info_blinds-lbl": "盲注",
+  "game_rake-collected_lbl": "本手台费",
+  "game_history-open-btn": "记录",
+  "game_history-title": "牌局记录",
+  "game_history-hand-lbl": "手牌",
+  "game_history-pot-lbl": "底池",
+  "game_history-showdown-badge": "摊牌",
+  "game_history-fold-badge": "弃牌",
+  "game_history-empty": "暂无牌局记录，完成一手牌后这里会显示。",
+  "game_history-refresh": "刷新",
+  "game_info_limit-lbl": "限注",
+  "game_leave-table-btn": "离开牌桌",
+  "leave_confirm-title": "Fold 并离开？",
+  "leave_confirm-message": "你正在牌局中，是否 Fold 并离开牌桌？",
+  "leave_confirm-fold": "Fold 并离开",
+  "leave_confirm-cancel": "取消",
+  "leave_deferred-banner": "等待牌局结束后离开...",
+  "leave_deferred-cancel": "取消离开",
+  "game_lost-connection-modal_btn-txt": "离开游戏",
+  "game_lost-connection-modal_header": "连接断开",
+  "game_lost-connection-modal_text": "您已与游戏服务器断开连接。",
+  "game_rebuy-modal_cancel": "取消",
+  "game_rebuy-modal_confirm": "再次买入",
+  "game_rebuy-modal_header": "再次买入",
+  "game_rotate-device-prompt": "请将设备旋转至横屏模式",
+  "game_sitdown-btn": "入座",
+  "game_state-info_wait": "等待玩家中...",
+  "game_state-info_pre-flop": "翻牌前",
+  "game_state-info_flop": "翻牌",
+  "game_state-info_turn": "转牌",
+  "game_state-info_river": "河牌",
+  "game_state-info_showdown": "摊牌",
+  "game_table_empty-seat": "空位",
+  "game_table_closed": "本桌已关闭，不再开局",
+  "game_ui_all-in": "全押",
+  "game_ui_bet": "下注",
+  "game_ui_call": "跟注",
+  "game_ui_check": "过牌",
+  "game_ui_fold": "弃牌",
+  "game_ui_stand-up": "站起",
+  "game_sitdown-prompt": "入座加入游戏！",
+  "game_online-lbl": "在线：",
+  "global_get-free-chips-modal_btn-txt": "领取免费筹码",
+  "global_get-free-chips-modal_content": "立即领取 **10,000** 免费筹码，开始游戏！",
+  "global_get-free-chips-modal_header": "免费筹码",
+  "landing-primary_headline": "在线德州扑克",
+  "landing-secondary_headline": "加入牌桌，开始赢取筹码",
+  "login_page-cta_btn_txt": "登录",
+  "login_page-email_lbl_txt": "邮箱",
+  "login_page-header_txt": "登录",
+  "login_page-no_account_txt": "还没有账户？",
+  "login_page-password_lbl_txt": "密码",
+  "main_page-join_table": "加入牌桌",
+  "main_page-modal_button_text": "领取免费筹码",
+  "main_page-modal_heading": "免费筹码",
+  "main_page-modal_text": "立即领取 **10,000** 免费筹码，开始游戏！",
+  "main_page-open_rules": "规则",
+  "main_page-open_shop": "商店",
+  "main_page-quick_game": "快速游戏",
+  "main_page-salutation": "你好，",
+  "navbar-buychips_btn": "购买筹码",
+  "navbar-login_btn": "登录",
+  "navbar-register_btn": "注册",
+  "navbar-signin_btn": "登录",
+  "navbar-claim_btn": "领取",
+  "navbar-claim_tip": "赔付承诺注册 / 奖励领取（私密或公开）",
+  "navbar-copy-address": "复制地址",
+  "navbar-copied": "已复制",
+  "navmenu-logout_btn": "退出登录",
+  "funds-banner_title": "未领取，可随时领回钱包",
+  "funds-banner_desc": "离开牌桌后筹码保存在链上金库，不会自动回到你的钱包。",
+  "funds-banner_cta": "去领取",
+  "funds-banner_dismiss": "关闭提醒",
+  "funds-leave_prefix": "本桌剩余 ",
+  "funds-leave_suffix": " 已存入链上金库，可随时领取。",
+  "navmenu-menu_item-dashboard_txt": "个人中心",
+  "navmenu-menu_item-lobby_txt": "大厅",
+  "navmenu-menu_item-news_txt": "新闻",
+  "notfound-content_txt": "您访问的页面不存在。",
+  "notfound-heading_txt": "页面未找到",
+  "registration_page-already_account_txt": "已有账户？",
+  "registration_page-cta_btn_txt": "注册",
+  "registration_page-email_lbl_txt": "邮箱",
+  "registration_page-header_txt": "注册",
+  "registration_page-nickname_lbl_txt": "昵称",
+  "registration_page-password_lbl_txt": "密码",
+  "service_worker-update_available": "发现新版本！",
+  "service_worker-update_confirm_btn_txt": "更新",
+  "service_worker-update_headline": "更新可用",
+  "shop-coming_soon-modal_btn_text": "确定",
+  "shop-coming_soon-modal_heading": "商店",
+  "shop-coming_soon-modal_text": "商店即将上线！敬请期待。",
+  "static_page-back_btn_txt": "返回",
+  "play_connecting": "连接中...",
+  "play_reconnecting": "重新连接中...",
+  "play_zk-crypto-events": "ZK 密码学事件",
+  "play_leaving": "正在离开牌桌...",
+  "play_action-signing": "等待签名确认...",
+  "homepage_nav-home": "首页",
+  "homepage_nav-features": "特性",
+  "homepage_nav-benefits": "优势",
+  "homepage_nav-how": "工作原理",
+  "homepage_nav-play": "开始游戏",
+  "homepage_nav-footer": "页脚",
+  "homepage_hero-badge": "对作弊者数学上不公平",
+  "homepage_hero-title-1": "唯一的扑克室",
+  "homepage_hero-title-2": "作弊不可能发生",
+  "homepage_hero-desc-1": "每张牌在离开你的设备前就已加密。",
+  "homepage_hero-desc-2": "服务器看不到你的手牌，我们也看不到。",
+  "homepage_hero-btn-join": "加入牌桌",
+  "homepage_hero-btn-how": "了解工作原理",
+  "homepage_stat-server-blind": "服务器盲",
+  "homepage_stat-hidden": "你的手牌始终隐藏",
+  "homepage_stat-256bit": "256位",
+  "homepage_stat-e2e": "端到端加密",
+  "homepage_stat-100pct": "100%",
+  "homepage_stat-fair": "可证明公平",
+  "homepage_features-tag": "传统扑克室对你隐瞒了什么",
+  "homepage_features-title": "你的手牌只有你自己能看到",
+  "homepage_features-subtitle-1": "在普通扑克室，服务器知道每一张牌。",
+  "homepage_features-subtitle-2": "在这里，它什么都看不到。",
+  "homepage_feature-encrypted-title": "设备端加密",
+  "homepage_feature-encrypted-desc": "你的底牌在离开浏览器前就已锁定。即使服务器被攻破，也不会泄露任何信息。",
+  "homepage_feature-shuffle-title": "全员洗牌",
+  "homepage_feature-shuffle-desc": "每位玩家依次洗牌。没有任何人——包括平台——知道牌的顺序。",
+  "homepage_feature-unlock-title": "只有你的浏览器能解锁你的手牌",
+  "homepage_feature-unlock-desc": "你的私钥永远不会离开你的设备。服务器永远无法偷看你的手牌。",
+  "homepage_feature-keys-title": "密钥在你手中",
+  "homepage_feature-keys-desc": "你的私钥始终保存在你的设备上。你控制访问权限，也可以安全地委托。",
+  "homepage_benefits-tag": "庄家无法作弊，因为它看不到牌",
+  "homepage_benefits-title": "保持优势，保持隐私",
+  "homepage_benefits-subtitle": "更低费用，零服务器可见性，永不宕机。",
+  "homepage_benefit-auditable-title": "每一手牌都可审计",
+  "homepage_benefit-auditable-desc": "每一手牌都留下密码学证明。任何人都可以验证公平性。无需信任。",
+  "homepage_benefit-auditable-stat": "100%",
+  "homepage_benefit-auditable-label": "可审计",
+  "homepage_benefit-instant-title": "随时随地，即开即玩",
+  "homepage_benefit-instant-desc": "打开浏览器即可游戏。无需下载，无需注册，无需等待。",
+  "homepage_benefit-instant-stat": "0",
+  "homepage_benefit-instant-label": "下载量",
+  "homepage_benefit-fee-title": "我们收取不到1%",
+  "homepage_benefit-fee-desc": "传统平台每锅抽取2-5%。我们收取不到1%。这个差距很快就会体现出来。",
+  "homepage_benefit-fee-stat": "<1%",
+  "homepage_benefit-fee-label": "平台费用",
+  "homepage_benefit-uptime-title": "零停机，零维护",
+  "homepage_benefit-uptime-desc": "基于去中心化基础设施构建。没有单点故障，意味着没有\"服务器维护\"的借口。",
+  "homepage_benefit-uptime-stat": "24/7",
+  "homepage_benefit-uptime-label": "可用性",
+  "homepage_how-tag": "五个步骤，完全透明",
+  "homepage_how-title": "我们如何在看不到你手牌的情况下发牌",
+  "homepage_how-subtitle": "不需要数学学位。以下是逐步发生的全过程。",
+  "homepage_step-lock-title": "锁定牌组",
+  "homepage_step-lock-desc": "每位玩家为牌组添加一把数字锁。没有人能单独打开它。",
+  "homepage_step-shuffle-title": "共同洗牌",
+  "homepage_step-shuffle-desc": "每位玩家依次洗牌。最终顺序是随机的，任何人都不知道。",
+  "homepage_step-deal-title": "暗牌发放",
+  "homepage_step-deal-desc": "牌在锁定状态下发放。服务器只能看到加密数据。",
+  "homepage_step-reveal-title": "适时揭示",
+  "homepage_step-reveal-desc": "到了展示的时候，你的浏览器会使用私钥在本地解锁你的手牌。",
+  "homepage_step-community-title": "公共牌开放",
+  "homepage_step-community-desc": "公共牌由所有玩家协作逐张解锁。",
+  "homepage_step-verify-title": "验证一切",
+  "homepage_step-verify-desc": "每个操作都留下证明。如果任何内容被篡改，任何人都能立即发现。",
+  "homepage_cta-title": "无需信任，只需数学",
+  "homepage_cta-desc": "几秒内加入牌桌。无需下载，没有暗牌，没有庄家优势。",
+  "homepage_cta-btn": "免费开始游戏",
+  "homepage_footer-brand": "ProofPlay Poker",
+  "homepage_footer-tagline": "每一局，都有证。",
+  "homepage_footer-lobby": "大厅",
+  "homepage_footer-built-with": "技术栈：",
+  "homepage_footer-based-on": "基于：",
+  "homepage_footer-ref-text": "经同行评审的心理扑克密码学",
+  "gametable_loading": "加载游戏中...",
+  "gametable_not-found": "游戏未找到",
+  "gametable_back-lobby": "返回大厅",
+  "gametable_lobby": "大厅",
+  "gametable_pot": "底池：$",
+  "gametable_collapse": "收起",
+  "gametable_zk-visual": "ZK 可视化",
+  "gametable_refresh": "刷新",
+  "gametable_game": "游戏：",
+  "gametable_community-cards": "公共牌（",
+  "gametable_winner": "赢家：",
+  "gametable_zk-panel-title": "ZK 密码学可视化",
+  "gametable_zk-panel-subtitle": "Starknet 链上可验证公平博弈",
+  "gametable_zk-panel-close": "收起",
+  "gametable_crypto-event-stream": "密码学事件流",
+  "gametable_event-detail": "选中事件详情",
+  "gametable_event-detail-empty": "点击上方事件查看密码学证明详情",
+  "gametable_raw-log": "原始日志",
+  "gametable_no-events": "暂无事件...",
+  "gametable_click-dismiss": "（点击关闭）",
+  "narration_waiting": "等待玩家入座。本桌无庄家，发牌完全由多方密码学协议完成。",
+  "narration_shuffling": "洗牌阶段：每位玩家依次重加密牌组并提交 ZK 证明，链上验证通过才进入下一轮，无人能偷看或篡改牌序。",
+  "narration_shuffle-complete": "洗牌完成，所有 ShuffleProof 已链上验证。现在分发手牌，每张牌经多方解密才能显形。",
+  "narration_pre-flop-reveal": "洗牌完成，所有 ShuffleProof 已链上验证。现在分发手牌，每张牌经多方解密才能显形。",
+  "narration_pre-flop": "翻牌前下注轮。手牌仅持有者可解密，链上只存密文，旁观者与对手均无法窥视。",
+  "narration_flop-reveal": "翻牌：3 张公共牌依次由对应玩家的 RevealToken 解密，并附 Chaum-Pedersen 证明，证明确实是该玩家的合法解密。",
+  "narration_flop": "翻牌后下注轮。公共牌已可验证地公开，下注基于真实牌力。",
+  "narration_turn-reveal": "转牌：第 4 张公共牌解密，同样附 ZK 证明。",
+  "narration_turn": "转牌后下注轮。",
+  "narration_river-reveal": "河牌：最后一张公共牌解密。",
+  "narration_river": "河牌后下注轮，最后一轮下注。",
+  "narration_showdown-reveal": "摊牌：所有未弃牌玩家揭示手牌，链上验证每张牌的解密证明，确认无作弊。",
+  "narration_showdown": "摊牌结算：手牌评估与边池分配均在链上完成，结果可验证。",
+  "narration_hand-complete": "本局结束。整局从洗牌到结算全程 trustless，无任何可信第三方。",
+  "narration_default": "当前阶段：{phase}。全程链上可验证。",
+  "narration_verified-count": "已验证 {count} 个密码学操作",
+  "crypto_waiting-events": "等待密码学事件…",
+  "crypto_verified": "✓ 已验证",
+  "crypto_failed": "✗ 验证失败",
+  "crypto_pending-onchain": "等待上链",
+  "crypto_enc": "加密",
+  "crypto_decrypted-by": "由 ",
+  "shuffle-proof_title": "ShuffleProof 结构",
+  "shuffle-proof_subtitle": "3 层 Schnorr 防置换映射攻击",
+  "shuffle-proof_placeholder": "暂无洗牌证明数据，等待玩家提交…",
+  "shuffle-proof_commitment-layer": "承诺层 · 输入密文加权和承诺",
+  "shuffle-proof_proof-layer": "证明层 · GeneralizedSchnorrProof ×3",
+  "shuffle-proof_combined": "c1+c2 合并证明",
+  "shuffle-proof_c1-only": "仅 c1 证明",
+  "shuffle-proof_c2-only": "仅 c2 证明",
+  "shuffle-proof_anti-replay": "防重放 · anti-replay nonce",
+  "shuffle-proof_highlights": "技术亮点",
+  "shuffle-proof_highlight-1": "3 层 Schnorr 证明防止置换映射攻击",
+  "shuffle-proof_highlight-2": "Fiat-Shamir 非交互式零知识证明",
+  "shuffle-proof_highlight-3": "Starknet 原生 BLS12-381 链上验证",
+  "login_sign-in": "登录",
+  "login_wallet-title": "使用 Starknet 钱包登录",
+  "login_wallet-desc": "连接钱包开始游戏",
+  "login_recommended": "推荐",
+  "login_wallet-note": "STRK20 用于筹码买入，您的钱包支付 gas。",
+  "login_no-wallet": "未检测到 Starknet 钱包。请安装 Ready 钱包浏览器插件，安装后刷新本页即可登录。",
+  "login_install-ready": "安装 Ready 钱包（Chrome 插件）",
+  "login_recheck": "我已安装，重新检测",
+  "login_wallet-tooltip": "STRK20 用于筹码买入",
+  "login_or": "或",
+  "login_google": "使用 Google 登录",
+  "login_apple": "使用 Apple 登录",
+  "login_twitch": "使用 Twitch 登录",
+  "login_facebook": "使用 Facebook 登录",
+  "login_oauth-note-1": "使用 Starknet 钱包登录 — 无需社交账号。",
+  "login_oauth-note-2": "请使用 Starknet 钱包登录以进行游戏。",
+  "common_loading": "加载中...",
+  "common_brand-name": "ProofPlay Poker",
+  "common_poker-table": "扑克桌",
+  "common_logo-alt": "ProofPlay Poker",
+  "maintenance_message": "网站正在维护中，请稍后再试。",
+  "maintenance_brand-alt": "ProofPlay Poker",
+  "language-switcher_aria": "语言切换",
+  "lobby_join-table-alt": "加入牌桌",
+  "lobby_quick-game-alt": "快速游戏",
+  "lobby_shop-alt": "商店",
+  "lobby_rules-alt": "规则",
+  "navbar_lobby-alt": "大厅",
+  "navbar_dashboard-alt": "仪表板",
+  "rotate-device_alt": "请将设备旋转到横屏模式",
+  "seat_strk-logo-alt": "STRK",
+  "seat_strk-balance-label": "STRK 余额",
+  "seat_wallet-address-label": "钱包地址",
+  "seat_redeemable-chips-label": "可兑换筹码",
+  "seat_conversion-cost-label": "本次兑换花费",
+  "seat_exchange-rate-label": "汇率: 1 STRK = {rate} 筹码",
+  "seat_claim-faucet-btn": "领取测试 STRK（水龙头）",
+  "seat_claiming-btn": "领取中...",
+  "seat_claim-success": "领取成功，余额刷新中...",
+  "seat_claim-too-many-requests": "请求过于频繁，请稍后再试",
+  "seat_claim-failed-prefix": "领取失败",
+  "seat_claim-failed-title": "领取 STRK 失败",
+  "seat_claim-failed-ok": "确定",
+  "gametable_failed-fetch-state": "获取游戏状态失败",
+  "gametable_connecting-to-game": "正在连接游戏...",
+  "gametable_ws-connection-error": "[WS] 连接错误",
+  "gametable_ws-disconnected-reconnecting": "[WS] 已断开，正在重连...",
+  "whitepaper": {
+    "nav": {
+      "back": "返回首页",
+      "top": "回到顶部"
+    },
+    "cover": {
+      "badge": "白皮书 v2.0",
+      "title-line3": "加密扑克",
+      "subtitle": "基于零知识证明的端到端加密德州扑克协议——彻底消除发牌作弊，构建可信任的链上游戏经济体系。",
+      "meta": "2026 年 7 月 · 技术白皮书"
+    },
+    "abstract": {
+      "label": "摘要",
+      "p1": "ZGame 是一款基于零知识证明的端到端加密德州扑克协议。传统在线扑克依赖中心化服务器发牌，玩家被迫信任运营方。ZGame 通过实现 Mental Poker 协议彻底解决了这一信任难题：每一张牌都以 ElGamal 密文形式存储在链上，没有任何单一方（包括运营方）能看到其他玩家的手牌。所有关键操作——洗牌、揭牌、离场——均通过六种零知识证明在链上验证，实现了端到端加密的公平游戏体验。",
+      "p2": "系统采用浏览器前端、Rust 后端中继器、链上智能合约的三层架构。密码学层面选用 BLS12-381 曲线与 ElGamal 加法同态加密，支持动态玩家加入、离场与牌组重建。经济模型以真实链上代币入池，并通过赞助交易机制实现零 Gas 费体验。",
+      "p3": "ZGame 的长远目标不止于扑克。项目计划构建一条专为游戏场景定制的 Layer 1 区块链，实现自定义交易排序与完全免 Gas 的商业模式，并探索零知识虚拟机前沿技术以提供极致链上游戏体验。最终，ZGame 将构建一个覆盖多品类链游的可信任经济体系，让密码学安全成为所有链上游戏的底层基础设施。"
+    },
+    "ch1": {
+      "title": "01 行业痛点与问题定义",
+      "s1": {
+        "title": "中心化在线扑克的信任危机",
+        "p1": "在线扑克是一个价值数十亿美元的产业，但其核心机制——发牌与洗牌——始终依赖中心化服务器。玩家无法验证服务器是否公正发牌，运营方拥有完全的作弊能力：可以看到所有手牌、可以操纵发牌顺序、可以向特定玩家透露信息。历史上多次重大丑闻已经证明，这种信任模型是脆弱的。",
+        "mark": "在发牌前，没有任何一方能够预知任何未公开牌面的信息。"
+      },
+      "s2": {
+        "title": "区块链游戏的困境",
+        "p1": "将游戏搬上区块链可以解决透明度问题，但带来了新的挑战。完全链上发牌意味着所有牌面信息对全网可见，失去了扑克游戏最核心的信息不透明机制。而链下发牌又回到了中心化信任模型。如何在透明与保密之间取得平衡，是链上扑克的核心技术难题。",
+        "p2": "此外，Web3 游戏还面临用户体验壁垒：钱包管理、Gas 费用、交易确认延迟，这些因素使得普通玩家望而却步。一个可持续的链上扑克协议必须在密码学安全、链上可审计性与用户体验三者之间找到最优解。"
+      },
+      "s3": {
+        "title": "通用链的局限",
+        "p1": "现有的通用区块链并非为游戏场景而设计。在高频交互的游戏场景中，通用链的交易吞吐量、确认延迟和排序机制都无法满足实时性要求。游戏操作必须与 NFT 铸造、DeFi 协议等所有应用竞争区块空间，导致高波动时期网络拥堵、体验劣化。游戏需要的不是一条『能跑合约的链』，而是一条『为游戏而生』的链——这正是 ZGame 的终极方向。"
+      }
+    },
+    "ch2": {
+      "title": "02 解决方案概述",
+      "s1": {
+        "title": "Mental Poker：从理论到工程可行的四十年",
+        "p1": "1981 年，Shamir、Rivest 与 Adleman 提出了 Mental Poker 问题：两个互不信任的参与者能否通过电话玩扑克，且双方都确信对方没有作弊？这个问题的密码学解法——后来被统称为 Mental Poker 协议——正是 ZGame 的理论基石。",
+        "mark": "正是近年来零知识证明技术的突破性进展，使 Mental Poker 从学术玩具蜕变为可在线上环境实时运行的工程方案。ZGame 正是诞生于这一历史拐点。"
+      },
+      "s2": {
+        "title": "核心设计思想",
+        "p1": "ZGame 的核心设计思想简洁明确：牌组始终处于加密状态，发牌只是分配密文的索引，揭牌需要所有玩家的协作解密。任何单一实体，包括运营服务器，都无法独立完成解密。这一性质从密码学根源上消除了发牌作弊的可能性。",
+        "mark": "牌组始终加密；发牌只是分配密文索引；揭牌需要所有玩家协作解密。"
+      },
+      "s3": {
+        "title": "核心创新：动态玩家离场与牌组重建",
+        "p1": "经典 Mental Poker 协议有一个被长期忽视的致命缺陷：协议假设参与者在整局游戏期间保持在线。一旦有玩家离场，其持有的私钥即从聚合公钥中永久缺失，导致加密牌组无法继续解密——整局游戏被迫终止。在真实的在线扑克场景中，玩家因网络波动、主动退出或被踢出而中途离场是常态。这意味着经典 Mental Poker 在实际部署中几乎无法可用。",
+        "l1": {
+          "title": "加密层剥离",
+          "desc": "离场玩家提交 LeaveProof（DLEq 零知识证明），证明其正确移除了自己对该牌组的加密层，且不泄露任何牌面信息。"
+        },
+        "l2": {
+          "title": "聚合公钥更新",
+          "desc": "聚合公钥减去离场玩家的公钥，剩余玩家的密钥组合仍可解密牌组。"
+        },
+        "l3": {
+          "title": "驱逐重建",
+          "desc": "若玩家因超时或恶意行为被踢出，系统收集其余玩家的可读牌（部分解密密文），通过四层 ReconstructProof 复合证明，将被踢玩家的牌从牌组中安全替换，用新随机数重新加密整副牌。"
+        },
+        "l4": {
+          "title": "无缝续牌",
+          "desc": "重建完成后，剩余玩家在更新后的牌组基础上继续游戏，无需重启牌局。新玩家的手牌信息不受影响，公共牌状态保持一致。"
+        },
+        "conclusion": "玩家可以随时加入、随时离开，牌局永远不需要因为人员变动而中断。这是 ZGame 区别于所有此前 Mental Poker 实现的核心创新，也是将这一经典协议从实验室推向生产环境的关键一步。"
+      },
+      "s4": {
+        "title": "系统架构总览",
+        "p1": "ZGame 当前采用三层架构：",
+        "c1": {
+          "title": "前端层",
+          "desc": "React + Vite + TypeScript，所有加密计算与零知识证明生成通过 WebAssembly 在本地完成，WebSocket 实时通信。"
+        },
+        "c2": {
+          "title": "中继层",
+          "desc": "Rust + Axum + WebSocket，负责链上事件监听、交易构建与赞助、实时广播、超时与重试管理。"
+        },
+        "c3": {
+          "title": "链上层",
+          "desc": "智能合约负责共享对象状态管理、六种零知识证明的链上验证、下注逻辑与资金结算。"
+        }
+      }
+    },
+    "ch3": {
+      "title": "03 密码学方案",
+      "s1": {
+        "title": "牌面表示与密钥体系",
+        "p1": "系统选用 BLS12-381 G1 群作为密码学基础。52 张扑克牌被映射为 52 个确定的 G1 曲线点，生成方式采用标准的 hash-to-curve 方法：",
+        "code": "hash_to_curve(label=\"texas_poker/card/{i}\", DST=\"BLS_SIG_BLS12381G1_XMD:SHA-256_SSWU_RO_NUL_\")",
+        "p2": "每位玩家生成私钥 sk 与公钥 pk = G * sk。所有在场玩家的公钥累加形成聚合公钥 AggPK = sum(pk_i)。只有持有所有私钥的玩家联合，才能解密密文。"
+      },
+      "s2": {
+        "title": "ElGamal 加密与洗牌",
+        "p1": "牌组以 ElGamal 密文形式存储，每张牌的密文为 96 字节（c1: 48 字节 + c2: 48 字节）。初始牌组是在『身份密钥』下的明文加密，即 c1 = G，c2 = plaintext_i。",
+        "l1": {
+          "title": "置换",
+          "desc": "随机打乱 52 张牌的顺序。"
+        },
+        "l2": {
+          "title": "重加密",
+          "desc": "用聚合公钥对每张牌添加新的加密层，生成新的随机掩码。"
+        },
+        "p2": "每次洗牌后，玩家提交 ShuffleProof，证明输出牌组是输入牌组的一个合法置换加重加密，但不泄露置换本身。经过所有玩家轮询洗牌后，牌组的明文内容、顺序与玩家对应关系在密码学上被完全隐藏。"
+      },
+      "s3": {
+        "title": "分布式揭牌",
+        "p1": "发牌时，按洗牌后的顺序从加密牌组中取出密文分配给玩家手牌或公共牌池。此时每张牌仍然是密文，需要分布式解密才能恢复明文。",
+        "p2": "对于一张密文 CT = (c1, c2)，玩家 i 计算自己的 Reveal Token：",
+        "code": "token_i = c1 * sk_i",
+        "p3": "所有玩家的 token 累加后得到 sum(token_i) = c1 * sum(sk_i)，明文即为 c2 - sum(token_i)。每次提交 token 时，玩家需附带 Chaum-Pedersen DLEq 证明，证明 log_G(pk_i) == log_c1(token_i)，防止提交伪造 token 导致错误牌面。"
+      },
+      "s4": {
+        "title": "动态玩家管理",
+        "p1": "真实牌局需要支持玩家中途加入和离开，ZGame 为此设计了完整的动态玩家协议：",
+        "l1": {
+          "title": "加入",
+          "desc": "新玩家先用私钥对当前牌组做 Remask（c2 += c1 * sk），再执行 Shuffle。需提交 RemaskProof + ShuffleProof。"
+        },
+        "l2": {
+          "title": "离开",
+          "desc": "玩家将自己的加密层移除（c2 -= c1 * sk），提交 LeaveProof，聚合公钥减去该玩家公钥。"
+        },
+        "l3": {
+          "title": "重建",
+          "desc": "若某玩家被踢出或超时离线，剩余玩家协作将退出玩家的牌从牌组中『换出』，用新随机数重新加密整副牌，提交 ReconstructProof。重建完成后所有玩家重新洗牌，确保被踢玩家的私钥不再参与后续牌局。"
+        }
+      }
+    },
+    "ch4": {
+      "title": "04 零知识证明体系",
+      "intro": {
+        "mark": "系统中共使用六种零知识证明",
+        "tail": "，均基于 Fiat-Shamir 启发式（SHA3-256 状态机），确保 Rust 端的证明生成与链上合约端的验证完全一致。"
+      },
+      "p1": {
+        "title": "PK Ownership Proof（Schnorr 证明）",
+        "desc": "玩家注册时证明其掌握公钥对应的私钥，防止恶意注入无效公钥。标准 Schnorr 协议：commitment = G * omega，challenge = H(G || pk || commitment)，response = omega + challenge * sk。"
+      },
+      "p2": {
+        "title": "Shuffle Proof（ZKShuffleProof）",
+        "desc": "证明输出牌组是输入牌组的一个合法置换加重加密。采用三层 Schnorr 证明：合并证明 + c1 独立证明 + c2 独立证明，防止信息转移攻击（c1/c2 swap）。"
+      },
+      "p3": {
+        "title": "Remask Proof（DLEqProof）",
+        "desc": "新玩家加入时，证明对牌组正确添加了自己的加密层。验证 output.c2 - input.c2 = input.c1 * sk，每张牌独立绑定。"
+      },
+      "p4": {
+        "title": "Leave Proof（DLEqProof）",
+        "desc": "玩家主动离开时，证明正确移除了自己的加密层。与 RemaskProof 对称，验证 c2' = c2 - c1 * sk。"
+      },
+      "p5": {
+        "title": "Reveal Token Proof（Chaum-Pedersen DLEq）",
+        "desc": "玩家提交 Reveal Token 时，证明 token = c1 * sk 且 pk = G * sk。双离散对数相等证明，包含 anti-replay nonce 防止重放攻击。"
+      },
+      "p6": {
+        "title": "Reconstruct Proof（复合证明）",
+        "desc": "驱逐玩家后重建牌组时使用的最复杂证明，包含 SwapOutCardProof（Chaum-Pedersen DLEq）、Blind DLEq Proof、Generalized Schnorr Proof 和 Total DLEq Proof 四层结构。"
+      },
+      "security": {
+        "title": "安全加固",
+        "l1": "M-D13 / c1-c2 swap 攻击：ShuffleProof 增加独立 c1/c2 Schnorr 证明。",
+        "l2": "M4 / Reveal Token 重放攻击：引入 nonce 并绑定 expected_pk。",
+        "l3": "M-P17 / Identity 承诺攻击：所有证明拒绝 identity 点作为承诺或密文。",
+        "l4": "M7 / Identity c1 攻击：remask_ciphertext 与 leave_ciphertext 拒绝 c1 == identity 的输入。",
+        "l5": "M6 / 零私钥攻击：拒绝 pk == identity 的玩家注册与证明验证。"
+      }
+    },
+    "ch5": {
+      "title": "05 完整游戏流程",
+      "p1": "以下流程在链下 Rust 服务端与链上智能合约中同步执行，所有关键密码学操作均在用户本地完成：",
+      "table": {
+        "col1": "阶段",
+        "col2": "动作",
+        "col3": "密码学操作",
+        "r1": {
+          "c1": "Setup / Join",
+          "c2": "玩家入座，存入代币",
+          "c3": "注册 pk，验证 PKOwnershipProof"
+        },
+        "r2": {
+          "c1": "Start Hand",
+          "c2": "移动 Button，清理状态",
+          "c3": "初始化 ShuffleState"
+        },
+        "r3": {
+          "c1": "Shuffle",
+          "c2": "每位活跃玩家依次洗牌",
+          "c3": "提交 ShuffleProof"
+        },
+        "r4": {
+          "c1": "Deal PreFlop",
+          "c2": "发 2 张手牌/人",
+          "c3": "仅记录密文索引"
+        },
+        "r5": {
+          "c1": "HandReveal",
+          "c2": "为其他玩家手牌提交 Reveal Token",
+          "c3": "RevealTokenProof 验证"
+        },
+        "r6": {
+          "c1": "PreFlop Betting",
+          "c2": "下盲注，首条街下注",
+          "c3": "标准德州扑克 betting 逻辑"
+        },
+        "r7": {
+          "c1": "Flop",
+          "c2": "发 3 张公共牌",
+          "c3": "deal_community_cards_encrypted"
+        },
+        "r8": {
+          "c1": "CommunityReveal",
+          "c2": "为公共牌提交 Reveal Token",
+          "c3": "全员 token 收集后明文上链"
+        },
+        "r9": {
+          "c1": "Turn + River",
+          "c2": "各发 1 张公共牌",
+          "c3": "重复 CommunityReveal + Betting"
+        },
+        "r10": {
+          "c1": "ShowdownReveal",
+          "c2": "未弃牌玩家为自己的手牌提交 Reveal Token",
+          "c3": "摊牌，手牌明文恢复"
+        },
+        "r11": {
+          "c1": "Settlement",
+          "c2": "计算 side pots，判定赢家",
+          "c3": "hand_evaluator 比大小"
+        },
+        "r12": {
+          "c1": "Reset",
+          "c2": "进入下一手等待期",
+          "c3": "清空牌组状态"
+        }
+      },
+      "timeout": {
+        "title": "超时与容错机制",
+        "l1": "Shuffle 超时：踢出当前洗牌者，重建牌组，剩余玩家重新洗牌。",
+        "l2": "Reveal 超时：踢出未提交 token 的玩家。PreFlop 阶段则整手重开；后续阶段触发 Reconstruct。",
+        "l3": "Betting 超时：自动执行 Fold。"
+      }
+    },
+    "ch6": {
+      "title": "06 经济模型",
+      "s1": {
+        "title": "代币兑换与筹码体系",
+        "p1": "游戏内筹码与链上原生代币按固定比例挂钩。玩家加入牌桌时需存入代币，智能合约按比例兑换为 stack 记入座位。一手结束后，筹码按相同比例换回代币，直接退还至玩家地址。所有游戏内下注、盲注与边池计算均以 stack 为单位。"
+      },
+      "s2": {
+        "title": "边池计算",
+        "p1": "当玩家 all-in 时，系统自动计算边池（Side Pot）。算法流程：",
+        "l1": "找出所有 all-in 玩家（bet > 0 且 stack == 0）。",
+        "l2": "按 bet 金额从小到大排序。",
+        "l3": "对每个 all-in 玩家，计算其他人超出部分，从主池移出形成新边池。",
+        "l4": "边池 eligible 列表 = 所有贡献了超出金额的未弃牌玩家。"
+      },
+      "s3": {
+        "title": "零 Gas 体验",
+        "p1": "通过赞助交易机制，ZGame 为玩家提供零 Gas 费的游戏体验。玩家无需持有原生代币支付 Gas，所有交易 Gas 由协议代付。结合零知识登录支持社交账号免钱包登录，大幅降低了 Web3 游戏的使用门槛。"
+      }
+    },
+    "ch7": {
+      "title": "07 安全分析",
+      "s1": {
+        "title": "7.1 牌面保密性",
+        "p1": "牌组始终处于多层 ElGamal 加密下。单张牌的解密需要所有参与玩家的私钥联合，任何单一玩家、服务器或外部观察者无法独立解密未公开的牌。这一性质由 BLS12-381 离散对数难题保证。"
+      },
+      "s2": {
+        "title": "7.2 洗牌完整性",
+        "p1": "ShuffleProof 保证每位玩家的洗牌是诚实的置换加重加密，无法偷偷换牌、删牌或复制牌。初始牌组是确定性公开的 52 个 G1 点，杜绝『自定义牌面』攻击。"
+      },
+      "s3": {
+        "title": "7.3 发牌与揭牌可验证性",
+        "p1": "发牌仅按顺序从已验证的加密牌组中取出，完全公开可审计。每次 Reveal 都提交 RevealTokenProof，链上验证通过后才认可该部分解密。"
+      },
+      "s4": {
+        "title": "7.4 动态成员安全",
+        "p1": "RemaskProof / LeaveProof 保证玩家加入或离开时，牌组加密层被正确添加或移除。ReconstructProof 确保驱逐玩家后，被踢玩家的私钥无法再解密后续任何牌。"
+      },
+      "s5": {
+        "title": "7.5 抗女巫与身份绑定",
+        "p1": "PKOwnershipProof 强制每位玩家证明其掌握公钥对应的私钥。公钥与座位、链上地址绑定，防止同一实体伪造多个身份操纵牌局。"
+      },
+      "s6": {
+        "title": "7.6 链上可审计性",
+        "p1": "所有关键密码学操作均可提交到链上合约验证。状态快照提供完整的加密状态信息，供任何客户端独立验证牌组一致性。"
+      }
+    },
+    "ch8": {
+      "title": "08 产品特性与用户体验",
+      "c1": {
+        "title": "密码学安全",
+        "l1": "端到端加密，服务器无法获取任何明文牌面。",
+        "l2": "6 种零知识证明覆盖全部关键操作。",
+        "l3": "BLS12-381 标准曲线，安全等级 128 位。",
+        "l4": "动态玩家管理，支持中途加入与离开。"
+      },
+      "c2": {
+        "title": "用户体验",
+        "l1": "社交账号免钱包登录。",
+        "l2": "赞助交易实现零 Gas 费。",
+        "l3": "WebAssembly 本地计算，零延迟加密操作。",
+        "l4": "WebSocket 实时通信，流畅游戏体验。"
+      },
+      "c3": {
+        "title": "链上透明",
+        "l1": "所有关键操作可链上验证。",
+        "l2": "完整加密状态快照公开可查。",
+        "l3": "经济模型透明可审计。",
+        "l4": "开源合约与证明验证逻辑。"
+      },
+      "c4": {
+        "title": "容错与活性",
+        "l1": "全阶段超时机制，防止游戏挂起。",
+        "l2": "断线自动重建牌组，不中断游戏。",
+        "l3": "链下超时处理 + 链上状态同步。",
+        "l4": "新玩家加入无需重启牌局。"
+      }
+    },
+    "ch9": {
+      "title": "09 技术栈与组件",
+      "table": {
+        "col1": "层级",
+        "col2": "组件",
+        "col3": "技术",
+        "col4": "职责",
+        "r1": {
+          "c1": "前端",
+          "c2": "client",
+          "c3": "React + Vite + TypeScript",
+          "c4": "游戏界面与交互"
+        },
+        "r2": {
+          "c1": "前端",
+          "c2": "client-wasm",
+          "c3": "Rust → WebAssembly",
+          "c4": "浏览器本地加密与证明生成"
+        },
+        "r3": {
+          "c1": "前端",
+          "c2": "钱包集成",
+          "c3": "starknetkit, @starknet-react",
+          "c4": "钱包连接与链上交互"
+        },
+        "r4": {
+          "c1": "后端",
+          "c2": "relay-server",
+          "c3": "Rust + Axum + WebSocket",
+          "c4": "链上事件监听、交易构建、实时广播"
+        },
+        "r5": {
+          "c1": "后端",
+          "c2": "poker_protocol",
+          "c3": "Rust",
+          "c4": "核心密码学协议"
+        },
+        "r6": {
+          "c1": "后端",
+          "c2": "chain-serialization",
+          "c3": "Rust",
+          "c4": "合约字节格式与 Rust 类型转换"
+        },
+        "r7": {
+          "c1": "后端",
+          "c2": "chain-interaction",
+          "c3": "Rust",
+          "c4": "链上交互逻辑封装"
+        },
+        "r8": {
+          "c1": "链上",
+          "c2": "table contract",
+          "c3": "Move",
+          "c4": "牌桌主逻辑、状态机、结算"
+        },
+        "r9": {
+          "c1": "链上",
+          "c2": "zk_verifier",
+          "c3": "Move",
+          "c4": "六种零知识证明的链上验证"
+        },
+        "r10": {
+          "c1": "链上",
+          "c2": "crypto primitives",
+          "c3": "Move",
+          "c4": "BLS12-381 ElGamal 加密"
+        },
+        "r11": {
+          "c1": "链上",
+          "c2": "hand_evaluator",
+          "c3": "Move",
+          "c4": "7选5手牌评估"
+        },
+        "r12": {
+          "c1": "链上",
+          "c2": "side_pot",
+          "c3": "Move",
+          "c4": "边池计算"
+        }
+      }
+    },
+    "ch10": {
+      "title": "10 定制 L1：专为游戏而生的区块链",
+      "s1": {
+        "title": "通用链的瓶颈",
+        "p1": "ZGame 当前的 MVP 架构运行在现有的通用区块链上，验证了核心密码学协议的可行性。但随着产品走向成熟，通用链的根本性局限日益凸显：游戏操作必须与全链所有应用共享有限的区块空间和排序优先级，导致确认延迟不可控、Gas 费波动剧烈、高频交互场景无法流畅运行。通用链的设计目标是『什么都能做』，而游戏需要的是『把一件事做到极致』。"
+      },
+      "s2": {
+        "title": "Hyperliquid 的启示",
+        "p1": "Hyperliquid 为『应用专有链』范式提供了最有力的实践样本。作为一条专为衍生品交易定制的 Layer 1，Hyperliquid 不依赖任何通用链，而是从底层构建了专属的共识机制、执行环境和排序规则。这一设计带来了三大核心优势：",
+        "l1": {
+          "title": "全链上订单簿 + 内存匹配",
+          "desc": "所有挂单、撤单、成交直接在链上完成，内存中处理订单匹配，吞吐量超越 20,000 TPS。"
+        },
+        "l2": {
+          "title": "零 Gas + 台费盈利",
+          "desc": "用户无需支付 Gas 费，协议收入来自交易手续费。验证节点通过协议通胀奖励和手续费分成获得收益，形成『交易量增长 → 收入增长 → 安全性增强』的正向飞轮。"
+        },
+        "l3": {
+          "title": "全状态可验证",
+          "desc": "包括订单簿在内的完整状态对所有验证者公开可查，同时保持媲美中心化交易所的用户体验。"
+        },
+        "p2": "到 2025 年底，Hyperliquid 已占据主流 Layer 1 区块链手续费市场的 40% 以上份额，证明『应用专有链』路线不仅在技术上可行，在商业上也高度自洽。"
+      },
+      "s3": {
+        "title": "ZGame L1 的设计方向",
+        "p1": "ZGame 计划构建一条专为链上游戏定制的 Layer 1 区块链，借鉴 Hyperliquid 的核心哲学，但将目标场景从衍生品交易迁移至实时博弈游戏。核心设计原则：",
+        "c1": {
+          "title": "自定义排序",
+          "desc": "游戏操作按博弈逻辑排序而非 Gas 竞价排序。下注、揭牌、弃牌等操作的执行顺序由游戏状态机决定，防止 MEV 抢跑和排序操纵。"
+        },
+        "c2": {
+          "title": "完全免 Gas",
+          "desc": "用户不支付任何 Gas 费。协议收入来自牌桌台费（每手牌抽取固定比例的服务费），验证节点从台费分成和协议通胀中获得收益。"
+        },
+        "c3": {
+          "title": "内存状态机",
+          "desc": "高频游戏操作在内存中执行，批量提交至链上做最终结算。玩家体验到的延迟等同于传统在线游戏，而非传统区块链交易的秒级确认。"
+        }
+      },
+      "s4": {
+        "title": "商业模式对比",
+        "table": {
+          "col1": "维度",
+          "col2": "通用链 Gas 模型",
+          "col3": "Hyperliquid 台费模型",
+          "col4": "ZGame L1 台费模型",
+          "r1": {
+            "c1": "用户支付",
+            "c2": "每笔操作付 Gas",
+            "c3": "零 Gas，仅交易手续费",
+            "c4": "零 Gas，仅牌桌台费"
+          },
+          "r2": {
+            "c1": "收入来源",
+            "c2": "Gas 费 → 矿工/验证者",
+            "c3": "交易手续费 → 验证者",
+            "c4": "牌桌台费 → 验证者"
+          },
+          "r3": {
+            "c1": "排序逻辑",
+            "c2": "Gas 竞价优先",
+            "c3": "订单匹配引擎",
+            "c4": "游戏状态机驱动"
+          },
+          "r4": {
+            "c1": "MEV 风险",
+            "c2": "高（抢跑、三明治）",
+            "c3": "低（全链上订单簿）",
+            "c4": "极低（博弈逻辑排序）"
+          },
+          "r5": {
+            "c1": "用户体验",
+            "c2": "需管理钱包与 Gas",
+            "c3": "CEX 级丝滑体验",
+            "c4": "传统游戏级体验"
+          },
+          "r6": {
+            "c1": "盈利自洽性",
+            "c2": "Gas 费波动大",
+            "c3": "手续费与交易量正相关",
+            "c4": "台费与活跃牌桌数正相关"
+          }
+        },
+        "conclusion": "这种商业模型的核心逻辑是：玩家越多 → 牌桌越活跃 → 台费收入越高 → 验证者收益越好 → 网络越安全 → 玩家体验越好。这是一个完全自洽的正向飞轮，与 Hyperliquid 在衍生品交易领域的成功路径高度一致。"
+      }
+    },
+    "ch11": {
+      "title": "11 零知识虚拟机：极致链上游戏体验",
+      "s1": {
+        "title": "游戏状态的计算挑战",
+        "p1": "即使是定制 L1，传统区块链的验证模型仍面临一个根本性矛盾：链上验证每个节点的计算开销限制了单笔交易的复杂度。ZGame 的密码学证明（尤其是 ShuffleProof 涉及 52 张牌的置换验证）已经处于单笔交易计算量的上限。更复杂的游戏类型——如实时策略、大世界探索、物理模拟——其状态计算远超当前链上执行的极限。"
+      },
+      "s2": {
+        "title": "Hypernova：持续运行的零知识虚拟机",
+        "p1": "ZGame 正在探索 Hypernova 前沿技术路线——构建一个持续运行的零知识虚拟机（Succinct Zero-Knowledge Virtual Machine）。其核心思想是：",
+        "l1": {
+          "title": "链下执行，链上证明",
+          "desc": "游戏逻辑在链下高性能环境中持续运行（类似传统游戏服务器），定期生成零知识证明，证明自上一个证明点以来的所有状态转移都是合法的。链上只需验证一个简洁的证明，而非重新执行每一笔操作。"
+        },
+        "l2": {
+          "title": "增量证明（Incremental Proof）",
+          "desc": "采用增量可验证计算技术，每个证明只需验证新增的计算量，无需从头开始。这使得持续运行的游戏状态可以高效地生成累积证明。"
+        },
+        "l3": {
+          "title": "亚秒级响应",
+          "desc": "由于链上验证仅需检查一个证明（而非逐笔执行），玩家的操作确认延迟可降至亚秒级，真正实现与传统在线游戏无差异的体验。"
+        }
+      },
+      "s3": {
+        "title": "对 ZGame 的意义",
+        "p1": "Hypernova 虚拟机将把 ZGame 的能力边界从『德州扑克』扩展到任意链上游戏场景：",
+        "c1": {
+          "title": "计算无上限",
+          "desc": "无论游戏逻辑多复杂，链上验证成本恒定。支持物理引擎、AI 决策、大世界生成等计算密集型游戏。"
+        },
+        "c2": {
+          "title": "隐私扩展",
+          "desc": "零知识证明不仅验证操作合法性，还可以隐藏游戏状态细节（如卡牌游戏的手牌、战争游戏的兵力部署）。"
+        },
+        "c3": {
+          "title": "跨游戏组合",
+          "desc": "多个游戏共享同一个 ZK VM，实现资产和状态的跨游戏可信转移，构建统一的链游经济基础层。"
+        }
+      }
+    },
+    "ch12": {
+      "title": "12 远景：可信任的链上游戏经济体系",
+      "intro": {
+        "mark": "我们正在构建的是整个链上游戏行业的基础设施层",
+        "tail": "——一个基于零知识证明的可信任游戏经济体系。"
+      },
+      "s1": {
+        "title": "从扑克到多品类游戏",
+        "p1": "ZGame 的 Mental Poker 协议是更广泛的『Mental Game』范式的一个实例。其核心密码学原语——加密状态、分布式解密、可验证状态转移——可以直接迁移到其他游戏品类：",
+        "l1": {
+          "title": "卡牌游戏",
+          "desc": "TCG、炉石类对战、UNO 等均可复用加密牌组和揭牌协议。"
+        },
+        "l2": {
+          "title": "棋类游戏",
+          "desc": "围棋、象棋等棋盘游戏在链上面临『公开状态暴露策略』的难题，ZK 证明可以隐藏中间走子过程，仅在终局揭晓完整棋谱。"
+        },
+        "l3": {
+          "title": "桌游与社交推理",
+          "desc": "狼人杀、阿瓦隆等社交推理游戏需要『信息不公开』与『可验证公平』的平衡，ZGame 的密码学基础可以直接应用。"
+        },
+        "l4": {
+          "title": "MMO 与大世界",
+          "desc": "通过 Hypernova ZK VM，实时大世界游戏的复杂状态也可以在链上安全运行，实现真正的资产所有权与可验证经济。"
+        }
+      },
+      "s2": {
+        "title": "可信任经济体系",
+        "p1": "传统链游面临一个根本性问题：玩家无法信任游戏运营方不会暗箱操作掉率、经济参数或资产发行。ZGame 的密码学方案为整个链游行业提供了一个可验证的信任基础：",
+        "v1": {
+          "title": "核心原则：可验证公平（Verifiable Fairness）",
+          "desc": "游戏中的每一个随机事件、每一次状态转移、每一笔资产流动，都可以通过零知识证明在链上验证其合法性。运营方无法暗中操纵任何结果，玩家无需信任任何人。"
+        },
+        "v2": {
+          "title": "核心原则：资产主权（Asset Sovereignty）",
+          "desc": "游戏内资产——筹码、道具、角色、土地——以链上代币形式存在，玩家拥有真正的所有权。无论游戏运营方如何变更，玩家的资产始终安全。"
+        },
+        "v3": {
+          "title": "核心原则：跨游戏互操作（Cross-game Interoperability）",
+          "desc": "定制 L1 上的所有游戏共享统一的经济层和身份层。玩家在一个游戏中赢得的资产可以在另一个游戏中使用，构建真正的链游元宇宙经济。"
+        }
+      },
+      "s3": {
+        "title": "路线图",
+        "p1": {
+          "title": "Phase 1: MVP（已完成）",
+          "desc": "核心 Mental Poker 协议实现，6 种 ZK 证明，完整德州扑克游戏流程，社交账号登录，零 Gas 体验。"
+        },
+        "p2": {
+          "title": "Phase 2: 链上验证强化",
+          "desc": "将 ZK 证明验证从链下预验证迁移至链上合约验证，实现完全无需信任中继器的安全模型。"
+        },
+        "p3": {
+          "title": "Phase 3: 多品类游戏扩展",
+          "desc": "将 Mental Game 协议扩展至其他扑克变体（Omaha、Stud）和加密卡牌游戏品类，验证协议的通用性。"
+        },
+        "p4": {
+          "title": "Phase 4: 定制游戏 L1",
+          "desc": "构建专为游戏场景定制的 Layer 1 区块链，实现自定义排序、完全免 Gas、台费盈利模式，消除通用链的性能瓶颈。"
+        },
+        "p5": {
+          "title": "Phase 5: 零知识虚拟机",
+          "desc": "集成 Hypernova ZK VM，实现链下执行 + 链上证明的计算范式，支持任意复杂度的链上游戏，达到亚秒级确认延迟。"
+        },
+        "p6": {
+          "title": "Phase 6: 链游经济生态",
+          "desc": "开放定制 L1 和 ZK VM，引入第三方游戏开发者，构建覆盖多品类链游的可信任经济体系。实现跨游戏资产互操作和统一身份层。"
+        },
+        "p7": {
+          "title": "Phase 7: 去中心化治理",
+          "desc": "引入 DAO 治理机制，社区参与协议升级、参数调整与台费分配，实现完全去中心化的游戏协议。"
+        }
+      }
+    },
+    "ch13": {
+      "title": "13 结论",
+      "intro": {
+        "mark": "没有任何一方能够在发牌前预知未公开的牌面。",
+        "tail": " ZGame 展示了密码学前沿技术在区块链游戏领域的实际应用。通过 BLS12-381 ElGamal 加密、六种零知识证明和分布式解密协议，ZGame 在完全去中心化的环境中实现了传统在线扑克无法达成的安全保证。"
+      },
+      "p2": "但 ZGame 的野心不止于此。通过定制 L1 实现游戏场景专有链，通过零知识虚拟机突破链上计算瓶颈，ZGame 正在从一款扑克游戏进化为整个链游行业的基础设施。在这一基础设施之上，游戏开发者可以构建任何类型的链上游戏，玩家可以真正拥有自己的游戏资产，运营方无法再暗箱操纵任何结果。",
+      "p3": "Hyperliquid 证明了『应用专有链 + 台费模型』在衍生品交易领域的可行性与商业自洽性。ZGame 将这一范式带到游戏领域，并进一步通过零知识证明实现游戏中特有的信息不对称需求。当游戏不再需要玩家信任任何人，当资产不再受制于任何中心化服务器，链游才真正成为 Web3 的下一个千亿级赛道。"
+    },
+    "footer": {
+      "title": "参考",
+      "c1": "Shamir, Rivest, Adleman. \"Mental Poker.\" MIT, 1981. — 提出密码学扑克问题与基础解法的开创性论文。",
+      "c2": "BLS12-381: New Pairings for Faster IETF Post-Quantum Cryptography. — Bowe、Habock、Drijvers 等人提出的高效配对友好曲线。",
+      "c3": "BLS12-381 密码学原语文档. — https://docs.starknet.io/",
+      "c4": "Hyperliquid 官方文档与架构设计. — https://app.hyperliquid.xyz",
+      "c5": "L1 手续费格局已变：Hyperliquid 和 BNB Chain 占比升至 40% 和 20%. — 行业数据报道，2025 年 10 月。",
+      "c6": "Hyperliquid: 零 Gas 费模型与验证节点收益分析. — 技术分析，2025 年 8 月。",
+      "c7": "Hypernova: Succinct Proofs for Incremental Computation. — 增量可验证计算与持续运行 ZK VM 的前沿研究。",
+      "signoff": "ZGame 白皮书 v2.0 · 2026 年 7 月 · 本文件仅供技术参考"
+    }
+  },
+  "homepage_footer-whitepaper": "白皮书",
+  "socket_error_INSUFFICIENT_CHIPS": "筹码不足：请确认买入已上链，或降低买入额度",
+  "socket_error_BUYIN_TX_PENDING": "买入交易确认中，请稍候几秒后重试",
+  "socket_error_BUYIN_TX_REVERTED": "买入交易失败：请检查钱包交易记录",
+  "socket_error_BUYIN_VERIFY_FAILED": "买入校验未通过：请稍后重试，或联系支持",
+  "socket_error_AMOUNT_POSITIVE": "买入额度必须大于 0",
+  "socket_error_AMOUNT_TOO_LARGE": "买入额度超出上限",
+  "socket_error_AUTH_FAILED": "登录已失效，请重新连接钱包",
+  "socket_error_NOT_TURN_OR_PHASE": "还没轮到你，或牌局不在下注阶段",
+  "socket_error_SIG_INVALID": "动作签名校验失败，请刷新页面重试",
+  "socket_error_SEQ_NON_MONOTONIC": "动作序列异常，请刷新页面重试",
+  "main_page-guest-name": "玩家",
+  "navmenu-aria_label": "导航菜单",
+  "seat_buyin-amount-label": "买入金额（筹码）",
+  "playerkey-title": "牌桌身份密钥",
+  "playerkey-mode-random": "随机密钥",
+  "playerkey-mode-passphrase": "口令派生",
+  "playerkey-mode-legacy": "旧版钱包派生",
+  "playerkey-current-pk": "当前 pk：",
+  "playerkey-no-key": "未生成",
+  "playerkey-passphrase-label": "恢复口令",
+  "playerkey-passphrase-placeholder": "至少 8 个字符",
+  "playerkey-btn-passphrase": "用口令生成/恢复",
+  "playerkey-btn-random": "换随机密钥",
+  "playerkey-tip-passphrase": "同一口令在任何设备派生同一身份；忘记口令无法找回；勿用钱包助记词作为口令",
+  "playerkey-tip-random": "生成全新随机身份（放弃口令可恢复性）",
+  "playerkey-msg-switched-passphrase": "身份已切换为口令派生：请牢记口令，凭它可在任何设备恢复本身份",
+  "playerkey-msg-switched-random": "身份已切换为随机密钥（无跨设备恢复）",
+  "playerkey-msg-failed": "切换失败",
+  "playerkey-msg-failed-console": "切换失败（见控制台）",
+  "playerkey-warning": "牌局进行中切换身份会使当前座位的义务失效（走超时/踢出降级），建议牌局间歇操作。",
+  "claim-title": "领取奖励",
+  "claim-hero-label": "可领取",
+  "claim-chips-unit": "筹码",
+  "claim-check-title": "领取条件",
+  "claim-reverify": "重新校验",
+  "claim-reverifying": "校验中…",
+  "claim-payout-name": "赔付承诺（我们合约）",
+  "claim-status-registered": "已注册 ✓",
+  "claim-status-checking": "检测中…",
+  "claim-register-btn": "一键注册",
+  "claim-registering": "注册中…",
+  "claim-wrong-network": "钱包当前不在 Sepolia 测试网：Ready 重装/更新后默认主网，此状态下钱包会直接拒绝私密操作（151 TOKEN_NOT_SUPPORTED）。请把 Ready 切到 Sepolia Testnet 后重试。",
+  "claim-payout-detail": "注册后结算奖励才能私密领取（一次性，合约内的链上登记）",
+  "claim-payout-tip": "提交 payout commitment（一次性链上交易，任何钱包均可）",
+  "claim-pool-name": "池 viewing key（Ready 隐私系统）",
+  "claim-status-unsupported": "钱包不支持",
+  "claim-pool-tip": "向隐私池小额 Shield 0.01 STRK：钱包会依次弹出 approve 与 deposit 两次确认（非重复交易），确认后自动注册 viewing key（金额留在池内余额）",
+  "claim-pool-balance": "池内屏蔽余额 {balance} STRK",
+  "claim-pool-need-api": "需支持 STRK20 Wallet API ≥ {min} 的钱包（如 Ready）",
+  "claim-wallet-api-label": "Wallet API",
+  "claim-wallet-api-none": "未报告（钱包不支持或版本过旧）",
+  "claim-pool-never-joined": "从未入池：一键注册会小额 Shield 0.01 STRK，金额留在池内余额",
+  "claim-pool-balance-checking": "池内屏蔽余额检测中…",
+  "claim-guide-collapse": "收起注册指引",
+  "claim-guide-expand": "注册指引（钱包内 Shield）",
+  "claim-guide-step1": "打开 Ready 钱包 → STRK 资产页「Shield / 入池」（隐私池入口）",
+  "claim-guide-step2": "小额 Shield 一次（如 0.01 STRK）；钱包会依次弹出 approve 与 deposit 两次确认（非重复交易）",
+  "claim-guide-step3": "首次入池时钱包自动完成池注册——viewing key 只保存在钱包里，dapp 无法代注册",
+  "claim-guide-step4": "回到本弹窗重新校验，本行变绿即可私密领取",
+  "claim-guide-reverify": "我已在钱包内完成 Shield，重新校验",
+  "claim-blocked-unsupported": "当前钱包不支持 STRK20 私密交易（需 Wallet API ≥ 0.10.3，如 Ready）",
+  "claim-blocked-version": "钱包 Wallet API 版本（{versions}）低于 0.10.3，不支持 STRK20 私密交易——请更新 Ready",
+  "claim-blocked-pool": "隐私池尚未注册：点击上方「一键注册」完成池注册后再私密领取",
+  "claim-blocked-balance": "池内屏蔽余额不足：请先在钱包内将 STRK shield 入隐私池（私密领取要求池内余额 ≥ 领取额，执行后等额退回）",
+  "claim-blocked-locked": "全部余额在局锁定（买入锁定）：最后一手后 12 小时可解锁——倒计时结束后点“解锁”按钮，或直接点击领取解锁后的余额",
+  "claim-locked-notice": "在局锁定 {amount} STRK：入座时锁定的买入筹码，离桌后最多 12 小时自动解锁；锁定部分暂不可领取或出金",
+  "claim-error-empty": "无可领取筹码",
+  "claim-error-failed": "领取失败",
+  "claim-submit-private": "私密领取",
+  "claim-submit-public": "公开出金",
+  "claim-submitting": "提交中…",
+  "claim-note-private": "归属隐藏：奖励记入只有你能扫描的池内票据",
+  "claim-note-public": "直接到钱包地址，链上任何人可查",
+  "claim-private-tip": "池内两动作：烧筹码 + 产出隐藏归属的 STRK 票据",
+  "claim-private-tip-unsupported": "需要 Ready 等支持 STRK20 Wallet API 的钱包",
+  "claim-public-tip": "vault.withdraw 直提钱包地址（链上边缘公开）",
+  "claim-done-private": "私密领取已提交，奖励已进入你的池内保密票据",
+  "claim-done-public": "公开出金已提交，STRK 将直接到账钱包",
+  "claim-close": "关闭",
+  "claim-error-shield": "Shield 提交失败",
+  "cookiebanner-info_aria": "阅读隐私政策，了解 Cookie 的使用方式",
+  "claim-locked-line": "在局锁定 {locked} STRK · 现在可提 {claimable} STRK",
+  "claim-locked-until": "—— 最后一手后约 {hours} 小时解锁",
+  "claim-locked-expired": "—— 锁定已到期",
+  "claim-unlock": "解锁",
+  "claim-unlock-pending": "解锁中…",
+  "claim-amount-label": "提取金额（STRK）",
+  "claim-amount-max": "最多 {max}",
+  "claim-amount-invalid": "金额无效：需为 0 < 金额 ≤ 最大可提",
+  "game_header-hand-lbl": "手数",
+  "game_info_min-raise-lbl": "最小加注",
+  "game_last-hand-lbl": "上一手",
+  "game_seat-sb-lbl": "小盲",
+  "game_seat-bb-lbl": "大盲",
+  "game_state-info_call": "待跟",
+  "game_sidepot-eligible-lbl": "可争座位",
+  "game_ui_to-call-lbl": "需跟",
+  "game_ui_pot-odds-lbl": "底池赔率",
+  "game_ui_call-pct-lbl": "跟注占余量",
+  "game_ui_invested-lbl": "本手已投入",
+  "game_ui_preset-min": "最小",
+  "game_ui_preset-half": "半池",
+  "game_ui_preset-pot": "底池",
+  "game_ui_preset-allin": "全下",
+  "seat_post-buyin-balance-label": "转换后余额（筹码）",
+  "game_history-receipt-lbl": "凭证号",
+  "game_history-duration-lbl": "用时",
+  "game_history-actions-lbl": "行动流水",
+  "game_history-auto-badge": "超时代打",
+  "crypto_layer-lbl": "层",
+  "game_handrank_high-card": "高牌",
+  "game_handrank_one-pair": "一对",
+  "game_handrank_two-pair": "两对",
+  "game_handrank_three-of-a-kind": "三条",
+  "game_handrank_straight": "顺子",
+  "game_handrank_flush": "同花",
+  "game_handrank_full-house": "葫芦",
+  "game_handrank_four-of-a-kind": "四条",
+  "game_handrank_straight-flush": "同花顺",
+  "game_handrank_royal-flush": "皇家同花顺",
+  "shuffle-proof_derived": "派生摘要",
+  "shuffle-proof_v2-native": "Bayer-Groth V2 结构",
+  "shuffle-proof_global-challenge": "全局挑战",
+  "shuffle-proof_transcript-derived": "transcript 派生",
+  "shuffle-proof_round": "重加密轮次",
+  "shuffle-proof_verify-failed": "证明验证失败",
+  "shuffle-proof_layer": "层",
+  "shuffle-proof_onchain-meta": "链上验证",
+  "shuffle-proof_block": "区块",
+  "shuffle-proof_gas": "Gas",
+  "shuffle-proof_contract": "合约",
+  "shuffle-proof_binding": "hand_binding",
+  "settlement_settled-stamp": "已上链结算",
+  "settlement_refused-stamp": "结算被拒绝（对账分歧）",
+  "settlement_failed-stamp": "结算失败",
+  "settlement_pending-stamp": "待上链",
+  "game_history-proof-lbl": "洗牌证明",
+  "game_history-proof-empty": "本手无证明留存（升级前记录）",
+  "game_history-verify-attestation": "查看 attestation",
+  "game_receipt-open-btn": "本手凭证",
+  "game_seat-folded-lbl": "已弃牌",
+  "game_seat-waiting-lbl": "等待下一手",
+  "game_seat-acting-lbl": "行动中",
+  "game_seat-acted-lbl": "已行动",
+  "game_seat-online-lbl": "在线",
+  "seat_buyin-ctx-label": "买入 · 链上入账",
+  "seat_buyin-step-hint": "步进",
+  "seat_buyin-unaffordable": "可用额度不足：请降低买入额或先补充 STRK。",
+  "seat_buyin-real-asset-note": "筹码由链上 vault 入账后才算买入完成；未成交不扣款。此金额为真实资产，请核对后再确认。",
+  "lobby_desc-join_table": "5 席 · 翻牌无限注",
+  "lobby_foot-join_table": "3 席空位 · 即时入座",
+  "lobby_desc-quick_game": "免邀约快速对局",
+  "lobby_foot-quick_game": "平均等待 4s",
+  "lobby_desc-open_shop": "筹码补给与兑换",
+  "lobby_foot-open_shop": "即将上线",
+  "lobby_desc-open_rules": "玩法与 ZK 规则",
+  "lobby_foot-open_rules": "12 节 · 约 15 分钟",
+  "lobby_meta-connected": "已连接 · 本地联调",
+  "navbar_lobby_btn": "大厅",
+  "navbar-dashboard_btn": "个人中心",
+  "navbar-whitepaper_btn": "白皮书",
+  "navmenu-logout": "退出登录"
+}

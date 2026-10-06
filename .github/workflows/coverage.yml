@@ -1,0 +1,23 @@
+name: Release coverage
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 4 * * 0'
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: nightly-2026-04-15
+      - uses: taiki-e/install-action@cargo-llvm-cov
+      - run: cargo llvm-cov --release --workspace --lib --tests --lcov --output-path coverage.lcov -- --include-ignored
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-coverage
+          path: coverage.lcov
+          if-no-files-found: warn

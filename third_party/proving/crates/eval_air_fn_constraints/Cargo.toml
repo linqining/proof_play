@@ -1,0 +1,14 @@
+[package]
+name = "eval_air_fn_constraints"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+air_common.workspace = true
+air_compile.workspace = true
+
+indexmap = { workspace = true, features = ["std"] }
+num-traits.workspace = true
+serde = { workspace = true, features = ["derive", "rc"] }
+
+stwo-cairo-common.workspace = true

@@ -1,0 +1,16 @@
+EXPECT 来源: 内置回退常量（deploy-state.env 不存在）
+===== 1/6 texas.service active =====
+PASS  texas.service active (MemoryCurrent=1078358016B)
+===== 2/6 slice 限额非空且等于部署值 =====
+  (slice MemoryHigh=infinity，部署设计允许 max)
+PASS  slice: systemd(MemoryMax=5452595200 CPUQuota=3s SwapMax=0 IOWeight=60 CPUWeight=60) + kernel(cpu.max='300000 100000' mem=5452595200 swap=0) + 父 slice 无限额 + texas 在 system.slice
+===== 3/6 递归证明单元入 slice、限额正确、未 enable 未运行 =====
+PASS  monad-leaf@probe: Slice=zchain-recursion.slice MemoryMax=4823449600 SwapMax=0 CPUQuota=3s 未enable未运行
+PASS  monad-fold@probe: Slice=zchain-recursion.slice MemoryMax=4823449600 SwapMax=0 CPUQuota=3s 未enable未运行
+===== 4/6 回环镜像挂载 + 容量上限 + fstab =====
+PASS  mount=/dev/loop0(ext4,rw,nosuid,nodev,noexec,relatime) image=6442450944 bytes via /dev/loop0: [64771]:1215308 (/opt/zchain-monad/chain-data.img) fstab条目=1 镜像内可用=5959MB
+===== 5/6 守卫 dry-run exit 0 + timer active + 白名单纪律 =====
+PASS  白名单内置于守卫脚本（/opt/zchain-monad/guard-units.conf 不存在；脚本全文已审：白名单=monad-leaf@*/monad-fold@*/zchain-monad-node@*，无 texas）
+===== 6/6 系统盘余量 >= 3072MB + texas 复验 =====
+PASS  root avail=11511MB >= 3072MB; texas.service 仍 active
+===== ALL PASSED (7 组断言) =====

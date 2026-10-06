@@ -1,0 +1,6 @@
+
+# TypeScript incremental build artifacts
+vite.config.js
+vite.config.d.ts
+vite.config.d.ts.map
+*.tsbuildinfo

@@ -1,0 +1,54 @@
+[package]
+name = "batch-poster"
+version = "0.1.0"
+edition = "2024"
+license = "BUSL-1.1"
+description = "常驻批量上链 daemon：从 settle-queue WAL 拾取结算任务，Legacy 两笔 / Dual 双笔驱动，fold 攒批出证上链，回执/死信写 poster sidecar"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+# 投递词汇层：WAL 只读扫描 + poster 独占 sidecar。
+settle-queue = { path = "../settle-queue" }
+# 发送面：nonce/在途/熔断/wait_call_visible。
+starknet-txmgr = { path = "../starknet-txmgr" }
+# 生产发送面账户装配（bin：SingleOwnerAccount + JsonRpc；texas 同款）。
+starknet = "0.17"
+# Monad 上链编码复用（onchain.rs:76 encode_submit_final_calldata）+
+# K 政策上限（chain.rs:63 MAX_HANDS_PER_LEAF）。
+stark-recursion = { path = "../stark-recursion" }
+# Felt252 / felt_from_hex / keccak_batch_root（批键派生同公式）。
+groth16-wrap = { path = "../groth16-wrap" }
+starknet-types-core = { workspace = true }
+# 入口 selector（keccak256 高 6 位清零——starknet_keccak 同式，本地实现）。
+sha3 = { workspace = true }
+# escape 地基：余额树随批推进（docs/design/PRIVACY_PROFILE.md §3/§4）。
+balance-rollup = { workspace = true }
+# 隐私档位（叶子格式/档位解析，链中立）。
+privacy-profile = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+hex = { workspace = true }
+# MonadProofEnvelope.proof_bz2_b64 载体编码。
+base64 = "0.22"
+thiserror = { workspace = true }
+tokio = { workspace = true }
+# RPC 端点解析（发送面装配）。
+url = "2"
+
+[features]
+default = []
+# 测试 mock（MockProofSource；自引用 dev-dependencies 打开）。
+test-mocks = []
+
+[dev-dependencies]
+# 自引用以在测试中启用 test-mocks（MockProofSource）与 txmgr 的内存 mock。
+batch-poster = { path = ".", features = ["test-mocks"] }
+# fold 集成测试的创世余额种子（escape 地基）。
+balance-rollup = { workspace = true }
+starknet-txmgr = { path = "../starknet-txmgr", features = ["test-mocks"] }
+
+[[bin]]
+name = "batch-poster"
+path = "src/bin/batch_poster.rs"

@@ -1,0 +1,16 @@
+[package]
+name = "vm-common"
+version = "0.1.0"
+edition = "2024"
+license = "BUSL-1.1"
+description = "Shared proof-task input types for the poker proving stack (MethodInput)"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+# borsh 用于 prove_task 的 MethodInput 序列化（poker_l1 与 poker_texas_air 共享）
+borsh = { workspace = true }
+
+[features]
+default = []

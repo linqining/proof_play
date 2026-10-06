@@ -1,0 +1,57 @@
+[package]
+name = "stark-recursion"
+version = "0.1.0"
+edition = "2021"
+license = "BUSL-1.1"
+description = "递归聚合链：K 手语句 → 单个 STARK 终证（L1 批证明腿）→ 累加链接 → Monad STARK 验证合约上链（Groth16 仅作 feature 隔离的对照基线）"
+publish = false
+
+# host 公式基座复用 groth16-wrap 的公共 API（poseidon/felt/batch/金向量），
+# 对既有 crate 零改动（最小侵入：只依赖其 pub 项）。
+# 终证路径（2026-09-29 裁定）：Groth16 全出局——默认构建只含 STARK 语句层
+# 与上链编码；Groth16 包裹电路/证明为对照基线，收进 `groth16-baseline`
+# feature（不进默认门禁、不进终证路径）。
+[dependencies]
+groth16-wrap = { path = "../groth16-wrap" }
+# felt 载体域运算（chain/envelope 的 from_be_bytes_mod_order 等）
+ark-ff = "0.6"
+# ── 对照基线专用（feature 隔离；默认不编译）────────────────────────
+ark-relations = { version = "0.6", optional = true }
+ark-r1cs-std = { version = "0.6", optional = true }
+ark-bn254 = { version = "0.6", optional = true }
+ark-groth16 = { version = "0.6", optional = true }
+# H1 叶输出镜像用Blake2Felt252（types-core 0.2.4 hash/blake2s.rs:47 encode_felts_to_u32s，
+# 与 vendored leaf_io.rs:57 同一库函数 → 精确性由同源保证）
+starknet-types-core = { workspace = true }
+blake2 = { workspace = true }
+sha3 = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+hex = { workspace = true }
+anyhow = "1.0.98"
+# bench 峰值 RSS 自报（getrusage；macOS 单位字节 / Linux 单位 KB）
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
+
+[features]
+default = []
+# Groth16 终证包裹对照基线（2026-09-29 裁定：不进终证路径，仅留作对照）。
+# 启用：cargo test -p stark-recursion --features groth16-baseline
+groth16-baseline = [
+    "dep:ark-relations",
+    "dep:ark-r1cs-std",
+    "dep:ark-bn254",
+    "dep:ark-groth16",
+]
+
+[[bin]]
+name = "bench-recursion"
+path = "src/bin/bench_recursion.rs"
+
+[[bin]]
+name = "batch-inputs"
+path = "src/bin/batch_inputs.rs"
+
+[lints.rust]
+# ark-ff MontConfig derive 内部引用 cfg(asm)（同 groth16-wrap 的处理）
+unexpected_cfgs = { level = "allow", check-cfg = ['cfg(asm)'] }

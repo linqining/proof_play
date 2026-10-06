@@ -1,0 +1,33 @@
+[package]
+name = "poker_l1"
+version = "0.1.0"
+edition = "2024"
+license = "BUSL-1.1"
+
+[features]
+# test-helpers：暴露 StubVrfVerifier 等测试专用类型，仅供集成测试 / 基准测试使用。
+# 生产环境绝不可启用 — StubVrfVerifier 不执行真实 ECVRF-secp256k1 验证。
+test-helpers = []
+# client：暴露 prove_* 函数（ZK proof 生成端），供 CLI 客户端（poker-demo）使用。
+# 生产节点不需要启用 — 节点只做 verify，prove 在客户端完成。
+client = []
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+poker_protocol = { workspace = true }
+poker-protocol-core = { workspace = true }
+vm-common = { path = "../vm-common" }
+borsh = { workspace = true }
+blake2 = { workspace = true }
+hex = { workspace = true }
+thiserror = { workspace = true }
+rand = { workspace = true }
+secp256k1 = { workspace = true }
+ed25519-dalek = { workspace = true }
+subtle = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tracing = { workspace = true }
+

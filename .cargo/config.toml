@@ -1,0 +1,12 @@
+# Local test layering (mirrors CONTRIBUTING.md "Test layering"):
+# - `cargo test`            fast dev loop; slow prove roundtrips are #[ignore]d
+# - `cargo test-fast`       same, but skips vendored flock's own unit tests
+# - `cargo test-nextest`    same crate set via nextest (parallel, isolated; no doctests)
+# - `cargo test-all`        full gate: everything incl. the ignored prove tests
+#   (--exclude flock-*: vendored flock crates join the root workspace as path
+#   deps and their own slow unit tests are irrelevant to the AIR dev loop)
+[alias]
+test-fast = "test -p poker_texas_air -p poker_l1 -p vm-common -p texas -p poker-hand-bench"
+test-all = "test --workspace --exclude flock-core --exclude flock-prover -- --run-ignored all"
+test-nextest = "nextest run -p poker_texas_air -p poker_l1 -p vm-common -p texas -p poker-hand-bench"
+test-all-nextest = "nextest run --profile all --workspace --exclude flock-core --exclude flock-prover --run-ignored all"

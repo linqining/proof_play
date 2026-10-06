@@ -1,0 +1,12 @@
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+PREEXISTING_USERS
+d6d582d205ada520db376ebf8ea0fe32773a22fbceef3be42b11baee1b43524e  fold_batch_test
+e963fd7de4aaaab24292ab42d99e0441af6a2d6ee81bc52b3baa9d2905802420  prove-hand
+---prover-busy-check---
+---start---
+Running as unit: fold-c3-k64.service; invocation ID: ec540cc249494af689bc575b665d1fee
+active

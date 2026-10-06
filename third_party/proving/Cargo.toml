@@ -1,0 +1,224 @@
+[workspace]
+members = [
+    # stwo
+    "crates/stwo",
+    "crates/air-utils",
+    "crates/air-utils-derive",
+    "crates/constraint-framework",
+    "crates/examples",
+    "crates/std-shims",
+    # stwo-cairo
+    "crates/adapter",
+    "crates/prover",
+    "crates/cairo-serialize",
+    "crates/cairo-serialize-derive",
+    "crates/utils",
+    "crates/common",
+    "crates/cairo-air",
+    "crates/dev_utils",
+    # stwo-circuits
+    "crates/cairo_verifier",
+    "crates/circuits",
+    "crates/circuit_verifier",
+    "crates/circuit_cairo_serialize",
+    "crates/circuit_common",
+    "crates/circuit_multiverifier",
+    "crates/circuit_serialize",
+    "crates/circuit_prover",
+    "crates/stark_verifier",
+    "crates/stark_verifier_examples",
+    "crates/unpacker",
+    # proving-utils
+    "crates/cairo-program-runner-lib",
+    "crates/cairo-program-runner",
+    "crates/circuit_params",
+    "crates/circuit_registry",
+    "crates/leaf_proof_format",
+    "crates/leaf_prover",
+    "crates/privacy_circuit_verify",
+    "crates/privacy_prove",
+    "crates/stwo_run_and_prove",
+    "crates/stwo_run_and_prove_common",
+    "crates/stwo_run_and_prove_recursive_tree",
+    "crates/vm_runner",
+    # stwo-air-infra
+    "crates/air_common",
+    "crates/air_code_gen",
+    "crates/air_infra",
+    "crates/airs",
+    "crates/air_compile",
+    "crates/eval_air_fn_constraints",
+]
+exclude = ["ensure-verifier-no_std"]
+resolver = "2"
+
+[workspace.package]
+version = "2.4.0"
+edition = "2024"
+license = "Apache-2.0"
+repository = "https://github.com/starkware-libs/proving"
+
+[workspace.dependencies]
+bytemuck = { version = "1.20.0", default-features = false, features = ["derive"] }
+hex = { version = "0.4.3", default-features = false, features = ["alloc"] }
+itertools = { version = "0.12.0", default-features = false, features = ["use_alloc"] }
+num-traits = { version = "0.2.19", default-features = false }
+rand = { version = "0.9.4", default-features = false, features = ["small_rng"] }
+rayon = "1.10.0"
+serde = { version = "1.0.219", default-features = false, features = ["derive"] }
+serde_with = { version = "3.12.0", features = ["base64"] }
+thiserror = { version = "2.0.12", default-features = false }
+tracing = { version = "0.1.40", default-features = false }
+tracing-subscriber = { version = "0.3.18", default-features = false }
+
+blake2 = { version = "0.10.6", default-features = false }
+blake3 = { version = "1.5.0", default-features = false }
+sha3 = { version = "0.11.0", default-features = false, features = ["alloc"] }
+keccak = "0.2"
+educe = "0.5.0"
+hashbrown = { version = ">=0.15.2", features = ["serde"] }
+
+assert_matches = "1.5.0"
+bincode = "1.3"
+cfg-if = "1.0.0"
+criterion = { version = "0.5.1", default-features = false, features = [
+    "html_reports",
+] }
+crypto-bigint = "0.5.1"
+enum_dispatch = "0.3.13"
+fnv = { version = "1.0.7", default-features = false }
+ndarray = "0.16.1"
+pretty_assertions = "1.4.0"
+proc-macro2 = "1.0.92"
+quote = "1.0.37"
+stwo-std-shims = { version = "1.0.0", default-features = false }
+syn = "2.0.90"
+test-log = { version = "0.2.17", features = ["trace"] }
+wasm-bindgen-test = "0.3.43"
+getrandom_v2 = { package = "getrandom", version = "0.2", features = ["js"] }
+getrandom_v3 = { package = "getrandom", version = "0.3", features = ["wasm_js"] }
+bzip2 = { version = "0.5.0", default-features = false, features = ["libbz2-rs-sys"] }
+cairo-vm = { version = "3.2.0", features = [
+    "extensive_hints",
+    "mod_builtin",
+    "clap",
+], default-features = false }
+clap = { version = "4.3.10", features = ["derive"] }
+env_logger = { version = "0.11.5", default-features = false }
+log = "0.4.21"
+paste = "1.0"
+ruint = "1.12.3"
+serde_json = { version = "1.0.142", features = ["preserve_order"] }
+sonic-rs = "0.3.17"
+starknet-curve = "0.6.0"
+starknet-ff = "0.3.7"
+starknet-types-core = { version = "=0.2.4", features = [
+    "hash",
+    "prime-bigint",
+    "serde",
+    "curve",
+    "num-traits",
+] }
+test-case = "3.3.1"
+serde_arrays = "0.1.0"
+tempfile = "3.10.1"
+anyhow = "1.0.98"
+dashmap = "6.0.1"
+
+indexmap = { version = "2.10.0", default-features = false }
+indoc = "2.0.6"
+rstest = "0.26.1"
+expect-test = "1.5.1"
+rand_chacha = "0.3"
+rand_core = "0.6"
+
+aligned = "0.4.2"
+ctor = "0.2"
+mockall = "0.13.1"
+num-bigint = "0.4"
+regex = "1.11.1"
+starknet-crypto = "=0.8.1"
+thiserror-no-std = "2.0.2"
+zstd = "0.13"
+cairo-lang-executable = "2.19.0-rc.0"
+cairo-lang-runner = "2.19.0-rc.0"
+cairo-lang-casm = "2.19.0-rc.0"
+cairo-lang-execute-utils = "2.19.0-rc.0"
+cairo-lang-utils = "2.19.0-rc.0"
+
+convert_case = "0.8.0"
+genco = "0.18"
+generic-tests = "0.1.3"
+xshell = "0.2.5"
+
+stwo = { path = "crates/stwo" }
+stwo-constraint-framework = { path = "crates/constraint-framework" }
+stwo-air-utils = { path = "crates/air-utils" }
+stwo-air-utils-derive = { path = "crates/air-utils-derive" }
+
+stwo-cairo-prover = { path = "crates/prover" }
+stwo-cairo-utils = { path = "crates/utils" }
+stwo-cairo-adapter = { path = "crates/adapter" }
+stwo-cairo-common = { path = "crates/common" }
+cairo-air = { path = "crates/cairo-air" }
+stwo-cairo-serialize = { path = "crates/cairo-serialize" }
+stwo-cairo-serialize-derive = { path = "crates/cairo-serialize-derive" }
+stwo-cairo-dev-utils = { path = "crates/dev_utils" }
+
+# TODO(Leo): check if we can get rid of these aliases.
+stwo_cairo_prover = { package = "stwo-cairo-prover", path = "crates/prover" }
+stwo_cairo_common = { package = "stwo-cairo-common", path = "crates/common" }
+stwo_cairo_dev_utils = { package = "stwo-cairo-dev-utils", path = "crates/dev_utils" }
+stwo_cairo_utils = { package = "stwo-cairo-utils", path = "crates/utils" }
+
+circuits = { path = "crates/circuits" }
+circuit-verifier = { path = "crates/circuit_verifier" }
+circuit-cairo-serialize = { path = "crates/circuit_cairo_serialize" }
+circuit-cairo-verifier = { path = "crates/cairo_verifier" }
+circuit-common = { path = "crates/circuit_common" }
+circuit-multiverifier = { path = "crates/circuit_multiverifier" }
+circuit-prover = { path = "crates/circuit_prover" }
+circuit-serialize = { path = "crates/circuit_serialize" }
+circuits-stark-verifier = { path = "crates/stark_verifier" }
+circuits-stark-verifier-examples = { path = "crates/stark_verifier_examples" }
+circuits-unpacker = { path = "crates/unpacker" }
+
+cairo-program-runner-lib = { path = "crates/cairo-program-runner-lib" }
+circuit-registry = { path = "crates/circuit_registry" }
+privacy-circuit-verify = { path = "crates/privacy_circuit_verify" }
+privacy-prove = { path = "crates/privacy_prove" }
+stwo-run-and-prove-common = { path = "crates/stwo_run_and_prove_common" }
+leaf-proof-format = { path = "crates/leaf_proof_format" }
+leaf-prover = { path = "crates/leaf_prover" }
+
+air_common = { path = "crates/air_common" }
+air_compile = { path = "crates/air_compile" }
+air_infra = { path = "crates/air_infra" }
+airs = { path = "crates/airs" }
+eval_air_fn_constraints = { path = "crates/eval_air_fn_constraints" }
+
+[profile.bench]
+codegen-units = 1
+lto = true
+
+# Profile used in slow tests which involve proving.
+[profile.ci]
+inherits = "release"
+# Skip the optimizations at link time in order to reduce build time in CI.
+lto = false
+debug-assertions = true
+
+[profile.adapter-release]
+inherits = "dev"
+package = { "stwo-cairo-adapter" = { opt-level = 3 } }
+debug-assertions = false
+
+# Compile the circuit-prover and stwo crates with optimization level 3 to speed up the blake related tests.
+[profile.test.package.circuit-prover]
+opt-level = 3
+[profile.test.package.stwo]
+opt-level = 3
+
+[profile.samply]
+inherits = "release"
+debug = true
